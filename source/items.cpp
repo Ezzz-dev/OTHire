@@ -1101,26 +1101,6 @@ bool Items::loadFromXml(const std::string& datadir)
 								it.abilities.conditionSuppressions |= CONDITION_LIFEDRAIN;
 							}
 						}
-						else if(asLowerCaseString(strValue) == "suppressdrown"){
-							if(readXMLInteger(itemAttributesNode, "value", intValue)){
-								it.abilities.conditionSuppressions |= CONDITION_DROWN;
-							}
-						}
-						else if(asLowerCaseString(strValue) == "suppressfreeze"){
-							if(readXMLInteger(itemAttributesNode, "value", intValue) && intValue != 0){
-								it.abilities.conditionSuppressions |= CONDITION_FREEZING;
-							}
-						}
-						else if(asLowerCaseString(strValue) == "suppressdazzle"){
-							if(readXMLInteger(itemAttributesNode, "value", intValue) && intValue != 0){
-								it.abilities.conditionSuppressions |= CONDITION_DAZZLED;
-							}
-						}
-						else if(asLowerCaseString(strValue) == "suppresscurse"){
-							if(readXMLInteger(itemAttributesNode, "value", intValue) && intValue != 0){
-								it.abilities.conditionSuppressions |= CONDITION_CURSED;
-							}
-						}
 						else if(asLowerCaseString(strValue) == "preventitemloss"){
 							if(readXMLInteger(itemAttributesNode, "value", intValue)){
 								it.abilities.preventItemLoss = (intValue != 0);

@@ -497,34 +497,6 @@ bool Monsters::deserializeSpell(xmlNodePtr node, spellBlock_t& sb, MonsterType* 
 				maxDamage = intValue;
 				tickInterval = 5000;
 			}			
-			else if(readXMLInteger(node, "drown", intValue)){
-				conditionType = CONDITION_DROWN;
-
-				minDamage = intValue;
-				maxDamage = intValue;
-				tickInterval = 10000;
-			}
-			else if(readXMLInteger(node, "freeze", intValue)){
-				conditionType = CONDITION_FREEZING;
-
-				minDamage = intValue;
-				maxDamage = intValue;
-				tickInterval = 10000;
-			}
-			else if(readXMLInteger(node, "dazzle", intValue)){
-				conditionType = CONDITION_DAZZLED;
-
-				minDamage = intValue;
-				maxDamage = intValue;
-				tickInterval = 10000;
-			}
-			else if(readXMLInteger(node, "curse", intValue)){
-				conditionType = CONDITION_CURSED;
-
-				minDamage = intValue;
-				maxDamage = intValue;
-				tickInterval = 10000;
-			}
 
 			if(readXMLInteger(node, "tick", intValue) && intValue > 0){
 				tickInterval = intValue;
@@ -744,11 +716,7 @@ bool Monsters::deserializeSpell(xmlNodePtr node, spellBlock_t& sb, MonsterType* 
 		else if(asLowerCaseString(name) == "firecondition" ||
 				asLowerCaseString(name) == "poisoncondition" ||
 				asLowerCaseString(name) == "energycondition" ||
-				asLowerCaseString(name) == "earthcondition" ||
-				asLowerCaseString(name) == "dazzlecondition" ||
-				asLowerCaseString(name) == "cursecondition" ||
-				asLowerCaseString(name) == "freezecondition" ||
-				asLowerCaseString(name) == "drowncondition"){
+				asLowerCaseString(name) == "earthcondition"){
 			ConditionType_t conditionType = CONDITION_NONE;
 			uint32_t tickInterval = 2000;
 
@@ -769,28 +737,7 @@ bool Monsters::deserializeSpell(xmlNodePtr node, spellBlock_t& sb, MonsterType* 
 				conditionType = CONDITION_POISON;
 				tickInterval = 5000;
 			}
-			else if(name == "freezecondition")
-			{
-				conditionType = CONDITION_FREEZING;
-				tickInterval = 8000;
-			}
-			else if(name == "cursecondition")
-			{
-				conditionType = CONDITION_CURSED;
-				tickInterval = 4000;
-			}
-			else if(name == "dazzlecondition")
-			{
-				conditionType = CONDITION_DAZZLED;
-				tickInterval = 10000;
-			}
-			else if(name == "drowncondition")
-			{
-				conditionType = CONDITION_DROWN;
-				tickInterval = 5000;
-			}
-
-
+			
 			if(readXMLInteger(node, "tick", intValue) && intValue > 0){
 				tickInterval = intValue;
 			}

@@ -3833,9 +3833,6 @@ void Player::onAddCombatCondition(ConditionType_t type, bool hadCondition)
 	if(type == CONDITION_POISON){
 		sendTextMessage(MSG_STATUS_DEFAULT, "You are poisoned.");
 	}
-	else if(type == CONDITION_DROWN){
-		sendTextMessage(MSG_STATUS_DEFAULT, "You are drowning.");
-	}
 	else if(type == CONDITION_PARALYZE){
 		sendTextMessage(MSG_STATUS_DEFAULT, "You are paralyzed.");
 	}
