@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<npc name="Test" script="test.lua" walkradius="3">
+	<look type="126" head="5" body="12" legs="100" feet="55"/>
+</npc>
