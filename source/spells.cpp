@@ -59,25 +59,30 @@ TalkActionResult_t Spells::playerSaySpell(Player* player, SpeakClasses type, std
 	trim_right(str_words, " ");
 
 	InstantSpell* instantSpell = getInstantSpell(str_words);
-	if(!instantSpell){
+	if (!instantSpell){
 		return TALKACTION_CONTINUE;
 	}
 
 	std::string param = "";
 
-	if(instantSpell->getHasParam()){
+	if (instantSpell->getHasParam()){
 		size_t spellLen = instantSpell->getWords().length();
 		size_t paramLen = str_words.length() - spellLen;
 		std::string paramText = str_words.substr(spellLen, paramLen);
 
-		if(!paramText.empty() && paramText[0] == ' '){
+		if (!paramText.empty() && paramText[0] == ' '){
 			size_t loc1 = paramText.find('"', 0);
 			size_t loc2 = std::string::npos;
-			if(loc1 != std::string::npos){
+
+			// if found first apostrophe
+			if (loc1 != std::string::npos){
+				// search for ending apostrophe
 				loc2 = paramText.find('"', loc1 + 1);
 			}
 
-			if(loc2 == std::string::npos){
+			// if ending apostrophe not found
+			if (loc2 == std::string::npos){
+				// rest of the text is param
 				loc2 = paramText.length();
 			}
 
@@ -88,13 +93,7 @@ TalkActionResult_t Spells::playerSaySpell(Player* player, SpeakClasses type, std
 		}
 	}
 
-	if(instantSpell->playerCastInstant(player, param)){
-		words = instantSpell->getWords();
-
-		if(instantSpell->getHasParam()){
-			words += " \"" + param + "\"";
-		}
-
+	if (instantSpell->playerCastInstant(player, param)){
 		return TALKACTION_BREAK;
 	}
 	else{
