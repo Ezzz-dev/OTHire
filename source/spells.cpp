@@ -1840,46 +1840,25 @@ ReturnValue ConjureSpell::internalConjureItem(Player* player, uint32_t conjureId
 	return result;
 }
 
-//Transforms a item (reagentId) into another item (conjureId) of a certain amount (conjureCount)
-//If successful, return a RET_NOERROR
-//If unsuccessful, returns RET_NOTPOSSIBLE, or RET_YOUNEEDAMAGICITEMTOCASTSPELL
 ReturnValue ConjureSpell::internalConjureItem(Player* player, uint32_t conjureId,
-	uint32_t conjureCount, uint32_t reagentId, bool test /*= false*/)
+	uint32_t conjureCount, uint32_t reagentId, slots_t slot, bool test /*= false*/)
 {
-	//If a reagent is needed
-	if(reagentId != 0){
-		//Get the item from the player's inventory
-		if(Item* item = player->getFirstItemById(reagentId)){
-			//If testing, return here
-			if(test){
+	if (reagentId != 0){
+		Item* item = player->getInventoryItem(slot);
+		if (item && item->getID() == reagentId){
+			if (item->isStackable() && item->getItemCount() != 1){ //TODO? reagentCount
+				return RET_YOUNEEDTOSPLITYOURSPEARS;
+			}
+
+			if (test){
 				return RET_NOERROR;
 			}
 
-			//If item is stackable, and there is more than one present
-			if(item->isStackable() && item->getItemCount() != 1){
-				//remove one
-				g_game.internalRemoveItem(item, 1);
-				//create the new item according to conjureId and the conjureCount
-				Item* tempItem = Item::CreateItem(conjureId, conjureCount);
-				//If item was not created, return not possible
-				if(!tempItem)
-					return RET_NOTPOSSIBLE;
-				//Add the item to the player,
-				if(g_game.internalPlayerAddItem(player, tempItem) != RET_NOERROR){
-					//if the item could not be added, delete it
-					delete tempItem;
-					return RET_NOTPOSSIBLE;
-				}
+			Item* newItem = g_game.transformItem(item, conjureId, conjureCount);
+			if (newItem){
+				g_game.startDecay(newItem);
 			}
-			else{
-				//Otherwise, transform the item into the new item
-				Item* newItem = g_game.transformItem(item, conjureId, conjureCount);
-				if(newItem){
-					//Start decay for item (example: staff -> enchanted staff [lasts 60 seconds)
-					g_game.startDecay(newItem);
-				}
-			}
-			//If everything was successful, return no error
+
 			return RET_NOERROR;
 		}
 	}
@@ -1891,41 +1870,71 @@ bool ConjureSpell::ConjureItem(const ConjureSpell* spell, Creature* creature, co
 {
 	Player* player = creature->getPlayer();
 
-	if(!player){
+	if (!player){
 		return false;
 	}
 
-	if(!player->hasFlag(PlayerFlag_IgnoreSpellCheck) && player->getZone() == ZONE_PVP){
+	if (!player->hasFlag(PlayerFlag_IgnoreSpellCheck) && player->getZone() == ZONE_PVP){
 		player->sendCancelMessage(RET_CANNOTCONJUREITEMHERE);
 		g_game.addMagicEffect(player->getPosition(), NM_ME_PUFF);
 		return false;
 	}
 
 	ReturnValue result = RET_NOERROR;
-	if(spell->getReagentId() != 0){
-		//Test if we can cast the conjure spell
-		result = internalConjureItem(player, spell->getConjureId(), spell->getConjureCount(), spell->getReagentId(), true);
-		if(result == RET_NOERROR){
+	if (spell->getReagentId() != 0){
+		//Test if we can cast the conjure spell on left hand
+		ReturnValue result1 = internalConjureItem(player, spell->getConjureId(), spell->getConjureCount(),
+			spell->getReagentId(), SLOT_LEFT, true);
+
+		if (result1 == RET_NOERROR){
 			//Check level/mana etc.
-			if(!spell->playerSpellCheck(player)){
+			if (!spell->playerSpellCheck(player)){
 				return false;
 			}
 
-			result = internalConjureItem(player, spell->getConjureId(), spell->getConjureCount(), spell->getReagentId());
-			if(result == RET_NOERROR){
+			result1 = internalConjureItem(player, spell->getConjureId(), spell->getConjureCount(),
+				spell->getReagentId(), SLOT_LEFT);
+
+			if (result1 == RET_NOERROR){
 				spell->postCastSpell(player, false);
 			}
 		}
 
-		if(result == RET_NOERROR){
+		//Check if we can cast the conjure spell on the right hand
+		ReturnValue result2 = internalConjureItem(player, spell->getConjureId(), spell->getConjureCount(),
+			spell->getReagentId(), SLOT_RIGHT, true);
+
+		if (result2 == RET_NOERROR){
+			//Check level/mana etc.
+			if (!spell->playerSpellCheck(player)){
+				//Finished the cast, add exhaustion and stuff
+				spell->postCastSpell(player, true, false);
+				return false;
+			}
+
+			result2 = internalConjureItem(player, spell->getConjureId(), spell->getConjureCount(),
+				spell->getReagentId(), SLOT_RIGHT);
+
+			if (result2 == RET_NOERROR){
+				spell->postCastSpell(player, false);
+			}
+		}
+
+		if (result1 == RET_NOERROR || result2 == RET_NOERROR){
 			//Finished the cast, add exhaustion and stuff
 			spell->postCastSpell(player, true, false);
 			g_game.addMagicEffect(player->getPosition(), NM_ME_MAGIC_BLOOD);
 			return true;
 		}
+
+		result = result1;
+		if ((result == RET_NOERROR && result2 != RET_NOERROR) ||
+			(result == RET_YOUNEEDAMAGICITEMTOCASTSPELL && result2 == RET_YOUNEEDTOSPLITYOURSPEARS)) {
+			result = result2;
+		}
 	}
 	else{
-		if(internalConjureItem(player, spell->getConjureId(), spell->getConjureCount()) == RET_NOERROR){
+		if (internalConjureItem(player, spell->getConjureId(), spell->getConjureCount()) == RET_NOERROR){
 			spell->postCastSpell(player);
 			g_game.addMagicEffect(player->getPosition(), NM_ME_MAGIC_BLOOD);
 			return true;
