@@ -3,7 +3,7 @@ local function doRemoveObject(cid, pos, send)
 	local object = getThingfromPos(pos)
 	local playerPos = getCreaturePosition(cid)
 
-	if(object.uid > 0 and isCreature(object.uid) == FALSE and isItemMoveable(object.itemid) ) then
+	if(object.uid > 0 and isCreature(object.uid) == FALSE and isItemMoveable(object.itemid) and object.actionid == 0) then
 		doRemoveItem(object.uid)
 		doSendMagicEffect(pos, CONST_ME_POFF)
 		doRemoveObject(cid, pos, TRUE)
