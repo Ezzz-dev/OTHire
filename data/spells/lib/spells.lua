@@ -3,6 +3,9 @@
 
 DESINTEGRATE_UNREMOVABLE = {3058, 3059, 3060, 3061, 3062, 3063, 3064, 3065, 3066}
 
+-- This array contains all destroyable field items
+FIELDS = {1487,1488,1489,1490,1491,1492,1493,1494,1495,1496,1500,1501,1502,1503,1504}
+
 --Pre-made areas
 
 --Waves

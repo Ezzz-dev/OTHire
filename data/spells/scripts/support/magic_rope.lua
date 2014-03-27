@@ -6,11 +6,11 @@ function onCastSpell(cid, var)
 	local grounditem = getThingfromPos(pos)
 	if isInArray(ROPE_SPOT, grounditem.itemid) == TRUE then
 		local newpos = pos
-                local oldpos = getCreaturePosition(cid)
+        local oldpos = getCreaturePosition(cid)
 		newpos.y = newpos.y + 1
 		newpos.z = newpos.z - 1
 		doTeleportThing(cid, newpos)
-		doSendMagicEffect(oldpos, CONST_ME_ENERGYAREA)
+		doSendMagicEffect(newpos, CONST_ME_TELEPORT)
 		return LUA_NO_ERROR
 	end
 	doPlayerSendDefaultCancel(cid, RETURNVALUE_NOTPOSSIBLE)
