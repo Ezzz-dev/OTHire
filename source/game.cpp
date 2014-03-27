@@ -4022,7 +4022,7 @@ bool Game::combatChangeHealth(CombatType_t combatType, MagicEffectClasses custom
 
 					case COMBAT_ENERGYDAMAGE:
 					{
-						textColor = TEXTCOLOR_PURPLE;
+						textColor = TEXTCOLOR_LIGHTBLUE;
 						hitEffect = NM_ME_ENERGY_DAMAGE;
 						break;
 					}
