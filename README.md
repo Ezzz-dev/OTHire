@@ -28,8 +28,12 @@ Features
     - Sharing Experience when in party (code is there, implementation is needed through talkactions)
     - GM Invisibility
     - Avesta Spells
+    - Players have bank accounts
     - OTServ Trunk Movements (removed unused code)
     - OTServ Trunk Talkactions (removed unused code)
+    - Faster OTBM map reading, reading a 120 mb real map in 4.3 seconds, compared to 5.5 seconds RealOTs's Avesta.
+    - No more (return TRUE) (if isPremium(cid) == TRUE). Thanks to newer LUA core code
+    - Many more
     - ... Everything as in OTServ Trunk
     
 Change Log
