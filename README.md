@@ -7,7 +7,7 @@ This OTServer is based on OTServ Trunk SVN work (latest stable trunk rev).
 
 The change log can be found to the bottom.
 
-THIS README ISN'T COMPLETE
+NOTE: This server was downgraded in a day, so some things might be left behind and will be worked on later on.
 
 Features
 ======
@@ -26,7 +26,11 @@ Features
     - Skull System (to use compile with __SKULL_SYSTEM__)
     - Anti-Magebomb (attack delay when logging in)
     - Sharing Experience when in party (code is there, implementation is needed through talkactions)
-    - Invisibility for characters
+    - GM Invisibility
+    - Avesta Spells
+    - OTServ Trunk Movements (removed unused code)
+    - OTServ Trunk Talkactions (removed unused code)
+    - ... Everything as in OTServ Trunk
     
 Change Log
 ======
@@ -52,12 +56,16 @@ Change Log
     - Removed outfits
     - Removed quests
     - Outfits handled through sources using Avesta code
+    - Removed unused talkactions
+    - Removed unused code from movements
+    - Added Avesta Spells
     
-Known Bugs
+Known Bugs / Non old Tibia behavior
 ======
 
   0.0.1
   
-    - Cannot Be Seen isn't working accurately, newer releases this will be removed!
+    - Can walk over 2 or more parcels
+    - Blood splash is yellow
     
 None as of yet.
