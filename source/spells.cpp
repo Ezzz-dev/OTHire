@@ -511,7 +511,6 @@ bool Spell::configureSpell(xmlNodePtr p)
 			"poison",
 			"fire",
 			"energy",
-			"drown",
 			"lifedrain",
 			"manadrain",
 			"healing",
@@ -524,8 +523,7 @@ bool Spell::configureSpell(xmlNodePtr p)
 			"energyfield",
 			"firecondition",
 			"poisoncondition",
-			"energycondition",
-			"drowncondition"
+			"energycondition"
 		};
 
 		for(unsigned int i = 0; i < sizeof(reservedList)/sizeof(const char*); ++i){
