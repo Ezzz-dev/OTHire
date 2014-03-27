@@ -58,25 +58,25 @@ function onUse(cid, item, frompos, item2, topos)
 			if not doPlayerAddMana(cid, math.random(80, 160)) then
 				return false
 			end
-			doCreatureSay(cid, "Aaaah...", TALKTYPE_ORANGE_1)
+			doCreatureSay(cid, "Aaaah...", TALKTYPE_SAY)
 			doSendMagicEffect(topos, CONST_ME_MAGIC_BLUE)
 		elseif(item.type == FLUID_LIFE) then
 			if not doCombat(cid, lifeFluidCombat, numberToVariant(cid)) then
 				return false
 			end
-			doCreatureSay(cid, "Aaaah...", TALKTYPE_ORANGE_1)
+			doCreatureSay(cid, "Aaaah...", TALKTYPE_SAY)
 			doSendMagicEffect(topos, CONST_ME_MAGIC_BLUE)
 		elseif(isInArray(alcoholDrinks, item.type) ) then
 			if not doTargetCombatCondition(0, cid, drunk, CONST_ME_NONE) then
 				return false
 			end
-			doCreatureSay(cid, "Aaah...", TALKTYPE_ORANGE_1)
+			doCreatureSay(cid, "Aaah...", TALKTYPE_SAY)
 		elseif(isInArray(poisonDrinks, item.type) ) then
 			if not doTargetCombatCondition(0, cid, poison, CONST_ME_NONE) then
 				return false
 			end
 		else
-			doCreatureSay(cid, "Gulp.", TALKTYPE_ORANGE_1)
+			doCreatureSay(cid, "Gulp.", TALKTYPE_SAY)
 		end
 		doAddCondition(cid, exhaust)
 		doChangeTypeItem(item.uid, FLUID_NONE)
