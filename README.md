@@ -9,6 +9,11 @@ The change log can be found to the bottom.
 
 NOTE: This server was downgraded in a day, so some things might be left behind and will be worked on later on.
 
+Important
+======
+
+You will need to use your own items.xml (7.6) - Server Data holds none as of yet
+
 Features
 ======
 
