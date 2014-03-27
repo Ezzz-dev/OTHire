@@ -1,6 +1,6 @@
 -------- config.lua --------
 -- Config file for OTServ --
-----------------------------
+-----------------------------
 
 -- data directory location
 datadir = "data/"
