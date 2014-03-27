@@ -93,7 +93,7 @@ bool ProtocolLogin::parseFirstPacket(NetworkMessage& msg)
 	std::string password = msg.GetString();
 
 	if(accnumber == 0){
-		disconnectClient(0x0A, "Enter a valid account number.");
+		disconnectClient(0x0A, "You must enter your account number.");
 		return false;
 	}
 
