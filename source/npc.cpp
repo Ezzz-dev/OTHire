@@ -121,17 +121,9 @@ void Npc::reset()
 	floorChange = false;
 	initialLookDir = SOUTH;
 	attackable = false;
-	hasBusyReply = false;
 	hasScriptedFocus = false;
 	focusCreature = 0;
 	isIdle = true;
-	hasUsedIdleReply = false;
-	talkRadius = 4;
-	idleTimeout = 0;
-	idleInterval = 5 * 60;
-	lastVoice = OTSYS_TIME();
-	lastResponseTime = OTSYS_TIME();
-	defaultPublic = true;
 
 	delete m_npcEventHandler;
 	m_npcEventHandler = NULL;
@@ -307,7 +299,7 @@ bool Npc::canSee(const Position& pos) const
 		return false;
 	}
 
-	return Creature::canSee(getPosition(), pos, talkRadius, talkRadius);
+	return Creature::canSee(getPosition(), pos, 3, 3);
 }
 
 std::string Npc::getDescription(int32_t lookDistance) const
@@ -675,45 +667,12 @@ void NpcScriptInterface::registerFunctions()
 	lua_register(m_luaState, "selfTurn", NpcScriptInterface::luaActionTurn);
 	lua_register(m_luaState, "selfFollow", NpcScriptInterface::luaActionFollow);
 	lua_register(m_luaState, "selfGetPosition", NpcScriptInterface::luaSelfGetPos);
-	lua_register(m_luaState, "creatureGetName", NpcScriptInterface::luaCreatureGetName);
-	lua_register(m_luaState, "creatureGetName2", NpcScriptInterface::luaCreatureGetName2);
-	lua_register(m_luaState, "creatureGetPosition", NpcScriptInterface::luaCreatureGetPos);
 	lua_register(m_luaState, "getDistanceTo", NpcScriptInterface::luagetDistanceTo);
 	lua_register(m_luaState, "doNpcSetCreatureFocus", NpcScriptInterface::luaSetNpcFocus);
 	lua_register(m_luaState, "getNpcCid", NpcScriptInterface::luaGetNpcCid);
 	lua_register(m_luaState, "getNpcPos", NpcScriptInterface::luaGetNpcPos);
 	lua_register(m_luaState, "getNpcName", NpcScriptInterface::luaGetNpcName);
 	lua_register(m_luaState, "getNpcParameter", NpcScriptInterface::luaGetNpcParameter);
-}
-
-
-int NpcScriptInterface::luaCreatureGetName2(lua_State *L)
-{
-	//creatureGetName2(name) - returns creature id
-	popString(L);
-	reportErrorFunc("Deprecated function.");
-	lua_pushnil(L);
-	return 1;
-}
-
-int NpcScriptInterface::luaCreatureGetName(lua_State *L)
-{
-	//creatureGetName(cid)
-	popNumber(L);
-	reportErrorFunc("Deprecated function. Use getCreatureName");
-	lua_pushstring(L, "");
-	return 1;
-}
-
-int NpcScriptInterface::luaCreatureGetPos(lua_State *L)
-{
-	//creatureGetPosition(cid)
-	popNumber(L);
-	reportErrorFunc("Deprecated function. Use getCreaturePosition");
-	lua_pushnil(L);
-	lua_pushnil(L);
-	lua_pushnil(L);
-	return 3;
 }
 
 int NpcScriptInterface::luaSelfGetPos(lua_State *L)
@@ -734,29 +693,12 @@ int NpcScriptInterface::luaSelfGetPos(lua_State *L)
 
 int NpcScriptInterface::luaActionSay(lua_State* L)
 {
-	//selfSay(words [[, target], publicize])
-	// publicize defaults to true if there is no target, false otherwise
-	uint32_t parameters = lua_gettop(L);
-	uint32_t target = 0;
-	bool publicize = true;
-
-	if (parameters >= 3){
-		publicize = popBoolean(L);
-	}
-
-	if (parameters >= 2){
-		target = popNumber(L);
-		if (target != 0){
-			publicize = false;
-		}
-	}
-
+	//selfSay(words)
 	std::string text = popString(L);
 
 	ScriptEnviroment* env = getScriptEnv();
 
 	Npc* npc = env->getNpc();
-	Player* player = env->getPlayerByUID(target);
 
 	if (npc){
 		npc->doSay(text, SPEAK_SAY, NULL);

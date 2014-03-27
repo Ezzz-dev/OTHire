@@ -58,9 +58,6 @@ protected:
 	static int luaActionMoveTo(lua_State *L);
 	static int luaActionTurn(lua_State* L);
 	static int luaActionFollow(lua_State* L);
-	static int luaCreatureGetName(lua_State *L);
-	static int luaCreatureGetName2(lua_State *L);
-	static int luaCreatureGetPos(lua_State *L);
 	static int luaSelfGetPos(lua_State *L);
 	static int luagetDistanceTo(lua_State *L);
 	static int luaSetNpcFocus(lua_State *L);
@@ -203,19 +200,11 @@ protected:
 	std::string m_scriptdir;
 	std::string m_filename;
 	uint32_t walkTicks;
-	int64_t lastVoice;
 	bool floorChange;
 	Direction initialLookDir;
 	bool attackable;
 	bool isIdle;
-	bool hasUsedIdleReply;
-	bool hasBusyReply;
 	bool hasScriptedFocus;
-	int32_t talkRadius;
-	int32_t idleInterval;
-	uint32_t idleTimeout;
-	uint64_t lastResponseTime;
-	bool defaultPublic;
 	int32_t focusCreature;
 	ParametersMap m_parameters;
 
