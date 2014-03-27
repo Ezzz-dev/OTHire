@@ -408,11 +408,7 @@ bool Chat::talkToChannel(Player* player, SpeakClasses type, const std::string& t
 		case CHANNEL_GAME_CHAT:
 		{
 			if(!player->hasFlag(PlayerFlag_CannotBeMuted)){
-				if(player->getLevel() < 2){
-					player->sendCancel("You may not speak into channels as long as you are on level 1.");
-					return true;
-				}
-				else if(channelId == CHANNEL_TRADE && player->hasCondition(CONDITION_TRADE_MUTED)){
+				if(channelId == CHANNEL_TRADE && player->hasCondition(CONDITION_TRADE_MUTED)){
 					player->sendCancel("You may only place one offer in two minutes.");
 					return true;
 				}
