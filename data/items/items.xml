@@ -8042,20 +8042,22 @@
 		<attribute key="corpseType" value="blood"/>
 	</item>
 	
-	<item id="20001" name="water"/>
-	<item id="20002" name="blood"/>
-	<item id="20003" name="beer"/>
-	<item id="20004" name="slime"/>
-	<item id="20005" name="lemonade"/>
-	<item id="20006" name="milk"/>
-	<item id="20007" name="manafluid"/>
-	<item id="20009" name="water"/>
-	<item id="20010" name="lifefluid"/>
-	<item id="20011" name="oil"/>
-	<item id="20012" name="smile"/>
-	<item id="20013" name="urine"/>
-	<item id="20015" name="wine"/>
-	<item id="20019" name="mud"/>
-	<item id="20026" name="lava"/>
-	<item id="20028" name="swamp"/>
+	<!-- Server Defined Constants -->
+	<item id="20001" name="water" fluidClient="1"/>
+	<item id="20002" name="blood" fluidClient="2"/>
+	<item id="20003" name="beer" fluidClient="3"/>
+	<item id="20004" name="slime" fluidClient="4"/>
+	<item id="20005" name="lemonade" fluidClient="5"/>
+	<item id="20006" name="milk" fluidClient="6"/>
+	<item id="20007" name="manafluid" fluidClient="7"/>
+	<item id="20010" name="lifefluid" fluidClient="8"/>
+	<item id="20011" name="oil" fluidClient="9"/>
+	<item id="20013" name="urine" fluidClient="10"/>
+	<item id="20014" name="coconut milk" fluidClient="11"/>
+	<item id="20015" name="wine" fluidClient="12"/>
+	<item id="20019" name="mud" fluidClient="13"/>
+	<item id="20021" name="fruit juice" fluidClient="14"/>
+	<item id="20027" name="rum" fluidClient="15"/>
+	<item id="20035" name="tea" fluidClient="16"/>
+	<item id="20036" name="mead" fluidClient="17"/>
 </items>
