@@ -4003,11 +4003,6 @@ bool Game::combatChangeHealth(CombatType_t combatType, MagicEffectClasses custom
 								hitEffect = NM_ME_DRAW_BLOOD;
 								break;
 
-							case RACE_ENERGY:
-								textColor = TEXTCOLOR_PURPLE;
-								hitEffect = NM_ME_ENERGY_DAMAGE;
-								break;
-
 							default:
 								break;
 						}
