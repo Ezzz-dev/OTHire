@@ -4013,7 +4013,9 @@ void Player::onKilledCreature(Creature* target, bool lastHit)
 			targetPlayer->setDropLoot(false);
 			targetPlayer->setLossSkill(false);
 		}
-		else if (!isPartner(targetPlayer) || !g_config.getNumber(ConfigManager::LAST_HIT_PZBLOCK_ONLY) || lastHit){
+		else if (!isPartner(targetPlayer) || 
+			(g_config.getNumber(ConfigManager::LAST_HIT_PZBLOCK_ONLY) &&
+			lastHit)){
 			if(checkPzBlock(targetPlayer))
 				addInFightTicks(g_config.getNumber(ConfigManager::UNJUST_SKULL_DURATION), true);
 		}
