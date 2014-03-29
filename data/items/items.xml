@@ -2475,7 +2475,6 @@
 	</item>
 	<item id="2014" article="a" name="jug">
 		<attribute key="weight" value="750"/>
-		<attribute key="decayTo" value="11398"/>
 		<attribute key="duration" value="1"/>
 	</item>
 	<item id="2015" article="a" name="beer bottle">
@@ -2524,7 +2523,6 @@
 	<item id="2030" article="a" name="pool"/>
 	<item id="2031" article="a" name="waterskin">
 		<attribute key="weight" value="700"/>
-		<attribute key="decayTo" value="11399"/>
 		<attribute key="duration" value="1"/>
 	</item>
 	<item id="2032" article="a" name="bowl">
@@ -2613,8 +2611,6 @@
 	</item>
 	<item id="2056" article="a" name="burnt down torch">
 		<attribute key="weight" value="350"/>
-		<attribute key="decayTo" value="0"/>
-		<attribute key="duration" value="60"/>
 	</item>
 	<item id="2057" article="a" name="candelabrum" editorsuffix=" (Not decaying)">
 		<attribute key="weight" value="5000"/>
@@ -2625,13 +2621,9 @@
 	<item id="2061" article="a" name="lit torch bearer"/>
 	<item id="2062" article="a" name="small oil lamp">
 		<attribute key="weight" value="100"/>
-		<attribute key="decayTo" value="0"/>
-		<attribute key="duration" value="60"/>
-		<attribute key="stopduration" value="1"/>
 	</item>
 	<item id="2063" article="a" name="small oil lamp">
 		<attribute key="weight" value="900"/>
-		<attribute key="stopduration" value="1"/>
 	</item>
 	<item id="2064" article="a" name="table lamp"/>
 	<item id="2065" article="a" name="lit table lamp"/>
