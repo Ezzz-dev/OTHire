@@ -764,7 +764,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 		s << "an item of type " << it.id;
 	}
 
-	if (it.isRune() || it.charges > 0){
+	if (it.isRune()){
 		uint32_t charges = std::max((uint32_t)1, (uint32_t)(item == NULL ? it.charges : item->getCharges()));
 
 		if (it.runeLevel > 0 || it.runeMagLevel > 0){

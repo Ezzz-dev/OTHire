@@ -49,7 +49,7 @@ class ProtocolGame : public Protocol
 {
 public:
 	// static protocol information
-	enum {server_sends_first = false};
+	enum {server_sends_first = true};
 	enum {protocol_identifier = 0x0A}; // Not required as we send first
 	enum {use_checksum = false};
 	static const char* protocol_name() {return "gameworld protocol";}

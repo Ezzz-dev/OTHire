@@ -446,7 +446,7 @@ bool Weapon::useFist(Player* player, Creature* target)
 			maxDamage = int32_t(maxDamage * vocation->getMeleeBaseDamage(WEAPON_NONE));
 		}
 
-		int32_t damage = -random_range(0, maxDamage, DISTRO_NORMAL);
+		int32_t damage = -random_range(0, maxDamage);
 
 		CombatParams params;
 		params.combatType = COMBAT_PHYSICALDAMAGE;
@@ -728,7 +728,7 @@ int32_t WeaponMelee::getElementDamage(const Player* player, const Item* item) co
 		maxValue = int32_t(maxValue * vocation->getMeleeBaseDamage(item->getWeaponType()));
 	}
 
-	return -random_range(0, maxValue, DISTRO_NORMAL);
+	return -random_range(0, maxValue);
 }
 
 int32_t WeaponMelee::getWeaponDamage(const Player* player, const Creature* target, const Item* item, bool maxDamage /*= false*/) const
@@ -747,7 +747,7 @@ int32_t WeaponMelee::getWeaponDamage(const Player* player, const Creature* targe
 		return -maxValue;
 	}
 
-	return -random_range(0, maxValue, DISTRO_NORMAL);
+	return -random_range(0, maxValue);
 }
 
 WeaponDistance::WeaponDistance(LuaScriptInterface* _interface) :
@@ -1025,7 +1025,7 @@ int32_t WeaponDistance::getWeaponDamage(const Player* player, const Creature* ta
 		minValue = int32_t(minValue * vocation->getMeleeBaseDamage(WEAPON_DIST));
 	}
 
-	return -random_range(minValue, maxValue, DISTRO_NORMAL);
+	return -random_range(minValue, maxValue);
 }
 
 bool WeaponDistance::getSkillType(const Player* player, const Item* item,
@@ -1130,5 +1130,5 @@ int32_t WeaponWand::getWeaponDamage(const Player* player, const Creature* target
 		return -maxValue;
 	}
 
-	return random_range(-minValue, -maxValue, DISTRO_NORMAL);
+	return random_range(-minValue, -maxValue);
 }

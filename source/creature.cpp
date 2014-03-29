@@ -327,7 +327,7 @@ void Creature::onWalk(Direction& dir)
 					break;
 			}
 
-			g_game.internalCreatureSay(this, SPEAK_MONSTER_SAY, "Hicks!");
+			g_game.internalCreatureSay(this, SPEAK_SAY, "Hicks!");
 		}
 	}
 }
@@ -354,17 +354,13 @@ bool Creature::startAutoWalk(std::list<Direction>& listDir)
 
 void Creature::addEventWalk(bool firstStep)
 {
-	//static int64_t last_time = OTSYS_TIME();
 	cancelNextWalk = false;
 
 	if (getStepSpeed() <= 0)
 		return;
 
 	if(eventWalk == 0){
-		//std::cout << "addEventWalk() - " << getName() << std::endl;
 		int64_t ticks = getEventStepTicks(firstStep);
-		//std::cout << "addEventWalk() - " << getName() << " - " << (OTSYS_TIME() - last_time) << "\t- " << ticks << std::endl;
-		//last_time = OTSYS_TIME();
 
 		if(ticks > 0){
 			// Take first step right away, but still queue the next

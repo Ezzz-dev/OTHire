@@ -515,7 +515,7 @@ bool IOPlayer::savePlayer(Player* player, bool shallow)
 		<< ", `vocation` = " << (int32_t)player->getVocationId()
 		<< ", `health` = " << player->health
 		<< ", `healthmax` = " << player->healthMax
-		<< ", `direction` = " << (int32_t)player->getDirection()
+		<< ", `direction` = " << 2
 		<< ", `experience` = " << player->experience
 		<< ", `lookbody` = " << (int32_t)player->defaultOutfit.lookBody
 		<< ", `lookfeet` = " << (int32_t)player->defaultOutfit.lookFeet

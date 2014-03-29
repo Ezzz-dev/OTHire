@@ -323,18 +323,6 @@ void Connection::parsePacket(const boost::system::error_code& error)
 
 	--m_pendingRead;
 
-	//Check packet checksum
-	/*uint32_t recvChecksum = m_msg.PeekU32();
-	uint32_t checksum = 0;
-	int32_t len = m_msg.getMessageLength() - m_msg.getReadPos() - 4;
-	if(len > 0){
-		checksum = adlerChecksum((uint8_t*)(m_msg.getBuffer() + m_msg.getReadPos() + 4), len);
-	}
-
-	if(recvChecksum == checksum)
-		// remove the checksum
-		m_msg.GetU32();
-	*/
 	if(!m_receivedFirst){
 		m_receivedFirst = true;
 		// First message received

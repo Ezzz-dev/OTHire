@@ -571,7 +571,7 @@ ReturnValue Tile::__queryAdd(int32_t index, const Thing* thing, uint32_t count,
 				}
 			}
 			else if(creatures && !creatures->empty()){
-				return RET_NOTENOUGHROOM;
+				return RET_NOTPOSSIBLE;
 			}
 
 			if(hasFlag(TILESTATE_IMMOVABLEBLOCKSOLID)){
