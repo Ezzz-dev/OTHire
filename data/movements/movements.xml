@@ -1,16 +1,5 @@
 <?xml version="1.0"?>
 <movements>
-	<!-- You should not be able to walk through quest chests -->
-	<moveevent event="StepIn" itemid="1738" script="quest_chest_walk.lua"/>
-	<moveevent event="StepIn" itemid="1740" script="quest_chest_walk.lua"/>
-	<moveevent event="StepIn" itemid="1746" script="quest_chest_walk.lua"/>
-	<moveevent event="StepIn" itemid="1747" script="quest_chest_walk.lua"/>
-	<moveevent event="StepIn" itemid="1748" script="quest_chest_walk.lua"/>
-	<moveevent event="StepIn" itemid="1749" script="quest_chest_walk.lua"/>
-
-	<!-- East/South stairs -->
-	<moveevent event="StepIn" itemid="459" script="floor_level_change.lua"/>
-
 	<!-- Pitfalls -->
 	<moveevent event="StepIn" itemid="293" script="increment.lua" />
 	<moveevent event="StepIn" itemid="3310" script="increment.lua" />
