@@ -510,7 +510,7 @@ Cylinder* Container::__queryDestination(int32_t& index, const Thing* thing, Item
 		return this;
 	}
 
-	bool autoStack = !((flags & FLAG_IGNOREAUTOSTACK) == FLAG_IGNOREAUTOSTACK);
+	bool autoStack = g_config.getBoolean(ConfigManager::CONTAINER_ITEMS_AUTO_STACK);
 	if(autoStack){
 		if(item->isStackable()){
 			if(item->getParent() != this){

@@ -61,6 +61,9 @@ worldname = "OpenTibia"
 -- options: openpvp/pvp, optionalpvp/no-pvp, hardcorepvp/pvp-enforced
 worldtype = "pvp"
 
+-- Auto Stack items in containers (like in newer Tibia versions)
+container_items_auto_stack = false
+
 -- does player rate (from lua functions) count on experience gained from killings players on pvp-e worlds?
 rates_for_player_killing = false
 

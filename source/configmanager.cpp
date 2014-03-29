@@ -199,6 +199,7 @@ bool ConfigManager::loadFile(const std::string& _filename)
 	m_confInteger[BIND_ONLY_GLOBAL_ADDRESS]	= getGlobalBoolean(L, "bind_only_global_address", false);
 	m_confInteger[MAX_CONTAINERS_INSIDE_PLAYER_INVENTORY] = getGlobalNumber(L, "max_containers_inside_player_inventory", 100);
 	m_confInteger[USE_RUNE_LEVEL_REQUIREMENTS] = getGlobalBoolean(L, "use_rune_level_requirements", true);
+	m_confInteger[CONTAINER_ITEMS_AUTO_STACK] = getGlobalBoolean(L, "container_items_auto_stack", false);
 	
 	m_isLoaded = true;
 	return true;
