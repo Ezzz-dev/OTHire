@@ -5,10 +5,10 @@ compiler:
  
 install:
 - sudo apt-get -y install autoconf build-essential pkg-config libboost-dev libgmp3-dev libxml2-dev liblua5.1-0-dev libmysqlclient-dev libcrypto++-dev ccache libboost-filesystem-dev libboost-regex-dev libboost-system-dev libboost-thread-dev libssl-dev lua5.1 liblua5.1-sql-mysql-dev libncurses5-dev
-- wget http://www.lua.org/ftp/lua-5.1.4.tar.gz
-- tar -xzvf lua* && cd lua*
-- sudo make linux
-- sudo make install
+#- wget http://www.lua.org/ftp/lua-5.1.4.tar.gz
+#- tar -xzvf lua* && cd lua*
+#- sudo make linux
+#- sudo make install
 - cd $TRAVIS_BUILD_DIR/source
 
 script: 
