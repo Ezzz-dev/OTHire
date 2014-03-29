@@ -4444,19 +4444,11 @@ void Game::FreeThing(Thing* thing)
 }
 
 bool Game::playerViolationWindow(uint32_t playerId, std::string targetName, uint8_t reasonId, violationAction_t actionType,
-		std::string comment, std::string statement, uint16_t channelId, bool ipBanishment)
+	std::string comment, uint16_t statementId, uint16_t channelId, bool ipBanishment)
 {
 	Player* player = getPlayerByID(playerId);
 	if(!player || player->isRemoved())
 		return false;
-
-	uint32_t access = player->getViolationLevel();
-	if((ipBanishment && ((violationNames[access] & Action_IpBan) != Action_IpBan || (violationStatements[access] & Action_IpBan) != Action_IpBan)) ||
-		!(violationNames[access] & (1 << actionType) || violationStatements[access] & (1 << actionType)) || reasonId > violationReasons[access])
-	{
-		player->sendCancel("You do not have authorization for this action.");
-		return false;
-	}
 
 	if(comment.size() > 1000){
 		std::stringstream ss;
@@ -4471,6 +4463,8 @@ bool Game::playerViolationWindow(uint32_t playerId, std::string targetName, uint
 		player->sendCancel("A player with this name does not exist.");
 		return false;
 	}
+
+	std::string statement;
 
 	uint32_t ip = 0;
 	uint32_t acc;
@@ -4494,6 +4488,7 @@ bool Game::playerViolationWindow(uint32_t playerId, std::string targetName, uint
 		IOPlayer::instance()->getLastIP(ip, guid);
 	}
 
+	statement = Player::channelStatementMap[statementId];
 
 	Account account =  IOAccount::instance()->loadAccount(acc, true);
 	int16_t removeNotations = 2; //2 - remove notations & kick, 1 - kick, 0 - nothing

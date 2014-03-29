@@ -455,7 +455,7 @@ public:
 	bool playerLeaveParty(uint32_t playerId);
 	bool playerEnableSharedPartyExperience(uint32_t playerId, uint8_t sharedExpActive, uint8_t unknown);
 	bool playerViolationWindow(uint32_t playerId, std::string targetName, uint8_t reasonId, violationAction_t actionType,
-		std::string comment, std::string statement, uint16_t channelId, bool ipBanishment);
+		std::string comment, uint16_t statementId, uint16_t channelId, bool ipBanishment);
 	bool playerReportBug(uint32_t playerId, std::string comment);
 	bool playerRegisterWalkAction(uint32_t playerId, SchedulerTask* task);
 	
@@ -504,6 +504,7 @@ public:
 	void checkCreatureAttack(uint32_t creatureId);
 	void checkCreatures();
 	void checkLight();
+
 	bool kickPlayer(uint32_t playerId);
 
 	bool combatBlockHit(CombatType_t combatType, Creature* attacker, Creature* target,

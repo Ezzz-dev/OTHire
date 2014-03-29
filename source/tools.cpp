@@ -514,21 +514,8 @@ AmmoTypeNames ammoTypeNames[] = {
 	{"throwingstar",   AMMO_THROWINGSTAR},
 	{"throwingknife",  AMMO_THROWINGKNIFE},
 	{"smallstone",     AMMO_STONE},
-	{"largerock",      AMMO_STONE},
 	{"snowball",       AMMO_SNOWBALL},
-	{"powerbolt",      AMMO_BOLT},
-	{"infernalbolt",   AMMO_BOLT},
-	{"huntingspear",   AMMO_SPEAR},
-	{"enchantedspear", AMMO_SPEAR},
-	{"royalspear",     AMMO_SPEAR},
-	{"sniperarrow",    AMMO_ARROW},
-	{"onyxarrow",      AMMO_ARROW},
-	{"piercingbolt",   AMMO_BOLT},
-	{"etherealspear",  AMMO_SPEAR},
-	{"flasharrow",     AMMO_ARROW},
-	{"flammingarrow",  AMMO_ARROW},
-	{"shiverarrow",    AMMO_ARROW},
-	{"eartharrow",     AMMO_ARROW}
+	{"powerbolt",      AMMO_BOLT}
 };
 
 AmmoActionNames ammoActionNames[] = {
@@ -580,51 +567,112 @@ AmmoAction_t getAmmoAction(const std::string& strValue)
 
 std::string getViolationReasonString(int32_t reasonId)
 {
+	std::string banReason = "Unknown Ban Reason";
+
 	switch(reasonId)
 	{
-		case 0:
-			return "Offensive Name";
-		case 1:
-			return "Invalid Name Format";
-		case 2:
-			return "Unsuitable Name";
-		case 3:
-			return "Name Inciting Rule Violation";
-		case 4:
-			return "Offensive Statement";
-		case 5:
-			return "Spamming";
-		case 6:
-			return "Illegal Advertising";
-		case 7:
-			return "Off-Topic Public Statement";
-		case 8:
-			return "Non-English Public Statement";
-		case 9:
-			return "Inciting Rule Violation";
-		case 10:
-			return "Bug Abuse";
-		case 11:
-			return "Game Weakness Abuse";
-		case 12:
-			return "Using Unofficial Software to Play";
-		case 13:
-			return "Hacking";
-		case 14:
-			return "Multi-Clienting";
-		case 15:
-			return "Account Trading or Sharing";
-		case 16:
-			return "Threatening Gamemaster";
-		case 17:
-			return "Pretending to Have Influence on Rule Enforcement";
-		case 18:
-			return "False Report to Gamemaster";
-		case 19:
-			return "Destructive Behaviour";
+	case 0:
+		banReason = "offensive name";
+		break;
+	case 1:
+		banReason = "name containing part of sentence";
+		break;
+	case 2:
+		banReason = "name with nonsensical letter combo";
+		break;
+	case 3:
+		banReason = "invalid name format";
+		break;
+	case 4:
+		banReason = "name not describing person";
+		break;
+	case 5:
+		banReason = "name of celebrity";
+		break;
+	case 6:
+		banReason = "name referring to country";
+		break;
+	case 7:
+		banReason = "namefaking player identity";
+		break;
+	case 8:
+		banReason = "namefaking official position";
+		break;
+	case 9:
+		banReason = "offensive statement";
+		break;
+	case 10:
+		banReason = "spamming";
+		break;
+	case 11:
+		banReason = "advertisement not related to game";
+		break;
+	case 12:
+		banReason = "real money advertisement";
+		break;
+	case 13:
+		banReason = "Non-English public statement";
+		break;
+	case 14:
+		banReason = "off-topic public statement";
+		break;
+	case 15:
+		banReason = "inciting rule violation";
+		break;
+	case 16:
+		banReason = "bug abuse";
+		break;
+	case 17:
+		banReason = "game weakness abuse";
+		break;
+	case 18:
+		banReason = "using macro";
+		break;
+	case 19:
+		banReason = "using unofficial software to play";
+		break;
+	case 20:
+		banReason = "hacking";
+		break;
+	case 21:
+		banReason = "multi-clienting";
+		break;
+	case 22:
+		banReason = "account trading";
+		break;
+	case 23:
+		banReason = "account sharing";
+		break;
+	case 24:
+		banReason = "threatening gamemaster";
+		break;
+	case 25:
+		banReason = "pretending to have official position";
+		break;
+	case 26:
+		banReason = "pretending to have influence on gamemaster";
+		break;
+	case 27:
+		banReason = "false report to gamemaster";
+		break;
+	case 28:
+		banReason = "excessive unjustifed player killing";
+		break;
+	case 29:
+		banReason = "destructive behaviour";
+		break;
+	case 30:
+		banReason = "spoiling auction";
+		break;
+	case 31:
+		banReason = "invalid payment";
+		break;
+	default:
+		banReason = "nothing";
+		break;
 	}
 
-	return "Unknown Reason";
+	return banReason;
 }
 
 std::string getViolationActionString(violationAction_t actionId, bool ipBanishment)
