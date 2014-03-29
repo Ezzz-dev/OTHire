@@ -954,35 +954,26 @@ void ProtocolGame::parseReceivePing(NetworkMessage& msg)
 
 void ProtocolGame::parseAutoWalk(NetworkMessage& msg)
 {
-	// first we get all directions...
 	std::list<Direction> path;
+
 	size_t numdirs = msg.GetByte();
 	for (size_t i = 0; i < numdirs; ++i) {
 		uint8_t rawdir = msg.GetByte();
-		Direction dir = SOUTH;
-
 		switch(rawdir) {
-		case 1: dir = EAST; break;
-		case 2: dir = NORTHEAST; break;
-		case 3: dir = NORTH; break;
-		case 4: dir = NORTHWEST; break;
-		case 5: dir = WEST; break;
-		case 6: dir = SOUTHWEST; break;
-		case 7: dir = SOUTH; break;
-		case 8: dir = SOUTHEAST; break;
-
-		default:
-			continue;
+			case 1: path.push_back(EAST); break;
+			case 2: path.push_back(NORTHEAST); break;
+			case 3: path.push_back(NORTH); break;
+			case 4: path.push_back(NORTHWEST); break;
+			case 5: path.push_back(WEST); break;
+			case 6: path.push_back(SOUTHWEST); break;
+			case 7: path.push_back(SOUTH); break;
+			case 8: path.push_back(SOUTHEAST); break;
+			default: break;
 		};
-
-		/*
-		#ifdef __DEBUG__
-		std::cout << "Walk by mouse: Direction: " << dir << std::endl;
-		#endif
-		*/
-
-		path.push_back(dir);
 	}
+
+	if (path.empty())
+		return;
 
 	addGameTask(&Game::playerAutoWalk, player->getID(), path);
 }
@@ -1602,9 +1593,6 @@ void ProtocolGame::sendLockRuleViolation()
 
 void ProtocolGame::sendIcons(uint16_t icons)
 {
-	if (icons < 1)
-		return;
-
 	NetworkMessage_ptr msg = getOutputBuffer();
 	if(msg){
 		TRACK_MESSAGE(msg);
@@ -1916,16 +1904,10 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 				msg->AddU16(0x0032); // Related to client-side drawing speed
 				msg->AddByte(player->hasFlag(PlayerFlag_CanReportBugs));
 
-				uint16_t violation = player->getViolationLevel();
-				if(violationReasons[violation] > 0){
+				if (player->hasFlag(PlayerFlag_CanAnswerRuleViolations)){
 					msg->AddByte(0x0B);
-					for(int32_t i = 0; i <= violationReasons[maxViolationLevel]; i++){
-						if(i <= violationReasons[1])
-							msg->AddByte(violationNames[violation]);
-						else if(i <= violationReasons[violation])
-							msg->AddByte(violationStatements[violation]);
-						else
-							msg->AddByte(Action_None);
+					for (uint8_t i = 0; i < 32; i++) {
+						msg->AddByte(0xFF);
 					}
 				}
 
@@ -2323,7 +2305,7 @@ void ProtocolGame::AddCreature(NetworkMessage_ptr msg,const Creature* creature, 
 	if(creature->isInvisible() ||
 		(creature->getPlayer() && creature->getPlayer()->isGmInvisible()))
 	{
-		if (player->canSeeInvisibility())
+		if (player->canSeeInvisibility() && player != creature)
 		{
 			AddCreatureOutfit(msg, creature, creature->getCurrentOutfit());
 		}
@@ -2415,32 +2397,7 @@ void ProtocolGame::AddCreatureSpeak(NetworkMessage_ptr msg, const Creature* crea
 	else {
 		msg->AddString("");
 	}
-	/*
-	if(creature){
-		if(const Player* speaker = creature->getPlayer()){
-			msg->AddU32(++Player::channelStatementGuid);
-			Player::channelStatementMap[Player::channelStatementGuid] = text;
 
-			if(type == SPEAK_RVR_ANSWER){
-				msg->AddString("Gamemaster");
-			}
-			else{
-				if(type == SPEAK_CHANNEL_R2){
-					msg->AddString("");
-				}
-				else{
-					msg->AddString(speaker->getName());
-				}
-			}
-		}
-		else{
-			msg->AddString(creature->getName());
-		}
-	}
-	else{
-		msg->AddString("");
-	}
-	*/
 	msg->AddByte(type);
 	switch(type){
 		case SPEAK_SAY:
@@ -2522,7 +2479,7 @@ void ProtocolGame::AddTileItem(NetworkMessage_ptr msg, const Position& pos, uint
 void ProtocolGame::AddTileCreature(NetworkMessage_ptr msg, const Position& pos, uint32_t stackpos,
 	const Creature* creature)
 {
-	if(stackpos < 10){
+	//if(stackpos < 10){
 		msg->AddByte(0x6A);
 		msg->AddPosition(pos);
 
@@ -2530,7 +2487,7 @@ void ProtocolGame::AddTileCreature(NetworkMessage_ptr msg, const Position& pos, 
 		uint32_t removedKnown;
 		checkCreatureAsKnown(creature->getID(), known, removedKnown);
 		AddCreature(msg, creature, known, removedKnown);
-	}
+	//}
 }
 
 void ProtocolGame::UpdateTileItem(NetworkMessage_ptr msg, const Position& pos, uint32_t stackpos, const Item* item)
