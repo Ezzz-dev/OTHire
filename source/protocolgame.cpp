@@ -1313,10 +1313,11 @@ void ProtocolGame::parseViolationWindow(NetworkMessage& msg)
 	uint8_t reason = msg.GetByte();
 	violationAction_t action = (violationAction_t)msg.GetByte();
 	std::string comment = msg.GetString();
-	std::string statement = (action == ACTION_STATEMENT ? "" : msg.GetString());
+
+	uint16_t statementId = msg.GetU16();
 	uint16_t channelId = msg.GetU16();
 	bool ipBanishment = msg.GetByte() != 0;
-	addGameTask(&Game::playerViolationWindow, player->getID(), target, reason, action, comment, statement, channelId, ipBanishment);
+	addGameTask(&Game::playerViolationWindow, player->getID(), target, reason, action, comment, statementId, channelId, ipBanishment);
 }
 
 void ProtocolGame::parseBugReport(NetworkMessage& msg)
