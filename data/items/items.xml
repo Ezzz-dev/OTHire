@@ -2579,8 +2579,6 @@
 	</item>
 	<item id="2049" article="a" name="used candlestick">
 		<attribute key="weight" value="200"/>
-		<attribute key="decayTo" value="0"/>
-		<attribute key="duration" value="60"/>
 	</item>
 	<item id="2050" article="a" name="torch">
 		<attribute key="weight" value="500"/>
