@@ -959,8 +959,12 @@
 	<item id="1367" article="a" name="water basin">
 		<attribute key="fluidSource" value="water"/>
 	</item>
-	<item id="1368" article="a" name="draw well"/>
-	<item id="1369" article="a" name="draw well"/>
+	<item id="1368" article="a" name="draw well">
+		<attribute key="fluidSource" value="water"/>
+	</item>
+	<item id="1369" article="a" name="draw well">
+		<attribute key="fluidSource" value="water"/>
+	</item>
 	<item id="1370" article="a" name="marble well"/>
 	<item id="1371" article="a" name="marble well"/>
 	<item id="1372" article="a" name="marble well"/>
