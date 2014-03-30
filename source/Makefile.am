@@ -45,7 +45,7 @@ EXTRA_DIST=autogen.sh \
 	const.h		 		   protocolgame.h    trashholder.h \
 	container.h	 ioplayer.h	   protocol.h	     vocation.h \
 	creatureevent.h  item.h		   protocollogin.h   waitlist.h \
-	creature.h	 itemloader.h	   protocolold.h     waypoints.h \
+	creature.h	 itemloader.h	        waypoints.h \
 	cylinder.h	 items.h	       weapons.h \
 	database.h	 logger.h	   raids.h \
 	luascript.h	   rsa.h \
@@ -72,7 +72,7 @@ otserv_SOURCES = $(MAYBE_MYSQL) $(MAYBE_SQLITE) $(MAYBE_ODBC) $(MAYBE_PGSQL) \
 	container.cpp	   ioplayer.cpp        protocol.cpp	   tools.cpp \
 	creature.cpp	   item.cpp	       protocolgame.cpp    trashholder.cpp \
 	creatureevent.cpp  items.cpp	       protocollogin.cpp   vocation.cpp \
-	cylinder.cpp	   logger.cpp	       protocolold.cpp	   waitlist.cpp \
+	cylinder.cpp	   logger.cpp	       	   waitlist.cpp \
 	database.cpp	   luascript.cpp      	   weapons.cpp \
 	mailbox.cpp	   raids.cpp \
 	guild.cpp	globalevent.cpp
