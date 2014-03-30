@@ -46,16 +46,16 @@ status_port = "7171"
 admin_port = "7171"
 
 -- server url
-url = "http://otfans.net"
+url = "http://otland.net"
 
 -- server owner name
-ownername = "Tliff"
+ownername = "Ezzz"
 
 -- server owner email
-owneremail = "otserv@tibia.de"
+owneremail = ""
 
 -- world name
-worldname = "OpenTibia"
+worldname = "OTHire"
 
 -- world type
 -- options: openpvp/pvp, optionalpvp/no-pvp, hardcorepvp/pvp-enforced
