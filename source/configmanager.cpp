@@ -235,17 +235,6 @@ int64_t ConfigManager::getNumber(uint32_t _what) const
 	}
 }
 
-double ConfigManager::getFloat(uint32_t _what) const
-{
-	if(m_isLoaded && _what < LAST_FLOAT_CONFIG)
-		return m_confFloat[_what];
-	else
-	{
-		std::cout << "Warning: [ConfigManager::getFloat] " << _what << std::endl;
-		return 0;
-	}
-}
-
 bool ConfigManager::setNumber(uint32_t _what, int64_t _value)
 {
 	if(_what < LAST_INTEGER_CONFIG)
