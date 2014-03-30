@@ -403,11 +403,11 @@ void ProtocolGame::parsePacket(NetworkMessage &msg)
 
 	switch(recvbyte){
 	case 0x14: // logout
-		parseLogout(msg);
+		g_dispatcher.addTask(createTask(boost::bind(&ProtocolGame::logout, this, false)));
 		break;
 
 	case 0x1E: // keep alive / ping response
-		parseReceivePing(msg);
+		g_dispatcher.addTask(createTask(boost::bind(&Game::playerReceivePing, &g_game, player->getID())));
 		break;
 
 	case 0x64: // move with steps
@@ -415,55 +415,55 @@ void ProtocolGame::parsePacket(NetworkMessage &msg)
 		break;
 
 	case 0x65: // move north
-		parseMove(msg, NORTH);
+		addGameTask(&Game::playerMove, player->getID(), NORTH);
 		break;
 
 	case 0x66: // move east
-		parseMove(msg, EAST);
+		addGameTask(&Game::playerMove, player->getID(), EAST);
 		break;
 
 	case 0x67: // move south
-		parseMove(msg, SOUTH);
+		addGameTask(&Game::playerMove, player->getID(), SOUTH);
 		break;
 
 	case 0x68: // move west
-		parseMove(msg, WEST);
+		addGameTask(&Game::playerMove, player->getID(), WEST);
 		break;
 
 	case 0x69: // stop-autowalk
-		parseStopAutoWalk(msg);
+		addGameTask(&Game::playerStopAutoWalk, player->getID());
 		break;
 
 	case 0x6A:
-		parseMove(msg, NORTHEAST);
+		addGameTask(&Game::playerMove, player->getID(), NORTHEAST);
 		break;
 
 	case 0x6B:
-		parseMove(msg, SOUTHEAST);
+		addGameTask(&Game::playerMove, player->getID(), SOUTHEAST);
 		break;
 
 	case 0x6C:
-		parseMove(msg, SOUTHWEST);
+		addGameTask(&Game::playerMove, player->getID(), SOUTHWEST);
 		break;
 
 	case 0x6D:
-		parseMove(msg, NORTHWEST);
+		addGameTask(&Game::playerMove, player->getID(), NORTHWEST);
 		break;
 
 	case 0x6F: // turn north
-		parseTurn(msg, NORTH);
+		addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerTurn, player->getID(), NORTH);
 		break;
 
 	case 0x70: // turn east
-		parseTurn(msg, EAST);
+		addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerTurn, player->getID(), EAST);
 		break;
 
 	case 0x71: // turn south
-		parseTurn(msg, SOUTH);
+		addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerTurn, player->getID(), SOUTH);
 		break;
 
 	case 0x72: // turn west
-		parseTurn(msg, WEST);
+		addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerTurn, player->getID(), WEST);
 		break;
 
 	case 0x78: // throw item
@@ -479,7 +479,7 @@ void ProtocolGame::parsePacket(NetworkMessage &msg)
 		break;
 
 	case 0x7F: // Accept trade
-		parseAcceptTrade(msg);
+		addGameTask(&Game::playerAcceptTrade, player->getID());
 		break;
 
 	case 0x80: // Close/cancel trade
@@ -527,7 +527,7 @@ void ProtocolGame::parsePacket(NetworkMessage &msg)
 		break;
 
 	case 0x97: // request Channels
-		parseGetChannels(msg);
+		addGameTask(&Game::playerRequestChannels, player->getID());
 		break;
 
 	case 0x98: // open Channel
@@ -551,7 +551,7 @@ void ProtocolGame::parsePacket(NetworkMessage &msg)
 		break;
 
 	case 0x9D: //player cancels report
-		parseCancelRuleViolation(msg);
+		addGameTask(&Game::playerCancelRuleViolation, player->getID());
 		break;
 
 	case 0xA0: // set attack and follow mode
@@ -583,11 +583,11 @@ void ProtocolGame::parsePacket(NetworkMessage &msg)
 		break;
 
 	case 0xA7:
-		parseLeaveParty(msg);
+		addGameTask(&Game::playerLeaveParty, player->getID());
 		break;
 
 	case 0xAA:
-		parseCreatePrivateChannel(msg);
+		addGameTask(&Game::playerCreatePrivateChannel, player->getID());
 		break;
 
 	case 0xAB:
@@ -599,7 +599,7 @@ void ProtocolGame::parsePacket(NetworkMessage &msg)
 		break;
 
 	case 0xBE: // cancel move
-		parseCancelMove(msg);
+		addGameTask(&Game::playerCancelAttackAndFollow, player->getID());
 		break;
 
 	case 0xC9: //client request to resend the tile
@@ -611,7 +611,7 @@ void ProtocolGame::parsePacket(NetworkMessage &msg)
 		break;
 
 	case 0xD2: // request outfit
-		parseRequestOutfit(msg);
+		addGameTask(&Game::playerRequestOutfit, player->getID());
 		break;
 
 	case 0xD3: // set outfit
@@ -857,16 +857,6 @@ bool ProtocolGame::canSee(int x, int y, int z) const
 }
 
 //********************** Parse methods *******************************
-void ProtocolGame::parseLogout(NetworkMessage& msg)
-{
-	g_dispatcher.addTask(createTask(boost::bind(&ProtocolGame::logout, this, false)));
-}
-
-void ProtocolGame::parseCreatePrivateChannel(NetworkMessage& msg)
-{
-	addGameTask(&Game::playerCreatePrivateChannel, player->getID());
-}
-
 void ProtocolGame::parseChannelInvite(NetworkMessage& msg)
 {
 	const std::string name = msg.GetString();
@@ -879,11 +869,6 @@ void ProtocolGame::parseChannelExclude(NetworkMessage& msg)
 	const std::string name = msg.GetString();
 
 	addGameTask(&Game::playerChannelExclude, player->getID(), name);
-}
-
-void ProtocolGame::parseGetChannels(NetworkMessage& msg)
-{
-	addGameTask(&Game::playerRequestChannels, player->getID());
 }
 
 void ProtocolGame::parseOpenChannel(NetworkMessage& msg)
@@ -921,16 +906,6 @@ void ProtocolGame::parseCloseRuleViolation(NetworkMessage& msg)
 	addGameTask(&Game::playerCloseRuleViolation, player->getID(), reporter);
 }
 
-void ProtocolGame::parseCancelRuleViolation(NetworkMessage& msg)
-{
-	addGameTask(&Game::playerCancelRuleViolation, player->getID());
-}
-
-void ProtocolGame::parseCancelMove(NetworkMessage& msg)
-{
-	addGameTask(&Game::playerCancelAttackAndFollow, player->getID());
-}
-
 void ProtocolGame::parseDebug(NetworkMessage& msg)
 {
 	int dataLength = msg.getMessageLength() - 1;
@@ -944,12 +919,6 @@ void ProtocolGame::parseDebug(NetworkMessage& msg)
 		}
 		printf("\n");
 	}
-}
-
-void ProtocolGame::parseReceivePing(NetworkMessage& msg)
-{
-	g_dispatcher.addTask(
-		createTask(boost::bind(&Game::playerReceivePing, &g_game, player->getID())));
 }
 
 void ProtocolGame::parseAutoWalk(NetworkMessage& msg)
@@ -976,26 +945,6 @@ void ProtocolGame::parseAutoWalk(NetworkMessage& msg)
 		return;
 
 	addGameTask(&Game::playerAutoWalk, player->getID(), path);
-}
-
-void ProtocolGame::parseStopAutoWalk(NetworkMessage& msg)
-{
-	addGameTask(&Game::playerStopAutoWalk, player->getID());
-}
-
-void ProtocolGame::parseMove(NetworkMessage& msg, Direction dir)
-{
-	addGameTask(&Game::playerMove, player->getID(), dir);
-}
-
-void ProtocolGame::parseTurn(NetworkMessage& msg, Direction dir)
-{
-	addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerTurn, player->getID(), dir);
-}
-
-void ProtocolGame::parseRequestOutfit(NetworkMessage& msg)
-{
-	addGameTask(&Game::playerRequestOutfit, player->getID());
 }
 
 void ProtocolGame::parseSetOutfit(NetworkMessage& msg)
@@ -1037,7 +986,6 @@ void ProtocolGame::parseUseItem(NetworkMessage& msg)
 	uint16_t spriteId = msg.GetSpriteId();
 	uint8_t stackpos = msg.GetByte();
 	uint8_t index = msg.GetByte();
-	bool isHotkey = (pos.x == 0xFFFF && pos.y == 0 && pos.z == 0);
 
 	addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerUseItem, player->getID(), pos, stackpos, index, spriteId);
 }
@@ -1050,7 +998,6 @@ void ProtocolGame::parseUseItemEx(NetworkMessage& msg)
 	Position toPos = msg.GetPosition();
 	uint16_t toSpriteId = msg.GetU16();
 	uint8_t toStackPos = msg.GetByte();
-	bool isHotkey = (fromPos.x == 0xFFFF && fromPos.y == 0 && fromPos.z == 0);
 
 	addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerUseItemEx, player->getID(), fromPos, fromStackPos, fromSpriteId, toPos, toStackPos, toSpriteId);
 }
@@ -1061,7 +1008,6 @@ void ProtocolGame::parseBattleWindow(NetworkMessage &msg)
 	uint16_t spriteId = msg.GetSpriteId();
 	uint8_t fromStackPos = msg.GetByte();
 	uint32_t creatureId = msg.GetU32();
-	bool isHotkey = (fromPos.x == 0xFFFF && fromPos.y == 0 && fromPos.z == 0);
 
 	addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerUseBattleWindow, player->getID(), fromPos, fromStackPos, creatureId, spriteId);
 }
@@ -1232,11 +1178,6 @@ void ProtocolGame::parsePassPartyLeadership(NetworkMessage& msg)
 	addGameTask(&Game::playerPassPartyLeadership, player->getID(), creatureId);
 }
 
-void ProtocolGame::parseLeaveParty(NetworkMessage& msg)
-{
-	addGameTask(&Game::playerLeaveParty, player->getID());
-}
-
 void ProtocolGame::parseTextWindow(NetworkMessage& msg)
 {
 	uint32_t windowTextId = msg.GetU32();
@@ -1262,11 +1203,6 @@ void ProtocolGame::parseRequestTrade(NetworkMessage& msg)
 	uint32_t playerId = msg.GetU32();
 
 	addGameTask(&Game::playerRequestTrade, player->getID(), pos, stackpos, playerId, spriteId);
-}
-
-void ProtocolGame::parseAcceptTrade(NetworkMessage& msg)
-{
-	addGameTask(&Game::playerAcceptTrade, player->getID());
 }
 
 void ProtocolGame::parseLookInTrade(NetworkMessage& msg)
@@ -1417,35 +1353,6 @@ void ProtocolGame::sendCreatureSkull(const Creature* creature)
 			#endif
 		}
 	}
-}
-
-void ProtocolGame::sendCreatureEmblem(const Creature* creature)
-{
-	/*if(!canSee(creature))
-		return;
-
-	// we are cheating the client in here!
-	uint32_t stackpos = creature->getTile()->getClientIndexOfThing(player, creature);
-	if(stackpos >= 10)
-		return;
-
-	NetworkMessage_ptr msg = getOutputBuffer();
-	if(msg)
-	{
-		TRACK_MESSAGE(msg);
-		std::list<uint32_t>::iterator it = std::find(knownCreatureList.begin(), knownCreatureList.end(), creature->getID());
-		if(it != knownCreatureList.end())
-		{
-			RemoveTileItem(msg, creature->getPosition(), stackpos);
-			msg->AddByte(0x6A);
-
-			msg->AddPosition(creature->getPosition());
-			msg->AddByte(stackpos);
-			AddCreature(msg, creature, false, creature->getID());
-		}
-		else
-			AddTileCreature(msg, creature->getPosition(), stackpos, creature);
-	}*/
 }
 
 void ProtocolGame::sendCreatureShield(const Creature* creature)

@@ -161,17 +161,11 @@ public:
 		LAST_INTEGER_CONFIG /* this must be the last one */
 	};
 
-	enum float_config_t {
-		LAST_FLOAT_CONFIG /* this must be the last one */
-	};
-
-
 	bool loadFile(const std::string& _filename);
 	bool reload();
 
 	void getConfigValue(const std::string& key, lua_State* _L);
 	const std::string& getString(uint32_t _what) const;
-	double getFloat(uint32_t _what) const;
 	int64_t getNumber(uint32_t _what) const;
 	bool getBoolean(uint32_t _what) const { return getNumber(_what) != 0; }
 	bool setNumber(uint32_t _what, int64_t _value);
@@ -188,7 +182,6 @@ private:
 	bool m_isLoaded;
 	std::string m_confString[LAST_STRING_CONFIG];
 	int64_t m_confInteger[LAST_INTEGER_CONFIG];
-	double m_confFloat[LAST_FLOAT_CONFIG];
 };
 
 

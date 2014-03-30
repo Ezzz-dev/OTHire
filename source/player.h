@@ -413,9 +413,6 @@ public:
 	void checkSkullTicks(int32_t ticks);
 #endif
 
-	void sendCreatureEmblem(const Creature* creature)
-		{if(client) client->sendCreatureEmblem(creature);}
-
 	void checkRecentlyGainedExperience(uint32_t interval);
 	bool canLogout();
 	bool checkPzBlock(Player* targetPlayer);

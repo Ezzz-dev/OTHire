@@ -89,17 +89,8 @@ private:
 	bool parseFirstPacket(NetworkMessage& msg);
 
 	//Parse methods
-	void parseLogout(NetworkMessage& msg);
-	void parseCancelMove(NetworkMessage& msg);
-
-	void parseReceivePing(NetworkMessage& msg);
 	void parseAutoWalk(NetworkMessage& msg);
-	void parseStopAutoWalk(NetworkMessage& msg);
-	void parseMove(NetworkMessage& msg, Direction dir);
 
-	void parseTurn(NetworkMessage& msg, Direction dir);
-
-	void parseRequestOutfit(NetworkMessage& msg);
 	void parseSetOutfit(NetworkMessage& msg);
 	void parseSay(NetworkMessage& msg);
 	void parseLookAt(NetworkMessage& msg);
@@ -123,12 +114,10 @@ private:
 	void parseJoinParty(NetworkMessage& msg);
 	void parseRevokePartyInvitation(NetworkMessage& msg);
 	void parsePassPartyLeadership(NetworkMessage& msg);
-	void parseLeaveParty(NetworkMessage& msg);
 
 	//trade methods
 	void parseRequestTrade(NetworkMessage& msg);
 	void parseLookInTrade(NetworkMessage& msg);
-	void parseAcceptTrade(NetworkMessage& msg);
 	void parseCloseTrade();
 
 	//VIP methods
@@ -138,16 +127,13 @@ private:
 	void parseRotateItem(NetworkMessage& msg);
 
 	//Channel tabs
-	void parseCreatePrivateChannel(NetworkMessage& msg);
 	void parseChannelInvite(NetworkMessage& msg);
 	void parseChannelExclude(NetworkMessage& msg);
-	void parseGetChannels(NetworkMessage& msg);
 	void parseOpenChannel(NetworkMessage& msg);
 	void parseOpenPriv(NetworkMessage& msg);
 	void parseCloseChannel(NetworkMessage& msg);
 	void parseProcessRuleViolation(NetworkMessage& msg);
 	void parseCloseRuleViolation(NetworkMessage& msg);
-	void parseCancelRuleViolation(NetworkMessage& msg);
 
 	//etc
 	void parseViolationWindow(NetworkMessage& msg);
@@ -203,7 +189,6 @@ private:
 
 	void sendCreatureSkull(const Creature* creature);
 	void sendCreatureShield(const Creature* creature);
-	void sendCreatureEmblem(const Creature* creature);
 	void sendCreatureSquare(const Creature* creature, SquareColor_t color);
 
 	//tiles

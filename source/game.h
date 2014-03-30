@@ -489,7 +489,6 @@ public:
 	void updateCreatureSkull(Player* player);
 #endif
 
-	void updateCreatureEmblem(Creature* creature);
 	GameState_t getGameState();
 	void setGameState(GameState_t newState);
 	bool saveServer(bool payHouses, bool shallowSave = false);

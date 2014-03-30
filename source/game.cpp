@@ -4184,19 +4184,6 @@ void Game::updateCreatureSkull(Player* player)
 }
 #endif
 
-void Game::updateCreatureEmblem(Creature* creature)
-{
-	const SpectatorVec& list = getSpectators(creature->getPosition());
-
-	//send to client
-	Player* tmpPlayer = NULL;
-	for(SpectatorVec::const_iterator it = list.begin(); it != list.end(); ++it)
-	{
-		if((tmpPlayer = (*it)->getPlayer()))
-			tmpPlayer->sendCreatureEmblem(creature);
-	}
-}
-
 void Game::startDecay(Item* item)
 {
 	if(item && item->canDecay()){
