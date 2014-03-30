@@ -217,14 +217,15 @@ int main(int argc, char** argv)
 	#endif
 	std::cout << std::endl;
 #endif
-
+//Do we really need this? its anoying
+/*
 #if !defined(__WINDOWS__) && !defined(__ROOT_PERMISSION__)
 	if( getuid() == 0 || geteuid() == 0 ){
 		std::cout << std::endl << "OTServ executed as root user, please login with a normal user." << std::endl;
 		return 1;
 	}
 #endif
-
+*/
 
 #if !defined __WINDOWS__
 	// ignore sigpipe...
