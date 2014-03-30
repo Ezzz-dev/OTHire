@@ -37,7 +37,7 @@ EXTRA_DIST=autogen.sh \
 	beds.h		 fileloader.h	   npc.h	     talkaction.h \
 	chat.h		 game.h		   otpch.h	     tasks.h \
 	combat.h	 house.h	   otsystem.h	     teleport.h \
-	housetile.h	   outfit.h	     templates.h \
+	housetile.h	        templates.h \
 	condition.h	 ioaccount.h	   outputmessage.h   thing.h \
 	config.h	 iomap.h	   party.h	     tile.h \
 	configmanager.h  iomapotbm.h	   player.h	     tools.h \
@@ -46,7 +46,7 @@ EXTRA_DIST=autogen.sh \
 	container.h	 ioplayer.h	   protocol.h	     vocation.h \
 	creatureevent.h  item.h		   protocollogin.h   waitlist.h \
 	creature.h	 itemloader.h	   protocolold.h     waypoints.h \
-	cylinder.h	 items.h	   quests.h	     weapons.h \
+	cylinder.h	 items.h	       weapons.h \
 	database.h	 logger.h	   raids.h \
 	luascript.h	   rsa.h \
 	mailbox.h	   scheduler.h \
@@ -64,7 +64,7 @@ otserv_SOURCES = $(MAYBE_MYSQL) $(MAYBE_SQLITE) $(MAYBE_ODBC) $(MAYBE_PGSQL) \
 	baseevents.cpp	   fileloader.cpp      networkmessage.cpp  spawn.cpp \
 	beds.cpp	   game.cpp	       npc.cpp		   spells.cpp \
 	chat.cpp	   house.cpp	       otserv.cpp	   status.cpp \
-	combat.cpp	   housetile.cpp       outfit.cpp	   talkaction.cpp \
+	combat.cpp	   housetile.cpp       	   talkaction.cpp \
 	ioaccount.cpp       outputmessage.cpp   tasks.cpp \
 	condition.cpp	   iomapotbm.cpp       party.cpp	   teleport.cpp \
 	configmanager.cpp  iomapserialize.cpp  player.cpp	   thing.cpp \
@@ -73,7 +73,7 @@ otserv_SOURCES = $(MAYBE_MYSQL) $(MAYBE_SQLITE) $(MAYBE_ODBC) $(MAYBE_PGSQL) \
 	creature.cpp	   item.cpp	       protocolgame.cpp    trashholder.cpp \
 	creatureevent.cpp  items.cpp	       protocollogin.cpp   vocation.cpp \
 	cylinder.cpp	   logger.cpp	       protocolold.cpp	   waitlist.cpp \
-	database.cpp	   luascript.cpp       quests.cpp	   weapons.cpp \
+	database.cpp	   luascript.cpp      	   weapons.cpp \
 	mailbox.cpp	   raids.cpp \
 	guild.cpp	globalevent.cpp
 
