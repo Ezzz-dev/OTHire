@@ -1,4 +1,4 @@
-OTHire Beta
+OTHire Beta [![Build Status](https://travis-ci.org/TwistedScorpio/OTHire.svg?branch=master)](https://travis-ci.org/TwistedScorpio/OTHire)
 ======
 
 OpenTibia Server for Tibia 7.72
