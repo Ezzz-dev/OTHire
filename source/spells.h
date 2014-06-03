@@ -156,6 +156,7 @@ protected:
 
 	int32_t mana;
 	int32_t manaPercent;
+	int32_t levelPercent;
 	int32_t soul;
 	int32_t range;
 	int32_t exhaustion;

@@ -482,6 +482,7 @@ Spell::Spell()
 	magLevel = 0;
 	mana = 0;
 	manaPercent = 0;
+	levelPercent = 0;
 	soul = 0;
 	range = -1;
 	exhaustion = -1;
@@ -552,6 +553,10 @@ bool Spell::configureSpell(xmlNodePtr p)
 
 	if(readXMLInteger(p, "manapercent", intValue)){
 	 	manaPercent = intValue;
+	}
+	
+	if(readXMLInteger(p, "levelpercent", intValue)){
+	 	levelPercent = intValue;
 	}
 
 	if(readXMLInteger(p, "soul", intValue)){
@@ -937,6 +942,12 @@ int32_t Spell::getManaCost(const Player* player) const
 	if(manaPercent != 0){
 		int32_t maxMana = player->getMaxMana();
 		int32_t manaCost = (maxMana * manaPercent)/100;
+		return manaCost;
+	}
+	
+	if(levelPercent != 0){
+		int32_t level = player->getLevel();
+		int32_t manaCost = (level * levelPercent)/100;
 		return manaCost;
 	}
 
