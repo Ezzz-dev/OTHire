@@ -64,6 +64,7 @@ public:
 		SQL_TYPE,
 		MAP_STORAGE_TYPE,
 		DEATH_MSG,
+		KILLS_TO_BAN,
 		LAST_STRING_CONFIG /* this must be the last one */
 	};
 

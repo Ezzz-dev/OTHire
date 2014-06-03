@@ -124,6 +124,8 @@ defensive_pz_lock = true
 kills_per_day_red_skull = 3
 kills_per_week_red_skull = 5
 kills_per_month_red_skull = 10
+-- In Oldschool you would get banned by doubling the needed month unjustified kills for red skull
+kills_to_ban = 20
 
 -- Broadcast violation window banishments
 broadcast_banishments = "no"

@@ -19,6 +19,7 @@
 //////////////////////////////////////////////////////////////////////
 #include "otpch.h"
 
+#include "ban.h"
 #include "player.h"
 #include "ioplayer.h"
 #include "game.h"
@@ -42,6 +43,7 @@
 
 extern ConfigManager g_config;
 extern Game g_game;
+extern BanManager g_bans;
 extern Chat g_chat;
 extern Vocations g_vocations;
 extern MoveEvents* g_moveEvents;
@@ -4329,6 +4331,17 @@ void Player::addUnjustifiedDead(const Player* attacked)
 			g_config.getNumber(ConfigManager::KILLS_PER_MONTH_RED_SKULL) > 0 &&
 			g_config.getNumber(ConfigManager::KILLS_PER_MONTH_RED_SKULL) <= unjustKills){
 		setSkull(SKULL_RED);
+	}
+	
+	uint16_t totalKills = IOPlayer::instance()->getPlayerUnjustKillCount(this, UNJUST_KILL_PERIOD_MONTH);
+
+	if (g_config.getNumber(ConfigManager::KILLS_TO_BAN) != 0 && totalKills >= (g_config.getNumber(ConfigManager::KILLS_TO_BAN)))
+	{
+		if (g_bans.addPlayerBan(getName(), g_config.getNumber(ConfigManager::BAN_LENGTH), 1 /* Type here your gamemaster ID */, "Automatic", "", 28, ACTION_BANISHMENT))
+		{
+			g_game.addMagicEffect(getPosition(), NM_ME_MAGIC_POISON);
+			g_scheduler.addEvent(createSchedulerTask(1000, boost::bind(&Player::kickPlayer, this)));
+		}
 	}
 
 	if(oldSkull != getSkull()){
