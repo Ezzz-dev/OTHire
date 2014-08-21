@@ -184,9 +184,11 @@ int main(int argc, char** argv)
 	boost::thread(boost::bind(&allocatorStatsThread, (void*)NULL));
 #endif
 
-	std::cout << ":: " OTSERV_NAME " Version " OTSERV_VERSION << std::endl;
+	std::cout << ":: ======================" << std::endl;
 	std::cout << "::" << std::endl;
-	std::cout << ":: ============================================================================" << std::endl;
+	std::cout << "::  " OTSERV_NAME " version " OTSERV_VERSION << std::endl;
+	std::cout << "::" << std::endl;
+	std::cout << ":: ======================" << std::endl;
 	std::cout << "::" << std::endl;
 
 #if defined __DEBUG__MOVESYS__ || defined __DEBUG_HOUSES__ || defined __DEBUG_MAILBOX__ \

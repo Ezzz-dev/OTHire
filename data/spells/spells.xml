@@ -143,7 +143,7 @@
 	<instant name="Great Energy Beam" words="exevo gran vis lux" needlearn="0" lvl="29" maglv="14" mana="200" direction="1" script="attack/great_energy_beam.lua">
 		<vocation name="Sorcerer"/> <vocation name="Master Sorcerer"/>
 	</instant>
-	<instant name="Berserk" words="exori" needlearn="0" lvl="35" maglv="5" lvpercent="400" selftarget="1" script="attack/berserk.lua">
+	<instant name="Berserk" words="exori" needlearn="0" lvl="35" maglv="5" levelpercent="400" selftarget="1" script="attack/berserk.lua">
 		<vocation name="Knight"/>   <vocation name="Elite Knight"/>
 	</instant>
 	<instant name="Invisibility" words="utana vid" needlearn="0" lvl="35" maglv="15" mana="210" prem="1" selftarget="1" aggressive="0" script="support/invisible.lua">
@@ -295,4 +295,8 @@
 		<vocation name="Paladin"/>  <vocation name="Royal Paladin"/>
 	</conjure>
 	
+		<!-- Monster Spells -->
+		<instant name="djinn electrify"  words="###1"  aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/djinn electrify.lua"/>
+		<instant name="djinn electrify area"  words="###2"  aggressive="1" blockwalls="1" selftarget="1" needlearn="1" script="monster/djinn electrify area.lua"/>
+		
 </spells>

@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 <movements>
+
+    <!-- Guilcera -->
+	<moveevent event="AddItem" actionid="101" tileitem="1" script="guilcera\hota.lua"/>
+	<moveevent event="RemoveItem" itemid="1953" script="guilcera\parchment.lua"/>
+
+	<!-- Citizen teleport -->
+	<moveevent event="StepIn" itemid="1387" script="citizen.lua"/>
+
 	<!-- Pitfalls -->
 	<moveevent event="StepIn" itemid="293" script="increment.lua" />
 	<moveevent event="StepIn" itemid="3310" script="increment.lua" />
@@ -209,91 +217,7 @@
 	<moveevent event="DeEquip" itemid="2216" slot="ring" function="onDeEquipItem"/>
 
 	<!-- Helmets -->
-	<moveevent event="DeEquip" itemid="2323" slot="head" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2323" slot="head" function="onEquipItem">
-		<vocation name="Sorcerer"/>
-		<vocation name="Master Sorcerer" showInDescription="0"/>
-		<vocation name="Druid"/>
-		<vocation name="Elder Druid" showInDescription="0"/>
-	</moveevent>
 	<moveevent event="Equip" itemid="2343" slot="head" function="onEquipItem"/>
 	<moveevent event="DeEquip" itemid="2343" slot="head" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2474" slot="head" function="onEquipItem"/>
-	<moveevent event="DeEquip" itemid="2474" slot="head" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2502" slot="head" function="onEquipItem"/>
-	<moveevent event="DeEquip" itemid="2502" slot="head" function="onDeEquipItem"/>
  
-	<!-- Armors -->
-	<moveevent event="DeEquip" itemid="2487" slot="armor" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2487" slot="armor" function="onEquipItem">
-		<vocation name="Knight"/>
-		<vocation name="Elite Knight" showInDescription="0"/>
-		<vocation name="Paladin"/>
-		<vocation name="Royal Paladin" showInDescription="0"/>
-	</moveevent>
-	<moveevent event="DeEquip" itemid="2466" slot="armor" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2466" slot="armor" function="onEquipItem">
-		<vocation name="Knight"/>
-		<vocation name="Elite Knight" showInDescription="0"/>
-		<vocation name="Paladin"/>
-		<vocation name="Royal Paladin" showInDescription="0"/>
-	</moveevent>
-	<moveevent event="DeEquip" itemid="2472" slot="armor" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2472" slot="armor" function="onEquipItem">
-		<vocation name="Knight"/>
-		<vocation name="Elite Knight" showInDescription="0"/>
-		<vocation name="Paladin"/>
-		<vocation name="Royal Paladin" showInDescription="0"/>
-	</moveevent>
-	<moveevent event="DeEquip" itemid="2476" slot="armor" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2476" slot="armor" function="onEquipItem">
-		<vocation name="Knight"/>
-		<vocation name="Elite Knight" showInDescription="0"/>
-		<vocation name="Paladin"/>
-		<vocation name="Royal Paladin" showInDescription="0"/>
-	</moveevent>
-	<moveevent event="DeEquip" itemid="2492" slot="armor" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2492" slot="armor" function="onEquipItem">
-		<vocation name="Knight"/>
-		<vocation name="Elite Knight" showInDescription="0"/>
-		<vocation name="Paladin"/>
-		<vocation name="Royal Paladin" showInDescription="0"/>
-	</moveevent>
-	<moveevent event="DeEquip" itemid="2500" slot="armor" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2500" slot="armor" level="60" function="onEquipItem">
-		<vocation name="Paladin"/>
-		<vocation name="Royal Paladin" showInDescription="0"/>
-	</moveevent>
-	<moveevent event="DeEquip" itemid="2503" slot="armor" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2503" slot="armor" function="onEquipItem"/>
-	<moveevent event="DeEquip" itemid="2660" slot="armor" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2660" slot="armor" function="onEquipItem">
-		<vocation name="Paladin"/>
-		<vocation name="Royal Paladin" showInDescription="0"/>
-	</moveevent>
-	
-	<!-- Legs -->
-	<moveevent event="DeEquip" itemid="2470" slot="legs" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2470" slot="legs" function="onEquipItem">
-		<vocation name="Knight"/>
-		<vocation name="Elite Knight" showInDescription="0"/>
-		<vocation name="Paladin"/>
-		<vocation name="Royal Paladin" showInDescription="0"/>
-	</moveevent>
-	<moveevent event="DeEquip" itemid="2477" slot="legs" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2477" slot="legs" function="onEquipItem">
-		<vocation name="Knight"/>
-		<vocation name="Elite Knight" showInDescription="0"/>
-		<vocation name="Paladin"/>
-		<vocation name="Royal Paladin" showInDescription="0"/>
-	</moveevent>
-	<moveevent event="DeEquip" itemid="2488" slot="legs" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2488" slot="legs" function="onEquipItem">
-		<vocation name="Knight"/>
-		<vocation name="Elite Knight" showInDescription="0"/>
-		<vocation name="Paladin"/>
-		<vocation name="Royal Paladin" showInDescription="0"/>
-	</moveevent>
-	<moveevent event="DeEquip" itemid="2504" slot="legs" function="onDeEquipItem"/>
-	<moveevent event="Equip" itemid="2504" slot="legs" function="onEquipItem"/>
 </movements>
