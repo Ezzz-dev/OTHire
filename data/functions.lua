@@ -813,15 +813,11 @@ function isInArray(array, value, isCaseSensitive)
 end
 
 function doBroadcastMessage(message, class)
-	local messageClass = class or MESSAGE_STATUS_WARNING
-	if messageClass < MESSAGE_CLASS_FIRST or messageClass > MESSAGE_CLASS_LAST then
-		return false
-	end
-
-	for i, cid in ipairs(getPlayersOnlineList()) do
-		doPlayerSendTextMessage(cid, messageClass, message)
-	end
-	return true
+    local messageClass = class or MESSAGE_STATUS_WARNING
+    for i, cid in ipairs(getPlayersOnlineList()) do
+        doPlayerSendTextMessage(cid, messageClass, message)
+    end
+    return true
 end
 
 --for backward compatibility

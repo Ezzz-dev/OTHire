@@ -3,6 +3,9 @@
 	<!-- Quest System (based on map editor) -->
 	<action actionid="2000" script="system.lua"/>
 	
+	<!-- Helmet of the ancients -->
+	<action itemid="2342" script="enchanting.lua"/>
+	
 	<!-- Tools -->
 	<action itemid="2120" script="rope.lua"/>
 	<action itemid="2554" script="shovel.lua"/>

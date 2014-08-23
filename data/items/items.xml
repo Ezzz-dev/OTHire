@@ -2756,6 +2756,7 @@
 	</item>
 	<item id="2111" article="a" name="snowball" plural="snowballs">
 		<attribute key="weight" value="80"/>
+		<attribute key="attack" value="1"/>
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="shootType" value="snowball"/>
 		<attribute key="range" value="5"/>
@@ -4373,14 +4374,14 @@
 		<attribute key="attack" value="36"/>
 		<attribute key="weaponType" value="club"/>
 	</item>
-	<item id="2437" article="a" name="golden mace">
+	<item id="2437" article="a" name="light mace">
 		<attribute key="weight" value="5000"/>
-		<attribute key="defense" value="24"/>
-		<attribute key="attack" value="47"/>
+		<attribute key="defense" value="9"/>
+		<attribute key="attack" value="14"/>
 		<attribute key="weaponType" value="club"/>
 	</item>
 	<item id="2438" article="an" name="epee">
-		<attribute key="weight" value="1500"/>
+		<attribute key="weight" value="1450"/>
 		<attribute key="defense" value="23"/>
 		<attribute key="attack" value="37"/>
 		<attribute key="weaponType" value="sword"/>
@@ -4910,6 +4911,11 @@
 		<attribute key="weaponType" value="shield"/>
 	</item>
 	<item id="2537" article="an" name="amazon shield">
+		<attribute key="weight" value="6200"/>
+		<attribute key="defense" value="32"/>
+		<attribute key="weaponType" value="shield"/>
+	</item>
+	<item id="2538" article="an" name="eagle shield">
 		<attribute key="weight" value="6200"/>
 		<attribute key="defense" value="32"/>
 		<attribute key="weaponType" value="shield"/>
@@ -10790,9 +10796,9 @@
 	<item id="20005" name="lemonade" fluidClient="5"/>
 	<item id="20006" name="milk" fluidClient="6"/>
 	<item id="20007" name="manafluid" fluidClient="7"/>
-	<item id="20010" name="lifefluid" fluidClient="2"/>
+	<item id="20010" name="lifefluid" fluidClient="8"/>
 	<item id="20011" name="oil" fluidClient="9"/>
-	<item id="20013" name="urine" fluidClient="5"/>
+	<item id="20013" name="urine" fluidClient="10"/>
 	<item id="20014" name="coconut milk" fluidClient="11"/>
 	<item id="20015" name="wine" fluidClient="12"/>
 	<item id="20019" name="mud" fluidClient="13"/>
