@@ -144,6 +144,10 @@ public:
 	std::string guildRank, guildNick;
 	uint32_t guildLevel;
 	//]
+	
+	//[ update inventory public
+	void updateInventoryWeight();
+	//]
 
 	//[ gm invisible
 	void toogleGmInvisible();
@@ -647,9 +651,7 @@ protected:
 	void gainExperience(uint64_t& gainExp, bool fromMonster);
 	void addExperience(uint64_t exp);
 	void removeExperience(uint64_t exp, bool updateStats = true);
-
-	void updateInventoryWeight();
-
+	
 	void setNextWalkActionTask(SchedulerTask* task);
 	void setNextActionTask(SchedulerTask* task);
 
