@@ -1843,8 +1843,10 @@ ReturnValue ConjureSpell::internalConjureItem(Player* player, uint32_t conjureId
 	ReturnValue result = g_game.internalPlayerAddItem(player, newItem);
 	if(result != RET_NOERROR){
 		delete newItem;
+		player->updateInventoryWeight();
 	}
 
+	player->updateInventoryWeight();
 	return result;
 }
 
@@ -1867,10 +1869,12 @@ ReturnValue ConjureSpell::internalConjureItem(Player* player, uint32_t conjureId
 				g_game.startDecay(newItem);
 			}
 
+			player->updateInventoryWeight();
 			return RET_NOERROR;
 		}
 	}
 
+	player->updateInventoryWeight();
 	return RET_YOUNEEDAMAGICITEMTOCASTSPELL;
 }
 
@@ -1949,6 +1953,7 @@ bool ConjureSpell::ConjureItem(const ConjureSpell* spell, Creature* creature, co
 		}
 	}
 
+	player->updateInventoryWeight();
 	player->sendCancelMessage(result);
 	g_game.addMagicEffect(player->getPosition(), NM_ME_PUFF);
 	return false;
