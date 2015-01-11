@@ -917,7 +917,7 @@ function doPlayerBuyItemContainer(cid, containerid, itemid, count, cost, charges
 end
 
 function getArticle(str)
-	return str:find("[AaEeIiOoUuYy]") == 1 and "an" or "a"
+	return getItemDescriptions(id).article
 end
 
 function getItemNameById(itemid)
