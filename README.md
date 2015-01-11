@@ -1,15 +1,10 @@
-OTHire Beta 0.0.2 (Development) [![Build Status](https://travis-ci.org/TwistedScorpio/OTHire.svg?branch=master)](https://travis-ci.org/TwistedScorpio/OTHire)
-======
+OTHire Beta 0.0.2
 
 OpenTibia Server for Tibia 7.72
-
 This OTServer is based on OTServ Trunk SVN work (latest stable trunk rev).
-
 The change log can be found to the bottom.
 
 Compatible AAA Znote for OTHire [HERE](https://github.com/peonso/ZnoteOTHire).
-
-## Current othire.exe is outdated, you should compile the newer version with recent changes.
 
 Version Changes
 ======
