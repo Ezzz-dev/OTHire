@@ -163,13 +163,12 @@ rate_mag = 1
 rate_loot = 1
 rate_spawn = 1
 
--- Use Modified Exp Formula:
+-- Set formula on source: player.h
 -- The formula was modified, meaning that, with the original formula, you would need 4200 experience points to reach the level 8.
 -- With Tibianic Exp Formula, you will only need 238 experience points to reach the level 8!
 -- With MasterCores Exp Formula, you will only need 250 experience points to reach the level 8!
 -- With Original Formula, you need 4200 experience points to reach the level 8!
 -- Options: "original", "tibianic" and "mastercores".
-ExpFormulaType = "original"
 
 -- What message should be sent for the player, after its own death? Use "" to disable.
 death_msg = "You are dead."
