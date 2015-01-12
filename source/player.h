@@ -132,20 +132,19 @@ public:
 
 	static uint64_t getExpForLevel(int32_t level)
     {
-        std::string ExpFormulaType = g_config.getString(ConfigManager::TYPE_FORMULA);
       
         level--;
-        if(ExpFormulaType == "original"){
-            return ((50ULL * level * level * level) - (150ULL * level * level) + (400ULL * level))/3ULL;       
-        }
+        //"original"
+        //    return ((50ULL * level * level * level) - (150ULL * level * level) + (400ULL * level))/3ULL;       
+        
       
-        else if(ExpFormulaType == "tibianic"){
-            return (level * 35ULL) * (level * level * level) / 500ULL + 10ULL * level;
-        }   
+        //"tibianic"
+             return (level * 35ULL) * (level * level * level) / 500ULL + 10ULL * level;
+         
       
-        else if(ExpFormulaType == "mastercores"){
-            return ((level * 50ULL) * (level * level * level) / 500ULL)+10ULL;
-        }
+        //"mastercores"
+        //    return ((level * 50ULL) * (level * level * level) / 500ULL)+10ULL;
+        
       }
 
 	//[ guild settings
