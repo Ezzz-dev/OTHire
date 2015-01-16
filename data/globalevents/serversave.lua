@@ -1,5 +1,5 @@
 local function serverSave()
-    doSaveServer(false)
+    doSaveServer(true)
 end
 
 local function secondSaveWarning()
