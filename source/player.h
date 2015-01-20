@@ -135,11 +135,11 @@ public:
       
         level--;
         //"original"
-        //    return ((50ULL * level * level * level) - (150ULL * level * level) + (400ULL * level))/3ULL;       
+            return ((50ULL * level * level * level) - (150ULL * level * level) + (400ULL * level))/3ULL;       
         
       
         //"tibianic"
-             return (level * 35ULL) * (level * level * level) / 500ULL + 10ULL * level;
+        //   return (level * 35ULL) * (level * level * level) / 500ULL + 10ULL * level;
          
       
         //"mastercores"
