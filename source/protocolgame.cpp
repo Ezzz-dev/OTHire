@@ -2067,6 +2067,8 @@ void ProtocolGame::sendTextWindow(uint32_t windowTextId, uint32_t itemId, const 
 
 		msg->AddU16(text.size());
 		msg->AddString(text);
+		
+		msg->AddString("");
 	}
 }
 
