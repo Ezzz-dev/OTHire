@@ -14,4 +14,5 @@
 	execute startup.lua at start of the server
 	<globalevent name="startup" type="startup" script="startup.lua"/>
 	-->
+	<globalevent name="serversave" time="10:00:00" script="serversave.lua"/> 
 </globalevents>

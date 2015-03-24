@@ -288,7 +288,7 @@ function getTibiaTime()
 		worldTime = worldTime - 60
 	end
 
-	return {hours = hours, minutes = worldTime}
+	return tostring(hours .. ':' .. worldTime)
 end
 
 exhaustion =
@@ -813,11 +813,15 @@ function isInArray(array, value, isCaseSensitive)
 end
 
 function doBroadcastMessage(message, class)
-    local messageClass = class or MESSAGE_STATUS_WARNING
-    for i, cid in ipairs(getPlayersOnlineList()) do
-        doPlayerSendTextMessage(cid, messageClass, message)
-    end
-    return true
+	local messageClass = class or MESSAGE_STATUS_WARNING
+	if messageClass < MESSAGE_CLASS_FIRST or messageClass > MESSAGE_CLASS_LAST then
+		return false
+	end
+
+	for i, cid in ipairs(getPlayersOnlineList()) do
+		doPlayerSendTextMessage(cid, messageClass, message)
+	end
+	return true
 end
 
 --for backward compatibility
@@ -910,4 +914,16 @@ end
 
 function doPlayerBuyItemContainer(cid, containerid, itemid, count, cost, charges)
 	return doPlayerRemoveMoney(cid, cost) and doPlayerGiveItemContainer(cid, containerid, itemid, count, charges)
+end
+
+function getArticle(str)
+	return getItemDescriptions(id).article
+end
+
+function getItemNameById(itemid)
+   return getItemDescriptions(itemid).name
+end
+
+function isSummon(cid)
+	return getCreatureMaster(cid) ~= cid or false
 end

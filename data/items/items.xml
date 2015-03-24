@@ -10796,14 +10796,15 @@
 	<item id="20005" name="lemonade" fluidClient="5"/>
 	<item id="20006" name="milk" fluidClient="6"/>
 	<item id="20007" name="manafluid" fluidClient="7"/>
-	<item id="20010" name="lifefluid" fluidClient="8"/>
-	<item id="20011" name="oil" fluidClient="9"/>
-	<item id="20013" name="urine" fluidClient="10"/>
-	<item id="20014" name="coconut milk" fluidClient="11"/>
+	<item id="20010" name="lifefluid" fluidClient="10"/>
+	<item id="20011" name="oil" fluidClient="11"/>
+	<item id="20013" name="urine" fluidClient="13"/>
+	<item id="20014" name="coconut milk" fluidClient="14"/>
 	<item id="20015" name="wine" fluidClient="12"/>
-	<item id="20019" name="mud" fluidClient="13"/>
-	<item id="20021" name="fruit juice" fluidClient="14"/>
-	<item id="20027" name="rum" fluidClient="15"/>
+	<item id="20019" name="mud" fluidClient="19"/>
+	<item id="20021" name="fruit juice" fluidClient="21"/>
+	<item id="20027" name="rum" fluidClient="27"/>
 	<item id="20035" name="tea" fluidClient="16"/>
 	<item id="20036" name="mead" fluidClient="17"/>
+	<item id="20027" name="rum" fluidClient="15"/>
 </items>

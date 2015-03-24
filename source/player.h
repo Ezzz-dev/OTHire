@@ -130,11 +130,22 @@ public:
 	void addList();
 	void kickPlayer();
 
-	static uint64_t getExpForLevel(uint32_t level)
-	{
-		level--;
-		return ((50ULL * level * level * level) - (150ULL * level * level) + (400ULL * level))/3ULL;
-	}
+	static uint64_t getExpForLevel(int32_t level)
+    {
+      
+        level--;
+        //"original"
+            return ((50ULL * level * level * level) - (150ULL * level * level) + (400ULL * level))/3ULL;       
+        
+      
+        //"tibianic"
+        //   return (level * 35ULL) * (level * level * level) / 500ULL + 10ULL * level;
+         
+      
+        //"mastercores"
+        //    return ((level * 50ULL) * (level * level * level) / 500ULL)+10ULL;
+        
+      }
 
 	//[ guild settings
 	void setGuild(Guild* _guild) { guild = _guild; }
