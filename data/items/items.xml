@@ -1057,14 +1057,17 @@
 	<item id="1421" article="a" name="campfire"/>
 	<item id="1422" article="a" name="campfire"/>
 	<item id="1423" article="a" name="campfire">
+		<attribute key="type" value="magicfield"/>
 		<attribute key="field" value="fire">
 			<attribute key="damage" value="20"/>
 			<attribute key="ticks" value="4000"/>
 			<attribute key="count" value="2"/>
 			<attribute key="damage" value="10"/>
 		</attribute>
+		
 	</item>
 	<item id="1424" article="a" name="campfire">
+		<attribute key="type" value="magicfield"/>
 		<attribute key="field" value="fire">
 			<attribute key="damage" value="20"/>
 			<attribute key="ticks" value="4000"/>
@@ -1073,6 +1076,7 @@
 		</attribute>
 	</item>
 	<item id="1425" article="a" name="campfire">
+		<attribute key="type" value="magicfield"/>
 		<attribute key="field" value="fire">
 			<attribute key="damage" value="20"/>
 			<attribute key="ticks" value="4000"/>
