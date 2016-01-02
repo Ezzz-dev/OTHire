@@ -789,7 +789,8 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 				s << ", Atk" << std::showpos << it.attack << std::noshowpos;
 			}
 		}
-		else if (it.weaponType != WEAPON_AMMO && it.weaponType != WEAPON_WAND){ // Arrows and Bolts doesn't show atk
+		else if (it.weaponType != WEAPON_AMMO && it.weaponType != WEAPON_WAND // Arrows and Bolts don't show stats
+			&& (it.attack != 0 || it.defense != 0 || it.extraDef != 0 || it.abilities.stats[STAT_MAGICPOINTS] != 0)){ // Only show if at least one stat is present
 			s << " (";
 			if (it.attack != 0){
 				s << "Atk:" << (int)it.attack;
