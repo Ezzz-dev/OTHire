@@ -439,6 +439,10 @@ bool Monsters::deserializeSpell(xmlNodePtr node, spellBlock_t& sb, MonsterType* 
 			}
 		}
 
+		if(readXMLInteger(node, "checkshield", intValue)){
+			combat->setParam(COMBATPARAM_BLOCKEDBYSHIELD, 1);
+		}
+
 		if(readXMLInteger(node, "radius", intValue)){
 			int32_t radius = intValue;
 

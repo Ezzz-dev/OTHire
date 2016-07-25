@@ -47,7 +47,7 @@
 		<item id="2465" chance="5000"/><!-- 5% brass armor -->
 		<item id="2458" chance="10000"/><!-- 10% chain helmet -->
 		<item id="2459" chance="1000"/><!-- 1% iron helmet -->
-		<item id="2322" chance="1000"/><!-- 1% doll -->
+		<item id="2110" chance="1000"/><!-- 1% doll -->
 		<item id="2148" chance="80000" countmax="20"/><!-- 20 80% gold coin -->
 		<item id="2148" chance="30000" countmax="10"/><!-- 10 30% gold coin -->
 		<item id="2666" chance="80000"/><!-- 80% meat -->

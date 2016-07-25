@@ -52,7 +52,7 @@
 				<item id="2389" chance="20000"/><!-- 20% spear -->
 				<item id="2401" chance="14000"/><!-- 14% staff -->
 				<item id="2188" chance="2000"/><!-- 2% wand of plague -->
-				<item id="1958" chance="9000"/><!-- 9% grey small book -->
+				<item id="1973" chance="9000"/><!-- 9% grey small book -->
 			</inside>
 		</item>
 		<item id="2464" chance="18000"/><!-- 18% chain armor -->

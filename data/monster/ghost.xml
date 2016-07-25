@@ -45,7 +45,7 @@
 			</inside>
 		</item>
 		<item id="2804" chance="30000"/><!-- 30% shadow herb -->
-		<item id="1962" chance="3000"/><!-- 3% orange book -->
+		<item id="1977" chance="3000"/><!-- 3% orange book -->
 		<item id="2642" chance="40000"/><!-- 40% sandals -->
 		<item id="2654" chance="18000"/><!-- 18% cape -->
 	</loot>
