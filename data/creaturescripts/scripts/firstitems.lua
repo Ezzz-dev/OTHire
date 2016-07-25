@@ -1,8 +1,8 @@
 -- by JDB @otland.net
 -- http://otland.net/threads/first-items.40857/
 
-local storage = 7001
 function onLogin(cid)
+	local lastLogin = getPlayerLastLogin(cid)
 	local config = {
 		voc_items = {
 			{ -- SORC
@@ -34,8 +34,8 @@ function onLogin(cid)
 			{2388} -- hatchet
 		}
 	}
-	if getPlayerVocation(cid) < 11 then
-		if getPlayerStorageValue(cid, storage) == -1 then
+	if not (lastLogin ~= 0) then
+		if getPlayerVocation(cid) < 11 and getPlayerVocation(cid) > 0 then
 			local common = config.voc_items[getPlayerVocation(cid)]
 			if common ~= nil then
 				for _, v in ipairs(common) do
@@ -67,8 +67,15 @@ function onLogin(cid)
 				end
 			end
 			
-			setPlayerStorageValue(cid, storage, 1)
+		elseif getPlayerVocation(cid) == 0 then 
+			doPlayerAddItem(cid, 2650, 1) -- jacket
+			local club = doCreateItemEx(2382, 1) -- club
+			doPlayerAddItemEx(cid, club, true, CONST_SLOT_LEFT)
+			local bp = doPlayerAddItem(cid, 1987, 1) -- bag
+			doAddContainerItem(bp, 2050, 1) -- torch
+			doAddContainerItem(bp, 2674, 2) -- apples
 		end
+		
 	end
-	return TRUE
+	return true
 end
