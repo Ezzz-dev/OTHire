@@ -2295,7 +2295,10 @@ void ProtocolGame::AddCreatureSpeak(NetworkMessage_ptr msg, const Creature* crea
 
 	if (type != SPEAK_CHANNEL_R2){
 		if (type != SPEAK_RVR_ANSWER){
-			msg->AddString(creature->getName());
+			if(creature)
+				msg->AddString(creature->getName());
+			else
+				msg->AddString(""); // anonymous = no name
 		}
 		else {
 			msg->AddString("Gamemaster");
