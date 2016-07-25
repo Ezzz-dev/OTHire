@@ -354,6 +354,7 @@ protected:
 	static int luaDoSendDistanceShoot(lua_State *L);
 	static int luaDoChangeTypeItem(lua_State *L);
 	static int luaDoSendAnimatedText(lua_State *L);
+	static int luaSendOutfitWindow(lua_State *L);
 	static int luaDoShowTextWindow(lua_State *L);
 	static int luaDoShowTextDialog(lua_State *L);
 	static int luaDoDecayItem(lua_State *L);

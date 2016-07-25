@@ -1490,6 +1490,9 @@ void LuaScriptInterface::registerFunctions()
 
 	//doPlayerTransferMoneyTo(cid, target, money)
 	lua_register(m_luaState, "doPlayerTransferMoneyTo", LuaScriptInterface::luaDoPlayerTransferMoneyTo);
+	
+	//sendOutfitWindow(cid)
+	lua_register(m_luaState, "sendOutfitWindow", LuaScriptInterface::luaSendOutfitWindow);
 
 	//doShowTextWindow(cid, maxlen, canWrite)
 	lua_register(m_luaState, "doShowTextWindow", LuaScriptInterface::luaDoShowTextWindow);
@@ -3609,6 +3612,24 @@ int LuaScriptInterface::luaDoSetCreatureDropLoot(lua_State *L)
 		lua_pushboolean(L, false);
 	}
 
+	return 1;
+}
+
+int LuaScriptInterface::luaSendOutfitWindow(lua_State* L)
+{
+	// sendOutfitWindow()
+	uint32_t cid = popNumber(L);
+
+	ScriptEnviroment* env = getScriptEnv();
+
+	Player* player = env->getPlayerByUID(cid);
+	if (player) {
+		player->sendOutfitWindow();
+		lua_pushboolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	
 	return 1;
 }
 

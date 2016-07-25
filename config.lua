@@ -277,7 +277,7 @@ motd = "Welcome to OTHire 0.0.1!\n\nThis server is in beta stage, please test as
 motdnum = "1"
 
 -- login message
-loginmsg = "Welcome to OTHire 0.0.1."
+loginmsg = "Welcome to OTHire 0.0.3.\n\nBe a lab rat for Ezzz, bug track his engine for him."
 
 -- how many logins attempts until ip is temporary disabled
 -- set to 0 to disable

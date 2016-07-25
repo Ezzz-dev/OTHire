@@ -20,6 +20,7 @@ function onLogin(cid)
 		str = "This is your first visit in "
 		str = str .. serverName
 		str = str .. ". Please choose an outfit."
+		sendOutfitWindow(cid)
 	end
 
 	doPlayerSendTextMessage(cid, MESSAGE_STATUS_DEFAULT, str)
