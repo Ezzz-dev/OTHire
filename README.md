@@ -1,15 +1,14 @@
-OTHire Beta 0.0.2
+## OTHire 0.0.3
 
 OpenTibia Server for Tibia 7.72
 This OTServer is based on OTServ Trunk SVN work (latest stable trunk rev).
-The change log can be found to the bottom.
+The changelog can be found to the bottom.
+Compatible AAC Znote for OTHire [HERE](https://github.com/peonso/ZnoteOTHire).
+0.0.3 release milestone [HERE](https://github.com/TwistedScorpio/OTHire/milestone/1).
 
-Compatible AAA Znote for OTHire [HERE](https://github.com/peonso/ZnoteOTHire).
+### Changelog
 
-Version Changes
-======
-
-  0.0.2 (Development)
+#### 0.0.2
   
     - Many items were fixed.
     - Many issues from non Tibia 7.72 were corrected.
@@ -18,9 +17,8 @@ Version Changes
     - Optimization Changes
     - Linux Compilation
     - Added option for stackable items auto stacking like in newer Tibia versions
-    
 
-  0.0.1 (Development)
+####  0.0.1
   
     - Runes
     - Talking (yelling, whispering)
