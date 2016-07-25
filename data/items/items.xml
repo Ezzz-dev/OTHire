@@ -2756,7 +2756,7 @@
 	</item>
 	<item id="2111" article="a" name="snowball" plural="snowballs">
 		<attribute key="weight" value="80"/>
-		<attribute key="attack" value="1"/>
+		<attribute key="attack" value="0"/>
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="shootType" value="snowball"/>
 		<attribute key="range" value="5"/>
