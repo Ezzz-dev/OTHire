@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <items>
 	<item id="100" name="void"/>
 	<item id="101" name="earth"/>
@@ -683,30 +683,38 @@
 	<item id="1223" article="a" name="closed door">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="1224" article="an" name="open door">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="1225" article="a" name="closed door">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="1226" article="an" name="open door">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="1227" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="1228" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="1229" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="1230" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="1231" article="a" name="closed door" editorsuffix=" (Locked)">
 		<attribute key="type" value="door"/>
@@ -749,30 +757,38 @@
 	<item id="1241" article="a" name="closed door">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="1242" article="an" name="open door">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="1243" article="a" name="closed door">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="1244" article="an" name="open door">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="1245" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="1246" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="1247" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="1248" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="1249" article="a" name="closed door" editorsuffix=" (Locked)">
 		<attribute key="type" value="door"/>
@@ -801,30 +817,38 @@
 	<item id="1255" article="a" name="closed door">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="1256" article="an" name="open door">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="1257" article="a" name="closed door">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="1258" article="an" name="open door">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="1259" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="1260" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="1261" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="1262" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="1263" article="a" name="framework window"/>
 	<item id="1264" article="a" name="framework window"/>
@@ -2197,10 +2221,7 @@
 		<attribute key="maxTextLen" value="512"/>
 	</item>
 	<item id="1950" article="a" name="book">
-		<attribute key="writeable" value="1"/>
-		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
-		<attribute key="writeOnceItemId" value="1971"/>
 	</item>
 	<item id="1951" article="a" name="parchment">
 		<attribute key="weight" value="200"/>
@@ -2221,10 +2242,7 @@
 		<attribute key="weight" value="50"/>
 	</item>
 	<item id="1955" article="a" name="book">
-		<attribute key="writeable" value="1"/>
-		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
-		<attribute key="writeOnceItemId" value="1972"/>
 	</item>
 	<item id="1956" article="a" name="map">
 		<attribute key="weight" value="830"/>
@@ -2233,63 +2251,43 @@
 		<attribute key="weight" value="790"/>
 	</item>
 	<item id="1958" article="a" name="book">
-		<attribute key="writeable" value="1"/>
-		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
-		<attribute key="writeOnceItemId" value="1973"/>
 	</item>
 	<item id="1959" article="a" name="book">
-		<attribute key="writeable" value="1"/>
-		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
-		<attribute key="writeOnceItemId" value="1974"/>
 	</item>
 	<item id="1960" article="a" name="book">
-		<attribute key="writeable" value="1"/>
-		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
-		<attribute key="writeOnceItemId" value="1975"/>
 	</item>
 	<item id="1961" article="a" name="book">
-		<attribute key="writeable" value="1"/>
-		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
 	</item>
 	<item id="1962" article="a" name="book">
-		<attribute key="writeable" value="1"/>
-		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
-		<attribute key="writeOnceItemId" value="1977"/>
 	</item>
 	<item id="1963" article="a" name="book">
-		<attribute key="writeable" value="1"/>
-		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
-		<attribute key="writeOnceItemId" value="1978"/>
 	</item>
 	<item id="1964" article="a" name="book">
-		<attribute key="writeable" value="1"/>
-		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
-		<attribute key="writeOnceItemId" value="1979"/>
 	</item>
 	<item id="1965" article="a" name="book">
-		<attribute key="writeable" value="1"/>
-		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
-		<attribute key="writeOnceItemId" value="1980"/>
 	</item>
 	<item id="1966" article="a" name="book">
-		<attribute key="writeable" value="1"/>
-		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
-		<attribute key="writeOnceItemId" value="1981"/>
 	</item>
 	<item id="1967" article="a" name="parchment">
 		<attribute key="weight" value="200"/>
+		<attribute key="writeable" value="1"/>
+		<attribute key="maxTextLen" value="512"/>
+		<attribute key="writeOnceItemId" value="1967"/>
 	</item>
 	<item id="1968" article="a" name="document">
 		<attribute key="weight" value="150"/>
+		<attribute key="writeable" value="1"/>
+		<attribute key="maxTextLen" value="512"/>
+		<attribute key="writeOnceItemId" value="1968"/>
 	</item>
 	<item id="1969" article="a" name="parchment">
 		<attribute key="writeable" value="1"/>
@@ -2300,39 +2298,69 @@
 		<attribute key="weight" value="1300"/>
 	</item>
 	<item id="1971" article="a" name="book">
+		<attribute key="writeable" value="1"/>
+		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
+		<attribute key="writeOnceItemId" value="1950"/>
 	</item>
 	<item id="1972" article="a" name="book">
+		<attribute key="writeable" value="1"/>
+		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
+		<attribute key="writeOnceItemId" value="1955"/>
 	</item>
 	<item id="1973" article="a" name="book">
+		<attribute key="writeable" value="1"/>
+		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
+		<attribute key="writeOnceItemId" value="1958"/>
 	</item>
 	<item id="1974" article="a" name="book">
+		<attribute key="writeable" value="1"/>
+		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
+		<attribute key="writeOnceItemId" value="1959"/>
 	</item>
 	<item id="1975" article="a" name="book">
+		<attribute key="writeable" value="1"/>
+		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
+		<attribute key="writeOnceItemId" value="1960"/>
 	</item>
-	<item id="1976" article="a" name="gemmed book">
+	<item id="1976" article="a" name="T book">
 		<attribute key="writeable" value="1"/>
 		<attribute key="maxTextLen" value="1100"/>
 		<attribute key="weight" value="1300"/>
 	</item>
 	<item id="1977" article="a" name="book">
+		<attribute key="writeable" value="1"/>
+		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
+		<attribute key="writeOnceItemId" value="1962"/>
 	</item>
 	<item id="1978" article="a" name="book">
+		<attribute key="writeable" value="1"/>
+		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
+		<attribute key="writeOnceItemId" value="1963"/>
 	</item>
 	<item id="1979" article="a" name="book">
+		<attribute key="writeable" value="1"/>
+		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
+		<attribute key="writeOnceItemId" value="1964"/>
 	</item>
 	<item id="1980" article="a" name="book">
+		<attribute key="writeable" value="1"/>
+		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
+		<attribute key="writeOnceItemId" value="1965"/>
 	</item>
 	<item id="1981" article="a" name="book">
+		<attribute key="writeable" value="1"/>
+		<attribute key="maxTextLen" value="512"/>
 		<attribute key="weight" value="1300"/>
+		<attribute key="writeOnceItemId" value="1966"/>
 	</item>
 	<item id="1982" article="a" name="purple tome">
 		<attribute key="weight" value="1900"/>
@@ -3592,11 +3620,11 @@
 		<attribute key="weight" value="210"/>
 		<attribute key="charges" value="1"/>
 	</item>
-	<item id="2292" article="a" name="stalagmite rune">
-		<attribute key="type" value="rune"/>
-		<attribute key="runeSpellName" value="adori tera"/>
-		<attribute key="weight" value="21"/>
-		<attribute key="charges" value="10"/>
+	<item id="2292" article="a" name="envenom rune">
+		<attribute key="type" value="rune" />
+		<attribute key="runeSpellName" value="adevo res pox" />
+		<attribute key="weight" value="21" />
+		<attribute key="charges" value="1" />
 		<attribute key="showcharges" value="1"/>
 	</item>
 	<item id="2293" article="a" name="magic wall rune">
@@ -3741,8 +3769,8 @@
 	<item id="2319" article="a" name="dragonfetish">
 		<attribute key="weight" value="490"/>
 	</item>
-	<item id="2320" article="a" name="skull" plural="skulls">
-		<attribute key="weight" value="2180"/>
+	<item id="2320" article="a" name="skull of Ratha" plural="skulls of Ratha">
+		<attribute key="weight" value="2180" />
 	</item>
 	<item id="2321" article="a" name="giant smithhammer">
 		<attribute key="description" value="This cyclopean hammer seems to be an awesome smithing tool."/>
@@ -4375,7 +4403,7 @@
 		<attribute key="weaponType" value="club"/>
 	</item>
 	<item id="2437" article="a" name="light mace">
-		<attribute key="weight" value="5000"/>
+		<attribute key="weight" value="4100"/>
 		<attribute key="defense" value="9"/>
 		<attribute key="attack" value="14"/>
 		<attribute key="weaponType" value="club"/>
@@ -4398,6 +4426,12 @@
 		<attribute key="attack" value="39"/>
 		<attribute key="weaponType" value="axe"/>
 		<attribute key="slotType" value="two-handed"/>
+	</item>
+	<item id="2441" article="a" name="daramian axe">
+		<attribute key="weight" value="4100" />
+		<attribute key="defense" value="8" />
+		<attribute key="attack" value="17" />
+		<attribute key="weaponType" value="axe" />
 	</item>
 	<item id="2442" article="a" name="heavy machete">
 		<attribute key="weight" value="1840"/>
@@ -4747,20 +4781,26 @@
 		<attribute key="armor" value="7"/>
 		<attribute key="slotType" value="legs"/>
 	</item>
+	<item id="2505" article="an" name="elven mail">
+		<attribute key="weight" value="9000" />
+		<attribute key="armor" value="9" />
+		<attribute key="slotType" value="body" />
+	</item>
 	<item id="2506" article="a" name="dragon scale helmet">
 		<attribute key="description" value="It is made of dragon scales."/>
 		<attribute key="weight" value="6000"/>
 		<attribute key="armor" value="10"/>
 		<attribute key="slotType" value="head"/>
 	</item>
-	<item id="2507" name="ranger legs">
+	<item id="2507" name="elven legs">
 		<attribute key="weight" value="3500"/>
 		<attribute key="armor" value="4"/>
 		<attribute key="slotType" value="legs"/>
 	</item>
-	<item id="2508" article="a" name="native armor" editorsuffix=" (Unknown weight)">
-		<attribute key="slotType" value="body"/>
-		<attribute key="armor" value="7"/>
+	<item id="2508" article="a" name="native armor">
+		<attribute key="weight" value="8000" />
+		<attribute key="slotType" value="body" />
+		<attribute key="armor" value="7" />
 	</item>
 	<item id="2509" article="a" name="steel shield">
 		<attribute key="weight" value="6900"/>
@@ -5243,8 +5283,7 @@
 	<item id="2640" article="a" name="pair of soft boots">
 		<attribute key="weight" value="800"/>
 		<attribute key="slotType" value="feet"/>
-		<attribute key="decayTo" value="10021"/>
-		<attribute key="transformDeEquipTo" value="6132"/>
+		<attribute key="decayTo" value="2238"/>
 		<attribute key="duration" value="14400"/>
 		<attribute key="healthGain" value="1"/>
 		<attribute key="healthTicks" value="2000"/>
@@ -5322,6 +5361,7 @@
 	</item>
 	<item id="2655" article="a" name="red robe">
 		<attribute key="weight" value="2600"/>
+		<attribute key="description" value="The robe is artfully embroideredy." />
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="body"/>
 	</item>
@@ -5364,6 +5404,11 @@
 		<attribute key="weight" value="850"/>
 		<attribute key="armor" value="1"/>
 		<attribute key="slotType" value="head"/>
+	</item>
+	<item id="2664" article="a" name="wood cape">
+		<attribute key="weight" value="1100" />
+		<attribute key="armor" value="2" />
+		<attribute key="slotType" value="head" />
 	</item>
 	<item id="2665" article="a" name="post officers hat">
 		<attribute key="description" value="This hat is the insignia of all tibian post officers."/>
@@ -7980,16 +8025,20 @@
 	<item id="3540" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="3541" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="3542" article="a" name="closed door">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="3543" article="an" name="open door">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="3544" article="a" name="closed door" editorsuffix=" (Locked)">
 		<attribute key="type" value="door"/>
@@ -8013,16 +8062,20 @@
 	<item id="3549" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="3550" article="a" name="gate of expertise">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="Only the worthy may pass."/>
 	</item>
 	<item id="3551" article="a" name="closed door">
 		<attribute key="type" value="door"/>
 		<attribute key="blockprojectile" value="1"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="3552" article="an" name="open door">
 		<attribute key="type" value="door"/>
+		<attribute key="description" value="The door seems to be sealed against unwanted intruders."/>
 	</item>
 	<item id="3569" article="a" name="waterfall"/>
 	<item id="3570" article="a" name="waterfall"/>
@@ -10800,11 +10853,10 @@
 	<item id="20011" name="oil" fluidClient="11"/>
 	<item id="20013" name="urine" fluidClient="13"/>
 	<item id="20014" name="coconut milk" fluidClient="14"/>
-	<item id="20015" name="wine" fluidClient="12"/>
+	<item id="20015" name="wine" fluidClient="15"/>
 	<item id="20019" name="mud" fluidClient="19"/>
 	<item id="20021" name="fruit juice" fluidClient="21"/>
 	<item id="20027" name="rum" fluidClient="27"/>
-	<item id="20035" name="tea" fluidClient="16"/>
-	<item id="20036" name="mead" fluidClient="17"/>
-	<item id="20027" name="rum" fluidClient="15"/>
+	<item id="20035" name="tea" fluidClient="20"/>
+	<item id="20036" name="mead" fluidClient="35"/>
 </items>

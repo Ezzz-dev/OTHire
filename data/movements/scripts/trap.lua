@@ -1,22 +1,24 @@
-function onStepIn(cid, item, pos)
-	if (isInArray(TRAP_OFF, item.itemid) ) then
-		if (isPlayer(cid) and isGmInvisible(cid) == false) then
-			doTargetCombatHealth(0, cid, COMBAT_PHYSICALDAMAGE, -50, -100, CONST_ME_NONE)
-			doTransformItem(item.uid, item.itemid + 1)
-			if item.actionid ~= 0 then
-				doSetItemActionId(item.uid, item.actionid)
-			end
-		end
-	elseif (item.itemid == 2579) then
-		if not isPlayer(cid) then
-			doTargetCombatHealth(0, cid, COMBAT_PHYSICALDAMAGE, -15, -30, CONST_ME_NONE)
-		end
-		doTransformItem(item.uid, item.itemid - 1)
+local traps = {
+	[1510] = {transformTo = 1511, damage = {-50, -100}},
+	[1513] = {damage = {-50, -100}},
+	[2579] = {transformTo = 2578, damage = {-15, -30}},
+	[4208] = {transformTo = 4209, damage = {-15, -30}, type = COMBAT_EARTHDAMAGE}
+}
+
+function onStepIn(cid, item, position, fromPosition)
+	local trap = traps[item.itemid]
+	if trap == nil then
+		return true
+	end
+	
+	doTargetCombatHealth(0, cid, trap.type or COMBAT_PHYSICALDAMAGE, trap.damage[1], trap.damage[2], CONST_ME_NONE)
+	if trap.transformTo ~= nil then
+		doTransformItem(item.uid, trap.transformTo)
 		if item.actionid ~= 0 then
 			doSetItemActionId(item.uid, item.actionid)
 		end
-		doSendMagicEffect(getThingPos(item.uid), CONST_ME_POFF)
 	end
+	
 	return true
 end
 
