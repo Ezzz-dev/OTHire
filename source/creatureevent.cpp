@@ -298,7 +298,7 @@ void CreatureEvent::executeOnDie(Creature* creature, Item* corpse)
 		lua_pushnumber(L, cid);
 		lua_pushnumber(L, corpseid);
 
-		m_scriptInterface->callFunction(2, false);
+		m_scriptInterface->callFunction(2);
 		m_scriptInterface->releaseScriptEnv();
 	}
 	else{
@@ -331,7 +331,7 @@ void CreatureEvent::executeOnKill(Creature* creature, Creature* target, bool las
 		lua_pushnumber(L, targetId);
 		lua_pushboolean(L, (lastHit ? true : false) );
 
-		m_scriptInterface->callFunction(3, false);
+		m_scriptInterface->callFunction(3);
 		m_scriptInterface->releaseScriptEnv();
 	}
 	else{
@@ -364,7 +364,7 @@ void CreatureEvent::executeOnAdvance(Player* player, levelTypes_t type, uint32_t
 		lua_pushnumber(L, oldLevel);
 		lua_pushnumber(L, newLevel);
 
-		m_scriptInterface->callFunction(4, false);
+		m_scriptInterface->callFunction(4);
 		m_scriptInterface->releaseScriptEnv();
 
 	}
