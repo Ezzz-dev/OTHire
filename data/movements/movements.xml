@@ -1,10 +1,6 @@
 <?xml version="1.0"?>
 <movements>
 
-    <!-- Guilcera -->
-	<moveevent event="AddItem" actionid="101" tileitem="1" script="guilcera\hota.lua"/>
-	<moveevent event="RemoveItem" itemid="1953" script="guilcera\parchment.lua"/>
-
 	<!-- Citizen teleport -->
 	<moveevent event="StepIn" itemid="1387" script="citizen.lua"/>
 
