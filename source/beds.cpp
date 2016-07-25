@@ -263,20 +263,10 @@ void BedItem::updateAppearance(const Player* player)
 				}
 			}
 		}
-		else if(player->isFemale()){
-			if(it.femaleSleeperID != 0){
-				const ItemType& newType = Item::items[it.femaleSleeperID];
-				if(newType.type == ITEM_TYPE_BED){
-					g_game.transformItem(this, it.femaleSleeperID);
-				}
-			}
-		}
-		else{
-			if(it.maleSleeperID != 0){
-				const ItemType& newType = Item::items[it.maleSleeperID];
-				if(newType.type == ITEM_TYPE_BED){
-					g_game.transformItem(this, it.maleSleeperID);
-				}
+		else if (it.maleSleeperID != 0){
+			const ItemType& newType = Item::items[it.maleSleeperID];
+			if(newType.type == ITEM_TYPE_BED){
+				g_game.transformItem(this, it.maleSleeperID);
 			}
 		}
 	}
