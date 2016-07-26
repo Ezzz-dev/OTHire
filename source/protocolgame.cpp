@@ -640,7 +640,7 @@ void ProtocolGame::parsePacket(NetworkMessage &msg)
 
 	default:
 		std::cout << "Unknown packet header: " << std::hex << (int)recvbyte << std::dec << ", player " << player->getName() << std::endl;
-		kickPlayer = true;
+		disconnectClient(0x14, "Unknow packet sent.");
 		break;
 	}
 
