@@ -7,6 +7,19 @@
 
 ### Changelog
 
+#### 0.0.3
+
+	- Healing and attacking spells shares exhaust
+	- Players block ranged physical attacks from monsters with shield
+	- Creature events onDie, onKill, onAdvance available
+	- Fixed monsters casting spells through walls
+	- Fixed monsters being traped by moveable items
+	- Fixed bug with beds itemids
+	- Fixed some crash bugs
+	- Updated items.xml
+	- Updated spells
+	- Inumerous minor bugs fixed
+
 #### 0.0.2
   
     - Many items were fixed.
