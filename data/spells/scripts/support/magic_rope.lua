@@ -4,7 +4,7 @@ function onCastSpell(cid, var)
 	local pos = getCreaturePosition(cid)
 	pos.stackpos = 0
 	local grounditem = getThingfromPos(pos)
-	if isInArray(ROPE_SPOT, grounditem.itemid) == TRUE then
+	if isInArray(ROPE_SPOT, grounditem.itemid) == true then
 		local newpos = pos
         local oldpos = getCreaturePosition(cid)
 		newpos.y = newpos.y + 1

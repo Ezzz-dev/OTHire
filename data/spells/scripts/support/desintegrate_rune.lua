@@ -3,10 +3,10 @@ local function doRemoveObject(cid, pos, send)
 	local object = getThingfromPos(pos)
 	local playerPos = getCreaturePosition(cid)
 
-	if(object.uid > 65535 and isCreature(object.uid) == FALSE and isItemMoveable(object.itemid) and object.actionid == 0) then
+	if(object.uid > 65535 and isCreature(object.uid) == false and isItemMoveable(object.itemid) and object.actionid == 0) then
 		doRemoveItem(object.uid)
 		doSendMagicEffect(pos, CONST_ME_POFF)
-		doRemoveObject(cid, pos, TRUE)
+		doRemoveObject(cid, pos, true)
 		return LUA_NO_ERROR
 	elseif(not send) then
 		doPlayerSendDefaultCancel(cid, RETURNVALUE_NOTPOSSIBLE)

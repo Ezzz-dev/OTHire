@@ -1,30 +1,41 @@
 local combat = createCombatObject()
-setCombatParam(combat, COMBAT_PARAM_TYPE, COMBAT_POISONDAMAGE)
+setCombatParam(combat, COMBAT_PARAM_TYPE, COMBAT_EARTHDAMAGE)
 setCombatParam(combat, COMBAT_PARAM_EFFECT, CONST_ME_GREEN_RINGS)
-setCombatFormula(combat, COMBAT_FORMULA_LEVELMAGIC, -0.9, -0, -1.5, -0)
+
+local area = createCombatArea(AREA_CROSS6X6)
+setCombatArea(combat, area)
 
 local condition = createConditionObject(CONDITION_POISON)
 setConditionParam(condition, CONDITION_PARAM_DELAYED, 1)
-addDamageCondition(condition, 10, 2000, -10)
+addDamageCondition(condition, 2, 4000, -45)
+addDamageCondition(condition, 2, 4000, -40)
+addDamageCondition(condition, 2, 4000, -35)
+addDamageCondition(condition, 2, 4000, -30)
+addDamageCondition(condition, 3, 5000, -20)
+addDamageCondition(condition, 3, 5000, -10)
+addDamageCondition(condition, 3, 5000, -7)
+addDamageCondition(condition, 3, 5000, -5)
+addDamageCondition(condition, 4, 5000, -4)
+addDamageCondition(condition, 6, 5000, -3)
+addDamageCondition(condition, 9, 5000, -2)
+addDamageCondition(condition, 12, 5000, -1)
 setCombatCondition(combat, condition)
 
-local arr = {
-    {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
-    {0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0},
-    {0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0},
-    {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-    {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-    {1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1},
-    {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-    {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
-    {0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0},
-    {0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0},
-    {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0}
-}
+function onGetFormulaValues(cid, level, maglevel)
+	min = -((level * 2) + (maglevel * 3)) * 0.9
+	max = -((level * 2) + (maglevel * 3)) * 1.5
+	return min, max
+end
 
-local area = createCombatArea(arr)
-setCombatArea(combat, area)
+setCombatCallback(combat, CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 
 function onCastSpell(cid, var)
-	return doCombat(cid, combat, var)
+	-- check for stairHop delay
+	if not getCreatureCondition(cid, CONDITION_PACIFIED) then
+		return doCombat(cid, combat, var)
+	else
+		cid:sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED)
+		cid:getPosition():sendMagicEffect(CONST_ME_POFF)
+		return false
+	end
 end

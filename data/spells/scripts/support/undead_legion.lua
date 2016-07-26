@@ -8,7 +8,7 @@ function onTargetCorpse(cid, pos)
 	local getPos = pos
 	getPos.stackpos = 255
 	corpse = getThingfromPos(getPos)
-	if(corpse.uid > 0 and isCreature(corpse.uid) == FALSE and isInArray(CORPSES, corpse.itemid) ) then
+	if(corpse.uid > 0 and isCreature(corpse.uid) == false and isInArray(CORPSES, corpse.itemid) ) then
 		doRemoveItem(corpse.uid)
 		doPlayerSummonCreature(cid, "Skeleton", pos)
 	end
