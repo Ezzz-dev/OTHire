@@ -233,7 +233,7 @@
 	<conjure name="Poison Bomb" words="adevo mas pox" needlearn="0" lvl="25" mana="520" soul="2" reagentId="2260" conjureId="2286" conjureCount="2" function="conjureRune">
 		<vocation name="Druid"/>	<vocation name="Elder Druid"/>
 	</conjure>
-	<conjure name="Fire Bomb" words="adevo mas flam" needlearn="0" lvl="9" lvl="27" mana="600" soul="4" reagentId="2260" conjureId="2305" conjureCount="2" function="conjureRune">
+	<conjure name="Fire Bomb" words="adevo mas flam" needlearn="0" lvl="27" mana="600" soul="4" reagentId="2260" conjureId="2305" conjureCount="2" function="conjureRune">
 		<vocation name="Sorcerer"/> <vocation name="Master Sorcerer"/>
 		<vocation name="Druid"/>	<vocation name="Elder Druid"/>
 	</conjure>
