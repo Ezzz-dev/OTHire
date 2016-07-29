@@ -1,9 +1,11 @@
+local CAMPFIRE_IDS = {1423, 1424, 1425}
+
 local function doRemoveField(cid, pos)
 	pos.stackpos = 254
 	local field = getThingfromPos(pos)
 	local playerPos = getCreaturePosition(cid)
 
-	if(field.uid > 0 and isInArray(FIELDS, field.itemid) ) then
+	if(field.uid > 0 and isInArray(FIELDS, field.itemid) and (not isInArray(CAMPFIRE_IDS, field.itemid))) then
 		doRemoveItem(field.uid)
 		doSendMagicEffect(pos, CONST_ME_POFF)
 		return LUA_NO_ERROR
