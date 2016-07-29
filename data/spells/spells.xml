@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-
 <spells>
 	<!-- House Spells -->
 	<instant name="House Guest List" words="aleta sio" enabled="1" function="editHouseGuest"></instant>
@@ -104,7 +103,7 @@
 		<vocation name="Sorcerer"/> <vocation name="Master Sorcerer"/>
 		<vocation name="Druid"/>	<vocation name="Elder Druid"/>
 	</instant>
-	<instant name="Force Strike" words="exori mort" needlearn="0" lvl="11" prem="1" mana="20" direction="1" customexhaust="1000" script="attack/force_strike.lua">
+	<instant name="Force Strike" words="exori mort" needlearn="0" lvl="11" prem="1" mana="20" direction="1" script="attack/force_strike.lua">
 		<vocation name="Sorcerer"/> <vocation name="Master Sorcerer"/>
 		<vocation name="Druid"/>	<vocation name="Elder Druid"/>
 	</instant>
@@ -170,7 +169,7 @@
 		<vocation name="Druid"/>	<vocation name="Elder Druid"/>
 	</instant>
 
-<!-- Conjure Spells -->
+	<!-- Conjure Spells -->
 	<conjure name="Poison Field" words="adevo grav pox" needlearn="0" lvl="14" mana="200" soul="1" aggressive="0" reagentId="2260" conjureId="2285" conjureCount="3" function="conjureRune">
 		<vocation name="Sorcerer"/> <vocation name="Master Sorcerer"/>
 		<vocation name="Druid"/>	<vocation name="Elder Druid"/>
@@ -291,8 +290,8 @@
 		<vocation name="Paladin"/>	<vocation name="Royal Paladin"/>
 	</conjure>
 	
-		<!-- Monster Spells -->
-		<instant name="djinn electrify"	words="###1"	aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/djinn electrify.lua"/>
-		<instant name="djinn electrify area"	words="###2"	aggressive="1" blockwalls="1" selftarget="1" needlearn="1" script="monster/djinn electrify area.lua"/>
+	<!-- Monster Spells -->
+	<instant name="djinn electrify"	words="###1" aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/djinn electrify.lua"/>
+	<instant name="djinn electrify area" words="###2" aggressive="1" blockwalls="1" selftarget="1" needlearn="1" script="monster/djinn electrify area.lua"/>
 		
 </spells>
