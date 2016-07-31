@@ -20,10 +20,7 @@
 		<attack name="melee" interval="2000" skill="40" attack="30"/>
 	</attacks>
 	<defenses armor="18" defense="14">
-		<defense name="speed" interval="1000" chance="7" speedchange="540" duration="3000">
-		<!--<defense name="speed" interval="1000" chance="7" speedchange="100" duration="3000">-->
-			<attribute key="areaEffect" value="redshimmer"/>
-		</defense>
+		<defense name="haste_kongra" interval="1000" chance="7"/>
 	</defenses>
 	<elements>
 	</elements>

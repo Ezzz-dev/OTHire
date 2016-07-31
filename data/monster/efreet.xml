@@ -27,10 +27,7 @@
 		<attack name="lifedrain" interval="1000" chance="20" range="7" min="-60" max="-120">
 			<attribute key="shootEffect" value="death"/>
 		</attack>
-		<attack name="speed" interval="1000" chance="13" range="7" speedchange="-600" duration="15000">
-		<!--<attack name="speed" interval="1000" chance="13" range="7" speedchange="-150" duration="15000">-->
-			<attribute key="areaEffect" value="redshimmer"/>
-		</attack>
+		<attack name="paralyze_efreet" interval="1000" chance="13" range="7"/>
 		<attack name="drunk" interval="1000" chance="20" range="7" duration="60000">
 			<attribute key="shootEffect" value="energy"/>
 			<attribute key="areaEffect" value="teleport"/>
@@ -39,9 +36,6 @@
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
 		<attack name="djinn electrify area" interval="1000" chance="17" min="-60" max="-100"/>
-		<!--<attack name="energycondition" interval="1000" chance="17" radius="3" target="0" min="-60" max="-100">
-			<attribute key="areaEffect" value="energy"/>
-		</attack>-->
 	</attacks>
 	<defenses armor="24" defense="35">
 	    <defense name="healing" interval="1000" chance="15" min="50" max="80">

@@ -23,10 +23,7 @@
 		</attack>
 	</attacks>
 	<defenses armor="30" defense="40">
-		<defense name="speed" interval="1000" chance="6" speedchange="540" duration="20000">
-		<!--<defense name="speed" interval="1000" chance="6" speedchange="130" duration="20000">-->
-			<attribute key="areaEffect" value="redshimmer"/>
-		</defense>
+		<defense name="haste_giantspider" interval="1000" chance="6"/>
 	</defenses>
 	<summons maxSummons="2">
 		<summon name="poison spider" interval="1000" chance="10" max="2"/>

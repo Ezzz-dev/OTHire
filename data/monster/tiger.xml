@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="tiger" nameDescription="a tiger" race="blood" experience="40" speed="200" manacost="420">
 	<health now="75" max="75"/>
-	<look type="125" head="0" body="0" legs="0" feet="0" corpse="4292"/>
+	<look type="125" corpse="4292"/>
 	<targetchange interval="1000" chance="5"/>
 	<flags>
 		<flag attackable="1"/>
@@ -20,6 +20,7 @@
 		<attack name="melee" interval="2000" skill="42" attack="15"/>
 	</attacks>
 	<defenses armor="5" defense="15">
+		<defense name="haste_tiger" interval="1000" chance="11"/>
 	</defenses>
 	<elements>
 	</elements>

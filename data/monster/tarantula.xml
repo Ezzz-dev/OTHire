@@ -24,10 +24,7 @@
 		</attack>
 	</attacks>
 	<defenses armor="20" defense="20">
-		<defense name="speed" interval="1000" chance="13" speedchange="890" duration="2000">
-	    <!--<defense name="speed" interval="1000" chance="13" speedchange="190" duration="2000">-->
-			<attribute key="areaEffect" value="redshimmer"/>
-		</defense>
+		<defense name="haste_tarantula" interval="1000" chance="13"/>
 	</defenses>
 	<elements>
 		<element earthPercent="100"/>

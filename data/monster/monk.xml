@@ -23,10 +23,7 @@
 		<defense name="healing" interval="1000" chance="17" min="30" max="50">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-		<defense name="speed" interval="1000" chance="10" speedchange="460" duration="2000">
-		<!--<defense name="speed" interval="1000" chance="10" speedchange="110" duration="2000">-->
-			<attribute key="areaEffect" value="redshimmer"/>
-		</defense>
+		<defense name="haste_monk" interval="1000" chance="10"/>
 	</defenses>
 	<elements>
 	</elements>

@@ -22,10 +22,7 @@
 			<attribute key="shootEffect" value="energy"/>
 		</attack>
 		<attack name="manadrain" interval="1000" chance="17" range="7" min="-35" max="-75"/>
-		<attack name="speed" interval="1000" chance="12" range="7" speedchange="-600" duration="40000">
-		<!--<attack name="speed" interval="1000" chance="12" range="7" speedchange="-160" duration="40000">-->
-			<attribute key="areaEffect" value="redshimmer"/>
-		</attack>
+		<attack name="paralyze_warlock" interval="1000" chance="12" range="7"/>
 		<attack name="fire" interval="1000" chance="34" range="7" radius="3" target="1" min="-90" max="-170">
 			<attribute key="shootEffect" value="fire"/>
 			<attribute key="areaEffect" value="firearea"/>

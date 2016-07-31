@@ -22,30 +22,20 @@
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
-		<attack name="speed" interval="1000" chance="13" range="7" speedchange="-600" duration="25000">
-		<!--<attack name="speed" interval="1000" chance="13" range="7" speedchange="-180" duration="25000">-->
-			<attribute key="shootEffect" value="poison"/>
-			<attribute key="areaEffect" value="poison"/>
-		</attack>
+		<attack name="paralyze_ancientscarab" interval="1000" chance="13" range="7"/>
 		<attack name="poisoncondition" interval="1000" chance="17" radius="5" target="0" min="-440" max="-520">
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
 		<attack name="poisoncondition" interval="1000" chance="17" radius="5" target="0" min="-440" max="-520">
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
-		<attack name="speed" interval="1000" chance="25" radius="5" target="0" speedchange="-600" duration="20000">
-		<!--<attack name="speed" interval="1000" chance="25" radius="5" target="0" speedchange="-160" duration="20000">-->
-			<attribute key="areaEffect" value="poison"/>
-		</attack>
+		<attack name="paralyze_ancientscarab2" interval="1000" chance="25" range="7"/>
 	</attacks>
 	<summons maxSummons="3">
 		<summon name="larva" interval="1000" chance="15" max="3"/>
 	</summons>
 	<defenses armor="36" defense="33">
-		<defense name="speed" interval="1000" chance="8" speedchange="780" duration="9000">
-	    <!--<defense name="speed" interval="1000" chance="8" speedchange="170" duration="9000">-->
-			<attribute key="areaEffect" value="redshimmer"/>
-		</defense>
+		<defense name="haste_ancientscarab" interval="1000" chance="8"/>
 	</defenses>
 	<elements>
 		<element earthPercent="100"/>

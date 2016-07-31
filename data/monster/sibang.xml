@@ -23,10 +23,7 @@
 		</attack>
 	</attacks>
 	<defenses armor="15" defense="32">
-		<defense name="speed" interval="1000" chance="12" speedchange="700" duration="3000">
-		<!--<defense name="speed" interval="1000" chance="12" speedchange="150" duration="3000">-->
-			<attribute key="areaEffect" value="redshimmer"/>
-		</defense>
+		<defense name="haste_sibang" interval="1000" chance="12"/>
 	</defenses>
 	<elements>
 	</elements>

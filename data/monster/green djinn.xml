@@ -22,9 +22,6 @@
 			<attribute key="shootEffect" value="fire"/>
 		</attack>
 		<attack name="djinn electrify" interval="1000" chance="34" range="7" min="-50" max="-90"/>
-		<!--<attack name="energycondition" interval="1000" chance="34" range="7" min="-50" max="-90">
-			<attribute key="shootEffect" value="energy"/>
-		</attack>-->
 		<attack name="lifedrain" interval="1000" chance="25" range="7" min="-55" max="-105">
 			<attribute key="shootEffect" value="death"/>
 		</attack>

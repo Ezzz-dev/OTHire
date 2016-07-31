@@ -23,10 +23,7 @@
       <attribute key="shootEffect" value="poison"/>
       <attribute key="areaEffect" value="poison"/>
     </attack>
-    <attack name="speed" interval="1000" chance="20" range="7" speedchange="-850" duration="25000">
-      <attribute key="shootEffect" value="poison"/>
-      <attribute key="areaEffect" value="poison"/>
-    </attack>
+	<attack name="paralyze_oldwidow" interval="1000" chance="20" range="7"/>
     <attack name="poisonfield" interval="1000" chance="10" range="7" radius="4" target="1">
       <attribute key="shootEffect" value="poison"/>
     </attack>
@@ -35,9 +32,7 @@
     <defense name="healing" interval="1000" chance="17" min="225" max="275">
       <attribute key="areaEffect" value="blueshimmer"/>
     </defense>
-    <defense name="speed" interval="1000" chance="8" speedchange="345" duration="6000">
-      <attribute key="areaEffect" value="redshimmer"/>
-    </defense>
+	<defense name="haste_oldwidow" interval="1000" chance="8"/>
   </defenses>
   	<elements>
 		<element firePercent="100"/>

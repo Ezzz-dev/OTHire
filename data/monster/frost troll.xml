@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="frost troll" nameDescription="a frost troll" race="blood" experience="23" speed="140" manacost="300">
 	<health now="55" max="55"/>
-	<look type="53" head="0" body="0" legs="0" feet="0" corpse="2928"/>
+	<look type="53" corpse="2928"/>
 	<targetchange interval="1000" chance="0"/>
 	<flags>
 		<flag attackable="1"/>

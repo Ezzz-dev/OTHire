@@ -26,10 +26,7 @@
 		</attack>
 	</attacks>
 	<defenses armor="21" defense="26">
-		<defense name="speed" interval="1000" chance="5" speedchange="560" duration="4000">
-		<!--<defense name="speed" interval="1000" chance="5" speedchange="90" duration="4000">-->
-			<attribute key="areaEffect" value="redshimmer"/>
-		</defense>
+		<defense name="haste_scarab" interval="1000" chance="5"/>
 	</defenses>
 	<elements>
 		<element earthPercent="100"/>

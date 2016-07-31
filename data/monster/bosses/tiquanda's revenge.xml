@@ -23,10 +23,7 @@
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="greenspark"/>
 		</attack>
-		<attack name="speed" interval="1000" chance="34" range="7" speedchange="-850" duration="30000">
-			<attribute key="shootEffect" value="poison"/>
-			<attribute key="areaEffect" value="greenspark"/>
-		</attack>
+		<attack name="paralyze_carniphila" interval="1000" chance="34" range="7"/>
 		<attack name="poison" interval="1000" chance="12" radius="3" target="0" min="-40" max="-130">
 			<attribute key="areaEffect" value="poison"/>
 		</attack>

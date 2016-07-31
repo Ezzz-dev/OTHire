@@ -30,12 +30,5 @@ end
 setCombatCallback(combat, CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 
 function onCastSpell(cid, var)
-	-- check for stairHop delay
-	if not getCreatureCondition(cid, CONDITION_PACIFIED) then
-		return doCombat(cid, combat, var)
-	else
-		cid:sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED)
-		cid:getPosition():sendMagicEffect(CONST_ME_POFF)
-		return false
-	end
+	return doCombat(cid, combat, var)
 end
