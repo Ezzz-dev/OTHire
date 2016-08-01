@@ -160,13 +160,13 @@
 		<vocation name="Sorcerer"/> <vocation name="Master Sorcerer"/>
 	</instant>
 	<instant name="Poison Storm" words="exevo gran mas pox" needlearn="0" lvl="50" prem="1" mana="600" selftarget="1" script="attack/poison_storm.lua">
-		<vocation name="Druid"/> <vocation name="Elder Druid"/>
+		<vocation name="Druid"/>	<vocation name="Elder Druid"/>
 	</instant>
 	<instant name="Energy Wave" words="exevo mort hur" needlearn="0" lvl="38" mana="250" prem="1" direction="1" script="attack/energy_wave.lua">
 		<vocation name="Sorcerer"/> <vocation name="Master Sorcerer"/>
 	</instant>
-	<instant name="Wild Growth" words="exevo grav vita" needlearn="0" lvl="27" mana="220" prem="1" direction="1" blocktype="all" script="support/wild_growth.lua">
-		<vocation name="Druid"/>	<vocation name="Elder Druid"/>
+	<instant name="Wild Growth" words="exevo grav vita" needlearn="0" lvl="27" mana="220" prem="1" script="support/wild_growth.lua">
+		<vocation name="Elder Druid"/>
 	</instant>
 
 	<!-- Conjure Spells -->
