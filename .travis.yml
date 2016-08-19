@@ -1,13 +1,17 @@
+sudo: required
+dist: trusty
+
 language: cpp
 
 compiler:
-- gcc
- 
-install:
-- sudo apt-get -y install autoconf build-essential pkg-config libboost-dev libgmp3-dev libxml2-dev liblua5.1-0-dev libmysqlclient-dev libcrypto++-dev ccache libboost-filesystem-dev libboost-regex-dev libboost-system-dev libboost-thread-dev libssl-dev lua5.1 liblua5.1-sql-mysql-dev libncurses5-dev
-- cd $TRAVIS_BUILD_DIR/source
+  - gcc
 
-script: 
-- autoreconf -vfi --warnings=none
-- ./configure --enable-mysql --enable-server-diag
-- make 
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y autoconf build-essential pkg-config libboost-dev libgmp3-dev libxml2-dev liblua5.1-0-dev libmysqlclient-dev libcrypto++-dev ccache libboost-filesystem-dev libboost-regex-dev libboost-system-dev libboost-thread-dev libssl-dev lua5.1 libncurses5-dev
+
+script:
+  - cd source
+  - sh ./autogen.sh
+  - ./configure --enable-mysql --enable-server-diag
+  - make
