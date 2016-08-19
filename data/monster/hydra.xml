@@ -18,16 +18,16 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="71" attack="56"/>
-		<attack name="paralyze_hydra" interval="1000" chance="13" range="7"/>
-		<attack name="physical" interval="1000" chance="15" length="8" spread="3" min="-100" max="-200">
+		<attack name="paralyze_hydra" interval="2000" chance="13" range="7"/>
+		<attack name="physical" interval="2000" chance="15" length="8" spread="3" min="-100" max="-200">
 			<attribute key="areaEffect" value="bluebubble"/>
 		</attack>
-		<attack name="poison" interval="1000" chance="12" length="8" spread="3" min="-60" max="-300">
+		<attack name="poison" interval="2000" chance="12" length="8" spread="3" min="-60" max="-300">
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
 	</attacks>
 	<defenses armor="27" defense="45">
-		<defense name="healing" interval="1000" chance="34" min="200" max="400">
+		<defense name="healing" interval="2000" chance="34" min="200" max="400">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>

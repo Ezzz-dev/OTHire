@@ -18,16 +18,16 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="55" attack="42"/>
-		<attack name="fire" interval="1000" chance="15" range="7" radius="4" target="1" min="-55" max="-105">
+		<attack name="fire" interval="2000" chance="15" range="7" radius="4" target="1" min="-55" max="-105">
 			<attribute key="shootEffect" value="fire"/>
 			<attribute key="areaEffect" value="firearea"/>
 		</attack>
-		<attack name="fire" interval="1000" chance="12" length="8" spread="3" min="-100" max="-160">
+		<attack name="fire" interval="2000" chance="12" length="8" spread="3" min="-100" max="-160">
 			<attribute key="areaEffect" value="firearea"/>
 		</attack>
 	</attacks>
 	<defenses armor="25" defense="38">
-		<defense name="healing" interval="1000" chance="13" min="34" max="56">
+		<defense name="healing" interval="2000" chance="13" min="34" max="56">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>

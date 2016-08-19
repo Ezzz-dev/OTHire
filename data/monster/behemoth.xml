@@ -18,12 +18,12 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="110" attack="75"/>
-		<attack name="physical" interval="1000" checkshield="1" chance="15" range="7" min="-125" max="-185">
+		<attack name="physical" interval="2000" checkshield="1" chance="15" range="7" min="-125" max="-185">
 			<attribute key="shootEffect" value="largerock"/>
 		</attack>
 	</attacks>
 	<defenses armor="50" defense="65">
-		<defense name="haste_behemoth" interval="1000" chance="7"/>
+		<defense name="haste_behemoth" interval="2000" chance="7"/>
 	</defenses>
 	<elements>
 		<element firePercent="100"/>

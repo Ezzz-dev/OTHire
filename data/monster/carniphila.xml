@@ -18,12 +18,12 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="40" attack="40" poison="95"/>
-		<attack name="poison" interval="1000" chance="25" range="7" min="-60" max="-90">
+		<attack name="poison" interval="2000" chance="25" range="7" min="-60" max="-90">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="greenspark"/>
 		</attack>
-		<attack name="paralyze_carniphila" interval="1000" chance="34" range="7"/>
-		<attack name="poison" interval="1000" chance="12" radius="3" target="0" min="-40" max="-130">
+		<attack name="paralyze_carniphila" interval="2000" chance="34" range="7"/>
+		<attack name="poison" interval="2000" chance="12" radius="3" target="0" min="-40" max="-130">
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
 	</attacks>

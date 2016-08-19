@@ -18,11 +18,11 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="38" attack="38"/>
-		<attack name="fire" interval="1000" chance="25" range="7" radius="2" target="1" min="-55" max="-155">
+		<attack name="fire" interval="2000" chance="25" range="7" radius="2" target="1" min="-55" max="-155">
 			<attribute key="shootEffect" value="fire"/>
 			<attribute key="areaEffect" value="firearea"/>
 		</attack>
-		<attack name="firefield" interval="1000" chance="34" range="7" radius="1" target="1">
+		<attack name="firefield" interval="2000" chance="34" range="7" radius="1" target="1">
 			<attribute key="shootEffect" value="fire"/>
 		</attack>
 	</attacks>

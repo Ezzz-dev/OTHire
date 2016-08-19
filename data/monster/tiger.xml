@@ -20,7 +20,7 @@
 		<attack name="melee" interval="2000" skill="42" attack="15"/>
 	</attacks>
 	<defenses armor="5" defense="15">
-		<defense name="haste_tiger" interval="1000" chance="11"/>
+		<defense name="haste_tiger" interval="2000" chance="11"/>
 	</defenses>
 	<elements>
 	</elements>

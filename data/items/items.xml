@@ -230,7 +230,7 @@
 	<item id="488" article="a" name="ramp"/>
 	<item id="489" article="a" name="hole">
 		<attribute key="floorchange" value="down"/>
-		<attribute key="decayTo" value="481"/>
+		<attribute key="decayTo" value="231"/>
 		<attribute key="duration" value="30"/>
 	</item>
 	<item id="493" name="water">

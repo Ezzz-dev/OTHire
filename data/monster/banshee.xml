@@ -18,14 +18,14 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="45" attack="30" poison="65"/>
-		<attack name="lifedrain" interval="1000" chance="4" range="1" min="-50" max="-350"/>
-		<attack name="paralyze_banshee" interval="1000" chance="10" range="7"/>
-		<attack name="lifedrain" interval="1000" chance="34" radius="4" target="0" min="-120" max="-200">
+		<attack name="lifedrain" interval="2000" chance="4" range="1" min="-50" max="-350"/>
+		<attack name="paralyze_banshee" interval="2000" chance="10" range="7"/>
+		<attack name="lifedrain" interval="2000" chance="34" radius="4" target="0" min="-120" max="-200">
 			<attribute key="areaEffect" value="rednote"/>
 		</attack>
 	</attacks>
 	<defenses armor="25" defense="65">
-	    <defense name="healing" interval="1000" chance="25" min="113" max="187">
+	    <defense name="healing" interval="2000" chance="25" min="113" max="187">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>

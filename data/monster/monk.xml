@@ -20,10 +20,10 @@
 		<attack name="melee" interval="2000" skill="55" attack="42"/>
 	</attacks>
 	<defenses armor="25" defense="52">
-		<defense name="healing" interval="1000" chance="17" min="30" max="50">
+		<defense name="healing" interval="2000" chance="17" min="30" max="50">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-		<defense name="haste_monk" interval="1000" chance="10"/>
+		<defense name="haste_monk" interval="2000" chance="10"/>
 	</defenses>
 	<elements>
 	</elements>

@@ -18,15 +18,15 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="42" attack="25"/>
-		<attack name="poison" interval="1000" chance="17" range="1" min="-15" max="-25">
+		<attack name="poison" interval="2000" chance="17" range="1" min="-15" max="-25">
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
-		<attack name="poisonfield" interval="1000" chance="20" radius="1" target="0">
+		<attack name="poisonfield" interval="2000" chance="20" radius="1" target="0">
 			<attribute key="areaEffect" value="poff"/>
 		</attack>
 	</attacks>
 	<defenses armor="21" defense="26">
-		<defense name="haste_scarab" interval="1000" chance="5"/>
+		<defense name="haste_scarab" interval="2000" chance="5"/>
 	</defenses>
 	<elements>
 		<element earthPercent="100"/>
