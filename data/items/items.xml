@@ -3515,7 +3515,7 @@
 	<item id="2273" article="an" name="ultimate healing rune">
 		<attribute key="type" value="rune"/>
 		<attribute key="runeSpellName" value="adura vita"/>
-		<attribute key="weight" value="210"/>
+		<attribute key="weight" value="120"/>
 		<attribute key="charges" value="1"/>
 	</item>
 	<item id="2274" article="an" name="avalanche rune">
