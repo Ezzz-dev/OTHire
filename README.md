@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/TwistedScorpio/OTHire.svg?branch=master)](https://travis-ci.org/TwistedScorpio/OTHire)
+
 ## OTHire 0.0.3
 
 - OpenTibia Server for Tibia 7.72
@@ -21,7 +23,7 @@
 	- Inumerous minor bugs fixed
 
 #### 0.0.2
-  
+
     - Many items were fixed.
     - Many issues from non Tibia 7.72 were corrected.
     - Fixed violation window, wasn't from 7.72
@@ -31,7 +33,7 @@
     - Added option for stackable items auto stacking like in newer Tibia versions
 
 ####  0.0.1
-  
+
     - Runes
     - Talking (yelling, whispering)
     - Private messaging
