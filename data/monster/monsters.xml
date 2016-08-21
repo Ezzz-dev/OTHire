@@ -128,7 +128,7 @@
 	<monster name="Witch" file="witch.xml"/>
 	<monster name="Wolf" file="wolf.xml"/>
 	<monster name="Yeti" file="yeti.xml"/>
-
+	
 <!-- bosses -->
 	<monster name="Ashmunrah" file="bosses/ashmunrah.xml"/>
 	<monster name="Deathslicer" file="bosses/deathslicer.xml"/>
@@ -156,5 +156,5 @@
 	<monster name="The Horned Fox" file="bosses/the horned fox.xml"/>
 	<monster name="The Old Widow" file="bosses/the old widow.xml"/>
 	<monster name="Vashresamun" file="bosses/vashresamun.xml"/>
-
+	
 </monsters>

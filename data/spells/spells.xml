@@ -27,7 +27,7 @@
 	<rune name="adevo mas grav pox" id="2289" maglv="5" blocktype="solid" charges="4" script="attack/poison_wall.lua" />
 	<rune name="adori gran flam" id="2304" maglv="4" charges="2" script="attack/great_fireball.lua" />
 	<rune name="adevo mas hur" id="2313" maglv="6" charges="3" script="attack/explosion.lua" />
-	<rune name="adevo grav tera" id="2293" maglv="9" blocktype="all" charges="4" script="support/magic_wall_rune.lua" />
+	<rune name="adevo grav tera" id="2293" maglv="9" blocktype="all" charges="3" script="support/magic_wall_rune.lua" />
 	<rune name="adevo mas grav flam" id="2303" maglv="6" blocktype="solid" charges="4" script="attack/fire_wall.lua" />
 	<rune name="adevo mas vis" id="2262" maglv="10" blocktype="solid" charges="2" script="attack/energybomb.lua" />
 	<rune name="adevo mas grav vis" id="2279" maglv="9" blocktype="solid" charges="4" script="attack/energy_wall.lua" />

@@ -3638,7 +3638,7 @@
 		<attribute key="type" value="rune"/>
 		<attribute key="runeSpellName" value="adevo grav tera"/>
 		<attribute key="weight" value="120"/>
-		<attribute key="charges" value="4"/>
+		<attribute key="charges" value="3"/>
 		<attribute key="showcharges" value="1"/>
 	</item>
 	<item id="2294" article="a" name="spell rune">
@@ -3767,6 +3767,7 @@
 		<attribute key="runeSpellName" value="adana mort"/>
 		<attribute key="weight" value="120"/>
 		<attribute key="charges" value="2"/>
+		<attribute key="showcharges" value="1"/>
 	</item>
 	<item id="2317" article="a" name="dead human"/>
 	<item id="2318" article="a" name="family brooch">
