@@ -6,6 +6,7 @@ OTHire 0.0.3
 - OpenTibia Server for Tibia 7.72
 - This OTServer is based on OTServ Trunk SVN work (latest stable trunk rev).
 - Compatible AAC, ZnoteAAC [HERE](https://github.com/peonso/ZnoteOTHire).
+- Flags calculator [HERE](https://diegorodriguesvieira.github.io/flags-calculator/).
 - 0.0.3 release milestone [HERE](https://github.com/TwistedScorpio/OTHire/milestone/1).
 
 ### Changelog
