@@ -1,0 +1,23 @@
+# Ignore build files
+*.o
+source/.deps/
+source/Makefile
+source/Makefile.in
+source/aclocal.m4
+source/autom4te.cache/
+source/config.h
+source/config.h.in
+source/config.log
+source/config.lua
+source/config.status
+source/configure
+source/depcomp
+source/install-sh
+source/missing
+source/otserv
+source/stamp-h1
+
+# OS
+._*
+.DS_Store
+Thumbs.db
