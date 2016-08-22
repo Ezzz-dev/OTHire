@@ -1,11 +1,12 @@
-[![Build Status](https://travis-ci.org/TwistedScorpio/OTHire.svg?branch=master)](https://travis-ci.org/TwistedScorpio/OTHire)
-
-## OTHire 0.0.3
+OTHire 0.0.3
+========
 
 - OpenTibia Server for Tibia 7.72
 - This OTServer is based on OTServ Trunk SVN work (latest stable trunk rev).
 - Compatible AAC, ZnoteAAC [HERE](https://github.com/peonso/ZnoteOTHire).
 - 0.0.3 release milestone [HERE](https://github.com/TwistedScorpio/OTHire/milestone/1).
+
+[![Build Status](https://travis-ci.org/TwistedScorpio/OTHire.svg?branch=master)](https://travis-ci.org/TwistedScorpio/OTHire)
 
 ### Changelog
 
