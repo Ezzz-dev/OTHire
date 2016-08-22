@@ -26,7 +26,7 @@
 		<attack name="drunk" interval="2000" chance="12" radius="7" target="0">
 			<attribute key="areaEffect" value="bluebubble"/>
 		</attack>
-		<attack name="melee" interval="2000" chance="34" radius="3" target="0" min="-50" max="-600">
+		<attack name="physical" interval="2000" chance="34" radius="3" target="0" min="-50" max="-600">
 			<attribute key="areaEffect" value="bluebubble"/>
 		</attack>
 	</attacks>

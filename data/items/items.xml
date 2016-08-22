@@ -1637,7 +1637,7 @@
 	<item id="1682" article="a" name="small orange pillow">
 		<attribute key="weight" value="1500"/>
 	</item>
-	<item id="1683" article="a" name="small turqoise pillow">
+	<item id="1683" article="a" name="small turquoise pillow">
 		<attribute key="weight" value="1500"/>
 	</item>
 	<item id="1684" article="a" name="small white pillow">
@@ -1667,7 +1667,7 @@
 	<item id="1692" article="a" name="round purple pillow">
 		<attribute key="weight" value="1550"/>
 	</item>
-	<item id="1693" article="a" name="round turqoise pillow">
+	<item id="1693" article="a" name="round turquoise pillow">
 		<attribute key="weight" value="1550"/>
 	</item>
 	<item id="1694" article="a" name="couch"/>
@@ -1847,49 +1847,42 @@
 		<attribute key="type" value="bed"/>
 		<attribute key="partnerDirection" value="south" />
 		<attribute key="maleSleeper" value="1762" />
-		<attribute key="femaleSleeper" value="7778" />
 	</item>
 	<item id="1755" article="a" name="bed">
 		<attribute key="type" value="bed"/>
 		<attribute key="partnerDirection" value="north" />
 		<attribute key="maleSleeper" value="1763" />
-		<attribute key="femaleSleeper" value="8075" />
+
 	</item>
 	<item id="1756" article="a" name="cot">
 		<attribute key="type" value="bed"/>
 		<attribute key="partnerDirection" value="east" />
 		<attribute key="maleSleeper" value="1768" />
-		<attribute key="femaleSleeper" value="7783" />
 	</item>
 	<item id="1757" article="a" name="cot">
 		<attribute key="type" value="bed"/>
 		<attribute key="partnerDirection" value="west" />
 		<attribute key="maleSleeper" value="1769" />
-		<attribute key="femaleSleeper" value="7784" />
 	</item>
 	<item id="1758" article="a" name="cot">
 		<attribute key="type" value="bed"/>
 		<attribute key="partnerDirection" value="south"/>
 		<attribute key="maleSleeper" value="1766" />
-		<attribute key="femaleSleeper" value="7781" />
 	</item>
 	<item id="1759" article="a" name="cot">
 		<attribute key="type" value="bed"/>
 		<attribute key="partnerDirection" value="north" />
 		<attribute key="maleSleeper" value="1767" />
-		<attribute key="femaleSleeper" value="7782" />
 	</item>
 	<item id="1760" article="a" name="bed">
 		<attribute key="type" value="bed"/>
 		<attribute key="partnerDirection" value="east" />
 		<attribute key="maleSleeper" value="1764" />
-		<attribute key="femaleSleeper" value="7779" />
 	</item>
 	<item id="1761" article="a" name="bed">
 		<attribute key="type" value="bed"/>
 		<attribute key="partnerDirection" value="west" />
 		<attribute key="maleSleeper" value="1765" />
-		<attribute key="femaleSleeper" value="7780" />
 	</item>
 	<item id="1762" article="a" name="bed">
 		<attribute key="type" value="bed"/>
@@ -2883,7 +2876,6 @@
 	</item>
 	<item id="2138" article="a" name="sapphire amulet">
 		<attribute key="weight" value="5200"/>
-		<attribute key="armor" value="3"/>
 		<attribute key="slotType" value="necklace"/>
 	</item>
 	<item id="2139" article="an" name="ancient tiara">
@@ -3072,7 +3064,7 @@
 		<attribute key="weight" value="2500"/>
 		<attribute key="weaponType" value="wand"/>
 		<attribute key="shootType" value="poison"/>
-		<attribute key="range" value="3"/>
+		<attribute key="range" value="2"/>
 	</item>
 	<item id="2182" article="a" name="snakebite rod">
 		<attribute key="weight" value="1900"/>
@@ -3084,7 +3076,7 @@
 		<attribute key="weight" value="2700"/>
 		<attribute key="weaponType" value="wand"/>
 		<attribute key="shootType" value="energy"/>
-		<attribute key="range" value="3"/>
+		<attribute key="range" value="1"/>
 	</item>
 	<item id="2184" article="a" name="crystal wand">
 		<attribute key="weight" value="2800"/>
@@ -3105,13 +3097,13 @@
 		<attribute key="weight" value="2700"/>
 		<attribute key="weaponType" value="wand"/>
 		<attribute key="shootType" value="fire"/>
-		<attribute key="range" value="3"/>
+		<attribute key="range" value="2"/>
 	</item>
 	<item id="2188" article="a" name="wand of plague">
 		<attribute key="weight" value="2300"/>
 		<attribute key="weaponType" value="wand"/>
 		<attribute key="shootType" value="poison"/>
-		<attribute key="range" value="3"/>
+		<attribute key="range" value="2"/>
 	</item>
 	<item id="2189" article="a" name="wand of cosmic energy">
 		<attribute key="weight" value="2500"/>
@@ -3735,7 +3727,7 @@
 	</item>
 	<item id="2311" article="a" name="heavy magic missile rune">
 		<attribute key="type" value="rune"/>
-		<attribute key="runeSpellName" value="adori vis"/>
+		<attribute key="runeSpellName" value="adori gran"/>
 		<attribute key="weight" value="120"/>
 		<attribute key="charges" value="5"/>
 		<attribute key="showcharges" value="1"/>
@@ -3795,7 +3787,6 @@
 		<attribute key="description" value="You have a vague feeling that it looks somewhat silly."/>
 		<attribute key="weight" value="700"/>
 		<attribute key="armor" value="3"/>
-		<attribute key="magicpoints" value="1"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2324" article="a" name="broom">
@@ -4797,7 +4788,7 @@
 	<item id="2506" article="a" name="dragon scale helmet">
 		<attribute key="description" value="It is made of dragon scales."/>
 		<attribute key="weight" value="6000"/>
-		<attribute key="armor" value="10"/>
+		<attribute key="armor" value="9"/>
 		<attribute key="slotType" value="head"/>
 	</item>
 	<item id="2507" name="elven legs">
