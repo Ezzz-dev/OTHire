@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<houses>
+	<house name="Test House #1" houseid="1" entryx="993" entryy="987" entryz="7" rent="100" townid="1" size="56" />
+	<house name="Test House #2" houseid="2" entryx="996" entryy="986" entryz="7" rent="1000" townid="1" size="56" />
+	<house name="Test House #3" houseid="3" entryx="998" entryy="987" entryz="7" rent="10000" townid="1" size="56" />
+	<house name="Test Guild Hall #1" houseid="4" entryx="970" entryy="1008" entryz="7" rent="250000" guildhall="true" townid="1" size="143" />
+</houses>

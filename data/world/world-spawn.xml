@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<spawns>
+	<spawn centerx="1031" centery="1009" centerz="4" radius="5">
+		<monster name="demon" x="0" y="-1" z="4" spawntime="60" />
+	</spawn>
+	<spawn centerx="1031" centery="1008" centerz="5" radius="5">
+		<monster name="priestess" x="-2" y="-1" z="5" spawntime="60" />
+		<monster name="vampire" x="-1" y="-1" z="5" spawntime="60" />
+		<monster name="scorpion" x="0" y="-1" z="5" spawntime="60" />
+		<monster name="mummy" x="1" y="0" z="5" spawntime="60" />
+		<monster name="scorpion" x="0" y="1" z="5" spawntime="60" />
+		<monster name="mummy" x="2" y="1" z="5" spawntime="60" />
+		<monster name="priestess" x="-2" y="2" z="5" spawntime="60" />
+		<monster name="vampire" x="-1" y="2" z="5" spawntime="60" />
+	</spawn>
+	<spawn centerx="1031" centery="1008" centerz="6" radius="5">
+		<monster name="monk" x="-1" y="-1" z="6" spawntime="60" />
+		<monster name="necromancer" x="1" y="-1" z="6" spawntime="60" />
+		<monster name="necromancer" x="0" y="0" z="6" spawntime="60" />
+		<monster name="monk" x="0" y="1" z="6" spawntime="60" />
+		<monster name="necromancer" x="1" y="2" z="6" spawntime="60" />
+		<monster name="necromancer" x="2" y="2" z="6" spawntime="60" />
+	</spawn>
+	<spawn centerx="1020" centery="994" centerz="7" radius="5">
+		<monster name="deer" x="-1" y="-2" z="7" spawntime="60" />
+		<monster name="deer" x="1" y="-2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1036" centery="996" centerz="7" radius="5">
+		<monster name="elf arcanist" x="-1" y="-4" z="7" spawntime="60" />
+		<monster name="scarab" x="-4" y="-3" z="7" spawntime="60" />
+		<monster name="elf arcanist" x="-4" y="3" z="7" spawntime="60" />
+		<monster name="scarab" x="1" y="4" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1030" centery="1008" centerz="7" radius="5">
+		<monster name="elf arcanist" x="-3" y="-5" z="7" spawntime="60" />
+		<monster name="scarab" x="3" y="-5" z="7" spawntime="60" />
+		<monster name="fire elemental" x="2" y="-1" z="7" spawntime="60" />
+		<monster name="fire elemental" x="1" y="0" z="7" spawntime="60" />
+		<monster name="fire elemental" x="0" y="2" z="7" spawntime="60" />
+		<monster name="fire elemental" x="3" y="2" z="7" spawntime="60" />
+		<monster name="scarab" x="5" y="5" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1003" centery="1012" centerz="7" radius="1">
+		<monster name="stalker" x="-1" y="1" z="7" spawntime="180" />
+	</spawn>
+	<spawn centerx="1009" centery="1013" centerz="7" radius="5">
+		<monster name="rabbit" x="-3" y="-4" z="7" spawntime="60" />
+		<monster name="rabbit" x="1" y="-2" z="7" spawntime="60" />
+		<monster name="rabbit" x="-4" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1000" centery="1016" centerz="7" radius="1">
+		<monster name="beholder" x="1" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="989" centery="995" centerz="8" radius="5">
+		<monster name="troll" x="1" y="-2" z="8" spawntime="60" />
+		<monster name="troll" x="-2" y="0" z="8" spawntime="60" />
+	</spawn>
+	<spawn centerx="989" centery="1006" centerz="8" radius="5">
+		<monster name="troll" x="1" y="-3" z="8" spawntime="60" />
+		<monster name="troll" x="-1" y="1" z="8" spawntime="60" />
+	</spawn>
+</spawns>
