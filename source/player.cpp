@@ -1965,6 +1965,10 @@ void Player::onThink(uint32_t interval)
 		}
 	}
 
+	if(canLogout() && !hasCondition(CONDITION_INFIGHT) && !client){
+		g_game.removeCreature(this, true);
+	}
+
 	MessageBufferTicks += interval;
 	if(MessageBufferTicks >= 1500){
 		MessageBufferTicks = 0;
