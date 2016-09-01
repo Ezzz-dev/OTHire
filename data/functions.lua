@@ -898,13 +898,8 @@ function getItemWeightById(itemid)
         local uid = doCreateItemEx(itemid, 1)
         local ret = getItemWeight(uid)
         return ret
-<<<<<<< HEAD
 end
- 
-=======
- end
 
->>>>>>> origin/master
 function doPlayerGiveItemContainer(cid, containerid, itemid, amount, subType)
 	for i = 1, amount do
 		local container = doCreateItemEx(containerid, 1)
