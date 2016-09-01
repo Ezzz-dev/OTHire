@@ -601,7 +601,10 @@ function doPlayerAddBless(cid, blessid)
 		local storageid = STORAGE_BLESSES + blessid
 		setPlayerStorageValue(cid, storageid, 1)
 		doPlayerUpdateItemLossPercent(cid)
-	end
+		return true
+	else
+		return false
+	end	
 end
 
 function doPlayerRemoveBless(cid, blessid)
@@ -895,7 +898,7 @@ function getItemWeightById(itemid)
         local uid = doCreateItemEx(itemid, 1)
         local ret = getItemWeight(uid)
         return ret
- end
+end
  
 function doPlayerGiveItemContainer(cid, containerid, itemid, amount, subType)
 	for i = 1, amount do
