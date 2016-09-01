@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Evil Eye" nameDescription="the Evil Eye" race="blood" experience="1500" speed="240" manacost="0">
 	<health now="1200" max="1200"/>
-	<look type="210" corpse="6037"/>
-	<targetchange interval="1000" chance="8"/>
+	<look type="210" corpse="3052"/>
+	<targetchange interval="1000" chance="30"/>
+	<targetstrategies nearest="100" health="0" damage="0" random="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

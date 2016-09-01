@@ -147,7 +147,6 @@
 	<monster name="Omruc" file="bosses/omruc.xml"/>
 	<monster name="Orshabaal" file="bosses/orshabaal.xml"/>
 	<monster name="Plaguethrower" file="bosses/plaguethrower.xml"/>
-	<monster name="Poisonthrower" file="bosses/poisonthrower.xml"/>
 	<monster name="Rahemos" file="bosses/rahemos.xml"/>
 	<monster name="Shredderthrower" file="bosses/shredderthrower.xml"/>
 	<monster name="Tiquandas Revenge" file="bosses/tiquanda's revenge.xml"/>

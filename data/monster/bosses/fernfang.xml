@@ -2,8 +2,8 @@
 <monster name="Fernfang" nameDescription="Fernfang" race="blood" experience="600" speed="240" manacost="0">
 	<health now="400" max="400"/>
 	<look type="57" corpse="3128"/>
-	<targetchange interval="5000" chance="8"/>
-	<strategy attack="100" defense="0"/>
+	<targetchange interval="1000" chance="7"/>
+	<targetstrategies nearest="70" health="10" damage="50" random="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

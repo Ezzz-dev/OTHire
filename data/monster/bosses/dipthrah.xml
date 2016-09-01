@@ -2,7 +2,8 @@
 <monster name="Dipthrah" nameDescription="Dipthrah" race="undead" experience="2900" speed="320" manacost="0">
 	<health now="4200" max="4200"/>
 	<look type="87" corpse="3034"/>
-	<targetchange interval="5000" chance="5"/>
+	<targetchange interval="1000" chance="5"/>
+	<targetstrategies nearest="70" health="0" damage="30" random="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

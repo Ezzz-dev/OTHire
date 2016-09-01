@@ -2,7 +2,8 @@
 <monster name="Dharalion" nameDescription="Dharalion" race="blood" experience="1200" speed="240" manacost="0">
 	<health now="1200" max="1200"/>
 	<look type="203" corpse="2979"/>
-	<targetchange interval="1000" chance="8"/>
+	<targetchange interval="1000" chance="7"/>
+	<targetstrategies nearest="10" health="10" damage="20" random="60"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

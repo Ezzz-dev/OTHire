@@ -2,7 +2,8 @@
 <monster name="Orshabaal" nameDescription="Orshabaal" race="fire" experience="9999" speed="380" manacost="0">
 	<health now="22500" max="22500"/>
 	<look type="201" corpse="2916"/>
-	<targetchange interval="2000" chance="10"/>
+	<targetchange interval="1000" chance="10"/>
+	<targetstrategies nearest="70" health="10" damage="10" random="10"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

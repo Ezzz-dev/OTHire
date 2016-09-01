@@ -2,8 +2,8 @@
 <monster name="Tiquanda's Revenge" nameDescription="Tiquanda's Revenge" race="venom" experience="2635" speed="440" manacost="0">
 	<health now="1800" max="1800"/>
 	<look type="120" corpse="4280"/>
-	<targetchange interval="5000" chance="8"/>
-	<strategy attack="100" defense="0"/>
+	<targetchange interval="1000" chance="5"/>
+	<targetstrategies nearest="70" health="0" damage="30" random="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
