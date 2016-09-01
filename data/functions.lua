@@ -564,9 +564,9 @@ end
 
 function doPlayerUpdateItemLossPercent(cid)
 	-- check quantity of bless
-	local i = 0
+	local i = 1
 	local blesses = 0
-	while i < 5 do
+	while i <= 5 do
 		if getPlayerBless(cid, i) == true then
 			blesses = blesses + 1
 		end
@@ -780,7 +780,7 @@ function doCleanTileItemsByPos(pos, ignore)
 			end
 		end
 	end
-	
+
 	return removed_items
 end
 
@@ -808,7 +808,7 @@ function isInArray(array, value, isCaseSensitive)
 		else
 			newV = v
 		end
-		if newV == value then 
+		if newV == value then
 			return true, k
 		end
 	end
@@ -898,8 +898,13 @@ function getItemWeightById(itemid)
         local uid = doCreateItemEx(itemid, 1)
         local ret = getItemWeight(uid)
         return ret
+<<<<<<< HEAD
 end
  
+=======
+ end
+
+>>>>>>> origin/master
 function doPlayerGiveItemContainer(cid, containerid, itemid, amount, subType)
 	for i = 1, amount do
 		local container = doCreateItemEx(containerid, 1)
