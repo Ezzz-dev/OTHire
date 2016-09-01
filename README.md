@@ -16,6 +16,7 @@ OTHire 0.0.3
 	- Healing and attacking spells shares exhaust
 	- Players block ranged physical attacks from monsters with shield
 	- Creature events onDie, onKill, onAdvance available
+	- Monsters change target strategies implemented
 	- Fixed monsters casting spells through walls
 	- Fixed monsters being traped by moveable items
 	- Fixed bug with beds itemids

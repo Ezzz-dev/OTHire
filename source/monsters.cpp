@@ -111,6 +111,11 @@ void MonsterType::reset()
 
 	changeTargetSpeed = 0;
 	changeTargetChance = 0;
+	
+	targetStrategiesNearestPercent = 0;
+	targetStrategiesLowerHPPercent = 0;
+	targetStrategiesMostDamagePercent = 0;
+	targetStrategiesRandom = 100;	
 
 	scriptList.clear();
 }
@@ -438,7 +443,7 @@ bool Monsters::deserializeSpell(xmlNodePtr node, spellBlock_t& sb, MonsterType* 
 				needDirection = true;
 			}
 		}
-
+		
 		if(readXMLInteger(node, "checkshield", intValue)){
 			combat->setParam(COMBATPARAM_BLOCKEDBYSHIELD, 1);
 		}
@@ -1043,6 +1048,36 @@ bool Monsters::loadMonster(const std::string& file, const std::string& monster_n
 				}
 				else{
 					SHOW_XML_WARNING("Missing targetchange.chance");
+				}
+			}
+			else if(xmlStrcmp(p->name, (const xmlChar*)"targetstrategies") == 0){
+
+				if(readXMLInteger(p, "nearest", intValue)){
+					mType->targetStrategiesNearestPercent = std::max(1, intValue);
+				}
+				else{
+					SHOW_XML_WARNING("Missing targetStrategiesNearestPercent");
+				}
+
+				if(readXMLInteger(p, "health", intValue)){
+					mType->targetStrategiesLowerHPPercent = std::max(1, intValue);
+				}
+				else{
+					SHOW_XML_WARNING("Missing targetStrategiesLowerHPPercent");
+				}
+				
+				if(readXMLInteger(p, "damage", intValue)){
+					mType->targetStrategiesMostDamagePercent = std::max(1, intValue);
+				}
+				else{
+					SHOW_XML_WARNING("Missing targetStrategiesMostDamagePercent");
+				}
+				
+				if(readXMLInteger(p, "random", intValue)){
+					mType->targetStrategiesRandom = std::max(1, intValue);
+				}
+				else{
+					SHOW_XML_WARNING("Missing targetStrategiesRandom");
 				}
 			}
 			else if(xmlStrcmp(p->name, (const xmlChar*)"strategy") == 0){

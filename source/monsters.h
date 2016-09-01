@@ -142,6 +142,11 @@ public:
 
 	int32_t changeTargetSpeed;
 	int32_t changeTargetChance;
+	
+	int32_t targetStrategiesNearestPercent;
+	int32_t targetStrategiesLowerHPPercent;
+	int32_t targetStrategiesMostDamagePercent;
+	int32_t targetStrategiesRandom;	
 
 	MonsterScriptList scriptList;
 
