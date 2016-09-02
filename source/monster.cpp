@@ -447,11 +447,11 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 			}
 		}
 	}
-	
+
 	if (resultList.empty()) {
 		return false;
 	}
-	
+
 	Creature* target = NULL;
 
 	switch(searchType){
@@ -480,7 +480,7 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 		case TARGETSEARCH_HP: {
 			target = NULL;
 			if (!resultList.empty()) {
-				auto it = resultList.begin();
+				std::list<Creature*>::iterator it = resultList.begin();
 				target = *it;
 
 				if (++it != resultList.end()) {
@@ -503,13 +503,13 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 		case TARGETSEARCH_DAMAGE: {
 			target = NULL;
 			if (!resultList.empty()) {
-				auto it = resultList.begin();
+				std::list<Creature*>::iterator it = resultList.begin();
 				target = *it;
 
 				if (++it != resultList.end()) {
 					int32_t mostDamage = 0;
 					do {
-						const auto& dmg = damageMap.find((*it)->getID());
+						CountMap::const_iterator dmg = damageMap.find((*it)->getID());
 						if (dmg != damageMap.end()) {
 							if (dmg->second.total > mostDamage) {
 								mostDamage = dmg->second.total;
@@ -519,7 +519,7 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 					} while (++it != resultList.end());
 				}
 			}
-			
+
 			if (target && selectTarget(target)) {
 				return true;
 			}
@@ -903,7 +903,7 @@ void Monster::onThinkTarget(uint32_t interval)
 
 					if(mType->changeTargetChance >= random_range(1, 100)){
 						searchTarget(TARGETSEARCH_DEFAULT);
-					}					
+					}
 				}
 			}
 		}

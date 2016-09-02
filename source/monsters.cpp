@@ -112,10 +112,10 @@ void MonsterType::reset()
 	changeTargetSpeed = 0;
 	changeTargetChance = 0;
 	
-	targetStrategiesNearestPercent = 0;
+	targetStrategiesNearestPercent = 100;
 	targetStrategiesLowerHPPercent = 0;
 	targetStrategiesMostDamagePercent = 0;
-	targetStrategiesRandom = 100;	
+	targetStrategiesRandom = 0;	
 
 	scriptList.clear();
 }
