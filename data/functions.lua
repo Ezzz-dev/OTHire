@@ -604,7 +604,7 @@ function doPlayerAddBless(cid, blessid)
 		return true
 	else
 		return false
-	end	
+	end
 end
 
 function doPlayerRemoveBless(cid, blessid)
@@ -919,8 +919,12 @@ function doPlayerBuyItemContainer(cid, containerid, itemid, count, cost, charges
 	return doPlayerRemoveMoney(cid, cost) and doPlayerGiveItemContainer(cid, containerid, itemid, count, charges)
 end
 
-function getArticle(str)
+function getItemArticleById(id)
 	return getItemDescriptions(id).article
+end
+
+function getArticleByWord(str)
+	return str:find("[AaEeIiOoUuYy]") == 1 and "an" or "a"
 end
 
 function getItemNameById(itemid)
