@@ -919,6 +919,7 @@ void Tile::__addThing(int32_t index, Thing* thing)
 							__removeThing(oldSplash, 1);
 							oldSplash->setParent(NULL);
 							g_game.FreeThing(oldSplash);
+							onUpdateTile();
 							postRemoveNotification(oldSplash, NULL, oldSplashIndex, true);
 							break;
 						}
@@ -1018,6 +1019,7 @@ void Tile::__updateThing(Thing* thing, uint16_t itemId, uint32_t count)
 	updateTileFlags(item, false);
 
 	onUpdateTileItem(item, oldType, item, newType);
+	onUpdateTile();
 }
 
 void Tile::__replaceThing(uint32_t index, Thing* thing)
