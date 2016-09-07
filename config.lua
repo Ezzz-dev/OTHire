@@ -273,11 +273,11 @@ maxmessagebuffer = 4
 lua_excepted_type_errors_enabled = false
 
 -- motd (the message box that you sometimes get before you choose characters)
-motd = "Welcome to OTHire 0.0.1!\n\nThis server is in beta stage, please test as much as you can.\n\nEzzz"
+motd = "Welcome to OTHire 0.0.3.\n\nBe a lab rat for Ezzz, bug track this engine."
 motdnum = "1"
 
 -- login message
-loginmsg = "Welcome to OTHire 0.0.3.\n\nBe a lab rat for Ezzz, bug track his engine for him."
+loginmsg = "Welcome to OTHire 0.0.3.\n\nBe a lab rat for Ezzz, bug track this engine."
 
 -- how many logins attempts until ip is temporary disabled
 -- set to 0 to disable
