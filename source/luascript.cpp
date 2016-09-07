@@ -7836,6 +7836,8 @@ int LuaScriptInterface::luaGetItemDescriptions(lua_State *L)
 	setField(L, "name", it.name.c_str());
 	setField(L, "article", it.article.c_str());
 	setField(L, "plural", it.pluralName.c_str());
+	setField(L, "stackable", it.stackable);
+	setField(L, "showCount", it.showCount);
 	return 1;
 }
 

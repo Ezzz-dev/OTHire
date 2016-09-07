@@ -7,5 +7,5 @@
 	<event name="ExpStage" type="advance" script="exp_stage.lua"/>
 	<event name="ServerRecord" type="login" script="record.lua"/>
 	<event type="login" name="giveFirstItems" script="firstitems.lua" />
-	<!--event name="PlayerLook" type="look" script="look.lua"/-->
+	<event name="lootMessage" type="kill" script="lootmessage.lua"/>
 </creaturescripts>

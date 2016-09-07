@@ -4,6 +4,15 @@ function onLogin(cid)
 
 	--Register the Give_Bag_After_Death event
 	registerCreatureEvent(cid, "Give_Bag_After_Death")
+	
+	-- Register the lootMessage event
+	registerCreatureEvent(cid, "lootMessage")
+	sendLootMessage = false -- enable//disable
+	if sendLootMessage == true then
+		setPlayerStorageValue(cid, STORAGE_LOOTMESSAGE, 1)
+	else
+		setPlayerStorageValue(cid, STORAGE_LOOTMESSAGE, -1)
+	end
 
 	--Register the Stage event
 	if getBooleanFromString(getConfigInfo("experience_stages"), false) then

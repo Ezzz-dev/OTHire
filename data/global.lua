@@ -14,7 +14,6 @@ dofile(getDataDir() .. 'exp_stages.lua')
 dofile(getDataDir() .. 'db.lua')
 
 -- Storages consts
-STORAGE_RUM_MACHINE = 100000
 STORAGE_PROMOTION = 15000
 STORAGE_PREMIUM_ACCOUNT = 25000
 -- Storage for blesses - 500000 + blessID
@@ -24,6 +23,9 @@ STORAGE_REMOVE_BLESSES = 1000000
 
 -- Storage for death (for the code which gives a bag after the death of a player)
 STORAGE_DEATH_BAG = 2000000
+
+-- storage need for loot message to appear
+STORAGE_LOOTMESSAGE = 31008
 
 -- Booleans consts
 TRUE = true
