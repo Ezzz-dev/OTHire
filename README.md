@@ -17,6 +17,7 @@ OTHire 0.0.3
 	- Players block ranged physical attacks from monsters with shield
 	- Creature events onDie, onKill, onAdvance available
 	- Monsters change target strategies implemented
+	- Loot messages (not default)
 	- Fixed monsters casting spells through walls
 	- Fixed monsters being traped by moveable items
 	- Fixed bug with beds itemids
