@@ -2069,6 +2069,9 @@ void LuaScriptInterface::registerFunctions()
 
 	//doSavePlayer(cid)
 	lua_register(m_luaState, "doSavePlayer", LuaScriptInterface::luaDoSavePlayer);
+
+	//doPlayerOpenChannel(cid, channelId)
+	lua_register(m_luaState, "doPlayerOpenChannel", LuaScriptInterface::luaDoPlayerOpenChannel);
 }
 
 int LuaScriptInterface::internalGetPlayerInfo(lua_State *L, PlayerInfo_t info)
@@ -9531,4 +9534,23 @@ int LuaScriptInterface::luaDoSavePlayer(lua_State *L)
 	}
  
 	return 0;
+}
+
+//doPlayerOpenChannel(cid, channelId)
+int LuaScriptInterface::luaDoPlayerOpenChannel(lua_State* L)
+{
+	//doPlayerOpenChannel(cid, channelId)
+	uint16_t channelId = popNumber(L);
+	uint32_t cid = popNumber(L);
+	
+	ScriptEnviroment* env = getScriptEnv();
+	if(env->getPlayerByUID(cid))
+	{
+		lua_pushboolean(L, g_game.playerOpenChannel(cid, channelId));
+		return 1;
+	}
+	
+	reportErrorFunc(getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
+	lua_pushboolean(L, false);
+	return 1;
 }
