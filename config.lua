@@ -312,7 +312,7 @@ statustimeout = 30 * 1000
 
 -- accounts password type
 -- options: plain, md5, sha1
-passwordtype = "sha1"
+passwordtype = "plain"
 
 -- Password salt
 -- Offers better security against rainbow table attacks etc.
