@@ -42,7 +42,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `password`, `email`, `premend`, `blocked`, `warnings`) VALUES
-(123456, '123456', '', 0, 0, 0);
+(123456, '41da8bef22aaef9d7c5821fa0f0de7cccc4dda4d', 'sampleaccount@gmail.com', 0, 0, 0);
 
 --
 -- Triggers `accounts`
