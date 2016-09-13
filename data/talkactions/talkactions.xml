@@ -44,7 +44,7 @@
 	<talkaction words="/gethouse" access="1" filter="first word" script="gethouse.lua"/>
 
 	<!-- Players -->
-	<talkaction words="!sellhouse" access="0" function="sellHouse"/>
+	<talkaction words="!sellhouse" access="0" filter="first word" function="sellHouse"/>
 	<talkaction words="!buyhouse" access="0" script="buyhouse.lua"/>
 	<talkaction words="!leavehouse" access="0" script="leavehouse.lua"/>
 	<talkaction words="!houseinfo" access="0" script="houseinfo.lua"/>
