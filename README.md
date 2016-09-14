@@ -8,6 +8,7 @@ OTHire 0.0.3
 - Compatible AAC, ZnoteAAC [HERE](https://github.com/peonso/ZnoteOTHire).
 - Flags calculator [HERE](https://diegorodriguesvieira.github.io/flags-calculator/).
 - 0.0.3 release milestone [HERE](https://github.com/TwistedScorpio/OTHire/milestone/1).
+- MySql_Schema.sql default `account // password` is `123456 // tibia`.
 
 ### Changelog
 
