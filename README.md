@@ -18,6 +18,7 @@ OTHire 0.0.3
 	- Creature events onDie, onKill, onAdvance available
 	- Monsters change target strategies implemented
 	- Loot messages (not default)
+	- Better monster path finding, weaker monsters don't block path anymore
 	- Fixed monsters casting spells through walls
 	- Fixed monsters being traped by moveable items
 	- Fixed bug with beds itemids
