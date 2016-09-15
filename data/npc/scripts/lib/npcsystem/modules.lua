@@ -3,7 +3,7 @@
 -- Credits: Jiddo, honux(I'm using a modified version of his Find function).
 -- Please include full credits whereever you use this system, or parts of it.
 -- For support, questions and updates, please consult the following thread:
--- http://otfans.net/showthread.php?t=67810
+-- http://opentibia.net/topic/59592-release-advanced-npc-system-v30a/
 
 if(Modules == nil) then
 	
@@ -48,8 +48,22 @@ if(Modules == nil) then
 		if(cid ~= npcHandler.focus and (parameters.onlyFocus == nil or parameters.onlyFocus == true)) then
 			return false
 		end
+		
+		local cost, costMessage = parameters.cost, '%d gold coins'
+		if cost and cost > 0 then
+			if parameters.discount then
+				cost = cost - StdModule.travelDiscount(cid, parameters.discount)
+			end
+
+			costMessage = cost > 0 and string.format(costMessage, cost) or 'free'
+		else
+			costMessage = 'free'
+		end
+
 		local parseInfo = {
 				[TAG_PLAYERNAME] = getPlayerName(cid),
+				[TAG_TIME] = getTibiaTime(),
+				[TAG_TRAVELCOST] = costMessage,
 			}
 		msgout = npcHandler:parseMessage(parameters.text or parameters.message, parseInfo)
 		npcHandler:say(msgout)
@@ -80,7 +94,7 @@ if(Modules == nil) then
 			npcHandler:say('You are already promoted!')
 		elseif(getPlayerLevel(cid) < parameters.level) then
 			npcHandler:say('I am sorry, but I can only promote you once you have reached level ' .. parameters.level .. '.')
-		elseif(doPlayerRemoveMoney(cid, parameters.cost) ~= TRUE) then
+		elseif(doPlayerRemoveMoney(cid, parameters.cost) ~= true) then
 			npcHandler:say('You do not have enough money!')
 		else
 			doPlayerSetVocation(cid, parameters.promotions[oldVoc])
@@ -103,10 +117,24 @@ if(Modules == nil) then
 			return false
 		end
 		
+		local cost = parameters.cost
+		if cost and cost > 0 then
+			if parameters.discount then
+				cost = cost - StdModule.travelDiscount(cid, parameters.discount)
+				if cost < 0 then
+					cost = 0
+				end
+			end
+		else
+			cost = 0
+		end
+		
 		if(isPlayerPremiumCallback == nil or isPlayerPremiumCallback(cid) == true or parameters.premium == false) then
 			if(parameters.level ~= nil and getPlayerLevel(cid) < parameters.level) then
 				npcHandler:say('You must reach level ' .. parameters.level .. ' before I can let you go there.')
-			elseif(doPlayerRemoveMoney(cid, parameters.cost) ~= TRUE) then
+			elseif isPzLocked(cid) then
+				npcHandler:say("Get out of there with this blood.")	
+			elseif(doPlayerRemoveMoney(cid, cost) ~= true) then
 				npcHandler:say('You do not have enough money!')
 			else
 				doTeleportThing(cid, parameters.destination)
@@ -176,11 +204,11 @@ if(Modules == nil) then
 		for i, word in pairs(keywords) do
 			if(type(word) == 'string') then
 				if string.find(message, word) and not string.find(message, '[%w+]' .. word) and not string.find(message, word .. '[%w+]') then
-	        		return true
-	    		end
-	    	end
-    	end
-    	return false
+					return true
+				end
+			end
+		end
+		return false
 	end
 	
 	
@@ -348,7 +376,7 @@ if(Modules == nil) then
 		local npcHandler = module.npcHandler
 		
 		
-		local cost = parameters.cost
+		local cost = parentParameters.cost
 		local destination = parameters.destination
 		local premium = parameters.premium
 		
@@ -368,11 +396,18 @@ if(Modules == nil) then
 		
 		local parentParameters = node:getParent():getParameters()
 		local cost = parentParameters.cost
+		if cost and cost > 0 then
+			if parameters.discount then
+				cost = cost - StdModule.travelDiscount(cid, parameters.discount)
+			end
+		end
 		local destination = parentParameters.destination
 		local premium = parentParameters.premium
 		
 		if(isPlayerPremiumCallback == nil or isPlayerPremiumCallback(cid) == true or parameters.premium ~= true) then
-			if(doPlayerRemoveMoney(cid, cost) ~= TRUE) then
+			if isPzLocked(cid) then
+				npcHandler:say("Get out of there with this blood.")	
+			elseif(doPlayerRemoveMoney(cid, cost) ~= true) then
 				npcHandler:say('You do not have enough money!')
 			else
 				npcHandler:say('It was a pleasure doing business with you.', false)
@@ -415,7 +450,7 @@ if(Modules == nil) then
 		local premium = parameters.premium
 		
 		if(isPlayerPremiumCallback == nil or isPlayerPremiumCallback(cid) == true or parameters.premium ~= true) then
-			if(doPlayerRemoveMoney(cid, cost) == TRUE) then
+			if(doPlayerRemoveMoney(cid, cost) == true) then
 				doTeleportThing(cid, destination)
 				doSendMagicEffect(destination, 10)
 			end
@@ -513,7 +548,7 @@ if(Modules == nil) then
 			end
 			
 			if(name ~= nil and itemid ~= nil and cost ~= nil) then
-				if((isItemRune(itemid) == TRUE or isItemFluidContainer(itemid) == TRUE) and charges == nil) then
+				if((isItemRune(itemid) == true or isItemFluidContainer(itemid) == true) and charges == nil) then
 					print('[Warning] NpcSystem:', 'Charges missing for parameter item:' , item)
 				else
 					local names = {}
@@ -594,7 +629,7 @@ if(Modules == nil) then
 	--	itemid = the itemid of the buyable item
 	--	cost = the price of one single item with item id itemid ^^
 	--	charges - The charges of each rune or fluidcontainer item. Can be left out if it is not a rune/fluidcontainer and no realname is needed. Default value is nil.
-	--	realname - The real, full name for the item. Will be used as ITEMNAME in MESSAGE_ONBUY and MESSAGE_ONSELL if defined. Default value is nil (keywords[1]/names  will be used)
+	--	realname - The real, full name for the item. Will be used as ITEMNAME in MESSAGE_ONBUY and MESSAGE_ONSELL if defined. Default value is nil (keywords[1]/names will be used)
 	function ShopModule:addBuyableItem(names, itemid, cost, charges, realname)
 		for i, name in pairs(names) do
 			local parameters = {
@@ -606,7 +641,7 @@ if(Modules == nil) then
 			if(realname ~= nil) then
 				parameters.realname = realname
 			end
-			if(isItemRune(itemid) == TRUE or isItemFluidContainer(itemid) == TRUE) then
+			if(isItemRune(itemid) == true or isItemFluidContainer(itemid) == true) then
 				parameters.charges = charges
 			end
 			keywords = {}
@@ -660,14 +695,20 @@ if(Modules == nil) then
 		local count = module:getCount(message)
 		module.amount = count
 		local tmpName = nil
-		if(parameters.eventType == SHOPMODULE_SELL_ITEM) then
-			tmpName = node:getKeywords()[2]
-		elseif(parameters.eventType == SHOPMODULE_BUY_ITEM) then
-			tmpName = node:getKeywords()[1]
+		local article = nil
+		if count > 1 then
+			tmpName = getItemDescriptions(parameters.itemid).plural
+		else
+			article = getItemDescriptions(parameters.itemid).article
+			if(parameters.eventType == SHOPMODULE_SELL_ITEM) then
+				tmpName = node:getKeywords()[2]
+			elseif(parameters.eventType == SHOPMODULE_BUY_ITEM) then
+				tmpName = node:getKeywords()[1]
+			end
 		end
 		local parseInfo = {
 				[TAG_PLAYERNAME] = getPlayerName(cid),
-				[TAG_ITEMCOUNT] = module.amount,
+				[TAG_ITEMCOUNT] = article or module.amount,
 				[TAG_TOTALCOST] = parameters.cost*module.amount,
 				[TAG_ITEMNAME] = parameters.realname or tmpName
 			}

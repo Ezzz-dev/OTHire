@@ -6,7 +6,7 @@
 datadir = "data/"
 
 -- map location
-map = "data/world/map.otbm"
+map = "data/world/world.otbm"
 
 -- Type of map storage,
 -- 'relational' - Slower, but possible to run database queries to change all items to another id for example.
@@ -124,6 +124,8 @@ defensive_pz_lock = true
 kills_per_day_red_skull = 3
 kills_per_week_red_skull = 5
 kills_per_month_red_skull = 10
+-- In Oldschool you would get banned by doubling the needed month unjustified kills for red skull
+kills_to_ban = 20
 
 -- Broadcast violation window banishments
 broadcast_banishments = "no"
@@ -160,6 +162,13 @@ rate_skill = 1
 rate_mag = 1
 rate_loot = 1
 rate_spawn = 1
+
+-- Set formula on source: player.h
+-- The formula was modified, meaning that, with the original formula, you would need 4200 experience points to reach the level 8.
+-- With Tibianic Exp Formula, you will only need 238 experience points to reach the level 8!
+-- With MasterCores Exp Formula, you will only need 250 experience points to reach the level 8!
+-- With Original Formula, you need 4200 experience points to reach the level 8!
+-- Options: "original", "tibianic" and "mastercores".
 
 -- What message should be sent for the player, after its own death? Use "" to disable.
 death_msg = "You are dead."
@@ -264,11 +273,11 @@ maxmessagebuffer = 4
 lua_excepted_type_errors_enabled = false
 
 -- motd (the message box that you sometimes get before you choose characters)
-motd = "Welcome to OTHire 0.0.1!\n\nThis server is in beta stage, please test as much as you can.\n\nEzzz"
+motd = "Welcome to OTHire 0.0.3.\n\nBe a lab rat for Ezzz, bug track this engine."
 motdnum = "1"
 
 -- login message
-loginmsg = "Welcome to OTHire 0.0.1."
+loginmsg = "Welcome to OTHire 0.0.3.\n\nBe a lab rat for Ezzz, bug track this engine."
 
 -- how many logins attempts until ip is temporary disabled
 -- set to 0 to disable
@@ -303,7 +312,7 @@ statustimeout = 30 * 1000
 
 -- accounts password type
 -- options: plain, md5, sha1
-passwordtype = "plain"
+passwordtype = "sha1"
 
 -- Password salt
 -- Offers better security against rainbow table attacks etc.

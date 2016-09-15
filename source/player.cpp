@@ -1085,6 +1085,19 @@ bool Player::canSeeCreature(const Creature* creature) const
 	return true;
 }
 
+bool Player::canWalkthrough(const Creature* creature) const
+{
+	if(!creature->getPlayer()){
+    return false;
+  }
+
+	if(creature->getPlayer()->hasSomeInvisibilityFlag()){
+		return true;
+	}
+
+  return false;
+}
+
 bool Player::canBePushedBy(const Player *player) const
 {
 	if (player->hasFlag(PlayerFlag_CanPushAllCreatures))

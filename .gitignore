@@ -16,6 +16,7 @@ source/install-sh
 source/missing
 source/otserv
 source/stamp-h1
+source/config.h.in~
 
 # OS
 ._*

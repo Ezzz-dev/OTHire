@@ -611,7 +611,11 @@ ReturnValue Tile::__queryAdd(int32_t index, const Thing* thing, uint32_t count,
 		}
 		else if(const Player* player = creature->getPlayer()){
 			if(creatures && !creatures->empty() && !hasBitSet(FLAG_IGNOREBLOCKCREATURE, flags)){
-				return RET_NOTENOUGHROOM; //RET_NOTPOSSIBLE
+				for(CreatureVector::const_iterator cit = creatures->begin(); cit != creatures->end(); ++cit){
+					if(!player->canWalkthrough(*cit)){
+						return RET_NOTPOSSIBLE;
+					}
+				}
 			}
 
 			if(player->getParent() == NULL && hasFlag(TILESTATE_NOLOGOUT)){

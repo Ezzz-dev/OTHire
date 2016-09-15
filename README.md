@@ -8,6 +8,7 @@ OTHire 0.0.33333333333
 - Compatible AAC, ZnoteAAC [HERE](https://github.com/peonso/ZnoteOTHire).
 - Flags calculator [HERE](https://diegorodriguesvieira.github.io/flags-calculator/).
 - 0.0.3 release milestone [HERE](https://github.com/TwistedScorpio/OTHire/milestone/1).
+- MySql_Schema.sql default `account // password` is `123456 // tibia`.
 
 ### Changelog
 
@@ -17,6 +18,8 @@ OTHire 0.0.33333333333
 	- Players block ranged physical attacks from monsters with shield
 	- Creature events onDie, onKill, onAdvance available
 	- Monsters change target strategies implemented
+	- Loot messages (not default)
+	- Better monster path finding, weaker monsters don't block path anymore
 	- Fixed monsters casting spells through walls
 	- Fixed monsters being traped by moveable items
 	- Fixed bug with beds itemids

@@ -3,7 +3,7 @@
 -- Credits: Jiddo, honux(I'm using a modified version of his Find function).
 -- Please include full credits whereever you use this system, or parts of it.
 -- For support, questions and updates, please consult the following thread:
--- http://otfans.net/showthread.php?t=67810
+-- http://opentibia.net/topic/59592-release-advanced-npc-system-v30a/
 
 if(NpcSystem == nil) then
 	
@@ -19,7 +19,7 @@ if(NpcSystem == nil) then
 	-- Keyword nestling behavior. For more information look at the top of keywordhandler.lua
 	KEYWORD_BEHAVIOR = BEHAVIOR_NORMAL_EXTENDED
 	
-	-- Gerrting and unGreeting keywords. For mor information look at the top of modules.lua
+	-- Greeting and unGreeting keywords. For mor information look at the top of modules.lua
 	FOCUS_GREETWORDS = {'hi', 'hello'}
 	FOCUS_FAREWELLWORDS = {'bye', 'farewell', 'cya'}
 	
@@ -41,6 +41,8 @@ if(NpcSystem == nil) then
 	TAG_TOTALCOST = '|TOTALCOST|'
 	TAG_ITEMNAME = '|ITEMNAME|'
 	TAG_QUEUESIZE = '|QUEUESIZE|'
+	TAG_TIME = '|TIME|'
+	TAG_TRAVELCOST = '|TRAVELCOST|'
 	
 	
 	

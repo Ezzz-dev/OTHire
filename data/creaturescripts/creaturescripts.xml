@@ -6,6 +6,6 @@
 	<event name="Give_Bag_After_Death" type="die" script="give_bag_after_death.lua"/>
 	<event name="ExpStage" type="advance" script="exp_stage.lua"/>
 	<event name="ServerRecord" type="login" script="record.lua"/>
-	<event type="login" name="giveFirstItems" script="firstitems.lua" />
+	<event name="giveFirstItems" type="login" script="firstitems.lua" />
 	<event name="lootMessage" type="kill" script="lootmessage.lua"/>
 </creaturescripts>

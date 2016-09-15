@@ -3,7 +3,7 @@
 -- Credits: Jiddo, honux(I'm using a modified version of his Find function).
 -- Please include full credits whereever you use this system, or parts of it.
 -- For support, questions and updates, please consult the following thread:
--- http://otfans.net/showthread.php?t=67810
+-- http://opentibia.net/topic/59592-release-advanced-npc-system-v30a/
 
 if(KeywordHandler == nil) then
 	
