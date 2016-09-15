@@ -5,6 +5,10 @@ doPlayerRemOutfitEx = doPlayerRemoveOutfitEx
 getThingfromPos = getThingFromPos
 getPlayerBalance = getPlayerAccountBalance
 getPlayersByAccountNumber = getPlayerByAccountNumber
+getNumber = getMoneyCount
+getCount = getMoneyCount
+WithdrawMoney = doPlayerWithdrawMoney
+DepositMoney = doPlayerDepositMoney
 
 function setExperienceRate(cid, value)
 	return doPlayerSetRate(cid, LEVEL_EXPERIENCE, value)
@@ -443,15 +447,15 @@ function string.strip_whitespace(str)
 end
 
 function convertIntToIP(int, mask)
-	local b4 = bit.urshift(bit.uband(int,  4278190080), 24)
-	local b3 = bit.urshift(bit.uband(int,  16711680), 16)
-	local b2 = bit.urshift(bit.uband(int,  65280), 8)
-	local b1 = bit.urshift(bit.uband(int,  255), 0)
+	local b4 = bit.urshift(bit.uband(int, 4278190080), 24)
+	local b3 = bit.urshift(bit.uband(int, 16711680), 16)
+	local b2 = bit.urshift(bit.uband(int, 65280), 8)
+	local b1 = bit.urshift(bit.uband(int, 255), 0)
 	if mask ~= nil then
-		local m4 = bit.urshift(bit.uband(mask,  4278190080), 24)
-		local m3 = bit.urshift(bit.uband(mask,  16711680), 16)
-		local m2 = bit.urshift(bit.uband(mask,  65280), 8)
-		local m1 = bit.urshift(bit.uband(mask,  255), 0)
+		local m4 = bit.urshift(bit.uband(mask, 4278190080), 24)
+		local m3 = bit.urshift(bit.uband(mask, 16711680), 16)
+		local m2 = bit.urshift(bit.uband(mask, 65280), 8)
+		local m1 = bit.urshift(bit.uband(mask, 255), 0)
 		if (m1 == 255 or m1 == 0) and (m2 == 255 or m2 == 0) and (m3 == 255 or m3 == 0) and (m4 == 255 or m4 == 0) then
 			if m1 == 0 then b1 = "x" end
 			if m2 == 0 then b2 = "x" end
@@ -891,13 +895,13 @@ function isInRange(position, fromPosition, toPosition)
 end
 
 function doComparePositions(pos1, pos2)
-    return (pos1.x == pos2.x and pos1.y == pos2.y and pos1.z == pos2.z)
+	return (pos1.x == pos2.x and pos1.y == pos2.y and pos1.z == pos2.z)
 end
 
 function getItemWeightById(itemid)
-        local uid = doCreateItemEx(itemid, 1)
-        local ret = getItemWeight(uid)
-        return ret
+		local uid = doCreateItemEx(itemid, 1)
+		local ret = getItemWeight(uid)
+		return ret
 end
 
 function doPlayerGiveItemContainer(cid, containerid, itemid, amount, subType)
@@ -928,7 +932,7 @@ function getArticleByWord(str)
 end
 
 function getItemNameById(itemid)
-   return getItemDescriptions(itemid).name
+	return getItemDescriptions(itemid).name
 end
 
 function isSummon(cid)

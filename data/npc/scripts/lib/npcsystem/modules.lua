@@ -204,11 +204,11 @@ if(Modules == nil) then
 		for i, word in pairs(keywords) do
 			if(type(word) == 'string') then
 				if string.find(message, word) and not string.find(message, '[%w+]' .. word) and not string.find(message, word .. '[%w+]') then
-	        		return true
-	    		end
-	    	end
-    	end
-    	return false
+					return true
+				end
+			end
+		end
+		return false
 	end
 	
 	
@@ -629,7 +629,7 @@ if(Modules == nil) then
 	--	itemid = the itemid of the buyable item
 	--	cost = the price of one single item with item id itemid ^^
 	--	charges - The charges of each rune or fluidcontainer item. Can be left out if it is not a rune/fluidcontainer and no realname is needed. Default value is nil.
-	--	realname - The real, full name for the item. Will be used as ITEMNAME in MESSAGE_ONBUY and MESSAGE_ONSELL if defined. Default value is nil (keywords[1]/names  will be used)
+	--	realname - The real, full name for the item. Will be used as ITEMNAME in MESSAGE_ONBUY and MESSAGE_ONSELL if defined. Default value is nil (keywords[1]/names will be used)
 	function ShopModule:addBuyableItem(names, itemid, cost, charges, realname)
 		for i, name in pairs(names) do
 			local parameters = {

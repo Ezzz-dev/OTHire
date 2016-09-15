@@ -45,42 +45,65 @@ function msgcontains(message, keyword)
 end
 
 function doCreatureSayWithDelay(cid,text,type,delay,e)
-   if delay<=0 then
-      doCreatureSay(cid,text,type)
-   else
-      local func=function(pars)
-                    doCreatureSay(pars.cid,pars.text,pars.type)
-                    pars.e.done=true
-                 end
-      e.done=false
-      e.event=addEvent(func,delay,{cid=cid, text=text, type=type, e=e})
-   end
+	if delay<=0 then
+		doCreatureSay(cid,text,type)
+	else
+		local func=function(pars)
+			doCreatureSay(pars.cid,pars.text,pars.type)
+			pars.e.done=true
+		end
+		e.done=false
+		e.event=addEvent(func,delay,{cid=cid, text=text, type=type, e=e})
+	end
 end
  
 --returns how many msgs he have said already
 function cancelNPCTalk(events)
-  local ret=1
-  for aux=1,table.getn(events) do
-     if events[aux].done==false then
-        stopEvent(events[aux].event)
-     else
-        ret=ret+1
-     end
-  end
-  events=nil
-  return(ret)
+	local ret = 1
+	for aux=1,table.getn(events) do
+		if events[aux].done==false then
+			stopEvent(events[aux].event)
+		else
+			ret=ret+1
+		end
+	end
+	events = nil
+	return (ret)
 end
  
 function doNPCTalkALot(msgs,interval)
-  local e={}
-  local ret={}
-  if interval==nil then 
-  interval=3000 --3 seconds is default time between messages
-  end 
-  for aux=1,table.getn(msgs) do
-      e[aux]={}
-      doCreatureSayWithDelay(getNpcCid(),msgs[aux],TALKTYPE_SAY,(aux-1)*interval,e[aux])
-      table.insert(ret,e[aux])
-  end
-  return(ret)
+	local e={}
+	local ret={}
+	if interval==nil then 
+		interval=3000 --3 seconds is default time between messages
+	end 
+	for aux=1,table.getn(msgs) do
+		e[aux]={}
+		doCreatureSayWithDelay(getNpcCid(),msgs[aux],TALKTYPE_SAY,(aux-1)*interval,e[aux])
+		table.insert(ret,e[aux])
+	end
+	return(ret)
+end
+
+function getMoneyCount(string)
+	local b, e = string:find("%d+")
+	local money = b and e and tonumber(string:sub(b, e)) or -1
+	if isValidMoney(money) then
+		return money
+	end
+	return -1
+end
+
+function isValidMoney(money)
+	return isNumber(money) and money > 0 and money < 4294967296
+end
+
+function getVocationByPlayerGUID(guid)
+	local vocationQuery = db.storeQuery("SELECT `vocation` FROM `players` WHERE `id` = " .. guid .. ";")
+	if not vocationQuery then
+		return false
+	end
+	local vocation = result.getDataInt(vocationQuery, "vocation")
+	result.free(vocationQuery)
+	return tonumber(vocation) or vocation
 end
