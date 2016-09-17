@@ -8,4 +8,5 @@
 	<event name="ServerRecord" type="login" script="record.lua"/>
 	<event name="giveFirstItems" type="login" script="firstitems.lua" />
 	<event name="lootMessage" type="kill" script="lootmessage.lua"/>
+	<event name="lookPlayer" type="look" script="lookplayer.lua"/>
 </creaturescripts>

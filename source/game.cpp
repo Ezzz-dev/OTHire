@@ -2914,9 +2914,11 @@ bool Game::playerLookInTrade(uint32_t playerId, bool lookAtCounterOffer, int ind
 		std::abs(player->getPosition().y - tradeItem->getPosition().y));
 
 	if(index == 0){
-		std::stringstream ss;
-		ss << "You see " << tradeItem->getDescription(lookDistance);
-		player->sendTextMessage(MSG_INFO_DESCR, ss.str());
+		if(player->onLookEvent(tradeItem, tradeItem->getID())){
+			std::stringstream ss;
+			ss << "You see " << tradeItem->getDescription(lookDistance);
+			player->sendTextMessage(MSG_INFO_DESCR, ss.str());
+		}
 
 		return false;
 	}
@@ -2951,9 +2953,11 @@ bool Game::playerLookInTrade(uint32_t playerId, bool lookAtCounterOffer, int ind
 	}
 
 	if(foundItem){
-		std::stringstream ss;
-		ss << "You see " << tradeItem->getDescription(lookDistance);
-		player->sendTextMessage(MSG_INFO_DESCR, ss.str());
+		if(player->onLookEvent(tradeItem, tradeItem->getID())){
+			std::stringstream ss;
+			ss << "You see " << tradeItem->getDescription(lookDistance);
+			player->sendTextMessage(MSG_INFO_DESCR, ss.str());
+		}
 	}
 
 	return foundItem;
@@ -3053,6 +3057,8 @@ bool Game::playerLookAt(uint32_t playerId, const Position& pos, uint16_t spriteI
 	uint16_t itemId = 0;
 	if(thing->getItem())
 		itemId = thing->getItem()->getID();
+	if(!player->onLookEvent(thing, itemId))
+		return true;
 
 	std::stringstream ss;
 	ss << "You see " << thing->getDescription(lookDistance);

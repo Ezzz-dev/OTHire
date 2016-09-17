@@ -132,19 +132,19 @@ public:
 
 	static uint64_t getExpForLevel(int32_t level)
     {
-      
+
         level--;
         //"original"
-            return ((50ULL * level * level * level) - (150ULL * level * level) + (400ULL * level))/3ULL;       
-        
-      
+            return ((50ULL * level * level * level) - (150ULL * level * level) + (400ULL * level))/3ULL;
+
+
         //"tibianic"
         //   return (level * 35ULL) * (level * level * level) / 500ULL + 10ULL * level;
-         
-      
+
+
         //"mastercores"
         //    return ((level * 50ULL) * (level * level * level) / 500ULL)+10ULL;
-        
+
       }
 
 	//[ guild settings
@@ -155,7 +155,7 @@ public:
 	std::string guildRank, guildNick;
 	uint32_t guildLevel;
 	//]
-	
+
 	//[ update inventory public
 	void updateInventoryWeight();
 	//]
@@ -166,7 +166,7 @@ public:
 	bool canSeeGmInvisible(const Player* player) const { return (player->getAccessLevel() <= getAccessLevel()); }
 	bool hasSomeInvisibilityFlag() const { return hasFlag(PlayerFlag_CannotBeSeen) || isGmInvisible(); }
 	//]
-	
+
 	void setFlags(uint64_t flags){ groupFlags = flags;}
 	bool hasFlag(PlayerFlags value) const { return (0 != (groupFlags & ((uint64_t)1 << value)));}
 
@@ -433,9 +433,10 @@ public:
 	bool canLogout();
 	bool checkPzBlock(Player* targetPlayer);
 	bool canAddContainer(const Container* container) const;
-	
+
 	//creature events
 	void onAdvanceEvent(levelTypes_t type, uint32_t oldLevel, uint32_t newLevel);
+	bool onLookEvent(Thing* target, uint32_t itemId);
 
 	//tile
 	//send methods
@@ -615,7 +616,7 @@ public:
 		{if(client) client->sendLockRuleViolation();}
 	void sendRuleViolationCancel(const std::string& name)
 		{if(client) client->sendRuleViolationCancel(name);}
-	
+
 	void receivePing() {last_pong = OTSYS_TIME();}
 
 	virtual void onThink(uint32_t interval);
@@ -644,7 +645,7 @@ public:
 	void learnInstantSpell(const std::string& name);
 	bool hasLearnedInstantSpell(const std::string& name) const;
 	void stopWalk();
-	
+
 	VIPListSet VIPList;
 	uint32_t maxVipLimit;
 
@@ -663,7 +664,7 @@ protected:
 	void gainExperience(uint64_t& gainExp, bool fromMonster);
 	void addExperience(uint64_t exp);
 	void removeExperience(uint64_t exp, bool updateStats = true);
-	
+
 	void setNextWalkActionTask(SchedulerTask* task);
 	void setNextActionTask(SchedulerTask* task);
 
