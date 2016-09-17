@@ -1519,7 +1519,7 @@ void Tile::__internalAddThing(uint32_t index, Thing* thing)
 	if(creature){
 		g_game.clearSpectatorCache();
 		CreatureVector* creatures = makeCreatures();
-		creatures->insert(creatures->begin(), creature);
+		creatures->insert(creatures->end(), creature);
 		++thingCount;
 	}
 	else{

@@ -68,7 +68,11 @@ function onLogin(cid)
 			end
 			
 		elseif getPlayerVocation(cid) == 0 then 
-			doPlayerAddItem(cid, 2650, 1) -- jacket
+			if (getPlayerSex(cid) == 0) then
+				doPlayerAddItem(cid, 2651, 1)
+			else
+				doPlayerAddItem(cid, 2650, 1) -- jacket
+			end
 			local club = doCreateItemEx(2382, 1) -- club
 			doPlayerAddItemEx(cid, club, true, CONST_SLOT_LEFT)
 			local bp = doPlayerAddItem(cid, 1987, 1) -- bag
