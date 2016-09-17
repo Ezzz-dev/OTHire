@@ -761,7 +761,7 @@ void Player::addSkillAdvance(skills_t skill, uint32_t count, bool useMultiplier 
 		skills[skill][SKILL_PERCENT] = 0;
 		std::stringstream advMsg;
 		advMsg << "You advanced in " << Player::getSkillName(skill) << ".";
-		
+
 		sendTextMessage(MSG_EVENT_ADVANCE, advMsg.str());
 
 		//scripting event - onAdvance
@@ -2773,7 +2773,7 @@ ReturnValue Player::__queryAdd(int32_t index, const Thing* thing, uint32_t count
 
 	bool childIsOwner = ((flags & FLAG_CHILDISOWNER) == FLAG_CHILDISOWNER);
 	bool skipLimit = ((flags & FLAG_NOLIMIT) == FLAG_NOLIMIT);
-	
+
 	if(item->getContainer() && !canAddContainer(item->getContainer()))
 		return RET_NOTPOSSIBLE;
 
@@ -3933,7 +3933,7 @@ void Player::onAttackedCreature(Creature* target)
 				doPzLock = checkPzBlock(targetPlayer);
 
 				#ifdef __SKULLSYSTEM__
-				if( !isPartner(targetPlayer) && 
+				if( !isPartner(targetPlayer) &&
 					!Combat::isInPvpZone(this, targetPlayer) &&
 					!targetPlayer->hasAttacked(this)){
 
@@ -4032,7 +4032,7 @@ void Player::onKilledCreature(Creature* target, bool lastHit)
 			targetPlayer->setDropLoot(false);
 			targetPlayer->setLossSkill(false);
 		}
-		else if (!isPartner(targetPlayer) || 
+		else if (!isPartner(targetPlayer) ||
 			(g_config.getNumber(ConfigManager::LAST_HIT_PZBLOCK_ONLY) &&
 			lastHit)){
 			if(checkPzBlock(targetPlayer))
@@ -4349,7 +4349,7 @@ void Player::addUnjustifiedDead(const Player* attacked)
 			g_config.getNumber(ConfigManager::KILLS_PER_MONTH_RED_SKULL) <= unjustKills){
 		setSkull(SKULL_RED);
 	}
-	
+
 	uint16_t totalKills = IOPlayer::instance()->getPlayerUnjustKillCount(this, UNJUST_KILL_PERIOD_MONTH);
 
 	if (g_config.getNumber(ConfigManager::KILLS_TO_BAN) != 0 && totalKills >= (g_config.getNumber(ConfigManager::KILLS_TO_BAN)))
@@ -4460,7 +4460,7 @@ bool Player::depositMoney(uint32_t amount)
     }
     else
         return false;
- 
+
     return true;
  }
 
@@ -4531,6 +4531,18 @@ void Player::onAdvanceEvent(levelTypes_t type, uint32_t oldLevel, uint32_t newLe
 	for(CreatureEventList::iterator it = advanceEvents.begin(); it != advanceEvents.end(); ++it){
 		(*it)->executeOnAdvance(this, type, oldLevel, newLevel);
 	}
+}
+
+bool Player::onLookEvent(Thing* target, uint32_t itemId)
+{
+	CreatureEventList lookEvents = getCreatureEvents(CREATURE_EVENT_LOOK);
+	for(CreatureEventList::iterator it = lookEvents.begin(); it != lookEvents.end(); ++it){
+		if(!(*it)->executeOnLook(this, target, itemId)){
+			return false;
+		}
+	}
+
+	return true;
 }
 
 void Player::toogleGmInvisible()

@@ -169,6 +169,9 @@ bool CreatureEvent::configureEvent(xmlNodePtr p)
 		else if(asLowerCaseString(str) == "advance"){
 			m_type = CREATURE_EVENT_ADVANCE;
 		}
+		else if(asLowerCaseString(str) == "look"){
+			m_type = CREATURE_EVENT_LOOK;
+		}
 		else{
 			std::cout << "Error: [CreatureEvent::configureEvent] No valid type for creature event." << str << std::endl;
 			return false;
@@ -201,6 +204,8 @@ std::string CreatureEvent::getScriptEventName()
 	case CREATURE_EVENT_ADVANCE:
 		return "onAdvance";
 		break;
+	case CREATURE_EVENT_LOOK:
+		return "onLook";
 	case CREATURE_EVENT_NONE:
 	default:
 		return "";
@@ -370,5 +375,52 @@ void CreatureEvent::executeOnAdvance(Player* player, levelTypes_t type, uint32_t
 	}
 	else{
 		std::cout << "[Error] Call stack overflow. CreatureEvent::executeOnAdvance" << std::endl;
+	}
+}
+
+bool CreatureEvent::executeOnLook(Player* player, Thing* target, uint16_t itemId)
+{
+	//onLook(cid, thing, itemId)
+	if(m_scriptInterface->reserveScriptEnv()){
+		ScriptEnviroment* env = m_scriptInterface->getScriptEnv();
+
+		#ifdef __DEBUG_LUASCRIPTS__
+		std::stringstream desc;
+		desc << player->getName();
+		env->setEventDesc(desc.str());
+		#endif
+
+		env->setScriptId(m_scriptId, m_scriptInterface);
+		env->setRealPos(player->getPosition());
+
+		lua_State* L = m_scriptInterface->getLuaState();
+		m_scriptInterface->pushFunction(m_scriptId);
+		uint32_t cid = env->addThing(player);
+		lua_pushnumber(L, cid);
+
+		uint32_t target_id = 0;
+		if(target){
+			if(target->getCreature())
+				target_id = env->addThing(target->getCreature());
+			else if(target->getItem())
+				target_id = env->addThing(target->getItem());
+			else
+				target = NULL;
+		}
+
+		if(target)
+			LuaScriptInterface::pushThing(L, target, target_id);
+		else
+			lua_pushnil(L);
+
+		lua_pushnumber(L, itemId);
+
+		bool result = m_scriptInterface->callFunction(3);
+		m_scriptInterface->releaseScriptEnv();
+		return result;
+	}
+	else{
+		std::cout << "[Error] Call stack overflow. CreatureEvent::executeOnLook" << std::endl;
+		return 0;
 	}
 }

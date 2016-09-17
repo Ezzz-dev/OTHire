@@ -1,12 +1,17 @@
 function onLogin(cid)
-	--Register the kill/die event
-	registerCreatureEvent(cid, "RemoveBlesses")
 
-	--Register the Give_Bag_After_Death event
-	registerCreatureEvent(cid, "Give_Bag_After_Death")
-	
-	-- Register the lootMessage event
-	registerCreatureEvent(cid, "lootMessage")
+	local events = {
+		"RemoveBlesses", --Register the kill/die event
+		"Give_Bag_After_Death", --Register the Give_Bag_After_Death event
+		"lootMessage", --Register loot message
+		"lookPlayer" -- Register on look player
+	}
+
+	-- Register events
+	for i = 1, #events do
+		registerCreatureEvent(cid, events[i])
+	end
+
 	sendLootMessage = false -- enable//disable
 	if sendLootMessage == true then
 		setPlayerStorageValue(cid, STORAGE_LOOTMESSAGE, 1)
@@ -65,8 +70,6 @@ function onLogin(cid)
 		doCreatureChangeOutfit(cid, {lookType = lookType, lookHead = 78, lookBody = 69, lookLegs = 97, lookFeet = 95, lookAddons = 0})
 		setPlayerStorageValue(cid, STORAGE_PREMIUM_ACCOUNT, 1)
 	end
-
-
 
 	--Teleport to free town, change here
 	--[[

@@ -32,7 +32,8 @@ enum CreatureEventType_t{
 	CREATURE_EVENT_LOGOUT,
 	CREATURE_EVENT_DIE,
 	CREATURE_EVENT_KILL,
-	CREATURE_EVENT_ADVANCE
+	CREATURE_EVENT_ADVANCE,
+	CREATURE_EVENT_LOOK
 };
 
 class CreatureEvent;
@@ -81,6 +82,7 @@ public:
 	void executeOnDie(Creature* creature, Item* corpse);
 	void executeOnKill(Creature* creature, Creature* target, bool lastHit);
 	void executeOnAdvance(Player* player, levelTypes_t type, uint32_t oldLevel, uint32_t newLevel);
+	bool executeOnLook(Player* player, Thing* target, uint16_t itemId);
 	//
 
 protected:
