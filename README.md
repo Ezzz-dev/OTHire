@@ -16,7 +16,7 @@ OTHire 0.0.3
 
 	- Healing and attacking spells shares exhaust
 	- Players block ranged physical attacks from monsters with shield
-	- Creature events onDie, onKill, onAdvance available
+	- Creature events onDie, onKill, onAdvance, onLook available
 	- Monsters change target strategies implemented
 	- Loot messages (not default)
 	- Better monster path finding, weaker monsters don't block path anymore
