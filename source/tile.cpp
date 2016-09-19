@@ -598,7 +598,7 @@ ReturnValue Tile::__queryAdd(int32_t index, const Thing* thing, uint32_t count,
 					//3) Monster is already afflicated by this type of condition
 					if(hasBitSet(FLAG_IGNOREFIELDDAMAGE, flags)){
 						if(!monster->hasCondition(Combat::DamageToConditionType(combatType), false)){
-							if(!monster->canPushItems() || !monster->hadRecentBattle()){
+							if(!monster->canPushItems()){
 								return RET_NOTPOSSIBLE;
 							}
 						}
