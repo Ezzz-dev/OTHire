@@ -1327,21 +1327,6 @@ void Monster::die()
 Item* Monster::createCorpse()
 {
 	Item* corpse = Creature::createCorpse();
-	if(corpse){
-		DeathList killers = getKillers();
-		if(!killers.empty() && (*killers.rbegin()).isCreatureKill()){
-			Creature* mostDamageCreature = (*killers.rbegin()).getKillerCreature();
-			Player* corpseOwner = NULL;
-
-			if(mostDamageCreature->getPlayer()){
-				corpseOwner = mostDamageCreature->getPlayer();
-			}
-			else if(mostDamageCreature->isPlayerSummon()){
-				corpseOwner = mostDamageCreature->getPlayerMaster();
-			}
-		}
-	}
-
 	return corpse;
 }
 

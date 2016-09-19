@@ -344,7 +344,7 @@ void Npc::onCreatureAppear(const Creature* creature, bool isLogin)
 		}
 	}
 	//only players for script events
-	else if (Player* player = const_cast<Player*>(creature->getPlayer())){
+	else if (creature->getPlayer()){
 		if (m_npcEventHandler){
 			m_npcEventHandler->onCreatureAppear(creature);
 		}
@@ -356,7 +356,7 @@ void Npc::onCreatureDisappear(const Creature* creature, bool isLogout)
 	Creature::onCreatureDisappear(creature, isLogout);
 
 	//only players for script events
-	if (Player* player = const_cast<Player*>(creature->getPlayer())){
+	if (creature->getPlayer()){
 		if (m_npcEventHandler){
 			m_npcEventHandler->onCreatureDisappear(creature);
 		}
@@ -373,7 +373,7 @@ void Npc::onCreatureMove(const Creature* creature, const Tile* newTile, const Po
 			m_npcEventHandler->onCreatureMove(creature, oldPos, newPos);
 		}
 	}
-	else if (Player* player = const_cast<Player*>(creature->getPlayer())){
+	else if (creature->getPlayer()){
 		if (m_npcEventHandler){
 			m_npcEventHandler->onCreatureMove(creature, oldPos, newPos);
 		}
@@ -417,7 +417,7 @@ void Npc::onThink(uint32_t interval)
 		addEventWalk();
 
 	isIdle = true;
-	
+
 	if (isIdle && !hasScriptedFocus){
 		setCreatureFocus(NULL);
 	}

@@ -56,7 +56,7 @@ enum MagicEffectClasses {
 	NM_ME_SOUND_PURPLE     = 0x16, //22
 	NM_ME_SOUND_BLUE       = 0x17, //23
 	NM_ME_SOUND_WHITE      = 0x18, //24
-	
+
 	//for internal use, dont send to client
 	NM_ME_NONE             = 0xFF,
 	NM_ME_UNK              = 0xFFFF
@@ -78,7 +78,7 @@ enum ShootType_t {
 	NM_SHOOT_SNOWBALL       = 0x0C, //12
 	NM_SHOOT_POWERBOLT      = 0x0D, //13
 	NM_SHOOT_POISONFIELD    = 0x0E, //14
-	
+
 	//for internal use, dont send to client
 	NM_SHOOT_WEAPONTYPE     = 0xFE, //254
 	NM_SHOOT_NONE           = 0xFF,
@@ -297,7 +297,16 @@ enum item_t {
 	ITEM_LETTER_STAMPED   = 2598,
 	ITEM_LABEL            = 2599,
 
-	ITEM_DOCUMENT_RO      = 1968 //read-only
+	ITEM_DOCUMENT_RO      = 1968, //read-only
+
+	ITEM_GATE_EXPERTISE_1	= 1227,
+	ITEM_GATE_EXPERTISE_2	= 1229,
+	ITEM_GATE_EXPERTISE_3	= 1245,
+	ITEM_GATE_EXPERTISE_4	= 1247,
+	ITEM_GATE_EXPERTISE_5	= 1259,
+	ITEM_GATE_EXPERTISE_6	= 1261,
+	ITEM_GATE_EXPERTISE_7	= 3540,
+	ITEM_GATE_EXPERTISE_8	= 3549
 };
 
 enum PlayerFlags{
@@ -399,4 +408,3 @@ const int32_t violationStatements[maxViolationLevel + 1] =
 #define IS_IN_KEYRANGE(key, range) (key >= PSTRG_##range##_START && ((key - PSTRG_##range##_START) < PSTRG_##range##_SIZE))
 
 #endif
-

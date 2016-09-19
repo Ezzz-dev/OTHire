@@ -3480,19 +3480,7 @@ void Player::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_
 		g_moveEvents->onPlayerEquip(this, thing->getItem(), (slots_t)index);
 	}
 
-	bool requireListUpdate = true;
 	if(link == LINK_OWNER || link == LINK_TOPPARENT){
-		const Item* i = (oldParent? oldParent->getItem() : NULL);
-
-		// Check if we owned the old container too, so we don't need to do anything,
-		// as the list was updated in postRemoveNotification
-		assert(i? i->getContainer() != NULL : true);
-
-		if(i)
-			requireListUpdate = i->getContainer()->getHoldingPlayer() != this;
-		else
-			requireListUpdate = oldParent != this;
-
 		updateInventoryWeight();
 		updateItemsLight();
 		sendStats();
@@ -3527,18 +3515,7 @@ void Player::postRemoveNotification(Thing* thing, const Cylinder* newParent, int
 		g_moveEvents->onPlayerDeEquip(this, thing->getItem(), (slots_t)index, isCompleteRemoval);
 	}
 
-	bool requireListUpdate = true;
 	if(link == LINK_OWNER || link == LINK_TOPPARENT){
-		const Item* i = (newParent? newParent->getItem() : NULL);
-
-		// Check if we owned the old container too, so we don't need to do anything,
-		// as the list was updated in postRemoveNotification
-		assert(i? i->getContainer() != NULL : true);
-		if(i)
-			requireListUpdate = i->getContainer()->getHoldingPlayer() != this;
-		else
-			requireListUpdate = newParent != this;
-
 		updateInventoryWeight();
 		updateItemsLight();
 		sendStats();
@@ -4017,6 +3994,10 @@ void Player::onTargetCreatureGainHealth(Creature* target, int32_t points)
 		}
 		else if(target->isPlayerSummon()){
 			tmpPlayer = target->getPlayerMaster();
+		}
+
+		if(isPartner(tmpPlayer)){
+			// TODO this code will be used in the party system
 		}
 	}
 }

@@ -4460,7 +4460,7 @@ bool Game::playerViolationWindow(uint32_t playerId, std::string targetName, uint
 	std::string statement;
 
 	uint32_t ip = 0;
-	uint32_t acc;
+	uint32_t acc = 0;
 
 	Player* targetPlayer = getPlayerByName(targetName);
 	if(targetPlayer){
@@ -4482,6 +4482,9 @@ bool Game::playerViolationWindow(uint32_t playerId, std::string targetName, uint
 	}
 
 	statement = Player::channelStatementMap[statementId];
+
+	if (acc == 0)
+		return false;
 
 	Account account =  IOAccount::instance()->loadAccount(acc, true);
 	int16_t removeNotations = 2; //2 - remove notations & kick, 1 - kick, 0 - nothing
