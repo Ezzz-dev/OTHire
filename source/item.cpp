@@ -780,7 +780,15 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 		}
 		s << ". It's an \"" << it.runeSpellName << "\"-spell (" << charges << "x). ";
 	}
-	else if (it.id == 1227 || it.id == 1229 || it.id == 1245 || it.id == 1247 || it.id == 1259 || it.id == 1261 || it.id == 3540 || it.id == 3549 && item->getActionId() >= 1000) {
+	else if ((it.id == ITEM_GATE_EXPERTISE_1 ||
+					  it.id == ITEM_GATE_EXPERTISE_2 ||
+					  it.id == ITEM_GATE_EXPERTISE_3 ||
+					  it.id == ITEM_GATE_EXPERTISE_4 ||
+					  it.id == ITEM_GATE_EXPERTISE_5 ||
+					  it.id == ITEM_GATE_EXPERTISE_6 ||
+					  it.id == ITEM_GATE_EXPERTISE_7 ||
+					  it.id == ITEM_GATE_EXPERTISE_8) &&
+					  (item->getActionId() >= 1000)) {
 		s << " for level " << item->getActionId() - 1000 << ".";
 	}
 	else if (it.weaponType != WEAPON_NONE){
@@ -799,14 +807,14 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 				if (it.defense != 0 || it.extraDef != 0){
 					if (it.attack != 0)
 						s << " ";
-					
+
 					s << "Def:" << (int)it.defense;
 				}
 
 				if (it.abilities.stats[STAT_MAGICPOINTS] != 0){
 					if (it.attack != 0 || it.defense != 0 || it.extraDef != 0)
 						s << ", ";
-					
+
 					s << "magic level " << std::showpos << (int)it.abilities.stats[STAT_MAGICPOINTS] << std::noshowpos;
 				}
 				s << ")";
