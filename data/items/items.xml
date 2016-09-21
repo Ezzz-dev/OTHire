@@ -10868,6 +10868,6 @@
 	<item id="20019" name="mud" fluidClient="19"/>
 	<item id="20021" name="fruit juice" fluidClient="21"/>
 	<item id="20027" name="rum" fluidClient="27"/>
-	<item id="20035" name="tea" fluidClient="20"/>
-	<item id="20036" name="mead" fluidClient="35"/>
+	<item id="20035" name="tea" fluidClient="35"/>
+	<item id="20036" name="mead" fluidClient="36"/>
 </items>
