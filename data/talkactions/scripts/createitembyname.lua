@@ -15,6 +15,12 @@ function onSay( cid, words, param )
 		doSendMagicEffect(playerPos, CONST_ME_POFF)
 		return false
 	end
+	
+	if itemname == 'vial' then
+		doPlayerAddItem(cid,2006,itemcount)
+		doSendMagicEffect(playerPos, CONST_ME_MAGIC_GREEN)
+		return false
+	end
 
 	itemcount = itemcount and math.min( tonumber( itemcount ), 100 ) or 1
 
