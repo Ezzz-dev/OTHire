@@ -113,7 +113,7 @@ public:
 	DBResult* getResultByID(uint32_t id);
 	uint32_t addResult(DBResult* res);
 	bool removeResult(uint32_t id);
-	
+
 	void addGlobalStorageValue(const uint32_t key, const int32_t value);
 	bool getGlobalStorageValue(const uint32_t key, int32_t& value) const;
 	bool eraseGlobalStorageValue(const uint32_t key);
@@ -194,8 +194,8 @@ private:
 
 	//result map
 	static uint32_t m_lastResultId;
-	static DBResultMap m_tempResults;	
-	
+	static DBResultMap m_tempResults;
+
 	//for npc scripts
 	Npc* m_curNpc;
 
@@ -625,6 +625,13 @@ protected:
 	static int luaGetCreatureSummons(lua_State *L);
 	static int luaGetSpectators(lua_State *L);
 	static int luaGetPartyMembers(lua_State *L);
+
+	static int luaIsPartyLeader(lua_State* L);
+	static int luaIsPartySharedExperienceActive(lua_State* L);
+	static int luaSetPartySharedExperience(lua_State* L);
+	static int luaSendPartyChannelMessage(lua_State* L);
+	static int luaCanUseSharedExperience(lua_State* L);
+
 	static int luaHasCondition(lua_State *L);
 
 	static int luaIsCreatureImmuneToCondition(lua_State *L);
@@ -701,7 +708,7 @@ protected:
 	static int32_t luaResultGetAllData(lua_State* L);
 	static int32_t luaResultNext(lua_State* L);
 	static int32_t luaResultFree(lua_State* L);
-	
+
 	static int luaGetItemWeaponType(lua_State *L);
 	static int luaGetItemAttack(lua_State *L);
 	static int luaGetItemDefense(lua_State *L);

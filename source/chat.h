@@ -34,6 +34,7 @@ typedef std::map<uint32_t, Player*> UsersMap;
 
 enum ChannelID {
 	CHANNEL_GUILD      = 0x00,
+	CHANNEL_PARTY      = 0x01,
 	CHANNEL_RULE_REP   = 0x03,
 	CHANNEL_GAME_CHAT  = 0x04,
 	CHANNEL_TRADE      = 0x05,

@@ -58,6 +58,7 @@ public:
 	void updateAllPartyIcons();
 	void updatePartyIcons(Player* player);
 	void broadcastPartyMessage(MessageClasses msgClass, const std::string& msg, bool sendToInvitations = false);
+	bool sendChannelMessage(Player* player, SpeakClasses type, const std::string& msg) const;
 	bool disbandParty() {return (memberList.empty() && inviteList.empty());}
 
 	void shareExperience(uint64_t experience, bool fromMonster);
@@ -66,6 +67,9 @@ public:
 	bool isSharedExperienceEnabled() const {return sharedExpEnabled;}
 	bool canUseSharedExperience(const Player* player) const;
 	void updateSharedExperience();
+	void addPlayerHealedMember(Player* player, uint32_t points);
+	void addPlayerDamageMonster(Player* player, uint32_t points);
+	void clearPlayerPoints(Player* player);
 
 	const PlayerVector& getMemberList() const {return memberList;}
 
