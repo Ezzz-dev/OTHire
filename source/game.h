@@ -453,12 +453,11 @@ public:
 	bool playerRevokePartyInvitation(uint32_t playerId, uint32_t invitedId);
 	bool playerPassPartyLeadership(uint32_t playerId, uint32_t newLeaderId);
 	bool playerLeaveParty(uint32_t playerId);
-	bool playerEnableSharedPartyExperience(uint32_t playerId, uint8_t sharedExpActive, uint8_t unknown);
 	bool playerViolationWindow(uint32_t playerId, std::string targetName, uint8_t reasonId, violationAction_t actionType,
 		std::string comment, uint16_t statementId, uint16_t channelId, bool ipBanishment);
 	bool playerReportBug(uint32_t playerId, std::string comment);
 	bool playerRegisterWalkAction(uint32_t playerId, SchedulerTask* task);
-	
+
 	void cleanup();
 	void shutdown();
 	void FreeThing(Thing* thing);

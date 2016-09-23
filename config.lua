@@ -20,13 +20,13 @@ map_store_type = "binary"
 mapkind = "OTBM"
 
 -- server name
-servername = "OTServ"
+servername = "ExtremeOT Server"
 
 -- server location
-location = "Germany"
+location = "Brazil"
 
 -- server ip (the ip that server listens on)
-ip = "127.0.0.1"
+ip = "192.168.25.4"
 
 -- login server port
 -- This should be the port used for connecting with IP changers etc.
@@ -46,44 +46,44 @@ status_port = "7171"
 admin_port = "7171"
 
 -- server url
-url = "http://otland.net"
+url = "http://extremeotserver.com"
 
 -- server owner name
-ownername = "Ezzz"
+ownername = "ExtremeOT Server Staff"
 
 -- server owner email
-owneremail = ""
+owneremail = "contato.extremeotserver@gmail.com"
 
 -- world name
-worldname = "OTHire"
+worldname = "EXT"
 
 -- world type
 -- options: openpvp/pvp, optionalpvp/no-pvp, hardcorepvp/pvp-enforced
 worldtype = "pvp"
 
 -- Auto Stack items in containers (like in newer Tibia versions)
-container_items_auto_stack = false
+container_items_auto_stack = true
 
 -- does player rate (from lua functions) count on experience gained from killings players on pvp-e worlds?
 rates_for_player_killing = false
 
 -- exhausted time in ms (1000 = 1 second) for "yell" speak type
-exhausted = 30000
+exhausted = 1500
 
 -- exhausted time in ms (1000 = 1 second) for aggressive spells/weapons
-fightexhausted = 2000
+fightexhausted = 1500
 
 -- exhausted time in ms (1000 = 1 second) for none-aggressive spells
 healexhausted = 1000
 
 -- exhausted time in ms (1000 = 1 second) for floor changing
-stairhop_exhausted = 2000
+stairhop_exhausted = 0
 
 -- how many ms to add if the player is already exhausted and tries to cast a spell/yells (1000 = 1 second)
-exhaustedadd = 5000
+exhaustedadd = 500
 
 -- how long does the player has to stay out of fight to get pz unlocked in ms (1000 = 1 second)
-in_fight_duration = 60000
+in_fight_duration = 60*1000
 
 -- how long a field belongs to a player before it no longer causes PZ lock for the owner
 field_ownership_duration = 5000
@@ -101,7 +101,7 @@ minactioninterval = 200
 minactionexinterval = 1000
 
 -- house rent period
--- options: daily, weekly, monthly
+-- options: daily, weekly, monthly, yearly, never
 houserentperiod = "monthly"
 
 -- whether or not to check for premium accounts when using beds
@@ -110,8 +110,8 @@ premonlybeds = true
 -- Should the server use account balance system or depot system for paying houses?
 use_balance_house_paying = true
 
--- How long time the red skull will last in seconds (default 30 days)
-red_skull_duration = 30*24*60*60
+-- How long time the red skull will last in seconds (default 30 days, 30*24*60*60)
+red_skull_duration = 1*24*60*60
 
 -- White skull duration, how long a player will get pz locked/white skull
 unjust_skull_duration = 15*60*1000
@@ -124,11 +124,12 @@ defensive_pz_lock = true
 kills_per_day_red_skull = 3
 kills_per_week_red_skull = 5
 kills_per_month_red_skull = 10
+
 -- In Oldschool you would get banned by doubling the needed month unjustified kills for red skull
 kills_to_ban = 20
 
 -- Broadcast violation window banishments
-broadcast_banishments = "no"
+broadcast_banishments = "yes"
 
 -- Violation window config
 max_violation_comment_size = 255
@@ -149,18 +150,19 @@ login_attack_delay = 10*1000
 -- AFK Configuration (in milliseconds, but use values for minutes)
 -- Maximum time a player can stay away from keyboard before being kicked
 max_idle_time = 16*60*1000
+
 -- Player will be warned about being kicked at this time
 max_idle_time_warning = 15*60*1000
 
 -- Exp Stages configuration is in /data/exp_stages.lua
-experience_stages = false
+experience_stages = true
 
 -- rates (experience, skill, magic level, loot and spawn)
 rate_exp = 1
 rate_exp_pvp = 0
-rate_skill = 1
-rate_mag = 1
-rate_loot = 1
+rate_skill = 5
+rate_mag = 5
+rate_loot = 2.5
 rate_spawn = 1
 
 -- Set formula on source: player.h
@@ -218,7 +220,7 @@ max_containers_inside_player_inventory = 100
 max_deepness_of_chain_of_containers = 500
 
 --should OTServ bind only global IP address ?
-bind_only_global_address = true
+bind_only_global_address = false
 
 -- How many items can be stacked in a single tile (all type of tiles)(client side)? DO NOT CHANGE IT UNLESS THAT YOU KNOW WHAT YOU ARE DOING
 max_stack_size = 1000
@@ -242,6 +244,7 @@ allow_gamemaster_multiclient = true
 -- despawn configs
 -- how many floors can a monster go from his spawn before despawning
 despawnrange = 2
+
 -- how many square metters can a monster be far from his spawn before despawning
 despawnradius = 50
 
@@ -249,7 +252,7 @@ despawnradius = 50
 can_attack_invisible = false
 
 --players with a level smaller than this number can't be attacked by other players. Set it to to 0 to disable
-min_pvp_level = 0
+min_pvp_level = 30
 
 --how much % of the total damage players actually receive when attacked by other players?
 --Old Tibia has this in 100%
@@ -260,7 +263,7 @@ pvp_damage = 100
 min_pvp_level_applies_to_summons = true
 
 -- How many milliseconds (1 sec = 1000) we should wait until the player will be pushed by another player.
-push_interval = 2000
+push_interval = 50
 
 -- How many milliseconds a player should wait until he can move another item after moving one (0 disables it)
 move_item_interval = 500
@@ -273,11 +276,11 @@ maxmessagebuffer = 4
 lua_excepted_type_errors_enabled = false
 
 -- motd (the message box that you sometimes get before you choose characters)
-motd = "Welcome to OTHire 0.0.3.\n\nBe a lab rat for Ezzz, bug track this engine."
+motd = "Welcome to ExtremeOT Server!\n\nDo not forget to read our rules www.extremeotserver.com/rules\n\nExtremeOT Staff"
 motdnum = "1"
 
 -- login message
-loginmsg = "Welcome to OTHire 0.0.3.\n\nBe a lab rat for Ezzz, bug track this engine."
+loginmsg = "Do not forget to read our rules www.extremeotserver.com/rules\n\nMake a donation and help in server maintenance!\nVisit: http://extremeotserver.com"
 
 -- how many logins attempts until ip is temporary disabled
 -- set to 0 to disable
@@ -299,7 +302,7 @@ allowclones = false
 checkaccounts = false
 
 -- max number of players allowed
-maxplayers = "900"
+maxplayers = "100"
 
 -- save client debug assertion reports
 -- to use this option you have to create file called client_assertions.txt and make sure after client crash to change IP to otserv one then click "send".
@@ -315,19 +318,23 @@ statustimeout = 30 * 1000
 passwordtype = "sha1"
 
 -- Password salt
--- Offers better security against rainbow table attacks etc.
-passwordsalt = ""
+-- Offers better security against rainbow table attacks etc. Salt after password.
+-- http://online-code-generator.com/sha1-hash-with-optional-salt.php
+passwordsalt = "8[7?M#76J-9nC[Onw]AqqU8MU0?)5W2Ff|TrX#Ai]jCt[P+i|c6q}HxQL@l6-Vc4"
 
 -- House configuration (game_class)
 -- House tile price
-house_tile_price = 100
+house_tile_price = 100000
+
 -- Only premium players can buy houses?
 house_only_premium = true
+
 -- Level to buy houses
-house_level = 1
--- Show house price and its rent price when looking at its door?
+house_level = 100
+
+-- Show house price and its rent price when looking at its door? Remember to set door ID 1 in map editor.
 -- PS: This info is going to be shown just if house has no owner
-show_house_prices = false
+show_house_prices = true
 
 -- SQL type
 -- options: mysql, sqlite, odbc or pgsql
@@ -338,4 +345,4 @@ sql_db   = "otserv"
 sql_host = "127.0.0.1"
 sql_port = 3306
 sql_user = "root"
-sql_pass = ""
+sql_pass = "admin"

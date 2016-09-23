@@ -847,7 +847,7 @@ Item* Creature::dropCorpse()
 	this->onDieEvent(corpse);
 	if(corpse)
 		dropLoot(corpse->getContainer());
-		
+
 	return corpse;
 }
 
@@ -1348,6 +1348,21 @@ void Creature::onGainExperience(uint64_t gainExp, bool fromMonster)
 	}
 }
 
+void Creature::onGainSharedExperience(uint64_t gainExp, bool fromMonster)
+{
+  if(gainExp > 0){
+    std::stringstream strExp;
+    strExp << gainExp;
+    g_game.addAnimatedText(getPosition(), TEXTCOLOR_WHITE_EXP, strExp.str());
+
+    if (Player* player = getPlayer()){
+      std::stringstream ss;
+		  ss << "You gained " << gainExp << " experience points.";
+      player->sendTextMessage(MSG_STATUS_DEFAULT, ss.str());
+    }
+  }
+}
+
 void Creature::onAttackedCreatureBlockHit(Creature* target, BlockType_t blockType)
 {
 	//
@@ -1739,4 +1754,3 @@ bool FrozenPathingConditionCall::operator()(const Position& startPos, const Posi
 
 	return false;
 }
-

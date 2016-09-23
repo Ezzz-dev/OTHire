@@ -2,7 +2,7 @@
 <talkactions>
 	<!-- Custom -->
 	<talkaction words="!shop" script="znoteshop.lua"/>
-	
+
 	<!-- Gods -->
 	<talkaction words="/i" access="3" filter="first word" script="createitembyid.lua"/>
 	<talkaction words="/ifr" access="3" filter="first word" script="createitembyidfront.lua"/>
@@ -25,7 +25,7 @@
 	<talkaction words="/kick" access="3" filter="first word" script="kickplayer.lua"/>
 	<talkaction words="/reload" access="3" filter="first word" script="reload.lua"/>
 	<talkaction words="/ban" access="3" filter="first word" script="banmanager.lua"/>
-	
+
 	<!-- Gamemasters -->
 	<talkaction words="/up" access="2" filter="first word" script="floorchange.lua"/>
 	<talkaction words="/down" access="2" filter="first word" script="floorchange.lua"/>
@@ -36,7 +36,7 @@
 	<talkaction words="/bc" access="2" filter="first word" script="broadcastclass.lua"/>
 	<talkaction words="/invisible" access="2" filter="first word" script="gminvisible.lua"/>
 	<talkaction words="/info" access="2" filter="first word" script="getinfo.lua"/>
-	<talkaction words="/z" access="2" filter="first word" script="testeffect.lua"/> 	 
+	<talkaction words="/z" access="2" filter="first word" script="testeffect.lua"/>
 
 	<!-- Tutors -->
 	<talkaction words="/serverinfo" access="1" script="serverinfo.lua"/>
@@ -50,4 +50,6 @@
 	<talkaction words="!houseinfo" access="0" script="houseinfo.lua"/>
 	<talkaction words="!online" access="0" script="onlinelist.lua"/>
 	<talkaction words="!frags" access="0" script="frags.lua"/>
+	<talkaction words="!share" access="0" script="shareexp.lua"/>
+	<talkaction words="!useshare" access="0" script="canuseshare.lua"/>
 </talkactions>

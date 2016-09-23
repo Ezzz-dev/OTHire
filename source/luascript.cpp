@@ -112,7 +112,7 @@ void ScriptEnviroment::resetEnv()
 		}
 	}
 	m_tempItems.clear();
-	
+
 	if(!m_tempResults.empty())
 	{
 		Database* db = Database::instance();
@@ -122,7 +122,7 @@ void ScriptEnviroment::resetEnv()
 				db->freeResult(it->second);
 		}
 	}
-	
+
 	m_tempResults.clear();
 
 	m_realPos.x = 0;
@@ -301,12 +301,12 @@ Thing* ScriptEnviroment::getThingByUID(uint32_t uid)
 	if(it != m_localMap.end() && !it->second->isRemoved()){
 		return it->second;
 	}
-	
+
 	it = m_globalMap.find(uid);
 	if(it != m_globalMap.end() && !it->second->isRemoved()){
 		return it->second;
 	}
-	
+
 	if(uid >= PLAYER_ID_RANGE){ //is a creature id
 		Thing* thing = g_game.getCreatureByID(uid);
 		if(thing && !thing->isRemoved()){
@@ -314,7 +314,7 @@ Thing* ScriptEnviroment::getThingByUID(uint32_t uid)
 			return thing;
 		}
 	}
-	
+
 	return NULL;
 }
 
@@ -326,7 +326,7 @@ Item* ScriptEnviroment::getItemByUID(uint32_t uid)
 			return item;
 		}
 	}
-	
+
 	return NULL;
 }
 
@@ -1490,7 +1490,7 @@ void LuaScriptInterface::registerFunctions()
 
 	//doPlayerTransferMoneyTo(cid, target, money)
 	lua_register(m_luaState, "doPlayerTransferMoneyTo", LuaScriptInterface::luaDoPlayerTransferMoneyTo);
-	
+
 	//sendOutfitWindow(cid)
 	lua_register(m_luaState, "sendOutfitWindow", LuaScriptInterface::luaSendOutfitWindow);
 
@@ -1865,6 +1865,21 @@ void LuaScriptInterface::registerFunctions()
 	//getPartyMembers(cid)
 	lua_register(m_luaState, "getPartyMembers", LuaScriptInterface::luaGetPartyMembers);
 
+	//isPartyLeader(cid)
+	lua_register(m_luaState, "isPartyLeader", LuaScriptInterface::luaIsPartyLeader);
+
+	//isPartySharedExperienceActive(cid)
+	lua_register(m_luaState, "isPartySharedExperienceActive", LuaScriptInterface::luaIsPartySharedExperienceActive);
+
+	//setPartySharedExperience(cid, active)
+	lua_register(m_luaState, "setPartySharedExperience", LuaScriptInterface::luaSetPartySharedExperience);
+
+	//sendPartyChannelMessage(cid, message)
+	lua_register(m_luaState, "sendPartyChannelMessage", LuaScriptInterface::luaSendPartyChannelMessage);
+
+	//canUseSharedExperience(cid)
+	lua_register(m_luaState, "canUseSharedExperience", LuaScriptInterface::luaCanUseSharedExperience);
+
 	//hasCondition(cid, conditionid)
 	lua_register(m_luaState, "hasCondition", LuaScriptInterface::luaHasCondition);
 
@@ -2036,13 +2051,13 @@ void LuaScriptInterface::registerFunctions()
 	//bit operations for Lua, based on bitlib project release 24
 	//bit.bnot, bit.band, bit.bor, bit.bxor, bit.lshift, bit.rshift
 	luaL_register(m_luaState, "bit", LuaScriptInterface::luaBitReg);
-	
+
 	//db table
 	luaL_register(m_luaState, "db", LuaScriptInterface::luaDatabaseTable);
 
 	//result table
 	luaL_register(m_luaState, "result", LuaScriptInterface::luaResultTable);
-	
+
 	//isGmInvisible(cid)
 	lua_register(m_luaState, "isGmInvisible", LuaScriptInterface::luaIsGmInvisible);
 
@@ -3208,19 +3223,19 @@ int LuaScriptInterface::luaDoPlayerAddItem(lua_State *L)
 		//subtype already supplied, count then is the amount
 		itemCount = count;
 	}
-	
+
 	else if(it.hasSubType())
 		{
 			if(it.stackable)
 				itemCount = (int32_t)std::ceil((float)count / 100);
-			
+
 
 			subType = count;
 		}
 		else{
 			itemCount = std::max((int32_t)1, (int32_t)count);
 		}
-	
+
 
 	while(itemCount > 0){
 		int32_t stackCount = std::min((int32_t)100, (int32_t)subType);
@@ -3632,7 +3647,7 @@ int LuaScriptInterface::luaSendOutfitWindow(lua_State* L)
 	} else {
 		lua_pushnil(L);
 	}
-	
+
 	return 1;
 }
 
@@ -8394,6 +8409,98 @@ int LuaScriptInterface::luaGetPartyMembers(lua_State *L)
 	return 1;
 }
 
+int LuaScriptInterface::luaIsPartyLeader(lua_State *L)
+{
+	//isPartyLeader(cid)
+	ScriptEnviroment* env = getScriptEnv();
+	if(Player* player = env->getPlayerByUID(popNumber(L)))
+	{
+		if(Party* party = player->getParty())
+		{
+			if(player == party->getLeader())
+			{
+				lua_pushboolean(L, true);
+				return 1;
+			}
+		}
+	}
+
+	lua_pushboolean(L, false);
+	return 1;
+}
+
+int LuaScriptInterface::luaIsPartySharedExperienceActive(lua_State *L)
+{
+	//isPartySharedExperienceActive(cid)
+	ScriptEnviroment* env = getScriptEnv();
+	if(Player* player = env->getPlayerByUID(popNumber(L)))
+	{
+		if(Party* party = player->getParty())
+		{
+			lua_pushboolean(L, party->isSharedExperienceActive());
+			return 1;
+		}
+	}
+
+	lua_pushboolean(L, false);
+	return 1;
+}
+
+int LuaScriptInterface::luaSetPartySharedExperience(lua_State *L)
+{
+	//setPartySharedExperience(cid, active)
+	bool active = popBoolean(L);
+	ScriptEnviroment* env = getScriptEnv();
+	if(Player* player = env->getPlayerByUID(popNumber(L)))
+	{
+		if(Party* party = player->getParty())
+		{
+			lua_pushboolean(L, party->setSharedExperience(party->getLeader(), active));
+			return 1;
+		}
+	}
+
+	lua_pushboolean(L, false);
+	return 1;
+}
+
+int LuaScriptInterface::luaSendPartyChannelMessage(lua_State *L)
+{
+	//sendPartyChannelMessage(cid, message)
+	std::string message = popString(L);
+	uint32_t cid = popNumber(L);
+
+	ScriptEnviroment* env = getScriptEnv();
+	if(Player* player = env->getPlayerByUID(cid))
+	{
+		if(Party* party = player->getParty())
+		{
+			lua_pushboolean(L, party->sendChannelMessage(player, SPEAK_CHANNEL_O, message));
+			return 1;
+		}
+	}
+
+	lua_pushboolean(L, false);
+	return 1;
+}
+
+int LuaScriptInterface::luaCanUseSharedExperience(lua_State *L)
+{
+	//canUseSharedExperience(cid)
+	ScriptEnviroment* env = getScriptEnv();
+	if(Player* player = env->getPlayerByUID(popNumber(L)))
+	{
+		if(Party* party = player->getParty())
+		{
+			lua_pushboolean(L, party->canUseSharedExperience(player));
+			return 1;
+		}
+	}
+
+	lua_pushboolean(L, false);
+	return 1;
+}
+
 int LuaScriptInterface::luaGetItemIdByName(lua_State *L)
 {
 	//getItemIdByName(name)
@@ -9519,9 +9626,9 @@ int LuaScriptInterface::luaDoSavePlayer(lua_State *L)
 {
 	uint32_t cid = popNumber(L);
 	ScriptEnviroment* env = getScriptEnv();
- 
+
 	Player* player = env->getPlayerByUID(cid);
- 
+
 	if (player){
 		if (IOPlayer::instance()->savePlayer(player)){
 			lua_pushboolean(L, true);
@@ -9532,7 +9639,7 @@ int LuaScriptInterface::luaDoSavePlayer(lua_State *L)
 	} else {
 		lua_pushboolean(L, false);
 	}
- 
+
 	return 0;
 }
 
@@ -9542,14 +9649,14 @@ int LuaScriptInterface::luaDoPlayerOpenChannel(lua_State* L)
 	//doPlayerOpenChannel(cid, channelId)
 	uint16_t channelId = popNumber(L);
 	uint32_t cid = popNumber(L);
-	
+
 	ScriptEnviroment* env = getScriptEnv();
 	if(env->getPlayerByUID(cid))
 	{
 		lua_pushboolean(L, g_game.playerOpenChannel(cid, channelId));
 		return 1;
 	}
-	
+
 	reportErrorFunc(getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
 	lua_pushboolean(L, false);
 	return 1;
