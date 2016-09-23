@@ -50,7 +50,7 @@
 		<item id="2478" chance="5000"/><!-- 5% brass legs -->
 		<item id="2647" chance="800"/><!-- 0.8% plate legs -->
 		<item id="2463" chance="3000"/><!-- 3% plate armor -->
-		<item id="1988" chance="40000"/><!-- 40% backpack -->
+		<item id="1988" chance="40000" dropempty="true"/><!-- 40% backpack -->
 		<item id="2148" chance="56000" countmax="35"/><!-- 35 56% gold coin -->
 		<item id="2666" chance="30000" countmax="2"/><!-- 2 30% meat -->
 		<item id="2667" chance="60000"/><!-- 60% fish -->

@@ -45,7 +45,7 @@
 		<item id="2649" chance="20000"/><!-- 20% leather legs -->
 		<item id="2478" chance="7000"/><!-- 7% brass legs -->
 		<item id="2260" chance="18000"/><!-- 18% blank rune -->
-		<item id="1998" chance="9000"/><!-- 9% backpack -->
+		<item id="1998" chance="9000" dropempty="true"/><!-- 9% backpack -->
 		<item id="2410" chance="22000" countmax="2"/><!-- 2 22% throwing knife -->
 		<item id="2148" chance="26000" countmax="8"/><!-- 8 26% gold coin -->
 	</loot>

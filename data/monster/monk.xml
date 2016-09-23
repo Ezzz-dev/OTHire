@@ -44,7 +44,7 @@
 				<item id="2044" chance="20000"/><!-- 20% lamp -->
 			</inside>
 		</item>
-		<item id="1987" chance="26000"/><!-- 26% bag -->
+		<item id="1987" chance="26000" dropempty="true"/><!-- 26% bag -->
 		<item id="2467" chance="11000"/><!-- 11% leather armor -->
 		<item id="2642" chance="16000"/><!-- 16% sandals -->
 		<item id="2193" chance="300"/><!-- 0.1% ankh -->

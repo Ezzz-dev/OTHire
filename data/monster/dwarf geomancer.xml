@@ -50,7 +50,7 @@
 				<item id="2213" chance="600"/><!-- 0.6% dwarven ring -->
 			</inside>
 		</item>
-		<item id="1987" chance="50000"/><!-- 50% bag -->
+		<item id="1987" chance="50000" dropempty="true"/><!-- 50% bag -->
 		<item id="2481" chance="16000"/><!-- 16% soldier helmet -->
 		<item id="2649" chance="40000"/><!-- 40% leather legs -->
 		<item id="2643" chance="80000"/><!-- 80% leather boots -->

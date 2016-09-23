@@ -43,7 +43,7 @@
 		<item id="2129" chance="20000"/><!-- 20% wolf tooth chain -->
 		<item id="2482" chance="30000"/><!-- 30% studded helmet -->
 		<item id="2483" chance="1200"/><!-- 1.2% scale armor -->
-		<item id="1988" chance="60000"/><!-- 60% backpack -->
+		<item id="1988" chance="60000" dropempty="true"/><!-- 60% backpack -->
 		<item id="2148" chance="50000" countmax="10"/><!-- 10 50% gold coin -->
 		<item id="2148" chance="300" countmax="80"/><!-- 80 0.1% gold coin -->
 		<item id="2666" chance="60000" countmax="3"/><!-- 3 60% meat -->
