@@ -51,5 +51,5 @@
 	<talkaction words="!online" access="0" script="onlinelist.lua"/>
 	<talkaction words="!frags" access="0" script="frags.lua"/>
 	<talkaction words="!share" access="0" script="shareexp.lua"/>
-	<talkaction words="!useshare" access="0" script="canuseshare.lua"/>
+	<talkaction words="!canshare" access="0" script="canuseshare.lua"/>
 </talkactions>
