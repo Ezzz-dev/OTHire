@@ -971,7 +971,7 @@ void Tile::__addThing(int32_t index, Thing* thing)
 								postRemoveNotification(oldField, NULL, oldFieldIndex, true);
 								break;
 							}
-							else{
+							else if(oldField->getID() != 1423 && oldField->getID() != 1424 && oldField->getID() != 1425){
 								//This magic field cannot be replaced.
 								item->setParent(NULL);
 								g_game.FreeThing(item);
