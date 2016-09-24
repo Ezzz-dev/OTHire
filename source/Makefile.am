@@ -4,7 +4,7 @@ sbin_PROGRAMS = otserv
 AM_CXXFLAGS = $(XML_CPPFLAGS) $(OTSERV_FLAGS) $(LUA_CFLAGS) $(DEBUG_FLAGS)\
 	$(MYSQL_FLAGS) $(SQLITE_FLAGS) $(ODBC_FLAGS) $(PGSQL_FLAGS)\
 	$(PROFILER_FLAGS) $(OPTIONAL_FLAGS) \
-	-DSYSCONFDIR=\"$(sysconfdir)\" -DPKGDATADIR=\"$(pkgdatadir)\" \
+	-std=c++11 -DSYSCONFDIR=\"$(sysconfdir)\" -DPKGDATADIR=\"$(pkgdatadir)\" \
 	-D_THREAD_SAFE -D__OLD_GUILD_SYSTEM__ -D_REENTRANT -Wall
 
 otserv_LDADD = $(LUA_LIBS)
@@ -87,4 +87,3 @@ config.lua:
 
 distclean-local:
 	-rm -f config.lua.dist config.lua
-
