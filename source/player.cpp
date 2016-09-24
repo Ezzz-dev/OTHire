@@ -3955,8 +3955,8 @@ void Player::onIdleStatus()
 {
 	Creature::onIdleStatus();
 	if(getParty()){
-    getParty()->clearPlayerPoints(this);
-  }
+		getParty()->clearPlayerPoints(this);
+	}
 }
 
 void Player::onPlacedCreature()
@@ -3971,12 +3971,12 @@ void Player::onAttackedCreatureDrainHealth(Creature* target, int32_t points)
 {
 	Creature::onAttackedCreatureDrainHealth(target, points);
 	if(target && getParty() && !Combat::isPlayerCombat(target)){
-    Monster* tmpMonster = target->getMonster();
-    if(tmpMonster && tmpMonster->isHostile()){
-      //We have fulfilled a requirement for shared experience
-      getParty()->addPlayerDamageMonster(this, points);
-    }
-  }
+		Monster* tmpMonster = target->getMonster();
+		if(tmpMonster && tmpMonster->isHostile()){
+			//We have fulfilled a requirement for shared experience
+			getParty()->addPlayerDamageMonster(this, points);
+		}
+	}
 }
 
 void Player::onSummonAttackedCreatureDrainHealth(Creature* summon, Creature* target, int32_t points)
@@ -4088,8 +4088,8 @@ void Player::onGainExperience(uint64_t gainExp, bool fromMonster)
 
 void Player::onGainSharedExperience(uint64_t gainExp, bool fromMonster)
 {
-  gainExperience(gainExp, fromMonster);
-  Creature::onGainSharedExperience(gainExp, fromMonster);
+	gainExperience(gainExp, fromMonster);
+	Creature::onGainSharedExperience(gainExp, fromMonster);
 }
 
 bool Player::isImmune(CombatType_t type) const

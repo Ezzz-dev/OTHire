@@ -40,8 +40,8 @@ local function send(cid, lastHit, pos, name, party)
 
 	if party then
 		if lastHit then
-      sendPartyChannelMessage(cid, getPlayerName(cid) .. " killed " .. getArticleByWord(name) .. " " .. string.lower(name) .. ": " .. (ret ~= "" and ret or "nothing"))
-    end
+			sendPartyChannelMessage(cid, getPlayerName(cid) .. " killed " .. getArticleByWord(name) .. " " .. string.lower(name) .. ": " .. (ret ~= "" and ret or "nothing"))
+		end
 	end
 end
 

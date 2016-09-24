@@ -486,53 +486,53 @@ bool Party::canEnableSharedExperience()
 
 void Party::addPlayerHealedMember(Player* player, uint32_t points)
 {
-  if(!player->hasFlag(PlayerFlag_NotGainInFight)){
-    if(points > 0){
-      CountMap::iterator it = pointMap.find(player->getID());
-      if(it == pointMap.end()){
-        CountBlock_t cb;
-        cb.ticks = OTSYS_TIME();
-        cb.totalHeal = points;
-        cb.totalDamage = 0;
-        pointMap[player->getID()] = cb;
-      }
-      else{
-        it->second.totalHeal += points;
-        it->second.ticks = OTSYS_TIME();
-      }
+	if(!player->hasFlag(PlayerFlag_NotGainInFight)){
+		if(points > 0){
+			CountMap::iterator it = pointMap.find(player->getID());
+			if(it == pointMap.end()){
+				CountBlock_t cb;
+				cb.ticks = OTSYS_TIME();
+				cb.totalHeal = points;
+				cb.totalDamage = 0;
+				pointMap[player->getID()] = cb;
+			}
+			else{
+				it->second.totalHeal += points;
+				it->second.ticks = OTSYS_TIME();
+			}
 
-      updateSharedExperience();
-    }
-  }
+			updateSharedExperience();
+		}
+	}
 }
 
 void Party::addPlayerDamageMonster(Player* player, uint32_t points)
 {
-  if(!player->hasFlag(PlayerFlag_NotGainInFight)){
-    if(points > 0){
-      CountMap::iterator it = pointMap.find(player->getID());
-      if(it == pointMap.end()){
-        CountBlock_t cb;
-        cb.ticks = OTSYS_TIME();
-        cb.totalDamage = points;
-        cb.totalHeal = 0;
-        pointMap[player->getID()] = cb;
-      }
-      else{
-        it->second.totalDamage += points;
-        it->second.ticks = OTSYS_TIME();
-      }
+	if(!player->hasFlag(PlayerFlag_NotGainInFight)){
+		if(points > 0){
+			CountMap::iterator it = pointMap.find(player->getID());
+			if(it == pointMap.end()){
+				CountBlock_t cb;
+				cb.ticks = OTSYS_TIME();
+				cb.totalDamage = points;
+				cb.totalHeal = 0;
+				pointMap[player->getID()] = cb;
+			}
+			else{
+				it->second.totalDamage += points;
+				it->second.ticks = OTSYS_TIME();
+			}
 
-      updateSharedExperience();
-    }
-  }
+			updateSharedExperience();
+		}
+	}
 }
 
 void Party::clearPlayerPoints(Player* player)
 {
-  CountMap::iterator it = pointMap.find(player->getID());
-  if(it != pointMap.end()){
-    pointMap.erase(it);
-    updateSharedExperience();
-  }
+	CountMap::iterator it = pointMap.find(player->getID());
+	if(it != pointMap.end()){
+		pointMap.erase(it);
+		updateSharedExperience();
+	}
 }
