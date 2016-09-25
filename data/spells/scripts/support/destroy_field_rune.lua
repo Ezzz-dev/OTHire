@@ -1,6 +1,7 @@
 function onCastSpell(cid, var)
 	local position = variantToPosition(var)
-	local stackSize = getTileStackItemsSize(position)
+	local creaturesSize = #getAllCreatures(position)
+	local stackSize = getTileStackItemsSize(position) + creaturesSize
 	local itemsTable = {}
 	local removed = false
 
