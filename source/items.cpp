@@ -228,7 +228,7 @@ int Items::loadFromOtb(std::string file)
 		}
 	}
 
-	if (Items::dwMajorVersion != 2) {
+	if (Items::dwMajorVersion != 1 && Items::dwMajorVersion != 2) {
 		std::cout << "Not supported items.otb version." << std::endl;
 		return ERROR_INVALID_FORMAT;
 	}
