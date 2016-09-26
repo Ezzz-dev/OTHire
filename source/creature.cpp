@@ -1354,12 +1354,6 @@ void Creature::onGainSharedExperience(uint64_t gainExp, bool fromMonster)
 		std::stringstream strExp;
 		strExp << gainExp;
 		g_game.addAnimatedText(getPosition(), TEXTCOLOR_WHITE_EXP, strExp.str());
-
-		if (Player* player = getPlayer()){
-			std::stringstream ss;
-			ss << "You gained " << gainExp << " experience points.";
-			player->sendTextMessage(MSG_STATUS_DEFAULT, ss.str());
-		}
 	}
 }
 

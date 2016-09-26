@@ -31,18 +31,23 @@ end
 local function send(cid, lastHit, pos, name, party)
 	local corpse = getTileItemByType(pos, ITEM_TYPE_CONTAINER).uid
 	local ret = isContainer(corpse) and getContentDescription(corpse)
-
-	if getPlayerStorageValue(cid,STORAGE_LOOTMESSAGE) == 1 then
-		if lastHit then
-			doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, "Loot of ".. getArticleByWord(name) .. " " .. string.lower(name) .. ": " .. (ret ~= "" and ret or "nothing"))
-		end
-	end
-
+	
 	if party then
 		if lastHit then
-			sendPartyChannelMessage(cid, getPlayerName(cid) .. " killed " .. getArticleByWord(name) .. " " .. string.lower(name) .. ": " .. (ret ~= "" and ret or "nothing"))
+			for _, pid in ipairs(getPartyMembers(cid)) do
+				local send = getPlayerStorageValue(pid,STORAGE_LOOTMESSAGE)
+				if send == 1 then
+					doPlayerSendTextMessage(pid, MESSAGE_INFO_DESCR, 'Loot of '.. getArticleByWord(name) .. ' ' .. string.lower(name) .. ': ' .. (ret ~= '' and ret or 'nothing'))
+				end
+			end
+		end
+	else
+		local send = getPlayerStorageValue(cid,STORAGE_LOOTMESSAGE)
+		if send == 1 then
+			doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, 'Loot of '.. getArticleByWord(name) .. ' ' .. string.lower(name) .. ': ' .. (ret ~= '' and ret or 'nothing'))
 		end
 	end
+	
 end
 
 function onKill(cid, target, lastHit)

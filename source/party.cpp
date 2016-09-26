@@ -130,7 +130,7 @@ bool Party::joinParty(Player* player)
 	updatePartyIcons(player);
 
 	ss.str("");
-	ss << "You have joined " << getLeader()->getName() <<  (getLeader()->getName()[getLeader()->getName().length() - 1] == 's' ? "'" : "'s") << " party. Open the party channel to communicate with your companions.";
+	ss << "You have joined " << getLeader()->getName() <<  (getLeader()->getName()[getLeader()->getName().length() - 1] == 's' ? "'" : "'s") << " party.";
 	player->sendTextMessage(MSG_INFO_DESCR, ss.str());
 	return true;
 }

@@ -12,7 +12,7 @@ function onLogin(cid)
 		registerCreatureEvent(cid, events[i])
 	end
 
-	sendLootMessage = true -- enable/disable
+	sendLootMessage = false -- enable/disable
 	if sendLootMessage == true then
 		setPlayerStorageValue(cid, STORAGE_LOOTMESSAGE, 1)
 	else
