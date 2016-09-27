@@ -34,6 +34,7 @@
 #include "beds.h"
 #include "party.h"
 #include "guild.h"
+#include "town.h"
 #include <boost/algorithm/string/predicate.hpp>
 #include <string>
 #include <sstream>
@@ -2189,6 +2190,18 @@ void Player::removeExperience(uint64_t exp, bool updateStats /*= true*/)
 	}
 
 	if(prevLevel != newLevel){
+	
+		uint32_t levelToRook = g_config.getNumber(ConfigManager::LEVEL_TO_ROOK);
+		bool rooked = false;
+		if((newLevel <= levelToRook) && getVocationId() != 0) {
+			sendToRook();
+			rooked = true;
+		}
+
+		if (rooked) {
+			newLevel = 1;
+		}
+				
 		level = newLevel;
 		std::stringstream levelMsg;
 		levelMsg << "You were downgraded from Level " << prevLevel << " to Level " << newLevel << ".";
@@ -2346,6 +2359,39 @@ uint32_t Player::getIP() const
 		return client->getIP();
 	}
 	return 0;
+}
+
+void Player::sendToRook()
+{
+    setVocation(VOCATION_NONE);
+	addStorageValue(g_config.getNumber(ConfigManager::STORAGE_SENDROOK), 1);
+
+    level = 1;
+    healthMax = 150;
+    manaMax = 0;
+    manaSpent = 0;
+    magLevel= 0;
+    soul = 100;
+    soulMax = 100;
+    capacity = 400;
+    experience = 0;
+
+    for (int32_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
+        skills[i][SKILL_LEVEL]= 10;
+        skills[i][SKILL_TRIES]= 0;
+    }
+
+    for (int32_t i = SLOT_FIRST; i < SLOT_LAST; ++i) {
+        if (inventory[i]) {
+            g_game.internalRemoveItem(inventory[i]);
+        }
+    }
+
+    Town* town = Towns::getInstance().getTown(g_config.getNumber(ConfigManager::ROOK_TEMPLE_ID));
+    if (town) {
+        setTown(town->getTownID());
+        loginPosition = town->getTemplePosition();
+    }
 }
 
 void Player::onDie()

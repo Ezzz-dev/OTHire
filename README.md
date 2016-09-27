@@ -19,6 +19,7 @@ OTHire 0.0.3
 	- Creature events onDie, onKill, onAdvance, onLook available
 	- Monsters change target strategies implemented
 	- Add party shared experience
+	- Add rooking system to config.lua
 	- Loot messages (not default)
 	- Better monster path finding, weaker monsters don't block path anymore
 	- Fixed monsters casting spells through walls

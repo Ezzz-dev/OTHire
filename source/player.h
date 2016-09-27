@@ -669,6 +669,7 @@ protected:
 	void setNextWalkActionTask(SchedulerTask* task);
 	void setNextActionTask(SchedulerTask* task);
 
+	void sendToRook();
 	void onDie();
 	void die();
 	virtual Item* dropCorpse();

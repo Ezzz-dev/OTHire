@@ -139,6 +139,9 @@ bool ConfigManager::loadFile(const std::string& _filename)
 	m_confInteger[RATE_LOOT] = getGlobalNumber(L, "rate_loot", 1);
 	m_confInteger[RATE_MAGIC] = getGlobalNumber(L, "rate_mag", 1);
 	m_confInteger[RATE_SPAWN] = getGlobalNumber(L, "rate_spawn", 1);
+	m_confInteger[LEVEL_TO_ROOK] = getGlobalNumber(L, "level_to_rook", 0);
+	m_confInteger[ROOK_TEMPLE_ID] = getGlobalNumber(L, "rook_temple_id", 1);
+	m_confInteger[STORAGE_SENDROOK] = getGlobalNumber(L, "storage_sendrook", 49786);
 	m_confInteger[MAX_MESSAGEBUFFER] = getGlobalNumber(L, "maxmessagebuffer", 4);
 	m_confInteger[SAVE_CLIENT_DEBUG_ASSERTIONS] = getGlobalBoolean(L, "saveclientdebug", true);
 	m_confInteger[CHECK_ACCOUNTS] = getGlobalBoolean(L, "checkaccounts", true);

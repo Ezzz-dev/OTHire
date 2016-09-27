@@ -24,13 +24,36 @@ function onLogin(cid)
 		registerCreatureEvent(cid, "ExpStage")
 		checkStageChange(cid)
 	end
-	--add a backpack if it is a relogin after a death
+
+	--Add a backpack if it is a relogin after a death
 	if getPlayerStorageValue(cid, STORAGE_DEATH_BAG) == 1 then
-		if getPlayerSlotItem(cid, CONST_SLOT_BACKPACK).uid == 0 then
+		if getPlayerSlotItem(cid, CONST_SLOT_BACKPACK).uid == 0 and getPlayerStorageValue(cid, getConfigInfo("storage_sendrook")) ~= 1 then
 			local item_bag = doCreateItemEx(ITEM_BAG, 1)
 			doPlayerAddItemEx(cid, item_bag, false, CONST_SLOT_BACKPACK)
 		end
 		setPlayerStorageValue(cid, STORAGE_DEATH_BAG, -1)
+	end
+
+	--Handle character sent to newbie island from main
+	if getPlayerStorageValue(cid, getConfigInfo("storage_sendrook")) == 1 then
+		-- first items
+		if (getPlayerSex(cid) == 0) then
+			doPlayerAddItem(cid, 2651, 1)
+		else
+			doPlayerAddItem(cid, 2650, 1) -- jacket
+		end
+		local club = doCreateItemEx(2382, 1) -- club
+		doPlayerAddItemEx(cid, club, true, CONST_SLOT_LEFT)
+		local bp = doPlayerAddItem(cid, 1987, 1) -- bag
+		doAddContainerItem(bp, 2050, 1) -- torch
+		doAddContainerItem(bp, 2674, 2) -- apples
+		-- remove house
+		local house = House.getHouseByOwner(cid)
+		if(house) then
+			house:setOwner(0) --Remove the house from the player, the server takes care of the rest
+		end
+		-- reset storage
+		setPlayerStorageValue(cid, getConfigInfo("storage_sendrook"), -1)
 	end
 
 	--Remove blesses if necessary
