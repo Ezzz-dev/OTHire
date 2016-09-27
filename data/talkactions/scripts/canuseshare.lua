@@ -7,7 +7,7 @@ function onSay(cid, words, param)
 	end
 
 	local boolean = not canUseSharedExperience(cid)
-	doPlayerSendTextMessage(cid, MESSAGE_EVENT_ADVANCE, "You can " .. (boolean and "not" or "") .. " use shared experience.")
+	doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, "You are " .. (boolean and "not" or "") .. " meeting the requirements to be benefited by party shared experience.")
 
 	return false
 end

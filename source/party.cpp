@@ -388,14 +388,7 @@ bool Party::setSharedExperience(Player* player, bool _sharedExpActive)
 	sharedExpActive = _sharedExpActive;
 
 	if(sharedExpActive){
-		sharedExpEnabled = canEnableSharedExperience();
-		if(sharedExpEnabled){
-			getLeader()->sendTextMessage(MSG_INFO_DESCR, "Shared Experience is now active.");
-		}
-		else{
-			getLeader()->sendTextMessage(MSG_INFO_DESCR, "Shared Experience has been activated," \
-				" but some members of your party are inactive.");
-		}
+		getLeader()->sendTextMessage(MSG_INFO_DESCR, "Shared Experience is now active.");
 	}
 	else{
 		getLeader()->sendTextMessage(MSG_INFO_DESCR, "Shared Experience has been deactivated.");
