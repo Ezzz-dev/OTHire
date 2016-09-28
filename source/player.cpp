@@ -69,20 +69,20 @@ Creature()
 	if(client){
 		client->setPlayer(this);
 	}
-	accountId   = 0;
-	name        = _name;
+	accountId = 0;
+	name = _name;
 	setVocation(VOCATION_NONE);
-	capacity   = 300.00;
-	mana       = 0;
-	manaMax    = 0;
-	manaSpent  = 0;
-	soul       = 0;
-	soulMax    = 100;
+	capacity = 300.00;
+	mana = 0;
+	manaMax	= 0;
+	manaSpent = 0;
+	soul = 0;
+	soulMax	= 100;
 
-	level      = 1;
+	level = 1;
 	levelPercent = 0;
 	magLevelPercent = 0;
-	magLevel   = 0;
+	magLevel = 0;
 	experience = 0;
 	damageImmunities = 0;
 	conditionImmunities = 0;
@@ -788,7 +788,7 @@ void Player::setVarStats(stats_t stat, int32_t modifier)
 		case STAT_MAXHITPOINTS:
 		{
 			if(getHealth() > getMaxHealth()){
-				//Creature::changeHealth is called  to avoid sendStats()
+				//Creature::changeHealth is called to avoid sendStats()
 				Creature::changeHealth(getMaxHealth() - getHealth());
 			}
 			else{
@@ -800,7 +800,7 @@ void Player::setVarStats(stats_t stat, int32_t modifier)
 		case STAT_MAXMANAPOINTS:
 		{
 			if(getMana() > getMaxMana()){
-				//Creature::changeMana is called  to avoid sendStats()
+				//Creature::changeMana is called to avoid sendStats()
 				Creature::changeMana(getMaxMana() - getMana());
 			}
 			break;
@@ -863,7 +863,7 @@ void Player::updateBaseSpeed()
 
 Container* Player::getContainer(uint32_t cid)
 {
-  for(ContainerVector::iterator it = containerVec.begin(); it != containerVec.end(); ++it){
+	for(ContainerVector::iterator it = containerVec.begin(); it != containerVec.end(); ++it){
 		if(it->first == cid)
 			return it->second;
 	}
@@ -873,8 +873,8 @@ Container* Player::getContainer(uint32_t cid)
 
 int32_t Player::getContainerID(const Container* container) const
 {
-  for(ContainerVector::const_iterator cl = containerVec.begin(); cl != containerVec.end(); ++cl){
-	  if(cl->second == container)
+	for(ContainerVector::const_iterator cl = containerVec.begin(); cl != containerVec.end(); ++cl){
+		if(cl->second == container)
 			return cl->first;
 	}
 
@@ -906,9 +906,9 @@ void Player::addContainer(uint32_t cid, Container* container)
 
 void Player::closeContainer(uint32_t cid)
 {
-  for(ContainerVector::iterator cl = containerVec.begin(); cl != containerVec.end(); ++cl){
-	  if(cl->first == cid){
-		  containerVec.erase(cl);
+	for(ContainerVector::iterator cl = containerVec.begin(); cl != containerVec.end(); ++cl){
+		if(cl->first == cid){
+			containerVec.erase(cl);
 			break;
 		}
 	}
@@ -1089,14 +1089,14 @@ bool Player::canSeeCreature(const Creature* creature) const
 bool Player::canWalkthrough(const Creature* creature) const
 {
 	if(!creature->getPlayer()){
-    return false;
-  }
+		return false;
+	}
 
 	if(creature->getPlayer()->hasSomeInvisibilityFlag()){
 		return true;
 	}
 
-  return false;
+	return false;
 }
 
 bool Player::canBePushedBy(const Player *player) const
@@ -2190,18 +2190,14 @@ void Player::removeExperience(uint64_t exp, bool updateStats /*= true*/)
 	}
 
 	if(prevLevel != newLevel){
-	
+
+		//Rooking the character
 		uint32_t levelToRook = g_config.getNumber(ConfigManager::LEVEL_TO_ROOK);
-		bool rooked = false;
 		if((newLevel <= levelToRook) && getVocationId() != 0) {
 			sendToRook();
-			rooked = true;
-		}
-
-		if (rooked) {
 			newLevel = 1;
 		}
-				
+
 		level = newLevel;
 		std::stringstream levelMsg;
 		levelMsg << "You were downgraded from Level " << prevLevel << " to Level " << newLevel << ".";
@@ -2363,35 +2359,35 @@ uint32_t Player::getIP() const
 
 void Player::sendToRook()
 {
-    setVocation(VOCATION_NONE);
+	setVocation(VOCATION_NONE);
 	addStorageValue(g_config.getNumber(ConfigManager::STORAGE_SENDROOK), 1);
 
-    level = 1;
-    healthMax = 150;
-    manaMax = 0;
-    manaSpent = 0;
-    magLevel= 0;
-    soul = 100;
-    soulMax = 100;
-    capacity = 400;
-    experience = 0;
+	level = 1;
+	healthMax = 150;
+	manaMax = 0;
+	manaSpent = 0;
+	magLevel= 0;
+	soul = 100;
+	soulMax = 100;
+	capacity = 400;
+	experience = 0;
 
-    for (int32_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
-        skills[i][SKILL_LEVEL]= 10;
-        skills[i][SKILL_TRIES]= 0;
-    }
+	for (int32_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
+		skills[i][SKILL_LEVEL]= 10;
+		skills[i][SKILL_TRIES]= 0;
+	}
 
-    for (int32_t i = SLOT_FIRST; i < SLOT_LAST; ++i) {
-        if (inventory[i]) {
-            g_game.internalRemoveItem(inventory[i]);
-        }
-    }
+	for (int32_t i = SLOT_FIRST; i < SLOT_LAST; ++i) {
+		if (inventory[i]) {
+			g_game.internalRemoveItem(inventory[i]);
+		}
+	}
 
-    Town* town = Towns::getInstance().getTown(g_config.getNumber(ConfigManager::ROOK_TEMPLE_ID));
-    if (town) {
-        setTown(town->getTownID());
-        loginPosition = town->getTemplePosition();
-    }
+	Town* town = Towns::getInstance().getTown(g_config.getNumber(ConfigManager::ROOK_TEMPLE_ID));
+	if (town) {
+		setTown(town->getTownID());
+		loginPosition = town->getTemplePosition();
+	}
 }
 
 void Player::onDie()
@@ -3052,7 +3048,7 @@ ReturnValue Player::__queryMaxCount(int32_t index, const Thing* thing, uint32_t 
 
 					//iterate through all items, including sub-containers (deep search)
 					for(ContainerIterator cit = subContainer->begin(); cit != subContainer->end(); ++cit){
-						if(Container* tmpContainer  = (*cit)->getContainer()){
+						if(Container* tmpContainer = (*cit)->getContainer()){
 							queryCount = 0;
 							tmpContainer->__queryMaxCount(INDEX_WHEREEVER, item, item->getItemCount(), queryCount, flags);
 							n += queryCount;
@@ -4493,19 +4489,19 @@ bool Player::withdrawMoney(uint32_t amount)
 
 bool Player::depositMoney(uint32_t amount)
 {
-    if (safeIncrUInt32_t(balance, amount))
-    {
+	if (safeIncrUInt32_t(balance, amount))
+	{
 		if (!g_game.removeMoney(this, amount))
-        {
+		{
 			balance -= amount; //undo the change in balance
 			return false;
-        }
-    }
-    else
-        return false;
+		}
+	}
+	else
+		return false;
 
-    return true;
- }
+	return true;
+}
 
 bool Player::transferMoneyTo(const std::string& name, uint32_t amount)
 {

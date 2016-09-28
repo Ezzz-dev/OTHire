@@ -140,6 +140,7 @@
 	<monster name="Flamethrower" file="bosses/flamethrower.xml"/>
 	<monster name="General Murius" file="bosses/general murius.xml"/>
 	<monster name="Grorlam" file="bosses/grorlam.xml"/>
+	<monster name="The Halloween Hare" file="bosses/the halloween hare.xml"/>
 	<monster name="Magicthrower" file="bosses/magicthrower.xml"/>
 	<monster name="Mahrdis" file="bosses/mahrdis.xml"/>
 	<monster name="Morguthis" file="bosses/morguthis.xml"/>

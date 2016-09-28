@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Halloween Hare" nameDescription="the Halloween Hare" race="blood" experience="0" speed="310" manacost="0">
+	<health now="2000" max="2000"/>
+	<look type="74" corpse="3119"/>
+	<targetchange interval="1000" chance="95"/>
+	<targetstrategies nearest="0" health="0" damage="0" random="100"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="0"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="4"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="outfit" interval="2000" chance="1" range="5" radius="4" target="1" monster="witch" duration="6000000">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="outfit" interval="2000" chance="1" range="5" radius="4" target="1" monster="ghost" duration="6000000">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="outfit" interval="2000" chance="1" range="5" radius="4" target="1" item="2097" duration="6000000">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="outfit" interval="2000" chance="1" range="5" radius="4" target="1" monster="skeleton" duration="6000000">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="outfit" interval="2000" chance="1" range="5" radius="4" target="1" monster="vampire" duration="6000000">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="outfit" interval="2000" chance="1" range="5" radius="4" target="1" monster="mummy" duration="6000000">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+	</attacks>
+	<defenses armor="999" defense="999">
+		<defense name="outfit" interval="2000" chance="100" monster="rabbit" duration="60000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="100"/><element deathPercent="100"/>
+		<element firePercent="100"/>
+		<element energyPercent="100"/>
+		<element earthPercent="100"/>
+	</elements>
+	<immunities>
+		<immunity lifedrain="1"/>
+		<immunity paralyze="1"/>
+		<immunity outfit="1"/>
+		<immunity drunk="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+	</voices>
+	<loot>
+		<item id="2349" chance="100000"/><!-- 100% 2349 blue note -->
+		<item id="2148" countmax="42" chance1="80000" chancemax="0"/><!-- 1-42 90% 2148 gold -->
+		<item id="2148" countmax="87" chance1="85000" chancemax="0"/><!-- 1-90 90% 2148 gold -->
+		<item id="2148" countmax="93" chance1="90000" chancemax="0"/><!-- 1-90 90% 2148 gold -->
+		<item id="2143" countmax="1" chance1="12000" chancemax="0"/><!-- 12% 2143 white pearl -->
+		<item id="2072" chance="10000"/><!-- 10% 2072 lute -->
+		<item id="2074" chance="500"/><!-- 0,5% 2074 panpipes -->
+		<item id="2656" chance="2000"/><!-- 2% 2656 blue robe -->
+		<item id="2139" chance="500"/><!-- 0,5% 2139 ancient tiara -->
+		<item id="1987" chance="100000"><!-- bag -->
+			<inside>
+				<item id="2124" chance="1000"/><!-- 1% 2124 crystal ring -->
+				<item id="2445" chance="2000"/><!-- 2% 2445 crystal mace -->
+			</inside>
+		</item>
+	</loot>
+</monster>
