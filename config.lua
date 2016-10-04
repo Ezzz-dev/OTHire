@@ -245,8 +245,8 @@ despawnrange = 2
 -- how many square metters can a monster be far from his spawn before despawning
 despawnradius = 50
 
---should players be able to hit invisible creatures using not AOE runes? (default: false)
-can_attack_invisible = false
+--should players be able to hit invisible creatures using not AOE runes? (default: true)
+can_attack_invisible = true
 
 --players with a level smaller than this number can't be attacked by other players. Set it to to 0 to disable
 min_pvp_level = 0
