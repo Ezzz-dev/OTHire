@@ -1778,11 +1778,13 @@ void Player::onCreatureMove(const Creature* creature, const Tile* newTile, const
 			getParty()->updateSharedExperience();
 		}
 
-		if(teleport || (oldPos.z != newPos.z)){
-			addCondition(Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_PACIFIED,
-				g_config.getNumber(ConfigManager::STAIRHOP_EXHAUSTED)));
-			addCondition(Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_EXHAUST_COMBAT,
-				g_config.getNumber(ConfigManager::STAIRHOP_EXHAUSTED)));
+		if(ConfigManager::STAIRHOP_EXHAUSTED > 0){
+			if(teleport || (oldPos.z != newPos.z)){
+				addCondition(Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_PACIFIED,
+					g_config.getNumber(ConfigManager::STAIRHOP_EXHAUSTED)));
+				addCondition(Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_EXHAUST_COMBAT,
+					g_config.getNumber(ConfigManager::STAIRHOP_EXHAUSTED)));
+			}
 		}
 	}
 }
