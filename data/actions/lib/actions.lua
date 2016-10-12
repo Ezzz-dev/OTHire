@@ -22,7 +22,7 @@ CONSTRUCTIONS = {
 	[3901] = 1650, [3902] = 1658, [3903] = 1666, [3904] = 1670, [3905] = 3813, [3906] = 3817, [3907] = 2093, [3908] = 2603, [3909] = 1614, [3910] = 1615,
 	[3911] = 1616, [3912] = 1619, [3913] = 3805, [3914] = 3807, [3915] = 1740, [3916] = 1774, [3917] = 2084, [3918] = 2095, [3919] = 3809, [3920] = 3832,
 	[3921] = 1714, [3922] = 2107, [3923] = 2104, [3924] = 7670, [3925] = 1740, [3926] = 2080, [3927] = 2098, [3928] = 1676, [3929] = 2101, [3930] = 1739,
-	[3931] = 2105, [3932] = 1724, [3933] = 1728, [3934] = 1732, [3935] = 1775, [3936] = 3812, [3937] = 2064, [3938] = 6371, [5086] = 1738, [5087] = 1741, 
+	[3931] = 2105, [3932] = 1724, [3933] = 1728, [3934] = 1732, [3935] = 1775, [3936] = 3812, [3937] = 2064, [3938] = 6371, [5086] = 1738, [5087] = 1741,
 	[5088] = 1770
 }
 
@@ -57,8 +57,8 @@ BREAKABLE_BY_WEAPONS = {
 	[1650] = { remainings = 2253, chance = 20 },
 	[1651] = { remainings = 2253, chance = 20 },
 	[1652] = { remainings = 2253, chance = 20 },
-	[1653] = { remainings = 2253, chance = 20 }, 
-	[3798] = { remainings = 3959, chance = 20 }, 
+	[1653] = { remainings = 2253, chance = 20 },
+	[3798] = { remainings = 3959, chance = 20 },
 	[3799] = { remainings = 3958, chance = 20 },
 }
 
@@ -83,7 +83,7 @@ function useRope(cid, item, frompos, item2, topos)
 		newPos.y = newPos.y + 1
 		local downPos = {x = topos.x, y = topos.y, z = topos.z + 1, stackpos = 255}
 		local downItem
-        	if getBooleanFromString(getConfigValue("can_hope_creatures"), true) then
+        	if getBooleanFromString(getConfigValue("can_rope_creatures"), true) then
 			downItem = getThingFromPos(downPos)
 		else
 			local topCreature = getTopCreature(downPos)
@@ -116,7 +116,7 @@ local function __doTransformHole__(parameters)
 	local newItem = doTransformItem(thing.uid, parameters.oldType)
 	if parameters.oldaid ~= 0 and newItem then
 		doSetItemActionId(thing.uid, parameters.oldaid)
-	end	
+	end
 end
 
 function useShovel(cid, item, frompos, item2, topos)
@@ -170,7 +170,7 @@ local duration = 5 * 60000 -- 5 minutes
 	doDecayItem(item2.uid)
 	return true
 end
-	
+
 
 function usePick(cid, item, fromPosition, itemEx, toPosition)
 
@@ -241,10 +241,9 @@ if (item2.itemid == ITEM_PRE_WHEAT) then
 	elseif (item2.itemid == ITEM_PRE_SUGAR_CANE) then
 		doTransformItem(item2.uid, ITEM_SUGAR_CANE)
 		doCreateItem(ITEM_BUNCH_SUGAR_CANE, 1, topos)
-	else 
+	else
 		return false
 	end
 	doDecayItem(item2.uid)
 	return true
 end
-
