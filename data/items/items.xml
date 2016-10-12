@@ -3044,10 +3044,7 @@
 		<attribute key="weight" value="200"/>
 	</item>
 	<item id="2175" article="a" name="spellbook">
-		<attribute key="description" value="It shows your spells and can also shield against attacks when worn."/>
 		<attribute key="weight" value="5800"/>
-		<attribute key="defense" value="14"/>
-		<attribute key="weaponType" value="shield"/>
 	</item>
 	<item id="2176" article="an" name="orb">
 		<attribute key="weight" value="800"/>
