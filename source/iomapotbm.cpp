@@ -72,7 +72,7 @@ Tile* IOMapOTBM::createTile(Item*& ground, Item* item, int px, int py, int pz)
 		}
 		
 		tile->__internalAddThing(ground);
-		ground->__startDecaying();
+		// ground->__startDecaying();
 		ground = NULL;
 	}
 	else{
@@ -339,7 +339,7 @@ bool IOMapOTBM::loadMap(Map* map, const std::string& identifier)
 							else{
 								if(tile){
 									tile->__internalAddThing(item);
-									item->__startDecaying();
+									// item->__startDecaying();
 								}
 								else if(item->isGroundTile()){
 									if(ground_item)
@@ -349,7 +349,7 @@ bool IOMapOTBM::loadMap(Map* map, const std::string& identifier)
 								else{ // !tile
 									tile = createTile(ground_item, item, px, py, pz);
 									tile->__internalAddThing(item);
-									item->__startDecaying();
+									// item->__startDecaying();
 								}
 							}
 
@@ -388,7 +388,7 @@ bool IOMapOTBM::loadMap(Map* map, const std::string& identifier)
 								else{
 									if(tile){
 										tile->__internalAddThing(item);
-										item->__startDecaying();
+										// item->__startDecaying();
 									}
 									else if(item->isGroundTile()){
 										if(ground_item)
@@ -398,7 +398,7 @@ bool IOMapOTBM::loadMap(Map* map, const std::string& identifier)
 									else{ // !tile
 										tile = createTile(ground_item, item, px, py, pz);
 										tile->__internalAddThing(item);
-										item->__startDecaying();
+										// item->__startDecaying();
 									}
 								}
 							}
