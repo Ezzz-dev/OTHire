@@ -119,7 +119,6 @@ void Npc::reset()
 	loaded = false;
 	walkTicks = 1500;
 	floorChange = false;
-	initialLookDir = SOUTH;
 	attackable = false;
 	hasScriptedFocus = false;
 	focusCreature = 0;
@@ -190,10 +189,6 @@ bool Npc::loadFromXml(const std::string& filename)
 		}
 		if (readXMLInteger(root, "walkradius", intValue)){
 			masterRadius = intValue;
-		}
-
-		if (readXMLInteger(root, "lookdir", intValue)){
-			initialLookDir = (Direction)intValue;
 		}
 
 		if (readXMLInteger(root, "autowalk", intValue)){
