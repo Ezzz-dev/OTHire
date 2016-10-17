@@ -159,6 +159,7 @@ public:
 
 	void turnToCreature(Creature* creature);
 	void setCreatureFocus(Creature* creature);
+	void setInitialLookDirection(Direction dir) { initialLookDir = dir; };
 	void turnToInitialLookDirection();
 	bool getParameter(const std::string key, std::string& value);
 	NpcScriptInterface* getScriptInterface();

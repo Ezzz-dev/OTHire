@@ -211,7 +211,7 @@ bool Spawns::loadFromXml(const std::string& _filename)
 							continue;
 						}
 
-						npc->setDirection(direction);
+						npc->setInitialLookDirection(direction);
 						npc->setMasterPos(placePos, radius);
 						npcList.push_back(npc);
 					}
