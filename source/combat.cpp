@@ -1256,7 +1256,7 @@ bool AreaCombat::getList(const Position& centerPos, const Position& targetPos, s
 {
 	Tile* tile = g_game.getTile(targetPos.x, targetPos.y, targetPos.z);
 
-	if (tile && tile->hasProperty(BLOCKSOLID)) {
+	if (tile && tile->hasProperty(BLOCKPROJECTILE)) {
 		return false;
 	}
 
