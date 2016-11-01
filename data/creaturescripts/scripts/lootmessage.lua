@@ -5,15 +5,16 @@ function getContentDescription(uid, comma)
 		local v, s = getContainerItem(uid, i), ''
 		local k = getItemDescriptions(v.itemid)
 		if k.name ~= '' then
-			if v.type > 1 and k.stackable and k.showCount then
-				s = v.type .. ' ' .. getItemDescriptions(v.itemid).plural
-			else
-				local article = k.article
-				s = (article == '' and '' or article .. ' ') .. k.name
-			end
-			ret = ret .. (i == 0 and not comma and '' or ', ') .. s
 			if isContainer(v.uid) and getContainerSize(v.uid) > 0 then
-
+				table.insert(containers, v.uid)
+			else
+				if v.type > 1 and k.stackable and k.showCount then
+					s = v.type .. ' ' .. getItemDescriptions(v.itemid).plural
+				else
+					local article = k.article
+					s = (article == '' and '' or article .. ' ') .. k.name
+				end
+				ret = ret .. (i == 0 and not comma and '' or ', ') .. s
 			end
 		else
 			ret = ret .. (i == 0 and not comma and '' or ', ') .. 'an item of type ' .. v.itemid .. ', please report it to gamemaster'
