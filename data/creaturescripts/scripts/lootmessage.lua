@@ -8,7 +8,7 @@ function getContentDescription(uid, comma)
 			if isContainer(v.uid) and getContainerSize(v.uid) > 0 then
 				table.insert(containers, v.uid)
 			else
-				if v.type > 1 and k.stackable and k.showCount then
+				if v.type > 1 and isItemStackable(v.itemid) and k.showCount then
 					s = v.type .. ' ' .. getItemDescriptions(v.itemid).plural
 				else
 					local article = k.article

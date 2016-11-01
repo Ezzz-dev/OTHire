@@ -57,6 +57,7 @@
 	<melee id="2446" function="default"/>
 	<melee id="2451" function="default"/>
 	<melee id="2377" function="default"/>
+	<melee id="3963" function="default"/>
 
 	<!-- Axes -->
 	<melee id="2378" function="default"/>
@@ -77,6 +78,8 @@
 	<melee id="2447" function="default"/>
 	<melee id="2454" function="default"/>
 	<melee id="3962" function="default"/>
+	<melee id="3964" function="default"/>
+	<melee id="3965" function="default"/>
 	
 	<!--Clubs -->
 	<melee id="2391" function="default"/>
@@ -91,6 +94,7 @@
 	<melee id="2452" function="default"/>
 	<melee id="2453" function="default"/>
 	<melee id="3961" function="default"/>
+	<melee id="3966" function="default"/>
 	
 	<!-- Distance -->
 	<distance id="2455" function="default"/> <!-- Crossbow -->
