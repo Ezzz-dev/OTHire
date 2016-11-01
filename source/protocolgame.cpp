@@ -1862,7 +1862,9 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 				AddTileCreature(msg, pos, stackpos, creature);
 
 				if (isLoggingIn){
-					AddMagicEffect(msg, creature->getPosition(), NM_ME_TELEPORT);
+					if(creature->getPlayer()){
+						AddMagicEffect(msg, creature->getPosition(), NM_ME_TELEPORT);
+					}
 				}
 			}
 		}
@@ -2296,9 +2298,9 @@ void ProtocolGame::AddCreatureSpeak(NetworkMessage_ptr msg, const Creature* crea
 	if (type != SPEAK_CHANNEL_R2){
 		if (type != SPEAK_RVR_ANSWER){
 			if(creature)
-				msg->AddString(creature->getName());
+			  msg->AddString(creature->getName());
 			else
-				msg->AddString(""); // anonymous = no name
+			  msg->AddString(""); // anonymous = no name
 		}
 		else {
 			msg->AddString("Gamemaster");
