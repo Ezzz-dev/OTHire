@@ -158,14 +158,10 @@
 	<action itemid="1222" script="doors/door_open_horizontal.lua"/>
 
 	<action itemid="1223" script="doors/questdoor_closed.lua"/>
-	<action itemid="1224" script="doors/door_open_vertical.lua"/>
 	<action itemid="1225" script="doors/questdoor_closed.lua"/>
-	<action itemid="1226" script="doors/door_open_horizontal.lua"/>
 
 	<action itemid="1227" script="doors/gateofexp_closed.lua"/>
-	<action itemid="1228" script="doors/door_open_vertical.lua"/>
 	<action itemid="1229" script="doors/gateofexp_closed.lua"/>
-	<action itemid="1230" script="doors/door_open_horizontal.lua"/>
 
 	<action itemid="1231" script="doors/door_locked.lua"/>
 	<action itemid="1232" script="increment.lua"/>
@@ -180,14 +176,10 @@
 	<action itemid="1240" script="doors/door_open_horizontal.lua"/>
 
 	<action itemid="1241" script="doors/questdoor_closed.lua"/>
-	<action itemid="1242" script="doors/door_open_vertical.lua"/>
 	<action itemid="1243" script="doors/questdoor_closed.lua"/>
-	<action itemid="1244" script="doors/door_open_horizontal.lua"/>
 
 	<action itemid="1245" script="doors/gateofexp_closed.lua"/>
-	<action itemid="1246" script="doors/door_open_vertical.lua"/>
 	<action itemid="1247" script="doors/gateofexp_closed.lua"/>
-	<action itemid="1248" script="doors/door_open_horizontal.lua"/>	
 
 	<action itemid="1249" script="doors/door_locked.lua"/>
 	<action itemid="1250" script="increment.lua"/>
@@ -197,14 +189,10 @@
 	<action itemid="1254" script="doors/door_open_horizontal.lua"/>
 
 	<action itemid="1255" script="doors/questdoor_closed.lua"/>
-	<action itemid="1256" script="doors/door_open_vertical.lua"/>
 	<action itemid="1257" script="doors/questdoor_closed.lua"/>
-	<action itemid="1258" script="doors/door_open_horizontal.lua"/>
 
 	<action itemid="1259" script="doors/gateofexp_closed.lua"/>
-	<action itemid="1260" script="doors/door_open_vertical.lua"/>
 	<action itemid="1261" script="doors/gateofexp_closed.lua"/>
-	<action itemid="1262" script="doors/door_open_horizontal.lua"/>
 
 	<action itemid="1539" script="increment.lua"/>
 	<action itemid="1540" script="doors/door_open_vertical.lua"/> 
@@ -226,9 +214,7 @@
 	<action itemid="3538" script="increment.lua"/>
 	<action itemid="3539" script="doors/door_open_horizontal.lua"/>
 	<action itemid="3540" script="doors/gateofexp_closed.lua"/>
-	<action itemid="3541" script="doors/door_open_horizontal.lua"/>
 	<action itemid="3542" script="doors/questdoor_closed.lua"/>
-	<action itemid="3543" script="doors/door_open_horizontal.lua"/>
 
 	<action itemid="3544" script="doors/door_locked.lua"/>
 	<action itemid="3545" script="increment.lua"/>
@@ -236,9 +222,7 @@
 	<action itemid="3547" script="increment.lua"/>
 	<action itemid="3548" script="doors/door_open_vertical.lua"/>
 	<action itemid="3549" script="doors/gateofexp_closed.lua"/>
-	<action itemid="3550" script="doors/door_open_vertical.lua"/>
 	<action itemid="3551" script="doors/questdoor_closed.lua"/>
-	<action itemid="3552" script="doors/door_open_vertical.lua"/>
 
 	<action itemid="4913" script="doors/door_locked.lua"/>
 	<action itemid="4914" script="increment.lua"/>
