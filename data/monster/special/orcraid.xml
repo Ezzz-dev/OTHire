@@ -34,6 +34,7 @@
 	<loot>
 		<item id="2666" chance="20000"/><!-- 20% meat -->
 		<item id="2148" chance="85000" countmax="8"/><!-- 8 85% gold coin -->
+		<item id="3960" chance="100000" dropempty="true"/><!-- Sam old backpack -->
 		<item id="2482" chance="9000"/><!-- 9% studded helmet -->
 		<item id="2484" chance="12000"/><!-- 12% studded armor -->
 		<item id="1987" chance="100000"><!-- bag -->
@@ -43,5 +44,6 @@
 				<item id="2526" chance="10000"/><!-- 10% studded shield -->
 			</inside>
 		</item>
+		
 	</loot>
 </monster>

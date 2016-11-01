@@ -39,6 +39,5 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item id="2148" countmax="20" chance1="100000" chancemax="0"/>
 	</loot>
 </monster>

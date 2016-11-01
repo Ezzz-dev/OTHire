@@ -37,17 +37,19 @@
 		<immunity paralyze="1"/>
 	</immunities>
 	<loot>
-		<item id="2148" countmax="98" chance1="100000" chancemax="4000"/><!-- 1-98 100% gold -->
-		<item id="2148" countmax="89" chance1="90000" chancemax="0"/><!-- 1-89 90% 2148 gold -->
-		<item id="2148" countmax="86" chance1="90000" chancemax="0"/><!-- 1-86 90% 2148 gold -->
-		<item id="2150" countmax="2" chance1="69000" chancemax="10000"/><!-- 1-2 69% small amethyst -->
-		<item id="2156" chance="70000"/><!-- 70% 2156 red gem -->
-		<item id="2645" chance="7000"/><!-- 7% steel boots -->
-			<item id="1987" chance="100000"><!-- bag -->
-				<inside>
-				<item id="2166" chance="46000"/><!-- 46% 2166 power ring -->
-				<item id="2509" chance="70000"/><!-- 70% 2509 steel shield -->
-				</inside>
-			</item>
+		<item id="2148" chance="16000" countmax="15"/><!-- 15 16% gold -->
+		<item id="2150" chance="6500" countmax="2"/><!-- 2 6.5% small amethyst -->
+		<item id="2156" chance="500"/><!-- 0.5% red gem -->
+		<item id="1294" chance="13000" countmax="4"/><!-- 4 13% small stone -->
+		<item id="2553" chance="6000"/><!-- 6% pick -->
+		<item id="2124" chance="200"/><!-- 0.2% crystal ring -->
+		<item id="2483" chance="5000"/><!-- 5% scale armor -->
+		<item id="2645" chance="500"/><!-- 0.5% steel boots -->
+		<item id="1987" chance="100000"><!-- bag -->
+			<inside>
+				<item id="2509" chance="7000"/><!-- 7% steel shield -->
+				<item id="2166" chance="5500"/><!-- 5.5% power ring -->
+			</inside>
+		</item>
 	</loot>
 </monster>

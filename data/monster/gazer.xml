@@ -44,7 +44,7 @@
 	<loot>
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
-				<item id="2512" chance="6000"/><!-- 6% wooden shield -->
+				<item id="2512" chance="3000"/><!-- 3% wooden shield -->
 			</inside>
 		</item>
 		<item id="2148" chance="90000" countmax="6"/><!-- 6 90% gold coin -->

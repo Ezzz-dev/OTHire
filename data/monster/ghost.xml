@@ -37,17 +37,17 @@
 		<voice sentence="Buuuuuh"/>
 	</voices>
 	<loot>
+		<item id="2654" chance="9000"/><!-- 9% cape -->
+		<item id="2804" chance="15000"/><!-- 15% shadow herb -->
+		<item id="2642" chance="20000"/><!-- 20% sandals -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
-				<item id="2165" chance="300"/><!-- 0.2% stealth ring -->
-				<item id="2404" chance="14000"/><!-- 14% combat knife -->
-				<item id="2394" chance="22000"/><!-- 22% morning star -->
-				<item id="2532" chance="1600"/><!-- 1.6% ancient shield -->
+				<item id="2404" chance="7000"/><!-- 7% combat knife -->
+				<item id="2394" chance="11000"/><!-- 11% morning star -->
+				<item id="2532" chance="800"/><!-- 0.8% ancient shield -->
+				<item id="1977" chance="1500"/><!-- 1.5% orange book -->
+				<item id="2165" chance="200"/><!-- 0.2% stealth ring -->
 			</inside>
 		</item>
-		<item id="2804" chance="30000"/><!-- 30% shadow herb -->
-		<item id="1977" chance="3000"/><!-- 3% orange book -->
-		<item id="2642" chance="40000"/><!-- 40% sandals -->
-		<item id="2654" chance="18000"/><!-- 18% cape -->
 	</loot>
 </monster>

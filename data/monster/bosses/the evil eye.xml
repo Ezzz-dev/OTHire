@@ -72,17 +72,18 @@
 		<voice sentence="659978 54764!"/>
 	</voices>
 	<loot>
-		<item id="2148" countmax="100" chance1="100000" chancemax="5000"/><!-- 52-203 100% gold -->
-		<item id="2148" countmax="100" chance1="70000" chancemax="5000"/><!-- gold -->
-		<item id="2175" chance="16000"/><!-- 16% spellbook -->
-		<item id="3972" chance="3000"/><!-- 3% 3972 beholder helmet -->
+		<item id="2148" chance="90000" countmax="24" /><!-- 24 90% gold -->
+		<item id="2148" chance="80000" countmax="32" /><!-- 32 80% gold -->
+		<item id="2148" chance="70000" countmax="40" /><!-- 40 70% gold -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
-				<item id="2377" chance="32000"/><!-- 32% two-handed sword -->
-				<item id="2397" chance="21000"/><!-- 21% longsword -->
-				<item id="2509" chance="47000"/><!-- 47% steel shield -->
-				<item id="2518" chance="10000"/><!-- 10% beholder shield -->
-				<item id="2394" chance="58000"/><!-- 58% morning star -->
+				<item id="2397" chance="9000"/><!-- 9% longsword -->
+				<item id="2394" chance="7000"/><!-- 7% morning star -->
+				<item id="2377" chance="4000"/><!-- 4% two-handed sword -->
+				<item id="2509" chance="4000"/><!-- 4% steel shield -->
+				<item id="2518" chance="200"/><!-- 0.2% beholder shield -->
+				<item id="2512" chance="1500"/><!-- 1.5% wooden shield -->
+				<item id="2175" chance="5000"/><!-- 5% spellbook -->
 			</inside>
 		</item>
 	</loot>

@@ -1330,7 +1330,7 @@ bool Monsters::loadMonster(const std::string& file, const std::string& monster_n
 
 					LootBlock lootBlock;
 					if(loadLootItem(tmpNode, lootBlock)){
-						mType->lootItems.push_back(lootBlock);
+						mType->lootItems.push_front(lootBlock);
 					}
 					else{
 						SHOW_XML_WARNING("Cant load loot");
@@ -1539,7 +1539,7 @@ bool Monsters::loadLootContainer(xmlNodePtr node, LootBlock& lBlock)
 			while(p){
 				LootBlock lootBlock;
 				if(loadLootItem(p, lootBlock)){
-					lBlock.childLoot.push_back(lootBlock);
+					lBlock.childLoot.push_front(lootBlock);
 				}
 				p = p->next;
 			}
