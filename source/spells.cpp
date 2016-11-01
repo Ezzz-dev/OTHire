@@ -1646,8 +1646,9 @@ bool InstantSpell::SummonMonster(const InstantSpell* spell, Creature* creature, 
 		if(!g_game.placeCreature(monster, creature->getPosition(), true)){
 			creature->removeSummon(monster);
 			ret = RET_NOTENOUGHROOM;
-		}
+		} else{
 		g_game.addMagicEffect(monster->getPosition(), NM_ME_TELEPORT);
+		}
 	}
 
 	if(ret == RET_NOERROR){
