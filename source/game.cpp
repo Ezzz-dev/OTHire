@@ -4051,6 +4051,13 @@ bool Game::combatChangeHealth(CombatType_t combatType, MagicEffectClasses custom
 					addMagicEffect(list, targetPos, hitEffect);
 					addAnimatedText(list, targetPos, textColor, ss.str());
 				}
+				
+				if(target->getHealth() <= 0){
+					if(target->getMonster()){
+						target->onDie();
+					}
+				}
+				
 			}
 		}
 	}
