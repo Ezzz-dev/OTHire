@@ -52,13 +52,13 @@
 		<item id="3968" chance="500"/><!-- 0.5% leopard armor -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
+				<item id="2050" chance="30000"/><!-- 30% torch -->
+				<item id="2050" chance="30000"/><!-- 30% torch -->
 				<item id="2403" chance="10000"/><!-- 10% knife -->
 				<item id="2404" chance="4000"/><!-- 4% combat knife -->
 				<item id="2510" chance="2000"/><!-- 2% plate shield -->
 				<item id="2513" chance="1500"/><!-- 1.5% battle shield -->
 				<item id="2509" chance="1000"/><!-- 1% steel shield -->
-				<item id="2050" chance="30000"/><!-- 30% torch -->
-				<item id="2050" chance="30000"/><!-- 30% torch -->
 			</inside>
 		</item>
 	</loot>

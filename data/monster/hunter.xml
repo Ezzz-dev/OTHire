@@ -45,9 +45,9 @@
 		<item id="2649" chance="14000"/><!-- 14% leather legs -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
+				<item id="2050" chance="5000"/><!-- 5% torch -->
 				<item id="2456" chance="30000"/><!-- 30% bow -->
 				<item id="2201" chance="3000"/><!-- 3% dragon necklace -->
-				<item id="2050" chance="5000"/><!-- 5% torch -->
 			</inside>
 		</item>
 	</loot>

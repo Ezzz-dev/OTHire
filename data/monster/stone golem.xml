@@ -38,11 +38,11 @@
 		<item id="2483" chance="5000"/><!-- 5% scale armor -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
+				<item id="2050" chance="5500"/><!-- 5.5% torch -->
 				<item id="2395" chance="1500"/><!-- 1.5% carlin sword -->
 				<item id="2509" chance="7000"/><!-- 7% steel shield -->
 				<item id="2166" chance="5000"/><!-- 5% power ring -->
 				<item id="2124" chance="200"/><!-- 0.2% crystal ring -->
-				<item id="2050" chance="5500"/><!-- 5.5% torch -->
 			</inside>
 		</item>
 	</loot>

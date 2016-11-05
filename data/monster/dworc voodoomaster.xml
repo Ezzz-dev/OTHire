@@ -64,9 +64,9 @@
 		<item id="3967" chance="500"/><!-- 0.5% tribal mask -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
+				<item id="2050" chance="5500"/><!-- 5.5% torch -->
 				<item id="2411" chance="1000"/><!-- 1% poison dagger -->
 				<item id="2174" chance="500"/><!-- 0.5% strange symbol -->
-				<item id="2050" chance="5500"/><!-- 5.5% torch -->
 			</inside>
 		</item>
 	</loot>

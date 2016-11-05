@@ -53,10 +53,10 @@
 		<item id="2468" chance="20000"/><!-- 20% studded legs -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
+				<item id="2162" chance="12000"/><!-- 12% magic lightwand -->
 				<item id="2423" chance="1000"/><!-- 1% clerical mace -->
 				<item id="2175" chance="400"/><!-- 0.4% spellbook -->
 				<item id="2213" chance="300"/><!-- 0.3% dwarven ring -->
-				<item id="2162" chance="12000"/><!-- 12% magic lightwand -->
 			</inside>
 		</item>
 	</loot>

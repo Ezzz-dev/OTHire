@@ -43,11 +43,11 @@
 		<item id="3967" chance="500"/><!-- 0.5% tribal mask -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
+				<item id="2050" chance="5500"/><!-- 5.5% torch -->
 				<item id="3964" chance="100"/><!-- 0.1% ripper lance -->
 				<item id="3965" chance="500"/><!-- 0.5% hunting spear -->
 				<item id="2411" chance="2000"/><!-- 2% poison dagger -->
 				<item id="2541" chance="1000"/><!-- 1% bone shield -->
-				<item id="2050" chance="5500"/><!-- 5.5% torch -->
 			</inside>
 		</item>
 	</loot>

@@ -37,11 +37,11 @@
 		<item id="2473" chance="8000"/><!-- 8% viking helmet -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
-			<item id="2398" chance="20000"/><!-- 20% mace -->
-			<item id="2388" chance="25000"/><!-- 15% hatchet -->
-			<item id="2376" chance="2000"/><!-- 2% sword -->
-			<item id="2511" chance="12000"/><!-- 12% brass shield -->
-			<item id="2050" chance="50000"/><!-- 50% torch -->
+				<item id="2050" chance="50000"/><!-- 50% torch -->
+				<item id="2398" chance="20000"/><!-- 20% mace -->
+				<item id="2388" chance="25000"/><!-- 15% hatchet -->
+				<item id="2376" chance="2000"/><!-- 2% sword -->
+				<item id="2511" chance="12000"/><!-- 12% brass shield -->
 			</inside>
 		</item>
 	</loot>

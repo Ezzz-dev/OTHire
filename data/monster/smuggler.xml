@@ -38,12 +38,12 @@
 		<item id="2649" chance="15000"/><!-- 15% leather legs -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
+				<item id="2050" chance="30000"/><!-- 30% torch -->
+				<item id="2050" chance="30000"/><!-- 30% torch -->
 				<item id="2403" chance="10000"/><!-- 10% knife -->
 				<item id="2406" chance="10000"/><!-- 10% short sword -->
 				<item id="2376" chance="5000"/><!-- 5% sword -->
 				<item id="2404" chance="4000"/><!-- 4% combat knife -->
-				<item id="2050" chance="30000"/><!-- 30% torch -->
-				<item id="2050" chance="30000"/><!-- 30% torch -->
 			</inside>
 		</item>
 	</loot>

@@ -96,6 +96,7 @@
 		<item id="2171" chance="4500"/><!-- 4.5% platinum amulet -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
+				<item id="2162" chance="11500"/><!-- 11.5% magic light wand -->
 				<item id="2387" chance="20000"/><!-- 20% double axe -->
 				<item id="2377" chance="20000"/><!-- 20% two handed sword -->
 				<item id="2418" chance="4500"/><!-- 4.5% golden sickle -->
@@ -120,7 +121,6 @@
 				<item id="2170" chance="13000"/><!-- 13% silver amulet -->
 				<item id="2200" chance="4500"/><!-- 4.5% protection amulet -->
 				<item id="2174" chance="2500"/><!-- 2.5% strange symbol -->
-				<item id="2162" chance="11500"/><!-- 11.5% magic light wand -->
 			</inside>
 		</item>
 	</loot>

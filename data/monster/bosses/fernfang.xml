@@ -69,10 +69,10 @@
 		<item id="2642" chance="9000"/><!-- 9% sandals -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
+				<item id="2044" chance="10000"/><!-- 10% lamp -->
 				<item id="2401" chance="11000"/><!-- 11% staff -->
 				<item id="2401" chance="11000"/><!-- 11% staff -->
 				<item id="2166" chance="500"/><!-- 0.5% power ring -->
-				<item id="2044" chance="10000"/><!-- 10% lamp -->
 			</inside>
 		</item>
 	</loot>

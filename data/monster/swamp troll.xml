@@ -37,9 +37,9 @@
 		<item id="2643" chance="10000"/><!-- 10% leather boots -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
+				<item id="2050" chance="15000"/><!-- 15% torch -->
 				<item id="2379" chance="30000"/><!-- 30% dagger -->
 				<item id="2580" chance="100"/><!-- 0.1% fishing rod -->
-				<item id="2050" chance="15000"/><!-- 15% torch -->
 			</inside>
 		</item>
 	</loot>

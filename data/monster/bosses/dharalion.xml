@@ -72,9 +72,9 @@
 		<item id="2642" chance="9000"/><!-- 9% sandals -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
+				<item id="2047" chance="9000"/><!-- 9% candlestick -->
 				<item id="2401" chance="11000"/><!-- 11% staff -->
 				<item id="2198" chance="2000"/><!-- 2% elven amulet -->
-				<item id="2047" chance="9000"/><!-- 9% candlestick -->
 			</inside>
 		</item>
 	</loot>

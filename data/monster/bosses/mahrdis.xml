@@ -72,7 +72,7 @@
 		<item id="2141" chance="100"/><!-- 0.1% holy falcon-->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
-				<item id="2432" chance="200"/><!-- 0.2% 2432 fire axe -->
+				<item id="2432" chance="200"/><!-- 0.2% fire axe -->
 				<item id="2539" chance="100"/><!-- 0.1% phoenix shield -->
 				<item id="2168" chance="5000"/><!-- 5% life ring -->
 			</inside>

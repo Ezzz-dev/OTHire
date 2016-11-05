@@ -61,9 +61,9 @@
 		<item id="2463" chance="10000"/><!-- 10% plate armor -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
+				<item id="2162" chance="10900"/><!-- 10.9% magic light wand -->
 				<item id="2440" chance="300"/><!-- 0.3% daramanian waraxe -->
 				<item id="2540" chance="500"/><!-- 0.5% scarab shield -->
-				<item id="2162" chance="10900"/><!-- 10.9% magic light wand -->
 			</inside>
 		</item>		
 	</loot>

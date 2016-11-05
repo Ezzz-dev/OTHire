@@ -41,10 +41,10 @@
 		<item id="2483" chance="600"/><!-- 0.6% scale armor -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
+				<item id="2050" chance="8000"/><!-- 8% torch -->
 				<item id="2428" chance="15000"/><!-- 15% orcish axe -->
 				<item id="2425" chance="1000"/><!-- 1% obsidian lance -->
 				<item id="2513" chance="1000"/><!-- 1% battle shield -->
-				<item id="2050" chance="8000"/><!-- 8% torch -->
 			</inside>
 		</item>
 	</loot>

@@ -42,10 +42,10 @@
 		<item id="2125" chance="200"/><!-- 0.2% crystal necklace -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
+				<item id="2050" chance="5000"/><!-- 5% torch -->
 				<item id="2379" chance="80000"/><!-- 80% dagger -->
 				<item id="2385" chance="23000"/><!-- 23% sabre -->
 				<item id="2526" chance="5000"/><!-- 5% studded shield -->
-				<item id="2050" chance="5000"/><!-- 5% torch -->
 			</inside>
 		</item>
 	</loot>
