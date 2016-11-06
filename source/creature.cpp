@@ -795,15 +795,41 @@ void Creature::onDie()
 			}
 		}
 	}
+	
+	std::map<Creature*, uint64_t> experienceMap;
 
 	for(CountMap::iterator it = damageMap.begin(); it != damageMap.end(); ++it){
 		if(Creature* attacker = g_game.getCreatureByID((*it).first)){
-			attacker->onAttackedCreatureKilled(this);
+			if (attacker != this) {
+				uint64_t gainExp = getGainedExperience(attacker);
+				if (Player* player = attacker->getPlayer()) {
+					Party* party = player->getParty();
+					if (party && party->getLeader() && party->isSharedExperienceActive() && party->isSharedExperienceEnabled()) {
+						attacker = party->getLeader();
+					}
+				}
+
+				std::map<Creature*, uint64_t>::iterator it = experienceMap.find(attacker);
+				if (it == experienceMap.end()) {
+					experienceMap[attacker] = gainExp;
+				} else {
+					it->second += gainExp;
+				}
+			}
 		}
 	}
 
 	dropCorpse();
 	die();
+	
+	bool fromMonster = false;
+	if (this->getMonster()) {
+		fromMonster = true;
+	}
+	
+	for (std::map<Creature*, uint64_t>::iterator it = experienceMap.begin(); it != experienceMap.end(); it++) {
+		it->first->onGainExperience(it->second, fromMonster);
+	}
 
 	if(getMaster()){
 		getMaster()->removeSummon(this);
@@ -1306,18 +1332,6 @@ void Creature::onAttackedCreatureDrainHealth(Creature* target, int32_t points)
 void Creature::onTargetCreatureGainHealth(Creature* target, int32_t points)
 {
 	target->addHealPoints(this, points);
-}
-
-void Creature::onAttackedCreatureKilled(Creature* target)
-{
-	if(target != this){
-		uint64_t gainExp = target->getGainedExperience(this);
-		bool fromMonster = true;
-		if(target->getPlayer()){
-			fromMonster = false;
-		}
-		onGainExperience(gainExp, fromMonster);
-	}
 }
 
 void Creature::onKilledCreature(Creature* target, bool lastHit)

@@ -346,7 +346,6 @@ public:
 	virtual void onAttackedCreatureDrainMana(Creature* target, int32_t points) {};
 	virtual void onSummonAttackedCreatureDrainMana(Creature* summon, Creature* target, int32_t points) {};
 	virtual void onTargetCreatureGainHealth(Creature* target, int32_t points);
-	virtual void onAttackedCreatureKilled(Creature* target);
 	virtual void onKilledCreature(Creature* target, bool lastHit);
 	virtual void onGainExperience(uint64_t gainExp, bool fromMonster);
 	virtual void onGainSharedExperience(uint64_t gainExp, bool fromMonster);
