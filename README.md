@@ -13,6 +13,6 @@ It is a fork of the [OpenTibia Server](https://github.com/opentibia/server) proj
 
 ### Issues and Support
 
-If you need help, please visit [our OTLand forum thread](https://otland.net/threads/7-72-othire-0-0-1b-based-in-otserv-trunk-latest.212153/).
+If you need help, please visit [our OTLand forum thread](https://otland.net/threads/7-72-othire-0-0-3.246964/).
 We use the [issue tracker on GitHub](https://github.com/TwistedScorpio/OTHire/issues),
 where you can posts errors and bugs found and also suggest enhancements.
