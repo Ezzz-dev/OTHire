@@ -7,7 +7,7 @@ local questsExperience = {
 }
 
 function onUse(cid, item, fromPosition, itemEx, toPosition)
-	local storage = specialQuests[item.actionid]
+	local storage = specialQuests[item.uid]
 	if(not storage) then
 		storage = item.uid
 		if(storage > 65535) then
@@ -41,11 +41,11 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 	end
 
 	local result = ""
-	if(reward ~= 0) then
+	if reward ~= 0 then
 		local ret = getItemDescriptions(reward.itemid)
-		if(reward.type > 0 and isItemRune(reward.itemid)) then
+		if (reward.type > 0 and isItemRune(reward.itemid)) then
 			result = reward.type .. " charges " .. ret.name
-		elseif(reward.type > 0 and isItemStackable(reward.itemid)) then
+		elseif(reward.type > 1 and isItemStackable(reward.itemid)) then
 			result = reward.type .. " " .. ret.plural
 		else
 			result = ret.article .. " " .. ret.name
@@ -55,37 +55,26 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 			reward = doCopyItem(item, false)
 		elseif(size > 8) then
 			reward = getThing(doCreateItemEx(1988, 1))
+			result = "a backpack"
 		else
 			reward = getThing(doCreateItemEx(1987, 1))
+			result = "a bag"
 		end
 
 		for i = 1, size do
 			local tmp = doCopyItem(items[i], true)
 			if(doAddContainerItemEx(reward.uid, tmp.uid) ~= RETURNVALUE_NOERROR) then
 				print("[Warning] QuestSystem:", "Could not add quest reward")
-			else
-				local ret = ", "
-				if(i == 2) then
-					ret = " and "
-				elseif(i == 1) then
-					ret = ""
-				end
-
-				result = result .. ret
-				ret = getItemDescriptions(tmp.uid)
-				if(tmp.type > 0 and isItemRune(tmp.itemid)) then
-					result = result .. tmp.type .. " charges " .. ret.name
-				elseif(tmp.type > 0 and isItemStackable(tmp.itemid)) then
-					result = result .. tmp.type .. " " .. ret.plural
-				else
-					result = result .. ret.article .. " " .. ret.name
-				end
 			end
 		end
 	end
 
 	if(doPlayerAddItemEx(cid, reward.uid, false) ~= RETURNVALUE_NOERROR) then
-		result = "You have found a reward weighing " .. getItemWeight(reward.uid) .. " oz. It is too heavy or you have not enough space."
+		if getPlayerFreeCap(cid) < getItemWeight(reward.uid) then
+			result = "You have found a reward weighing " .. string.format("%.2f",getItemWeight(reward.uid)) .. " oz. It is too heavy."
+		else
+			result = "You have not enough space."
+		end
 	else
 		result = "You have found " .. result .. "."
 		setPlayerStorageValue(cid, storage, 1)
