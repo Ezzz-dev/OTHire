@@ -37,10 +37,10 @@
 		<voice sentence="Chhhhhhh!"/>
 	</voices>
 	<loot>
+		<item id="3976" chance="90000" countmax="10"/><!-- 10 90% worm -->
 		<item id="2148" chance="30000" countmax="30"/><!-- 30 30% gold coin -->
 		<item id="2148" chance="40000" countmax="25"/><!-- 25 40% gold coin -->
 		<item id="2145" chance="500"/><!-- 0.5% small diamond -->
-		<item id="3976" chance="90000" countmax="10"/><!-- 10 90% worm -->
 		<item id="2399" chance="1000" countmax="3"/><!-- 3 1% throwing star -->
 		<item id="2230" chance="50000"/><!-- 50% bone -->
 		<item id="2227" chance="20000"/> <!-- 20% rotten meat -->

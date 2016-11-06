@@ -79,7 +79,7 @@
 		<vocation name="Paladin"/>	<vocation name="Royal Paladin"/>
 		<vocation name="Knight"/>	<vocation name="Elite Knight"/>
 	</instant>
-	<instant name="Energy Strike" words="exori vis" lvl="11" mana="20" direction="1" script="attack/energy_strike.lua">
+	<instant name="Energy Strike" words="exori vis" lvl="11" mana="20" direction="1" exhaustion="1000" script="attack/energy_strike.lua">
 		<vocation name="Sorcerer"/> <vocation name="Master Sorcerer"/>
 		<vocation name="Druid"/>	<vocation name="Elder Druid"/>
 	</instant>
@@ -99,11 +99,11 @@
 		<vocation name="Paladin"/>	<vocation name="Royal Paladin"/>
 	</instant>
 	<instant name="Haste" words="utani hur" needlearn="0" lvl="14" prem="1" mana="60" selftarget="1" aggressive="0" script="support/haste.lua" />
-	<instant name="Flame Strike" words="exori flam" lvl="12" prem="1" mana="20" direction="1" script="attack/flame_strike.lua">
+	<instant name="Flame Strike" words="exori flam" lvl="12" prem="1" mana="20" direction="1" exhaustion="1000" script="attack/flame_strike.lua">
 		<vocation name="Sorcerer"/> <vocation name="Master Sorcerer"/>
 		<vocation name="Druid"/>	<vocation name="Elder Druid"/>
 	</instant>
-	<instant name="Force Strike" words="exori mort" needlearn="0" lvl="11" prem="1" mana="20" direction="1" script="attack/force_strike.lua">
+	<instant name="Force Strike" words="exori mort" needlearn="0" lvl="11" prem="1" mana="20" direction="1" exhaustion="1000" script="attack/force_strike.lua">
 		<vocation name="Sorcerer"/> <vocation name="Master Sorcerer"/>
 		<vocation name="Druid"/>	<vocation name="Elder Druid"/>
 	</instant>

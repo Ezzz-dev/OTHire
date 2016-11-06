@@ -29,11 +29,11 @@
 	<voices interval="2000" chance="5">
 	</voices>
 	<loot>
+		<item id="3976" chance="50000" countmax="5"/><!-- 5 50% worm -->
 		<item id="2671" chance="20000"/><!-- 20% ham -->
 		<item id="2666" chance="20000"/><!-- 20% meat -->
 		<item id="2148" chance="60000" countmax="8"/><!-- 8 60% gold coin -->
 		<item id="2148" chance="30000" countmax="12"/><!-- 12 30% gold coin -->
-		<item id="3976" chance="50000" countmax="5"/><!-- 5 50% worm -->
 		<item id="2480" chance="1500"/><!-- 1.5% legion helmet -->
 		<item id="1987" chance="100000"><!-- bag -->
 			<inside>
