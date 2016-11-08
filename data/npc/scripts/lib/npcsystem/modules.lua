@@ -92,12 +92,15 @@ if(Modules == nil) then
 		local oldVoc = getPlayerVocation(cid)
 		if(parameters.promotions[oldVoc] == oldVoc or parameters.promotions[oldVoc] == nil) then
 			npcHandler:say('You are already promoted!')
+		elseif isPlayerPremiumCallback(cid) == false then
+			npcHandler:say('You need a premium account in order to promote.')
 		elseif(getPlayerLevel(cid) < parameters.level) then
-			npcHandler:say('I am sorry, but I can only promote you once you have reached level ' .. parameters.level .. '.')
+			npcHandler:say('You need to be at least level ' .. parameters.level .. ' in order to be promoted.')
 		elseif(doPlayerRemoveMoney(cid, parameters.cost) ~= true) then
 			npcHandler:say('You do not have enough money!')
 		else
 			doPlayerSetVocation(cid, parameters.promotions[oldVoc])
+			doSendMagicEffect(getCreaturePosition(cid), CONST_ME_MAGIC_BLUE)
 			npcHandler:say(parameters.text)
 		end
 		

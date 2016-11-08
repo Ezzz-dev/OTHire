@@ -5,7 +5,7 @@ dofile(getDataDir() .. 'npc/scripts/lib/custom modules.lua')
 
 -- Callback for isPremium(cid) so Jiddo's npcsystem works
 function isPlayerPremiumCallback(cid)
-	if BOATSFORFREE then
+	if EVERYONE_PREMIUM_FOR_NPCS then
 		return true
 	else
 		return isPremium(cid)
@@ -106,4 +106,17 @@ function getVocationByPlayerGUID(guid)
 	local vocation = result.getDataInt(vocationQuery, "vocation")
 	result.free(vocationQuery)
 	return tonumber(vocation) or vocation
+end
+
+function sellPlayerEmptyVials(cid)
+    local emptyvialmoney = 0
+    while doPlayerRemoveItem(cid, 2006, 1, 0) == true do
+        emptyvialmoney = 5 + emptyvialmoney
+    end
+    if emptyvialmoney > 0 then
+        doPlayerAddMoney(cid, emptyvialmoney)
+        return true
+    else
+        return false
+    end
 end
