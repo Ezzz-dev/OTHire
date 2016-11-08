@@ -33,6 +33,7 @@
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 		<defense name="haste_morguthis" interval="2000" chance="7"/>
+		<defense name="skills_morguthis" interval="2000" chance="8"/>
 		<defense name="invisible" interval="2000" chance="10" duration="4000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>

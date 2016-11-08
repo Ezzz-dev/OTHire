@@ -341,5 +341,7 @@
 	<instant name="paralyze_vampire"  words="###48"  aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/paralyze_vampire.lua"/>
 	<instant name="paralyze_vashresamun"  words="###49"  aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/paralyze_vashresamun.lua"/>
 	<instant name="paralyze_warlock"  words="###50"  aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/paralyze_warlock.lua"/>
+	<instant name="skills_dipthrah"  words="###51"  aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/skills_dipthrah.lua"/>
+	<instant name="skills_morguthis"  words="###52"  aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/skills_morguthis.lua"/>
 
 </spells>
