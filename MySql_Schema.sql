@@ -346,7 +346,7 @@ CREATE TABLE `players` (
 --
 
 INSERT INTO `players` (`id`, `name`, `account_id`, `group_id`, `sex`, `vocation`, `experience`, `level`, `maglevel`, `health`, `healthmax`, `mana`, `manamax`, `manaspent`, `soul`, `direction`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `posx`, `posy`, `posz`, `cap`, `lastlogin`, `lastlogout`, `lastip`, `save`, `conditions`, `skull_type`, `skull_time`, `loss_experience`, `loss_mana`, `loss_skills`, `loss_items`, `loss_containers`, `town_id`, `balance`, `online`, `rank_id`, `guildnick`) VALUES
-(3, 'GM Sample', 123456, 5, 1, 0, 100, 2, 4, 100, 100, 100, 100, 70775, 0, 2, 10, 10, 10, 10, 75, 32368, 32215, 7, 10000, 1396046551, 1396045859, 400558280, 1, '', 0, 0, 100, 100, 100, 10, 100, 1, 0, 1, 0, ''),
+(3, 'GM Sample', 123456, 5, 1, 0, 100, 2, 4, 100, 100, 100, 100, 70775, 0, 2, 10, 10, 10, 10, 75, 32368, 32215, 7, 10000, 1396046551, 1396045859, 400558280, 1, '', 0, 0, 100, 100, 100, 10, 100, 1, 0, 1, 0, '');
 
 --
 -- Triggers `players`
