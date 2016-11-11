@@ -430,7 +430,7 @@ CREATE TABLE `player_items` (
 INSERT INTO `player_items` (`player_id`, `sid`, `pid`, `itemtype`, `count`, `attributes`) VALUES
 (3, 101, 5, 2152, 98, 0x0f62),
 (3, 102, 6, 2183, 1, ''),
-(3, 103, 8, 2643, 1, ''),
+(3, 103, 8, 2643, 1, '');
 
 -- --------------------------------------------------------
 
