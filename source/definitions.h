@@ -21,7 +21,7 @@
 #ifndef __OTSERV_DEFINITIONS_H__
 #define __OTSERV_DEFINITIONS_H__
 
-#define OTSERV_VERSION "1.0"
+#define OTSERV_VERSION "0.0.3"
 #define OTSERV_NAME "OTHire"
 #define OTSERV_CLIENT_VERSION "7.72"
 
@@ -131,7 +131,7 @@ enum passwordType_t{
 		#define _MBCS
 	#endif
 	#ifdef _UNICODE
-		#undef _UNICODE 
+		#undef _UNICODE
 	#endif
 	#ifdef UNICODE
 		#undef UNICODE
