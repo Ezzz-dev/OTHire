@@ -289,6 +289,9 @@ retrytimeout = 5000
 -- how long the player need to wait until the ip is allowed again
 logintimeout = 60 * 1000
 
+-- What is the maximum number of packages the client can send per second?
+max_packets_per_second = 25
+
 -- how deep queryDestination should look for free slots (default -1, infinite)
 player_querydestination_deepness = -1
 
