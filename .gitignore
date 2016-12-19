@@ -22,3 +22,10 @@ source/config.h.in~
 ._*
 .DS_Store
 Thumbs.db
+
+# Logs
+otlog.txt
+client_assertions.txt
+mem_dump.txt
+report.txt
+player_reports.txt
