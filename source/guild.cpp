@@ -78,6 +78,7 @@ bool Guilds::getGuildIdByName(uint32_t& guildId, const std::string& guildName)
 		guild->setId(result->getDataInt("id"));
 		guild->setName(result->getDataString("name"));
 		loadedGuilds[guild->getId()] = guild;
+		guildId = guild->getId();
 		db->freeResult(result);
 		return true;
 	}
