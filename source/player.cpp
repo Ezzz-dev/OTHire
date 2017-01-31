@@ -4395,7 +4395,7 @@ void Player::addUnjustifiedDead(const Player* attacked)
 
 	if (g_config.getNumber(ConfigManager::KILLS_TO_BAN) != 0 && totalKills >= (g_config.getNumber(ConfigManager::KILLS_TO_BAN)))
 	{
-		if (g_bans.addPlayerBan(getName(), g_config.getNumber(ConfigManager::BAN_LENGTH), 1 /* Type here your gamemaster ID */, "Automatic", "", 28, ACTION_BANISHMENT))
+		if (g_bans.addPlayerBan(getName(), std::time(NULL) + g_config.getNumber(ConfigManager::BAN_LENGTH), 1 /* Type here your gamemaster ID */, "Automatic", "", 28, ACTION_BANISHMENT))
 		{
 			g_game.addMagicEffect(getPosition(), NM_ME_MAGIC_POISON);
 			g_scheduler.addEvent(createSchedulerTask(1000, boost::bind(&Player::kickPlayer, this)));
