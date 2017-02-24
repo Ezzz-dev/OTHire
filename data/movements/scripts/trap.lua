@@ -10,15 +10,17 @@ function onStepIn(cid, item, position, fromPosition)
 	if trap == nil then
 		return true
 	end
-	
-	doTargetCombatHealth(0, cid, trap.type or COMBAT_PHYSICALDAMAGE, trap.damage[1], trap.damage[2], CONST_ME_NONE)
+
+	if not getTilePzInfo(position) then
+		doTargetCombatHealth(0, cid, trap.type or COMBAT_PHYSICALDAMAGE, trap.damage[1], trap.damage[2], CONST_ME_NONE)
+	end
 	if trap.transformTo ~= nil then
 		doTransformItem(item.uid, trap.transformTo)
 		if item.actionid ~= 0 then
 			doSetItemActionId(item.uid, item.actionid)
 		end
 	end
-	
+
 	return true
 end
 
