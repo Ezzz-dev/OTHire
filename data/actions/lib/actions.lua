@@ -6,6 +6,8 @@ DOWN_LADDER = {369, 370, 408, 409, 427, 428, 430, 924, 3135, 3136}
 JUNGLE_GRASS_TRANSFORM = {2782, 3985}
 JUNGLE_GRASS_REMOVE = {1499}
 
+POOLS = {2016, 2017, 2018, 2019, 2020, 2021, 2025, 2026, 2027, 2028, 2029, 2030}
+
 WATER = {490, 4608, 491, 492, 493, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627,
 628, 629, 4609, 4610, 4611, 4612, 4613, 4614, 4615, 4616, 4617, 4618, 4619, 4620, 4621,
 4622, 4623, 4624, 4625, 4664, 4665, 4666, 4820, 4821, 4822, 4823, 4824, 4825}
@@ -165,6 +167,13 @@ local duration = 5 * 60000 -- 5 minutes
 		doSendMagicEffect(topos, CONST_ME_POFF)
 	else
 		return false
+	end
+
+	for i = 1, #POOLS do
+		local pool = getTileItemById(toPosition, POOLS[i]).uid
+		if pool > 0 then
+			doRemoveItem(pool,1)
+		end
 	end
 
 	doDecayItem(item2.uid)
