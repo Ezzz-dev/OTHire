@@ -185,7 +185,7 @@ end
 function onSay(creature, words, param)
 	local access = getPlayerAccess(creature)
 	if access ~= -1 and access < 2 then
-		return TRUE
+		return true
 	end
 	local params = string.explode(param, ",")
 	for k,v in pairs(params) do
@@ -207,10 +207,10 @@ function onSay(creature, words, param)
 		else
 			doPlayerSendTextMessage(creature, MESSAGE_STATUS_CONSOLE_BLUE, "Invalid syntax.")
 		end
-		return TRUE
+		return true
 	elseif #params == 2 then
 		doPlayerSendTextMessage(creature, MESSAGE_STATUS_CONSOLE_BLUE, "Invalid syntax.")
-		return TRUE
+		return true
 	else -- Params greater than or equal to 3
 		local op = params[1]
 		if op == "add" or op == "a" or op == "r" or op == "rem" or op == "remove" then
@@ -249,7 +249,7 @@ function onSay(creature, words, param)
 						end
 					else
 						local ret = removeAccountBan(accno)
-						if ret == TRUE then
+						if ret == true then
 							doPlayerSendTextMessage(creature, MESSAGE_STATUS_CONSOLE_BLUE, target .. (isname and "'s account" or "") .. " was unbanned.")
 						else
 							doPlayerSendTextMessage(creature, MESSAGE_STATUS_CONSOLE_BLUE, "No account was unbanned.")
@@ -278,7 +278,7 @@ function onSay(creature, words, param)
 						end
 					else
 						local ret = removePlayerBan(target)
-						if ret == TRUE then
+						if ret == true then
 							doPlayerSendTextMessage(creature, MESSAGE_STATUS_CONSOLE_BLUE, target .. " was unbanned.")
 						else
 							doPlayerSendTextMessage(creature, MESSAGE_STATUS_CONSOLE_BLUE, "No player was unbanned.")
@@ -318,7 +318,7 @@ function onSay(creature, words, param)
 							doPlayerSendTextMessage(creature, MESSAGE_STATUS_CONSOLE_BLUE, "No IP was banned.")
 						end
 					else
-						if removeIPBan(ip, mask) == TRUE then
+						if removeIPBan(ip, mask) == true then
 							doPlayerSendTextMessage(creature, MESSAGE_STATUS_CONSOLE_BLUE, target .. (isname and "'s IP" or "") .. " was unbanned.")
 						else
 							doPlayerSendTextMessage(creature, MESSAGE_STATUS_CONSOLE_BLUE, "No IP was unbanned.")
@@ -332,5 +332,5 @@ function onSay(creature, words, param)
 			end
 		end
 	end
-	return TRUE
+	return true
 end
