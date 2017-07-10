@@ -3873,12 +3873,6 @@ void Player::onAddCombatCondition(ConditionType_t type, bool hadCondition)
 	if(type == CONDITION_POISON){
 		sendTextMessage(MSG_STATUS_DEFAULT, "You are poisoned.");
 	}
-	else if(type == CONDITION_PARALYZE){
-		sendTextMessage(MSG_STATUS_DEFAULT, "You are paralyzed.");
-	}
-	else if(type == CONDITION_DRUNK){
-		sendTextMessage(MSG_STATUS_DEFAULT, "You are drunk.");
-	}
 }
 
 void Player::onEndCondition(ConditionType_t type, bool lastCondition)
@@ -3922,7 +3916,7 @@ void Player::onCombatRemoveCondition(const Creature* attacker, Condition* condit
 	}
 
 	if(remove){
-		if(!canDoAction()){
+	/*	if(!canDoAction()){
 			int32_t delay = getNextActionTime();
 			delay -= (delay % EVENT_CREATURE_THINK_INTERVAL);
 			if(delay < 0){
@@ -3932,9 +3926,9 @@ void Player::onCombatRemoveCondition(const Creature* attacker, Condition* condit
 				condition->setTicks(delay);
 			}
 		}
-		else{
+		else{*/
 			removeCondition(condition);
-		}
+	/*	}*/
 	}
 }
 
