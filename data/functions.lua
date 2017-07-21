@@ -284,15 +284,18 @@ function playerExists(name)
 	return (getPlayerGUIDByName(name) ~= 0)
 end
 
-function getTibiaTime()
-	local worldTime = getWorldTime()
-	local hours = 0
-	while (worldTime > 60) do
+function getTibiaTime(num)
+	local minutes, hours = getWorldTime(), 0
+	while (minutes > 60) do
 		hours = hours + 1
-		worldTime = worldTime - 60
+		minutes = minutes - 60
 	end
 
-	return tostring(hours .. ':' .. worldTime)
+	if(num) then
+		return {hours = hours, minutes = minutes}
+	end
+
+	return {hours =  hours < 10 and '0' .. hours or '' .. hours, minutes = minutes < 10 and '0' .. minutes or '' .. minutes}
 end
 
 exhaustion =
