@@ -952,7 +952,10 @@ bool Houses::payRent(Player* player, House* house, time_t time /*= 0*/)
 		default:
 			break;
 		}
-
+		
+		house->setLastWarning(0);
+		house->setPayRentWarnings(0);
+		
 		house->setPaidUntil(paidUntil);
 	}
 
