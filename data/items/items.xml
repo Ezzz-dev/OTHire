@@ -10282,6 +10282,14 @@
 		<attribute key="effect" value="greenbubble"/>
 		<attribute key="allowpickupable" value="1"/>
 	</item>
+	<item id="4756" name="grass"/>
+	<item id="4757" name="rock soil"/>
+	<item id="4758" name="swamp">
+		<attribute key="type" value="trashholder"/>
+		<attribute key="effect" value="greenbubble"/>
+		<attribute key="allowpickupable" value="1"/>
+	</item>
+	<item id="4759" name="gravel"/>	
 	<item id="4760" name="sand"/>
 	<item id="4761" name="sand"/>
 	<item id="4762" name="sand"/>
