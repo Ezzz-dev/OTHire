@@ -815,7 +815,6 @@ int NpcScriptInterface::luaSetNpcFocus(lua_State *L)
 		}
 		else{
 			npc->hasScriptedFocus = false;
-			npc->turnToInitialLookDirection();
 		}
 
 		npc->setCreatureFocus(creature);
