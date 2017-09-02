@@ -132,6 +132,8 @@ private:
 	CreatureList friendList;
 
 	MonsterType* mType;
+	
+	int64_t lastMeleeAttack;
 
 	int32_t minCombatValue;
 	int32_t maxCombatValue;

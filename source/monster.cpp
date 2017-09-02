@@ -74,6 +74,8 @@ Creature()
 	internalLight.level = mType->lightLevel;
 	internalLight.color = mType->lightColor;
 
+	lastMeleeAttack = 0;
+	
 	minCombatValue = 0;
 	maxCombatValue = 0;
 
@@ -857,6 +859,12 @@ bool Monster::canUseSpell(const Position& pos, const Position& targetPos,
 	const spellBlock_t& sb, uint32_t interval, bool& inRange)
 {
 	inRange = true;
+	
+	if (extraMeleeAttack) {
+		lastMeleeAttack = OTSYS_TIME();
+	} else if (sb.isMelee && (OTSYS_TIME() - lastMeleeAttack) < 1500) {
+		return false;
+	}
 
 	if(!sb.isMelee || !extraMeleeAttack){
 		if(sb.speed > attackTicks){
