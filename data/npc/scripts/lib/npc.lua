@@ -37,6 +37,7 @@ function selfGotoIdle()
 end
 
 function msgcontains(message, keyword)
+	message = message:lower()
 	local a, b = string.find(message, keyword)
 	if a == nil or b == nil then
 		return false

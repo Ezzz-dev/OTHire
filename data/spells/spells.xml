@@ -225,6 +225,7 @@
 	<conjure name="Heavy Magic Missile" words="adori gran" needlearn="0" lvl="25" mana="280" soul="2" reagentId="2260" conjureId="2311" conjureCount="5" function="conjureRune">
 		<vocation name="Sorcerer"/> <vocation name="Master Sorcerer"/>
 		<vocation name="Druid"/>	<vocation name="Elder Druid"/>
+		<vocation name="Paladin"/>	<vocation name="Royal Paladin"/>
 	</conjure>
 	<conjure name="Conjure Explosive Arrow" words="exevo con flam" needlearn="0" lvl="25" mana="290" soul="3" conjureId="2546" conjureCount="5" function="conjureItem">
 		<vocation name="Paladin"/>	<vocation name="Royal Paladin"/>
