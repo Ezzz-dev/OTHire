@@ -4921,7 +4921,7 @@
 		<attribute key="attack" value="16"/>
 		<attribute key="weaponType" value="sword"/>
 	</item>
-	<item id="2413" article="a" name="broad sword">
+	<item id="2413" article="a" name="broadsword">
 		<attribute key="weight" value="5250"/>
 		<attribute key="defense" value="23"/>
 		<attribute key="attack" value="26"/>
