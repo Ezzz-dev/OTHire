@@ -2,7 +2,7 @@
 MessageSent = {}
 
 function getContentDescription(uid, comma)
-	local ret, i, containers = '', 0, {}
+	local ret, i, containers, skip_comma = '', 0, {}, false
 
 	while i < getContainerSize(uid) do
 		local v, s = getContainerItem(uid, i), ''
@@ -10,6 +10,9 @@ function getContentDescription(uid, comma)
 		if k.name ~= '' then
 			if isContainer(v.uid) and getContainerSize(v.uid) > 0 then
 				table.insert(containers, v.uid)
+				if i == 0 then
+					skip_comma = true
+				end
 			else
 				if v.type > 1 and isItemStackable(v.itemid) and k.showCount then
 					s = v.type .. ' ' .. getItemDescriptions(v.itemid).plural
@@ -26,7 +29,11 @@ function getContentDescription(uid, comma)
 	end
 
 	for i = 1, #containers do
-		ret = ret .. getContentDescription(containers[i], true)
+		if skip_comma and i == 1 then
+			ret = ret .. getContentDescription(containers[i], false)
+		else
+			ret = ret .. getContentDescription(containers[i], true)
+		end
 	end
 
 	return ret
@@ -35,6 +42,11 @@ end
 local function send(cid, lastHit, pos, name, party, target)
 	local corpse = getTileItemByType(pos, ITEM_TYPE_CONTAINER).uid
 	local ret = isContainer(corpse) and getContentDescription(corpse)
+	local wontcheck = {'Fire Elemental', 'Slime'}
+	
+	if isInArray(wontcheck, name) then
+		ret = ''
+	end
 
 	if party then
 		local leaderid
@@ -64,7 +76,7 @@ local function send(cid, lastHit, pos, name, party, target)
 end
 
 function onKill(cid, target, lastHit)
-	if not isPlayer(target) then
+	if not isPlayer(target) and getCreatureMaster(target) == target then
 		addEvent(send, 0, cid, lastHit, getThingPos(target), getCreatureName(target), getPartyMembers(cid), target)
 	end
 	return true
