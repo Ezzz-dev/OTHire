@@ -1529,10 +1529,7 @@ bool Monster::convinceCreature(Creature* creature)
 		}
 	}
 
-	if(isPlayerSummon()){
-		return false;
-	}
-	else if(isSummon()){
+	if(isSummon()){
 		if(getMaster() != creature){
 			Creature* oldMaster = getMaster();
 			oldMaster->removeSummon(this);
