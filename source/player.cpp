@@ -3724,14 +3724,15 @@ void Player::doAttacking(uint32_t interval)
 		Item* tool = getWeapon();
 		bool result = false;
 		const Weapon* weapon = g_weapons->getWeapon(tool);
-		uint32_t delay = getAttackSpeed();
-
 		if(weapon){
 			if(!weapon->interruptSwing()){
 				result = weapon->useWeapon(this, tool, attackedCreature);
 			}
 			else if(!canDoAction()){
-				delay = getNextActionTime();
+				uint32_t delay = getNextActionTime();
+				SchedulerTask* task = createSchedulerTask(delay, boost::bind(&Game::checkCreatureAttack,		
+					&g_game, getID()));		
+				setNextActionTask(task);
 			}
 			else {
 				// If the player is not exhausted OR if the player's weapon
@@ -3745,10 +3746,6 @@ void Player::doAttacking(uint32_t interval)
 		else{
 			result = Weapon::useFist(this, attackedCreature);
 		}
-
-		SchedulerTask* task = createSchedulerTask(SCHEDULER_MINTICKS, boost::bind(&Game::checkCreatureAttack,
-			&g_game, getID()));
-		setNextActionTask(task);
 
 		if(result){
 			lastAttack = OTSYS_TIME();
