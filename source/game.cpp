@@ -2346,6 +2346,10 @@ bool Game::playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPo
 	if(!player || player->isRemoved())
 		return false;
 
+	if(player->eventWalk!=0){
+		player->lastStepCost=2;
+	}
+
 	Thing* thing = internalGetThing(player, pos, stackPos, spriteId, STACKPOS_USEITEM);
 
 	if(!thing){
