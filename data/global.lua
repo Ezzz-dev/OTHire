@@ -1,18 +1,3 @@
--- Load Lua-made functions
-dofile(getDataDir() .. 'functions.lua')
-
--- Load House class
-dofile(getDataDir() .. 'game_classes/house.lua')
-
--- Load Calculator class
-dofile(getDataDir() .. 'game_classes/calculator.lua')
-
--- Load Exp Stages
-dofile(getDataDir() .. 'exp_stages.lua')
-
--- Load db file
-dofile(getDataDir() .. 'db.lua')
-
 -- Storages consts
 STORAGE_PROMOTION = 15000
 STORAGE_PREMIUM_ACCOUNT = 25000
@@ -532,3 +517,6 @@ FLUID_FRUIT_JUICE = 21
 FLUID_RUM = 27
 FLUID_TEA = 35
 FLUID_MEAD = 36
+
+-- Load libraries
+dofile(getDataDir() .. 'lib/lib.lua')
