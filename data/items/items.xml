@@ -8439,6 +8439,9 @@
 	<item id="3243" name="wooden floor"/>
 	<item id="3244" name="wooden floor"/>
 	<item id="3245" name="wooden floor"/>
+	<item id="3263" name="jungle grass"/>
+	<item id="3264" name="ground"/>
+	<item id="3265" name="ground"/>
 	<item id="3298" name="jungle grass"/>
 	<item id="3299" name="jungle grass"/>
 	<item id="3300" name="jungle grass"/>
@@ -10451,6 +10454,9 @@
 	<item id="4564" name="gravel"/>
 	<item id="4565" name="gravel"/>
 	<item id="4566" name="gravel"/>
+	<item id="4567" name="grass"/>
+	<item id="4568" name="grass"/>
+	<item id="4569" name="grass"/>
 	<item id="4570" name="gravel"/>
 	<item id="4571" name="gravel"/>
 	<item id="4572" name="gravel"/>
