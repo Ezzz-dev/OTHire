@@ -6101,7 +6101,7 @@
 		<attribute key="weight" value="1300"/>
 		<attribute key="showcount" value="0"/>
 	</item>
-	<item id="2667" article="a" name="fish">
+	<item id="2667" article="a" name="fish" plural="fish">
 		<attribute key="weight" value="520"/>
 	</item>
 	<item id="2668" article="a" name="salmon">
@@ -9213,157 +9213,157 @@
 	<item id="3898" article="a" name="tiger fur"/>
 	<item id="3899" article="a" name="tiger fur"/>
 	<item id="3900" article="a" name="sundial"/>
-	<item id="3901" article="a" name="wooden chair kit">
-		<attribute key="description" value="Use it in your house to construct a wooden chair."/>
-		<attribute key="weight" value="2500"/>
+	<item id="3901" article="a" name="red cushioned chair kit">
+		<attribute key="description" value="Use it in your house to construct a red cushioned chair." />
+		<attribute key="weight" value="2500" />
 	</item>
-	<item id="3902" article="a" name="sofa chair kit">
-		<attribute key="description" value="Use it in your house to construct a sofa chair."/>
-		<attribute key="weight" value="2500"/>
+	<item id="3902" article="a" name="green cushioned chair kit">
+		<attribute key="description" value="Use it in your house to construct a green cushioned chair." />
+		<attribute key="weight" value="2500" />
 	</item>
-	<item id="3903" article="a" name="red cushioned chair kit">
-		<attribute key="description" value="Use it in your house to construct a red cushioned chair."/>
-		<attribute key="weight" value="2500"/>
+	<item id="3903" article="a" name="wooden chair kit">
+		<attribute key="description" value="Use it in your house to construct a wooden chair." />
+		<attribute key="weight" value="2500" />
 	</item>
-	<item id="3904" article="a" name="green cushioned chair kit">
-		<attribute key="description" value="Use it in your house to construct a green cushioned chair."/>
-		<attribute key="weight" value="2500"/>
+	<item id="3904" article="a" name="rocking chair kit">
+		<attribute key="description" value="Use it in your house to construct a rocking chair." />
+		<attribute key="weight" value="2500" />
 	</item>
-	<item id="3905" article="a" name="tusk chair kit">
-		<attribute key="description" value="Use it in your house to construct a tusk chair."/>
-		<attribute key="weight" value="2500"/>
+	<item id="3905" article="a" name="sofa chair kit">
+		<attribute key="description" value="Use it in your house to construct a sofa chair." />
+		<attribute key="weight" value="2500" />
 	</item>
-	<item id="3906" article="an" name="ivory chair kit">
-		<attribute key="description" value="Use it in your house to construct an ivory chair."/>
-		<attribute key="weight" value="2500"/>
+	<item id="3906" article="a" name="tusk chair kit">
+		<attribute key="description" value="Use it in your house to construct a tusk chair." />
+		<attribute key="weight" value="2500" />
 	</item>
-	<item id="3907" article="a" name="trunk chair kit">
-		<attribute key="description" value="Use it in your house to construct a trunk chair."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3907" article="an" name="ivory chair kit">
+		<attribute key="description" value="Use it in your house to construct an ivory chair." />
+		<attribute key="weight" value="2500" />
 	</item>
 	<item id="3908" article="a" name="small table kit">
-		<attribute key="description" value="Use it in your house to construct a small table."/>
-		<attribute key="weight" value="2500"/>
+		<attribute key="description" value="Use it in your house to construct a small table." />
+		<attribute key="weight" value="2500" />
 	</item>
-	<item id="3909" article="a" name="big table kit">
-		<attribute key="description" value="Use it in your house to construct a big table."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3909" article="an" name="square table kit">
+		<attribute key="description" value="Use it in your house to construct a square table." />
+		<attribute key="weight" value="2500" />
 	</item>
-	<item id="3910" article="a" name="square table kit">
-		<attribute key="description" value="Use it in your house to construct a square table."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3910" article="a" name="christmas tree package">
+		<attribute key="description" value="Use it in your house to reveal a christmas tree." />
+		<attribute key="weight" value="3500" />
 	</item>
-	<item id="3911" article="a" name="round table kit">
-		<attribute key="description" value="Use it in your house to construct a round table."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3911" article="a" name="big table kit">
+		<attribute key="description" value="Use it in your house to construct a big table." />
+		<attribute key="weight" value="3500" />
 	</item>
-	<item id="3912" article="a" name="coal basin kit">
-		<attribute key="description" value="Use it in your house to construct a coal basin."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3912" article="a" name="stone table kit">
+		<attribute key="description" value="Use it in your house to construct a stone table." />
+		<attribute key="weight" value="3500" />
 	</item>
-	<item id="3913" article="a" name="stone table kit">
-		<attribute key="description" value="Use it in your house to construct a stone table."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3913" article="a" name="tusk table kit">
+		<attribute key="description" value="Use it in your house to construct a tusk table." />
+		<attribute key="weight" value="3500" />
 	</item>
-	<item id="3914" article="a" name="tusk table kit">
-		<attribute key="description" value="Use it in your house to construct a tusk table."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3914" article="a" name="bamboo table kit">
+		<attribute key="description" value="Use it in your house to construct a bamboo table." />
+		<attribute key="weight" value="3500" />
 	</item>
 	<item id="3915" article="a" name="drawer kit">
-		<attribute key="description" value="Use it in your house to construct a drawer."/>
-		<attribute key="weight" value="2500"/>
+		<attribute key="description" value="Use it in your house to construct a drawer." />
+		<attribute key="weight" value="2500" />
 	</item>
 	<item id="3916" article="a" name="dresser kit">
-		<attribute key="description" value="Use it in your house to construct a dresser."/>
-		<attribute key="weight" value="2500"/>
+		<attribute key="description" value="Use it in your house to construct a dresser." />
+		<attribute key="weight" value="2500" />
 	</item>
-	<item id="3917" article="a" name="pendulum clock kit">
-		<attribute key="description" value="Use it in your house to construct a pendulum clock."/>
-		<attribute key="weight" value="3000"/>
+	<item id="3917" article="a" name="locker kit">
+		<attribute key="description" value="Use it in your house to construct a locker." />
+		<attribute key="weight" value="3000" />
 	</item>
-	<item id="3918" article="a" name="locker kit">
-		<attribute key="description" value="Use it in your house to construct a locker."/>
-		<attribute key="weight" value="3000"/>
+	<item id="3918" article="a" name="trough kit">
+		<attribute key="description" value="Use it in your house to construct a trough." />
+		<attribute key="weight" value="3000" />
 	</item>
-	<item id="3919" article="a" name="bamboo table kit">
-		<attribute key="description" value="Use it in your house to construct a bamboo table."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3919" article="a" name="barrel kit">
+		<attribute key="description" value="Use it in your house to construct a barrel." />
+		<attribute key="weight" value="3500" />
 	</item>
-	<item id="3920" article="a" name="trunk table kit">
-		<attribute key="description" value="Use it in your house to construct a trunk table."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3920" article="a" name="trunk kit">
+		<attribute key="description" value="Use it in your house to construct a trunk." />
+		<attribute key="weight" value="3500" />
 	</item>
-	<item id="3921" article="a" name="harp kit">
-		<attribute key="description" value="Use it in your house to construct a harp."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3921" article="a" name="bamboo drawer kit">
+		<attribute key="description" value="Use it in your house to construct a bamboo drawer." />
+		<attribute key="weight" value="3500" />
 	</item>
 	<item id="3922" article="a" name="birdcage kit">
-		<attribute key="description" value="Use it in your house to construct a birdcage."/>
-		<attribute key="weight" value="2000"/>
+		<attribute key="description" value="Use it in your house to construct a birdcage." />
+		<attribute key="weight" value="2000" />
 	</item>
 	<item id="3923" article="a" name="globe kit">
-		<attribute key="description" value="Use it in your house to construct a globe."/>
-		<attribute key="weight" value="2000"/>
+		<attribute key="description" value="Use it in your house to construct a globe." />
+		<attribute key="weight" value="2000" />
 	</item>
 	<item id="3924" article="a" name="table lamp kit">
-		<attribute key="description" value="Use it in your house to construct a table lamp."/>
-		<attribute key="weight" value="2000"/>
+		<attribute key="description" value="Use it in your house to construct a table lamp." />
+		<attribute key="weight" value="2000" />
 	</item>
-	<item id="3925" article="a" name="rocking chair kit">
-		<attribute key="description" value="Use it in your house to construct a rocking chair."/>
-		<attribute key="weight" value="2500"/>
+	<item id="3925" article="a" name="telescope kit">
+		<attribute key="description" value="Use it in your house to construct a telescope." />
+		<attribute key="weight" value="2500" />
 	</item>
-	<item id="3926" article="a" name="piano kit">
-		<attribute key="description" value="Use it in your house to construct a piano."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3926" article="a" name="rocking horse kit">
+		<attribute key="description" value="Use it in your house to construct a rocking horse." />
+		<attribute key="weight" value="3500" />
 	</item>
-	<item id="3927" article="a" name="knight statue kit">
-		<attribute key="description" value="Use it in your house to construct a knight statue."/>
-		<attribute key="weight" value="3000"/>
+	<item id="3927" article="a" name="pendulum clock kit">
+		<attribute key="description" value="Use it in your house to construct a pendulum clock." />
+		<attribute key="weight" value="3000" />
 	</item>
-	<item id="3928" article="a" name="minotaur statue kit">
-		<attribute key="description" value="Use it in your house to construct a minotaur statue."/>
-		<attribute key="weight" value="3000"/>
+	<item id="3928" article="a" name="knight statue kit">
+		<attribute key="description" value="Use it in your house to construct a knight statue." />
+		<attribute key="weight" value="3000" />
 	</item>
-	<item id="3929" article="a" name="large amphora kit">
-		<attribute key="description" value="Use it in your house to construct a large amphora."/>
-		<attribute key="weight" value="3000"/>
+	<item id="3929" article="a" name="minotaur statue kit">
+		<attribute key="description" value="Use it in your house to construct a minotaur statue." />
+		<attribute key="weight" value="3000" />
 	</item>
 	<item id="3930" article="a" name="goblin statue kit">
-		<attribute key="description" value="Use it in your house to construct a goblin statue."/>
-		<attribute key="weight" value="2500"/>
+		<attribute key="description" value="Use it in your house to construct a goblin statue." />
+		<attribute key="weight" value="2500" />
 	</item>
-	<item id="3931" article="an" name="indoor plant kit">
-		<attribute key="description" value="Use it in your house to reveal an indoor plant."/>
-		<attribute key="weight" value="3000"/>
+	<item id="3931" article="a" name="large amphora kit">
+		<attribute key="description" value="Use it in your house to construct a large amphora." />
+		<attribute key="weight" value="3000" />
 	</item>
-	<item id="3932" article="a" name="barrel kit">
-		<attribute key="description" value="Use it in your house to construct a barrel."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3932" article="a" name="coal basin kit">
+		<attribute key="description" value="Use it in your house to construct a coal basin." />
+		<attribute key="weight" value="3500" />
 	</item>
-	<item id="3933" article="a" name="christmas tree package">
-		<attribute key="description" value="Use it in your house to reveal a christmas tree."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3933" article="a" name="piano kit">
+		<attribute key="description" value="Use it in your house to construct a piano." />
+		<attribute key="weight" value="3500" />
 	</item>
-	<item id="3934" article="a" name="rocking horse kit">
-		<attribute key="description" value="Use it in your house to construct a rocking horse."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3934" article="a" name="harp kit">
+		<attribute key="description" value="Use it in your house to construct a harp." />
+		<attribute key="weight" value="3500" />
 	</item>
-	<item id="3935" article="a" name="telescope kit">
-		<attribute key="description" value="Use it in your house to construct a telescope."/>
-		<attribute key="weight" value="2500"/>
+	<item id="3935" article="a" name="trunk chair kit">
+		<attribute key="description" value="Use it in your house to construct a trunk chair." />
+		<attribute key="weight" value="3500" />
 	</item>
-	<item id="3936" article="a" name="bamboo drawer kit">
-		<attribute key="description" value="Use it in your house to construct a bamboo drawer."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3936" article="a" name="trunk table kit">
+		<attribute key="description" value="Use it in your house to construct a trunk table." />
+		<attribute key="weight" value="3500" />
 	</item>
-	<item id="3937" article="a" name="trough kit">
-		<attribute key="description" value="Use it in your house to construct a trough."/>
-		<attribute key="weight" value="3000"/>
+	<item id="3937" article="an" name="indoor plant kit">
+		<attribute key="description" value="Use it in your house to reveal an indoor plant." />
+		<attribute key="weight" value="3000" />
 	</item>
-	<item id="3938" article="a" name="trunk kit">
-		<attribute key="description" value="Use it in your house to construct a trunk."/>
-		<attribute key="weight" value="3500"/>
+	<item id="3938" article="an" name="ornamented stone table">
+		<attribute key="description" value="Use it in your house to reveal an ornamented stone table." />
+		<attribute key="weight" value="3000" />
 	</item>
 	<item id="3939" article="a" name="camouflage bag">
 		<attribute key="weight" value="800"/>

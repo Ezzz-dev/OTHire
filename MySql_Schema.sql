@@ -346,7 +346,7 @@ CREATE TABLE `players` (
 --
 
 INSERT INTO `players` (`id`, `name`, `account_id`, `group_id`, `sex`, `vocation`, `experience`, `level`, `maglevel`, `health`, `healthmax`, `mana`, `manamax`, `manaspent`, `soul`, `direction`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `posx`, `posy`, `posz`, `cap`, `lastlogin`, `lastlogout`, `lastip`, `save`, `conditions`, `skull_type`, `skull_time`, `loss_experience`, `loss_mana`, `loss_skills`, `loss_items`, `loss_containers`, `town_id`, `balance`, `online`, `rank_id`, `guildnick`) VALUES
-(3, 'GM Sample', 123456, 5, 1, 0, 100, 2, 4, 100, 100, 100, 100, 70775, 0, 2, 10, 10, 10, 10, 75, 32368, 32215, 7, 10000, 1396046551, 1396045859, 400558280, 1, '', 0, 0, 100, 100, 100, 10, 100, 1, 0, 1, 0, '');
+(1, 'GM Sample', 123456, 5, 1, 0, 100, 2, 4, 100, 100, 100, 100, 70775, 0, 2, 10, 10, 10, 10, 75, 32368, 32215, 7, 10000, 1396046551, 1396045859, 400558280, 1, '', 0, 0, 100, 100, 100, 10, 100, 1, 0, 1, 0, '');
 
 --
 -- Triggers `players`
@@ -428,9 +428,9 @@ CREATE TABLE `player_items` (
 --
 
 INSERT INTO `player_items` (`player_id`, `sid`, `pid`, `itemtype`, `count`, `attributes`) VALUES
-(3, 101, 5, 2152, 98, 0x0f62),
-(3, 102, 6, 2183, 1, ''),
-(3, 103, 8, 2643, 1, '');
+(1, 101, 5, 2152, 98, 0x0f62),
+(1, 102, 6, 2183, 1, ''),
+(1, 103, 8, 2643, 1, '');
 
 -- --------------------------------------------------------
 
@@ -465,13 +465,13 @@ CREATE TABLE `player_skills` (
 --
 
 INSERT INTO `player_skills` (`player_id`, `skillid`, `value`, `count`) VALUES
-(3, 0, 10, 0),
-(3, 1, 10, 0),
-(3, 2, 10, 0),
-(3, 3, 10, 0),
-(3, 4, 10, 0),
-(3, 5, 10, 0),
-(3, 6, 10, 0);
+(1, 0, 10, 0),
+(1, 1, 10, 0),
+(1, 2, 10, 0),
+(1, 3, 10, 0),
+(1, 4, 10, 0),
+(1, 5, 10, 0),
+(1, 6, 10, 0);
 
 -- --------------------------------------------------------
 

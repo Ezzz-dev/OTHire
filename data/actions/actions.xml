@@ -114,28 +114,31 @@
 	<action itemid="3904" script="furniture_package.lua"/>
 	<action itemid="3905" script="furniture_package.lua"/>
 	<action itemid="3906" script="furniture_package.lua"/>
-
 	<action itemid="3907" script="furniture_package.lua"/>
 	<action itemid="3908" script="furniture_package.lua"/>
 	<action itemid="3909" script="furniture_package.lua"/>
+
 	<action itemid="3910" script="furniture_package.lua"/>
 	<action itemid="3911" script="furniture_package.lua"/>
 	<action itemid="3912" script="furniture_package.lua"/>
 	<action itemid="3913" script="furniture_package.lua"/>
 	<action itemid="3914" script="furniture_package.lua"/>
 	<action itemid="3915" script="furniture_package.lua"/>
-
+	<action itemid="3916" script="furniture_package.lua"/>
 	<action itemid="3917" script="furniture_package.lua"/>
 	<action itemid="3918" script="furniture_package.lua"/>
 	<action itemid="3919" script="furniture_package.lua"/>
-	<action itemid="3920" script="furniture_package.lua"/>
+
+	<action itemid="3920" script="furniture_package.lua"/>	
 	<action itemid="3921" script="furniture_package.lua"/>
 	<action itemid="3923" script="furniture_package.lua"/>
+	<action itemid="3924" script="furniture_package.lua"/>
+	<action itemid="3925" script="furniture_package.lua"/>
 	<action itemid="3926" script="furniture_package.lua"/>
 	<action itemid="3927" script="furniture_package.lua"/>
 	<action itemid="3928" script="furniture_package.lua"/>
-
 	<action itemid="3929" script="furniture_package.lua"/>
+
 	<action itemid="3931" script="furniture_package.lua"/>
 	<action itemid="3932" script="furniture_package.lua"/>
 	<action itemid="3933" script="furniture_package.lua"/>
@@ -143,6 +146,10 @@
 	<action itemid="3936" script="furniture_package.lua"/>
 	<action itemid="3937" script="furniture_package.lua"/>
 	<action itemid="3938" script="furniture_package.lua"/>
+
+	<action itemid="5086" script="furniture_package.lua"/>
+	<action itemid="5087" script="furniture_package.lua"/>
+	<action itemid="5088" script="furniture_package.lua"/>
 
 	<!-- Doors -->
 	<action itemid="1209" script="doors/door_locked.lua"/>
