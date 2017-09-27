@@ -27,7 +27,7 @@
 	</elements>
 	<immunities>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 	</voices>
 	<loot>
 		<item id="2148" chance="25000" countmax="4"/><!-- 4 25% gold coin -->

@@ -26,7 +26,7 @@
 	</elements>
 	<immunities>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 	</voices>
 	<loot>
 		<item id="3976" chance="50000" countmax="3"/><!-- 3 50% worm -->

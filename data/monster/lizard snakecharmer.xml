@@ -42,7 +42,7 @@
 	<immunities>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Shhhhhhhh."/>
 		<voice sentence="I ssssmell warm blood!"/>
 	</voices>

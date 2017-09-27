@@ -19,20 +19,20 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="40" attack="38" poison="30"/>
-		<attack name="poisonfield" interval="2000" chance="20" range="1">
+		<attack name="poisonfield" interval="1000" chance="20" range="1">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="poff"/>
 		</attack>
 	</attacks>
 	<defenses armor="20" defense="20">
-		<defense name="haste_tarantula" interval="2000" chance="13"/>
+		<defense name="haste_tarantula" interval="1000" chance="13"/>
 	</defenses>
 	<elements>
 		<element earthPercent="100"/>
 	</elements>
 	<immunities>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 	</voices>
 	<loot>
 		<item id="2148" chance="70000" countmax="10"/><!-- 10 70% gold coin -->

@@ -35,7 +35,7 @@
 	</elements>
 	<immunities>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Hot, eh?"/>
 		<voice sentence="Hell, oh hell!"/>
 	</voices>

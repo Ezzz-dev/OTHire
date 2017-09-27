@@ -19,26 +19,26 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="82" attack="62"/>
-		<attack name="poison" interval="2000" chance="13" range="7" min="-100" max="-300">
+		<attack name="poison" interval="1000" chance="13" range="7" min="-100" max="-300">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="greenspark"/>
 		</attack>
-		<attack name="outfit" interval="2000" chance="9" range="7" item="3976" duration="4000">
+		<attack name="outfit" interval="1000" chance="9" range="7" item="3976" duration="4000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
-		<attack name="paralyze_serpentspawn" interval="2000" chance="13" range="7"/>
-		<attack name="lifedrain" interval="2000" chance="15" length="8" spread="0" min="-150" max="-400">
+		<attack name="paralyze_serpentspawn" interval="1000" chance="13" range="7"/>
+		<attack name="lifedrain" interval="1000" chance="15" length="8" spread="0" min="-150" max="-400">
 			<attribute key="areaEffect" value="rednote"/>
 		</attack>
-		<attack name="poison" interval="2000" chance="17" length="8" spread="3" min="-50" max="-500">
+		<attack name="poison" interval="1000" chance="17" length="8" spread="3" min="-50" max="-500">
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
 	</attacks>
 	<defenses armor="28" defense="40">
-		<defense name="healing" interval="2000" chance="17" min="300" max="400">
+		<defense name="healing" interval="1000" chance="17" min="300" max="400">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-		<defense name="haste_serpentspawn" interval="2000" chance="9"/>	
+		<defense name="haste_serpentspawn" interval="1000" chance="9"/>	
 	</defenses>
 	<elements>
 		<element earthPercent="100"/>
@@ -48,7 +48,7 @@
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Ssssolus for the one"/>
 		<voice sentence="HISSSS" yell="1"/>
 		<voice sentence="Tsssse one will risssse again"/>

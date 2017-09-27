@@ -29,7 +29,7 @@
 	</elements>
 	<immunities>
 	</immunities>
-	<voices interval="2000" chance="10">
+	<voices interval="1000" chance="10">
 		<voice sentence="Yeee ha!"/>
 		<voice sentence="Your head will be mine!"/>
 	</voices>

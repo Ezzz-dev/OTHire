@@ -21,13 +21,13 @@
 		<attack name="melee" interval="2000" skill="48" attack="41"/>
 	</attacks>
 	<defenses armor="9" defense="20">
-		<defense name="haste_orcrider" interval="2000" chance="7"/>
+		<defense name="haste_orcrider" interval="1000" chance="7"/>
 	</defenses>
 	<elements>
 	</elements>
 	<immunities>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Grrrrrrr"/>
 		<voice sentence="Orc arga Huummmak!"/>
 	</voices>

@@ -19,15 +19,15 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="80" attack="65"/>
-		<attack name="poisonfield" interval="2000" chance="17" range="7" radius="1" target="1">
+		<attack name="poisonfield" interval="1000" chance="17" range="7" radius="1" target="1">
 			<attribute key="shootEffect" value="poison"/>
 		</attack>
 	</attacks>
 	<defenses armor="30" defense="40">
-		<defense name="haste_giantspider" interval="2000" chance="6"/>
+		<defense name="haste_giantspider" interval="1000" chance="6"/>
 	</defenses>
 	<summons maxSummons="2">
-		<summon name="poison spider" interval="2000" chance="10" max="2"/>
+		<summon name="poison spider" interval="1000" chance="10" max="2"/>
 	</summons>
 	<elements>
 		<element firePercent="100"/>
@@ -37,7 +37,7 @@
 		<immunity lifedrain="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 	</voices>
 	<loot>
 		<item id="2148" chance="33300" countmax="55"/><!-- 55 33.3% gold coin -->

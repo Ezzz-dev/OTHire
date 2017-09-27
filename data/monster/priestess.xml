@@ -42,7 +42,7 @@
 	<immunities>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Your energy is mine."/>
 		<voice sentence="Now, your life has come to an end, hahahha!"/>
 		<voice sentence="Throw the soul on the altar!"/>

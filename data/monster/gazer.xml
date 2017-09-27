@@ -36,7 +36,7 @@
 		<immunity lifedrain="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Mommy!?"/>
 		<voice sentence="Buuuuhaaaahhaaaaa!"/>
 		<voice sentence="Me need mana!"/>

@@ -19,7 +19,7 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="70" attack="45"/>
-		<attack name="lifedrain" interval="2000" chance="10" range="1" min="-30" max="-50"/>
+		<attack name="lifedrain" interval="1000" chance="10" range="1" min="-30" max="-50"/>
 	</attacks>
 	<defenses armor="25" defense="35">
 	</defenses>
@@ -31,7 +31,7 @@
 		<immunity lifedrain="1"/>
 		<immunity paralyze="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 	</voices>
 	<loot>
 		<item id="2148" chance="40000" countmax="20"/><!-- 20 40% gold coin -->

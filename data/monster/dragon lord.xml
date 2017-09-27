@@ -19,19 +19,19 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="65" attack="55"/>
-		<attack name="fire" interval="2000" chance="17" range="7" radius="4" target="1" min="-120" max="-180">
+		<attack name="fire" interval="1000" chance="17" range="7" radius="4" target="1" min="-120" max="-180">
 			<attribute key="shootEffect" value="fire"/>
 			<attribute key="areaEffect" value="firearea"/>
 		</attack>
-		<attack name="firefield" interval="2000" chance="15" range="7" radius="4" target="1">
+		<attack name="firefield" interval="1000" chance="15" range="7" radius="4" target="1">
 			<attribute key="shootEffect" value="fire"/>
 		</attack>
-		<attack name="fire" interval="2000" chance="17" length="8" spread="3" min="-150" max="-250">
+		<attack name="fire" interval="1000" chance="17" length="8" spread="3" min="-150" max="-250">
 			<attribute key="areaEffect" value="firearea"/>
 		</attack>
 	</attacks>
 	<defenses armor="32" defense="48">
-		<defense name="healing" interval="2000" chance="25" min="57" max="93">
+		<defense name="healing" interval="1000" chance="25" min="57" max="93">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
@@ -44,7 +44,7 @@
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="ZCHHHHH" yell="1"/>
 		<voice sentence="YOU WILL BURN!" yell="1"/>
 	</voices>

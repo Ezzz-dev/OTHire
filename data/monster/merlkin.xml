@@ -19,7 +19,7 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="25" attack="15"/>
-		<attack name="fire" interval="2000" chance="13" range="7" min="-30" max="-90">
+		<attack name="fire" interval="1000" chance="13" range="7" min="-30" max="-90">
 			<attribute key="shootEffect" value="fire"/>
 			<attribute key="areaEffect" value="firearea"/>
 		</attack>
@@ -42,7 +42,7 @@
 	<immunities>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Ugh! Ugh! Ugh!"/>
 		<voice sentence="Holy banana!"/>
 		<voice sentence="Chakka! Chakka!"/>

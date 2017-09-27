@@ -19,12 +19,12 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="80" attack="58"/>
-		<attack name="physical" interval="2000" checkshield="1" chance="25" range="7" min="-75" max="-125">
+		<attack name="physical" interval="1000" checkshield="1" chance="25" range="7" min="-75" max="-125">
 			<attribute key="shootEffect" value="arrow"/>
 		</attack>
 	</attacks>
 	<defenses armor="35" defense="50">
-		<defense name="healing" interval="2000" chance="10" min="200" max="250">
+		<defense name="healing" interval="1000" chance="10" min="200" max="250">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
@@ -37,7 +37,7 @@
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Let's have a fight!"/>
 		<voice sentence="Welcome to my battleground."/>
 		<voice sentence="Have you seen princess Lumelia?"/>

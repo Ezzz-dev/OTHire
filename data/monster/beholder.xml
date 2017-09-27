@@ -51,7 +51,7 @@
 		<immunity lifedrain="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Eye for eye!"/>
 		<voice sentence="Here's looking at you!"/>
 		<voice sentence="Let me take a look at you!"/>

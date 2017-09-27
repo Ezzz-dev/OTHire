@@ -75,7 +75,7 @@ Creature()
 	internalLight.color = mType->lightColor;
 
 	lastMeleeAttack = 0;
-	
+
 	minCombatValue = 0;
 	maxCombatValue = 0;
 
@@ -866,13 +866,21 @@ bool Monster::canUseSpell(const Position& pos, const Position& targetPos,
 		return false;
 	}
 
-	if(!sb.isMelee || !extraMeleeAttack){
-		if(sb.speed > attackTicks){
+	uint32_t spell_interval;
+
+	if (std::max(std::abs(pos.x - targetPos.x), std::abs(pos.y - targetPos.y)) <= 1) {
+		spell_interval = sb.speed * 2;
+	} else {
+		spell_interval = sb.speed;
+	}
+	
+	if (!sb.isMelee || !extraMeleeAttack) {
+		if (spell_interval > attackTicks) {
 			resetTicks = false;
 			return false;
 		}
 
-		if(attackTicks % sb.speed >= interval){
+		if (attackTicks % spell_interval >= interval) {
 			//already used this spell for this round
 			return false;
 		}
@@ -922,14 +930,27 @@ void Monster::onThinkDefense(uint32_t interval)
 {
 	resetTicks = true;
 	defenseTicks += interval;
+	uint32_t spell_interval;
 
 	for(SpellList::iterator it = mType->spellDefenseList.begin(); it != mType->spellDefenseList.end(); ++it){
-		if(it->speed > defenseTicks){
+		if (attackedCreature) {
+			const Position& pos = getPosition();
+			const Position& targetPos = attackedCreature->getPosition();
+			if (std::max(std::abs(pos.x - targetPos.x), std::abs(pos.y - targetPos.y)) <= 1) {
+				spell_interval = it->speed * 2;
+			} else {
+				spell_interval = it->speed;
+			}
+		} else { 
+				spell_interval = it->speed;
+		}
+		
+		if(spell_interval > defenseTicks){
 			resetTicks = false;
 			continue;
 		}
 
-		if(defenseTicks % it->speed >= interval){
+		if(defenseTicks % spell_interval >= interval){
 			//already used this spell for this round
 			continue;
 		}
@@ -943,7 +964,16 @@ void Monster::onThinkDefense(uint32_t interval)
 
 	if(attackedCreature && !isSummon() && (int32_t)summons.size() < mType->maxSummons){
 		for(SummonList::iterator it = mType->summonList.begin(); it != mType->summonList.end(); ++it){
-			if(it->speed > defenseTicks){
+			const Position& pos = getPosition();
+			const Position& targetPos = attackedCreature->getPosition();
+
+			if (std::max(std::abs(pos.x - targetPos.x), std::abs(pos.y - targetPos.y)) <= 1) {
+				spell_interval = it->speed * 2;
+			} else {
+				spell_interval = it->speed;
+			}
+			
+			if(spell_interval > defenseTicks){
 				resetTicks = false;
 				continue;
 			}
@@ -952,7 +982,7 @@ void Monster::onThinkDefense(uint32_t interval)
 				continue;
 			}
 
-			if(defenseTicks % it->speed >= interval){
+			if(defenseTicks % spell_interval >= interval){
 				//already used this spell for this round
 				continue;
 			}

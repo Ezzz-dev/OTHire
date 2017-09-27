@@ -19,10 +19,10 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="40" attack="30"/>
-		<attack name="lifedrain" interval="2000" chance="17" range="1" min="-20" max="-30"/>
+		<attack name="lifedrain" interval="1000" chance="17" range="1" min="-20" max="-30"/>
 	</attacks>
 	<defenses armor="14" defense="20">
-		<defense name="invisible" interval="2000" chance="25" duration="30000">
+		<defense name="invisible" interval="1000" chance="25" duration="30000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
@@ -32,7 +32,7 @@
 		<immunity lifedrain="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 	</voices>
 	<loot>
 		<item id="2148" chance="13000" countmax="8"/><!-- 8 13% gold coin -->

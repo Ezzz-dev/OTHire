@@ -19,7 +19,7 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="60" attack="39"/>
-		<attack name="lifedrain" interval="2000" chance="13" range="1" min="-25" max="-55"/>
+		<attack name="lifedrain" interval="1000" chance="13" range="1" min="-25" max="-55"/>
 	</attacks>
 	<defenses armor="30" defense="25">
 	</defenses>
@@ -30,7 +30,7 @@
 		<immunity lifedrain="1"/>
 		<immunity paralyze="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Uhhhhhhh!"/>
 		<voice sentence="Aaaaahhhh!"/>
 		<voice sentence="Hoooohhh!"/>

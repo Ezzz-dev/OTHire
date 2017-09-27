@@ -21,13 +21,13 @@
 		<attack name="melee" interval="2000" skill="42" attack="15"/>
 	</attacks>
 	<defenses armor="5" defense="15">
-		<defense name="haste_tiger" interval="2000" chance="11"/>
+		<defense name="haste_tiger" interval="1000" chance="11"/>
 	</defenses>
 	<elements>
 	</elements>
 	<immunities>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 	</voices>
 	<loot>
 		<item id="2671" chance="22000" countmax="2"/><!-- 2 22% ham -->

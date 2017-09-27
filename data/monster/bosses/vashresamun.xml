@@ -19,18 +19,18 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="-80" max="-300" poison="65"/>
-		<attack name="lifedrain" interval="2000" chance="30" radius="5" target="0" min="-200" max="-750">
+		<attack name="lifedrain" interval="1000" chance="30" radius="5" target="0" min="-200" max="-750">
 			<attribute key="areaEffect" value="purplenote"/>
 		</attack>
-		<attack name="paralyze_vashresamun" interval="2000" chance="13" range="7"/>
+		<attack name="paralyze_vashresamun" interval="1000" chance="13" range="7"/>
 	</attacks>
 	<defenses armor="20" defense="35">
-		<defense name="healing" interval="2000" chance="20" min="60" max="450">
+		<defense name="healing" interval="1000" chance="20" min="60" max="450">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<summons maxSummons="3">
-		<summon name="banshee" interval="2000" chance="20" max="3"/>
+		<summon name="banshee" interval="1000" chance="20" max="3"/>
 	</summons>
 	<elements>
 		<element firePercent="100"/>

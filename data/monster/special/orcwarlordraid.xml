@@ -19,12 +19,12 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="72" attack="68"/>
-		<attack name="physical" interval="2000" checkshield="1" chance="25" range="7" min="-100" max="-120">
+		<attack name="physical" interval="1000" checkshield="1" chance="25" range="7" min="-100" max="-120">
 			<attribute key="shootEffect" value="throwingstar"/>
 		</attack>
 	</attacks>
 	<defenses armor="28" defense="55">
-		<defense name="invisible" interval="2000" chance="4" duration="2000">
+		<defense name="invisible" interval="1000" chance="4" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
@@ -34,7 +34,7 @@
 	<immunities>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Ranat Ulderek!"/>
 		<voice sentence="Orc buta bana!"/>
 		<voice sentence="Ikem rambo zambo!"/>

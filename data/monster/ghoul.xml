@@ -19,10 +19,10 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="37" attack="26"/>
-		<attack name="lifedrain" interval="2000" chance="12" range="1" min="-15" max="-25"/>
+		<attack name="lifedrain" interval="1000" chance="12" range="1" min="-15" max="-25"/>
 	</attacks>
 	<defenses armor="8" defense="17">
-		<defense name="healing" interval="2000" chance="13" min="9" max="15">
+		<defense name="healing" interval="1000" chance="13" min="9" max="15">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
@@ -34,7 +34,7 @@
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 	</voices>
 	<loot>
 		<item id="3976" chance="80000" countmax="6"/><!-- 6 80% worm -->

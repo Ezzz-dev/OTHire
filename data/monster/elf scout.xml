@@ -30,7 +30,7 @@
 	<immunities>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Tha'shi Ab'Dendriel!"/>
 		<voice sentence="Feel the sting of my arrows!"/>
 		<voice sentence="Thy blood will quench the soil's thirst!"/>

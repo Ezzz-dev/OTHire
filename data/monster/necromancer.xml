@@ -32,7 +32,7 @@
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
-	<summons maxSummons="4">
+	<summons maxSummons="2">
 		<summon name="ghoul" interval="1000" chance="17" max="2"/>
 		<summon name="ghost" interval="1000" chance="15" max="1"/>
 		<summon name="mummy" interval="1000" chance="13" max="1"/>
@@ -44,7 +44,7 @@
 		<immunity lifedrain="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Your corpse will be mine!"/>
 		<voice sentence="Taste the sweetness of death!"/>
 	</voices>

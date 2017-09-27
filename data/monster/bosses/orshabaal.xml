@@ -18,32 +18,32 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="190" attack="199"/>
-		<attack name="manadrain" interval="2000" chance="13" range="7" min="-300" max="-600"/>
-		<attack name="manadrain" interval="2000" chance="6" radius="5" target="0" min="-150" max="-350">
+		<attack name="manadrain" interval="1000" chance="13" range="7" min="-300" max="-600"/>
+		<attack name="manadrain" interval="1000" chance="6" radius="5" target="0" min="-150" max="-350">
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
-		<attack name="fire" interval="2000" chance="34" range="7" radius="7" target="1" min="-310" max="-600">
+		<attack name="fire" interval="1000" chance="34" range="7" radius="7" target="1" min="-310" max="-600">
 			<attribute key="shootEffect" value="fire"/>
 			<attribute key="areaEffect" value="firearea"/>
 		</attack>
-		<attack name="firefield" interval="2000" chance="10" range="7" radius="4" target="1">
+		<attack name="firefield" interval="1000" chance="10" range="7" radius="4" target="1">
 			<attribute key="shootEffect" value="fire"/>
 		</attack>
-		<attack name="energy" interval="2000" chance="15" length="8" spread="0" min="-500" max="-850">
+		<attack name="energy" interval="1000" chance="15" length="8" spread="0" min="-500" max="-850">
 			<attribute key="areaEffect" value="energy"/>
 		</attack>
 	</attacks>
 	<defenses armor="90" defense="111">
-		<defense name="healing" interval="2000" chance="9" min="1500" max="2500">
+		<defense name="healing" interval="1000" chance="9" min="1500" max="2500">
 		<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-		<defense name="healing" interval="2000" chance="17" min="600" max="1000">
+		<defense name="healing" interval="1000" chance="17" min="600" max="1000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-		<defense name="haste_orshabaal" interval="2000" chance="5"/>
+		<defense name="haste_orshabaal" interval="1000" chance="5"/>
 	</defenses>
 	<summons maxSummons="4">
-		<summon name="demon" interval="2000" chance="10" max="4"/>
+		<summon name="demon" interval="1000" chance="10" max="4"/>
 	</summons>
 	<elements>
 		<element firePercent="100"/>

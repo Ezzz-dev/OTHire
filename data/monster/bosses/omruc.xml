@@ -27,7 +27,7 @@
 			<attribute key="shootEffect" value="burstarrow"/>
 			<attribute key="areaEffect" value="explosionarea"/>
 		</attack>
-		<attack name="melee" interval="1000" chance="20" min="-150" max="-500">
+		<attack name="melee" interval="2000" chance="20" min="-150" max="-500">
 			<attribute key="shootEffect" value="arrow"/>
 		</attack>
 		<attack name="paralyze_omruc" interval="1000" chance="25" range="7"/>

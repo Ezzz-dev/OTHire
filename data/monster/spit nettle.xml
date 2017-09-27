@@ -19,17 +19,17 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="15" attack="9" poison="18"/>
-		<attack name="poison" interval="2000" chance="15" range="7" target="1" min="-17" max="-37">
+		<attack name="poison" interval="1000" chance="15" range="7" target="1" min="-17" max="-37">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="greenbubble"/>
 		</attack>
-		<attack name="poisoncondition" interval="2000" chance="25" range="7" target="1" min="-22" max="-38">
+		<attack name="poisoncondition" interval="1000" chance="25" range="7" target="1" min="-22" max="-38">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="greenbubble"/>
 		</attack>
 	</attacks>
 	<defenses armor="12" defense="33">
-		<defense name="healing" interval="2000" chance="13" min="8" max="16">
+		<defense name="healing" interval="1000" chance="13" min="8" max="16">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
@@ -42,7 +42,7 @@
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 	</voices>
 	<loot>
 		<item id="2148" chance="10000" countmax="5"/><!-- 5 10% gold coin -->

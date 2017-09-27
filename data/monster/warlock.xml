@@ -58,7 +58,7 @@
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Learn the secret of our magic! YOUR death!"/>
 		<voice sentence="Even a rat is a better mage than you."/>
 		<voice sentence="We don't like intruders!"/>

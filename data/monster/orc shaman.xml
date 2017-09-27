@@ -43,7 +43,7 @@
 	<immunities>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Grak brrretz gulu."/>
 		<voice sentence="Huumans stinkk!"/>
 	</voices>

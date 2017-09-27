@@ -19,7 +19,7 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="-100" max="-300"/>
-		<attack name="energy" interval="2000" chance="25" radius="3" target="0" min="-150" max="-250">
+		<attack name="energy" interval="1000" chance="25" radius="3" target="0" min="-150" max="-250">
 			<attribute key="areaEffect" value="yellowspark"/>
 		</attack>
 	</attacks>

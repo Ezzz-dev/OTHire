@@ -29,7 +29,7 @@
 	<immunities>
 		<immunity paralyze="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 	</voices>
 	<loot>
 		<item id="2148" chance="16000" countmax="15"/><!-- 15 16% gold coin -->

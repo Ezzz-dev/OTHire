@@ -19,24 +19,24 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="80" attack="50"/>
-		<attack name="poison" interval="2000" chance="12" range="7" min="-15" max="-135">
+		<attack name="poison" interval="1000" chance="12" range="7" min="-15" max="-135">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
-		<attack name="paralyze_ancientscarab" interval="2000" chance="13" range="7"/>
-		<attack name="poisoncondition" interval="2000" chance="17" radius="5" target="0" min="-440" max="-520">
+		<attack name="paralyze_ancientscarab" interval="1000" chance="13" range="7"/>
+		<attack name="poisoncondition" interval="1000" chance="17" radius="5" target="0" min="-440" max="-520">
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
-		<attack name="poisoncondition" interval="2000" chance="17" radius="5" target="0" min="-440" max="-520">
+		<attack name="poisoncondition" interval="1000" chance="17" radius="5" target="0" min="-440" max="-520">
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
-		<attack name="paralyze_ancientscarab2" interval="2000" chance="25" range="7"/>
+		<attack name="paralyze_ancientscarab2" interval="1000" chance="25" range="7"/>
 	</attacks>
 	<summons maxSummons="3">
-		<summon name="larva" interval="2000" chance="15" max="3"/>
+		<summon name="larva" interval="1000" chance="15" max="3"/>
 	</summons>
 	<defenses armor="36" defense="33">
-		<defense name="haste_ancientscarab" interval="2000" chance="8"/>
+		<defense name="haste_ancientscarab" interval="1000" chance="8"/>
 	</defenses>
 	<elements>
 		<element earthPercent="100"/>
@@ -46,7 +46,7 @@
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 	</voices>
 	<loot>
 		<item id="2148" chance="44400" countmax="100"/><!-- 100 44.4% gold coin -->

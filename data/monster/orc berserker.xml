@@ -21,14 +21,14 @@
 		<attack name="melee" interval="2000" skill="50" attack="65"/>
 	</attacks>
 	<defenses armor="12" defense="12">
-		<defense name="haste_orcberserker" interval="2000" chance="9"/>
+		<defense name="haste_orcberserker" interval="1000" chance="9"/>
 	</defenses>
 	<elements>
 		<element earthPercent="100"/>
 	</elements>
 	<immunities>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="KRAK ORRRRRRK!" yell="1"/>
 	</voices>
 	<loot>

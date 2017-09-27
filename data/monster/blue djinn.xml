@@ -19,18 +19,18 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="50" attack="30"/>
-		<attack name="fire" interval="2000" chance="50" range="7" min="-45" max="-75">
+		<attack name="fire" interval="1000" chance="50" range="7" min="-45" max="-75">
 			<attribute key="shootEffect" value="fire"/>
 		</attack>
-		<attack name="djinn electrify" interval="2000" chance="34" range="7" min="-50" max="-90"/>
-		<attack name="lifedrain" interval="2000" chance="25" range="7" min="-55" max="-105">
+		<attack name="djinn electrify" interval="1000" chance="34" range="7" min="-50" max="-90"/>
+		<attack name="lifedrain" interval="1000" chance="25" range="7" min="-55" max="-105">
 			<attribute key="shootEffect" value="death"/>
 		</attack>
-		<attack name="drunk" interval="2000" chance="20" range="7" duration="30000">
+		<attack name="drunk" interval="1000" chance="20" range="7" duration="30000">
 			<attribute key="shootEffect" value="energy"/>
 			<attribute key="areaEffect" value="teleport"/>
 		</attack>
-		<attack name="outfit" interval="2000" chance="17" range="7" monster="rabbit" duration="20000">
+		<attack name="outfit" interval="1000" chance="17" range="7" monster="rabbit" duration="20000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
 	</attacks>
@@ -46,7 +46,7 @@
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Simsalabim"/>
 		<voice sentence="Feel the power of my magic, tiny mortal!"/>
 		<voice sentence="Be careful what you wish for."/>

@@ -20,7 +20,7 @@
 	<attacks>
 		<attack name="melee" interval="2000" min="-0" max="-750" poison="65"/>
 		<attack name="lifedrain" interval="3000" chance="7" range="1" min="-75" max="-750"/>
-		<attack name="energy" interval="2000" chance="20" range="7" min="-60" max="-600">
+		<attack name="energy" interval="1000" chance="20" range="7" min="-60" max="-600">
 			<attribute key="shootEffect" value="energy"/>
 			<attribute key="areaEffect" value="energy"/>
 		</attack>
@@ -28,25 +28,25 @@
 			<attribute key="shootEffect" value="death"/>
 			<attribute key="areaEffect" value="mortarea"/>
 		</attack>
-		<attack name="paralyze_rahemos" interval="2000" chance="12" range="7"/>
-		<attack name="drunk" interval="2000" chance="8" range="7">
+		<attack name="paralyze_rahemos" interval="1000" chance="12" range="7"/>
+		<attack name="drunk" interval="1000" chance="8" range="7">
 			<attribute key="shootEffect" value="energy"/>
 			<attribute key="areaEffect" value="energy"/>
 		</attack>
-		<attack name="outfit" interval="2000" chance="15" range="7" monster="pig" duration="12000">
+		<attack name="outfit" interval="1000" chance="15" range="7" monster="pig" duration="12000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
 	</attacks>
 	<defenses armor="30" defense="35">
-		<defense name="healing" interval="2000" chance="20" min="200" max="500">
+		<defense name="healing" interval="1000" chance="20" min="200" max="500">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-		<defense name="outfit" interval="2000" chance="5" monster="demon" duration="4000">
+		<defense name="outfit" interval="1000" chance="5" monster="demon" duration="4000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<summons maxSummons="1">
-		<summon name="demon" interval="2000" chance="12" max="1"/>
+		<summon name="demon" interval="1000" chance="12" max="1"/>
 	</summons>
 	<elements>
 		<element firePercent="100"/>

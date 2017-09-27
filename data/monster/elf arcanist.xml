@@ -43,7 +43,7 @@
 	<immunities>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
+	<voices interval="1000" chance="5">
 		<voice sentence="Feel my wrath!"/>
 		<voice sentence="For the Daughter of the Stars!"/>
 		<voice sentence="I'll bring balance upon you!"/>
