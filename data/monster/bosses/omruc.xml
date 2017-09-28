@@ -18,7 +18,7 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-50" max="-300" poison="65"/>
+		<attack name="melee" interval="1000" min="-50" max="-300" poison="65"/>
 		<attack name="lifedrain" interval="1000" chance="20" range="1" min="-100" max="-250"/>
 		<attack name="poison" interval="1000" chance="20" min="-200" max="-500">
 			<attribute key="shootEffect" value="poisonarrow"/>
@@ -27,7 +27,7 @@
 			<attribute key="shootEffect" value="burstarrow"/>
 			<attribute key="areaEffect" value="explosionarea"/>
 		</attack>
-		<attack name="melee" interval="2000" chance="20" min="-150" max="-500">
+		<attack name="melee" interval="1000" chance="20" min="-150" max="-500">
 			<attribute key="shootEffect" value="arrow"/>
 		</attack>
 		<attack name="paralyze_omruc" interval="1000" chance="25" range="7"/>

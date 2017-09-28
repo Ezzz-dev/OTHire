@@ -18,7 +18,7 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-80" max="-300" poison="65"/>
+		<attack name="melee" interval="1000" min="-80" max="-300" poison="65"/>
 		<attack name="lifedrain" interval="1000" chance="30" radius="5" target="0" min="-200" max="-750">
 			<attribute key="areaEffect" value="purplenote"/>
 		</attack>

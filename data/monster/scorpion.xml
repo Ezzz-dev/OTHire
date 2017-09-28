@@ -18,7 +18,7 @@
 		<flag runonhealth="5"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="35" attack="21" poison="350"/>
+		<attack name="melee" interval="1000" skill="35" attack="21" poison="350"/>
 	</attacks>
 	<defenses armor="14" defense="5">
 	</defenses>

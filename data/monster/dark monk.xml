@@ -18,7 +18,7 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="50" attack="37"/>
+		<attack name="melee" interval="1000" skill="50" attack="37"/>
 		<attack name="lifedrain" interval="1000" chance="12" range="1" min="-25" max="-49"/>
 	</attacks>
 	<defenses armor="22" defense="43">

@@ -18,7 +18,7 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-150" max="-900" poison="65"/>
+		<attack name="melee" interval="1000" min="-150" max="-900" poison="65"/>
 		<attack name="lifedrain" interval="1000" chance="7" range="1" min="-55" max="-550"/>
 		<attack name="paralyze_morguthis" interval="1000" chance="25" range="7"/>
 		<attack name="physical" interval="1000" chance="20" radius="3" target="0" min="-40" max="-400">

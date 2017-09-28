@@ -18,7 +18,7 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="50" attack="65"/>
+		<attack name="melee" interval="1000" skill="50" attack="65"/>
 	</attacks>
 	<defenses armor="12" defense="12">
 		<defense name="haste_orcberserker" interval="1000" chance="9"/>

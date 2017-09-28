@@ -18,12 +18,12 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-10" max="-650" poison="70"/>
+		<attack name="melee" interval="1000" min="-10" max="-650" poison="70"/>
 		<attack name="poison" interval="1000" chance="25" range="7" min="-150" max="-650">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
-		<attack name="melee" interval="2000" chance="20" range="7" radius="1" target="1" min="-150" max="-650">
+		<attack name="melee" interval="1000" chance="20" range="7" radius="1" target="1" min="-150" max="-650">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="poison"/>
 		</attack>

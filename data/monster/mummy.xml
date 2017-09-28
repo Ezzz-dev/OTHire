@@ -18,7 +18,7 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="50" attack="32" poison="65"/>
+		<attack name="melee" interval="1000" skill="50" attack="32" poison="65"/>
 		<attack name="lifedrain" interval="1000" chance="15" range="1" min="-30" max="-40"/>
 		<attack name="paralyze_mummy" interval="1000" chance="8" range="7"/>
 	</attacks>

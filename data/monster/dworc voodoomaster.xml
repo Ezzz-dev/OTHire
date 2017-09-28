@@ -18,7 +18,7 @@
 		<flag runonhealth="15"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="22" attack="13"/>
+		<attack name="melee" interval="1000" skill="22" attack="13"/>
 		<attack name="lifedrain" interval="1000" chance="6" range="1" min="-1" max="-39"/>
 		<attack name="paralyze_dworcvoodoomaster" interval="1000" chance="8" range="7"/>
 		<attack name="drunk" interval="1000" chance="9" range="7" duration="6000">

@@ -18,7 +18,7 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="23" attack="15" poison="100"/>
+		<attack name="melee" interval="1000" skill="23" attack="15" poison="100"/>
 		<attack name="poisoncondition" interval="1000" chance="25" range="5" min="-14" max="-26">
 			<attribute key="shooteffect" value="poison"/>
 		</attack>
