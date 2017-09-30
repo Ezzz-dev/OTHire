@@ -696,6 +696,15 @@ function doPlayerGiveItem(cid, itemid, count, charges)
 end
 
 function doPlayerTakeItem(cid, itemid, count)
+
+	local equipped = false
+	if isItemStackable(itemid) == false and isEquipped(cid, itemid) == true then
+		if getPlayerItemCount(cid,itemid) >= count+1 then
+			count = count + 1
+			equipped = true
+		end
+	end
+	
 	if(getPlayerItemCount(cid,itemid) >= count) then
 
 		while count > 0 do
@@ -709,12 +718,27 @@ function doPlayerTakeItem(cid, itemid, count)
 
 			if(ret ~= false) then
 				count = count-tempcount
+				
 			else
 				return false
 			end
 		end
+		
+		if equipped == true then
+			doPlayerAddItem(cid, itemid, 1)
+		end
 
 		if(count == 0) then
+			return true
+		end
+	end
+	
+	return false
+end
+
+function isEquipped(cid, itemid)
+	for i = 1, 10 do
+		if getPlayerSlotItem(cid, i).itemid == itemid then
 			return true
 		end
 	end
