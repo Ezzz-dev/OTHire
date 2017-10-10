@@ -461,10 +461,10 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 			target = NULL;
 			int32_t minRange = -1;
 			for(std::list<Creature*>::iterator it = resultList.begin(); it != resultList.end(); ++it){
-				if(minRange == -1 || std::max(std::abs(myPos.x - (*it)->getPosition().x), std::abs(myPos.y - (*it)->getPosition().y)) < minRange){
+				if(minRange == -1 || ((std::abs(myPos.x  - (*it)->getPosition().x) + std::abs(myPos.y  - (*it)->getPosition().y)) < minRange)){
 					target = *it;
-					minRange = std::max(std::abs(myPos.x - (*it)->getPosition().x), std::abs(myPos.y - (*it)->getPosition().y));
-				} else if (std::max(std::abs(myPos.x - (*it)->getPosition().x), std::abs(myPos.y - (*it)->getPosition().y)) == minRange) {
+					minRange = std::abs(myPos.x  - (*it)->getPosition().x) + std::abs(myPos.y  - (*it)->getPosition().y);
+				} else if ((std::abs(myPos.x  - (*it)->getPosition().x) + std::abs(myPos.y  - (*it)->getPosition().y)) == minRange) {
 					int32_t rnga = random_range(1,2);
 					int32_t rngb = random_range(1,2);
 					if (rnga == rngb) {
