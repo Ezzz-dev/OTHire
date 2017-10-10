@@ -800,6 +800,9 @@ void Monster::doAttacking(uint32_t interval)
 		if(!attackedCreature){
 			break;
 		}
+		if(it->isMelee && isFleeing()){
+			continue;
+		}
 		const Position& myPos = getPosition();
 		const Position& targetPos = attackedCreature->getPosition();
 
