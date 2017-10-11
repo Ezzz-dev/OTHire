@@ -7,9 +7,13 @@ local area = createCombatArea(AREA_CIRCLE3X3)
 setCombatArea(combat, area)
 
 function onGetFormulaValues(cid, level, maglevel)
-	min = -((level * 2) + (maglevel * 3)) * 0.35
-	max = -((level * 2) + (maglevel * 3)) * 0.65
-	return min, max
+	local base = 50
+	local variation = 15
+
+	local min = math.max((base - variation), ((3 * maglevel + 2 * level) * (base - variation) / 100))
+	local max = math.max((base + variation), ((3 * maglevel + 2 * level) * (base + variation) / 100))
+
+	return -min, -max
 end
 
 setCombatCallback(combat, CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")

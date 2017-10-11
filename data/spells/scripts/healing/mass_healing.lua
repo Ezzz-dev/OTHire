@@ -8,16 +8,12 @@ local area = createCombatArea(AREA_CIRCLE3X3)
 setCombatArea(combat, area)
 
 function onGetFormulaValues(cid, level, maglevel)
-	if (((level * 2) + (maglevel * 3)) * 1.2) < 200 then
-		min = 200
-	else
-		min = ((level * 2) + (maglevel * 3)) * 1.2
-	end
-	if (((level * 2) + (maglevel * 3)) * 1.5) < 250 then
-		max = 250
-	else
-		max = ((level * 2) + (maglevel * 3)) * 1.5
-	end
+	local base = 200
+	local variation = 40
+
+	local min = math.max((base - variation), ((3 * maglevel + 2 * level) * (base - variation) / 100))
+	local max = math.max((base + variation), ((3 * maglevel + 2 * level) * (base + variation) / 100))
+
 	return min, max
 end
 

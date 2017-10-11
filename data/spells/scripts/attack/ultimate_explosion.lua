@@ -7,17 +7,13 @@ local area = createCombatArea(AREA_CROSS5X5)
 setCombatArea(combat, area)
 
 function onGetFormulaValues(cid, level, maglevel)
-	if (((level * 2) + (maglevel * 3)) * 2.3) < 250 then
-		min = -250
-	else
-		min = -((level * 2) + (maglevel * 3)) * 2.3
-	end
-	if (((level * 2) + (maglevel * 3)) * 3) < 250 then
-		max = -250
-	else
-		max = -((level * 2) + (maglevel * 3)) * 3
-	end
-	return min, max
+	local base = 250
+	local variation = 50
+
+	local min = math.max((base - variation), ((3 * maglevel + 2 * level) * (base - variation) / 100))
+	local max = math.max((base + variation), ((3 * maglevel + 2 * level) * (base + variation) / 100))
+
+	return -min, -max
 end
 
 setCombatCallback(combat, CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")

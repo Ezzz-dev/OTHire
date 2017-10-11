@@ -6,16 +6,12 @@ setCombatParam(combat, COMBAT_PARAM_TARGETCASTERORTOPMOST, 1)
 setCombatParam(combat, COMBAT_PARAM_DISPEL, CONDITION_PARALYZE)
 
 function onGetFormulaValues(cid, level, maglevel)
-	if (((level * 2) + (maglevel * 3)) * 0.335) < 35 then
-		min = 35
-	else
-		min = ((level * 2) + (maglevel * 3)) * 0.335
-	end
-	if (((level * 2) + (maglevel * 3)) * 0.58) < 45 then
-		max = 45
-	else
-		max = ((level * 2) + (maglevel * 3)) * 0.58
-	end
+	local base = 70
+	local variation = 30
+
+	local min = math.max((base - variation), ((3 * maglevel + 2 * level) * (base - variation) / 100))
+	local max = math.max((base + variation), ((3 * maglevel + 2 * level) * (base + variation) / 100))
+
 	return min, max
 end
 

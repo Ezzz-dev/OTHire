@@ -6,11 +6,13 @@ local area = createCombatArea(AREA_SQUAREWAVE5, AREADIAGONAL_SQUAREWAVE5)
 setCombatArea(combat, area)
 
 function onGetFormulaValues(cid, level, maglevel)
-	min = -((level * 2) + (maglevel * 3)) * 1.34
-	max = -((level * 2) + (maglevel * 3)) * 2.33
---	min = -((level * 2) + (maglevel * 3)) * 1.15
---	max = -((level * 2) + (maglevel * 3)) * 1.9
-	return min, max
+	local base = 150
+	local variation = 50
+
+	local min = math.max((base - variation), ((3 * maglevel + 2 * level) * (base - variation) / 100))
+	local max = math.max((base + variation), ((3 * maglevel + 2 * level) * (base + variation) / 100))
+
+	return -min, -max
 end
 
 setCombatCallback(combat, CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
