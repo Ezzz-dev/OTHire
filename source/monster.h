@@ -123,6 +123,9 @@ public:
 	bool isTarget(Creature* creature);
 	bool getIdleStatus() const { return isIdle;}
 	bool isFleeing() const {return getHealth() <= mType->runAwayHealth;}
+	
+	bool getFleeStep(const Position& targetPos, Direction& direction);
+	bool getDistanceStep(const Position& targetPos, Direction& direction);
 
 	virtual BlockType_t blockHit(Creature* attacker, CombatType_t combatType, int32_t& damage,
 		bool checkDefense = false, bool checkArmor = false);
@@ -132,7 +135,7 @@ private:
 	CreatureList friendList;
 
 	MonsterType* mType;
-	
+
 	int64_t lastMeleeAttack;
 
 	int32_t minCombatValue;

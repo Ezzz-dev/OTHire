@@ -800,12 +800,14 @@ void Monster::doAttacking(uint32_t interval)
 		if(!attackedCreature){
 			break;
 		}
+		
 		if(it->isMelee && isFleeing()){
 			continue;
 		}
+		
 		const Position& myPos = getPosition();
 		const Position& targetPos = attackedCreature->getPosition();
-
+		
 		if(canUseSpell(myPos, targetPos, *it, interval, inRange)){
 			if(it->chance >= (uint32_t)random_range(1, 100)){
 				if(updateLook){
@@ -1324,6 +1326,1532 @@ bool Monster::getDanceStep(const Position& creaturePos, Direction& dir,
 	return false;
 }
 
+bool Monster::getFleeStep(const Position& targetPos, Direction& dir) {
+
+	const Position& creaturePos = getPosition();
+
+	int_fast32_t distX = std::abs(creaturePos.x - targetPos.x);
+	int_fast32_t distY = std::abs(creaturePos.y - targetPos.y);
+
+	int_fast32_t offsetX = (creaturePos.x - targetPos.x);
+	int_fast32_t offsetY = (creaturePos.y - targetPos.y);
+
+	if (offsetX == 0 && offsetY == 0) {
+		return getRandomStep(creaturePos, dir);    // player is "on" the monster so let's get some random step and rest will be taken care later.
+	}
+
+	bool canWalkNorth = canWalkTo(creaturePos, NORTH);
+	bool canWalkWest = canWalkTo(creaturePos, WEST);
+	bool canWalkSouth = canWalkTo(creaturePos, SOUTH);
+	bool canWalkEast = canWalkTo(creaturePos, EAST);
+	bool canWalkNorthWest = canWalkTo(creaturePos, NORTHWEST);
+	bool canWalkSouthWest = canWalkTo(creaturePos, SOUTHWEST);
+	bool canWalkSouthEast = canWalkTo(creaturePos, SOUTHEAST);
+	bool canWalkNorthEast = canWalkTo(creaturePos, NORTHEAST);
+
+	// case A, one axis = 0
+	if (distY == 0) {
+		if (offsetX > 0) {
+			// target is west
+			if (canWalkEast) {
+				dir = EAST;
+				return true;
+			} else if (canWalkSouth && canWalkNorth) {
+				dir = random_range(1, 2) == 1 ? SOUTH : NORTH;
+				return true;
+			} else if (canWalkNorth) {
+				dir = NORTH;
+				return true;
+			} else if (canWalkSouth) {
+				dir = SOUTH;
+				return true;
+			} else if (canWalkSouthEast && canWalkNorthEast) {
+				dir = random_range(1, 2) == 1 ? SOUTHEAST : NORTHEAST;
+				return true;
+			} else if (canWalkSouthEast) {
+				dir = SOUTHEAST;
+				return true;
+			} else if (canWalkNorthEast) {
+				dir = NORTHEAST;
+				return true;
+			} else if (canWalkWest) {
+				dir = WEST;
+				return true;
+			}
+		} else {
+			// target is east
+			if (canWalkWest) {
+				dir = WEST;
+				return true;
+			} else if (canWalkSouth && canWalkNorth) {
+				dir = random_range(1, 2) == 1 ? SOUTH : NORTH;
+				return true;
+			} else if (canWalkNorth) {
+				dir = NORTH;
+				return true;
+			} else if (canWalkSouth) {
+				dir = SOUTH;
+				return true;
+			} else if (canWalkSouthWest && canWalkNorthWest) {
+				dir = random_range(1, 2) == 1 ? SOUTHWEST : NORTHWEST;
+				return true;
+			} else if (canWalkSouthWest) {
+				dir = SOUTHWEST;
+				return true;
+			} else if (canWalkNorthWest) {
+				dir = NORTHWEST;
+				return true;
+			} else if (canWalkEast) {
+				dir = EAST;
+				return true;
+			}
+		}
+	} else if (distX == 0) {
+		if (offsetY > 0) {
+			// target is north
+			if (canWalkSouth) {
+				dir = SOUTH;
+				return true;
+			} else if (canWalkEast && canWalkWest) {
+				dir = random_range(1, 2) == 1 ? EAST : WEST;
+				return true;
+			} else if (canWalkEast) {
+				dir = EAST;
+				return true;
+			} else if (canWalkWest) {
+				dir = WEST;
+				return true;
+			} else if (canWalkSouthEast && canWalkSouthWest) {
+				dir = random_range(1, 2) == 1 ? SOUTHEAST : SOUTHWEST;
+				return true;
+			} else if (canWalkSouthEast) {
+				dir = SOUTHEAST;
+				return true;
+			} else if (canWalkSouthWest) {
+				dir = SOUTHWEST;
+				return true;
+			} else if (canWalkNorth) {
+				dir = NORTH;
+				return true;
+			}
+		} else {
+			// target is south
+			if (canWalkNorth) {
+				dir = NORTH;
+				return true;
+			} else if (canWalkEast && canWalkWest) {
+				dir = random_range(1, 2) == 1 ? EAST : WEST;
+				return true;
+			} else if (canWalkEast) {
+				dir = EAST;
+				return true;
+			} else if (canWalkWest) {
+				dir = WEST;
+				return true;
+			} else if (canWalkNorthEast && canWalkNorthWest) {
+				dir = random_range(1, 2) == 1 ? NORTHEAST : NORTHWEST;
+				return true;
+			} else if (canWalkNorthEast) {
+				dir = NORTHEAST;
+				return true;
+			} else if (canWalkNorthWest) {
+				dir = NORTHWEST;
+				return true;
+			} else if (canWalkSouth) {
+				dir = SOUTH;
+				return true;
+			}
+		}
+	// case B, both axis same value
+	} else if (distX == distY) {
+		if (offsetX > 0) {
+			if (offsetY > 0) {
+				// target is northwest
+				if (canWalkSouth && canWalkEast) {
+					dir = random_range(1, 2) == 1 ? SOUTH : EAST;
+					return true;
+				} else if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkEast) {
+					dir = EAST;
+					return true;
+				} else if (canWalkSouthEast) {
+					dir = SOUTHEAST;
+					return true;
+				} else if (canWalkSouthWest && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkWest) {
+							dir = WEST;
+							return true;	
+						} else {
+							dir = SOUTHWEST;
+							return true;
+						}
+					} else {
+						if (canWalkNorth) {
+							dir = NORTH;
+							return true;	
+						} else {
+							dir = NORTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkSouthWest) {
+					if (canWalkWest) {
+						dir = WEST;
+						return true;	
+					} else {
+						dir = SOUTHWEST;
+						return true;
+					}
+				} else if (canWalkNorthEast) {
+					if (canWalkNorth) {
+						dir = NORTH;
+						return true;	
+					} else {
+						dir = NORTHEAST;
+						return true;
+					}
+				} else if (canWalkNorth && canWalkWest) {
+					dir = random_range(1, 2) == 1 ? NORTH : WEST;
+					return true;
+				} else if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkWest) {
+					dir = WEST;
+					return true;
+				}
+			} else {
+				// target is southwest
+				if (canWalkNorth && canWalkEast) {
+					dir = random_range(1, 2) == 1 ? NORTH : EAST;
+					return true;
+				} else if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkEast) {
+					dir = EAST;
+					return true;
+				} else if (canWalkNorthEast) {
+					dir = NORTHEAST;
+					return true;
+				} else if (canWalkNorthWest && canWalkSouthEast) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkWest) {
+							dir = WEST;
+							return true;	
+						} else {
+							dir = NORTHWEST;
+							return true;
+						}
+					} else {
+						if (canWalkSouth) {
+							dir = SOUTH;
+							return true;	
+						} else {
+							dir = SOUTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkNorthWest) {
+					if (canWalkWest) {
+						dir = WEST;
+						return true;	
+					} else {
+						dir = NORTHWEST;
+						return true;
+					}
+				} else if (canWalkSouthEast) {
+					if (canWalkSouth) {
+						dir = SOUTH;
+						return true;	
+					} else {
+						dir = SOUTHEAST;
+						return true;
+					}
+				} else if (canWalkWest && canWalkSouth) {
+					dir = random_range(1, 2) == 1 ? WEST : SOUTH;
+					return true;
+				} else if (canWalkWest) {
+					dir = WEST;
+					return true;
+				} else if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				}
+			}
+		} else if (offsetX < 0) {
+			if (offsetY > 0) {
+				// target is northeast
+				if (canWalkSouth && canWalkWest) {
+					dir = random_range(1, 2) == 1 ? SOUTH : WEST;
+					return true;
+				} else if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkWest) {
+					dir = WEST;
+					return true;
+				} else if (canWalkSouthWest) {
+					dir = SOUTHWEST;
+					return true;
+				} else if (canWalkSouthEast && canWalkNorthWest) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkEast) {
+							dir = EAST;
+							return true;	
+						} else {
+							dir = SOUTHEAST;
+							return true;
+						}
+					} else {
+						if (canWalkNorth) {
+							dir = NORTH;
+							return true;	
+						} else {
+							dir = NORTHWEST;
+							return true;
+						}
+					}
+				} else if (canWalkSouthEast) {
+					if (canWalkWest) {
+						dir = EAST;
+						return true;	
+					} else {
+						dir = SOUTHEAST;
+						return true;
+					}
+				} else if (canWalkNorthWest) {
+					if (canWalkNorth) {
+						dir = NORTH;
+						return true;	
+					} else {
+						dir = NORTHWEST;
+						return true;
+					}
+				} else if (canWalkNorth && canWalkEast) {
+					dir = random_range(1, 2) == 1 ? NORTH : EAST;
+					return true;
+				} else if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkEast) {
+					dir = EAST;
+					return true;
+				}
+			} else {
+				// target is southeast
+				if (canWalkNorth && canWalkWest) {
+					dir = random_range(1, 2) == 1 ? NORTH : WEST;
+					return true;
+				} else if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkWest) {
+					dir = WEST;
+					return true;
+				} else if (canWalkNorthWest) {
+					dir = NORTHWEST;
+					return true;
+				} else if (canWalkSouthWest && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkSouth) {
+							dir = SOUTH;
+							return true;	
+						} else {
+							dir = SOUTHWEST;
+							return true;
+						}
+					} else {
+						if (canWalkEast) {
+							dir = EAST;
+							return true;	
+						} else {
+							dir = NORTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkSouthWest) {
+					if (canWalkSouth) {
+						dir = SOUTH;
+						return true;	
+					} else {
+						dir = SOUTHWEST;
+						return true;
+					}
+				} else if (canWalkNorthEast) {
+					if (canWalkEast) {
+						dir = EAST;
+						return true;	
+					} else {
+						dir = NORTHEAST;
+						return true;
+					}
+				} else if (canWalkSouth && canWalkEast) {
+					dir = random_range(1, 2) == 1 ? SOUTH : EAST;
+					return true;
+				} else if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkEast) {
+					dir = EAST;
+					return true;
+				}
+			}
+		}
+	// case C, one axis > other
+	} else if (distX > distY) {
+		if (offsetX > 0) {
+			// target west
+			if (offsetY < 0) {
+				if (canWalkEast) {
+					dir = EAST;
+					return true;
+				} else if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkSouthEast && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkSouth) {
+							dir = SOUTH;
+							return true;	
+						} else {
+							dir = SOUTHEAST;
+							return true;
+						}
+					} else {
+						dir = NORTHEAST;
+						return true;
+					}
+				} else if (canWalkSouthEast) {
+					if (canWalkSouth) {
+						dir = SOUTH;
+						return true;
+					} else {
+						dir = SOUTHEAST;
+						return true;
+					}
+				} else if (canWalkNorthEast) {
+					dir = NORTHEAST;
+					return true;
+				} else if (canWalkSouth && canWalkWest) {
+					dir = random_range(1, 2) == 1 ? SOUTH : WEST;
+					return true;
+				} else if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkWest) {
+					dir = WEST;
+					return true;
+				}
+			} else {
+				if (canWalkEast) {
+					dir = EAST;
+					return true;
+				} else if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkSouthEast && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						dir = SOUTHEAST;
+						return true;
+					} else {
+						if (canWalkNorth) {
+							dir = NORTH;
+							return true;	
+						} else {
+							dir = NORTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkSouthEast) {
+					dir = SOUTHEAST;
+					return true;
+				} else if (canWalkNorthEast) {
+					if (canWalkNorth) {
+						dir = NORTH;
+						return true;	
+					} else {
+						dir = NORTHEAST;
+						return true;
+					}
+				} else if (canWalkNorth && canWalkWest) {
+					dir = random_range(1, 2) == 1 ? NORTH : WEST;
+					return true;
+				} else if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkWest) {
+					dir = WEST;
+					return true;
+				}
+			}
+		} else if (offsetX < 0) {
+			// target east
+			if (offsetY < 0) {
+				if (canWalkWest) {
+					dir = WEST;
+					return true;
+				} else if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkSouthWest && canWalkNorthWest) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkSouth) {
+							dir = SOUTH;
+							return true;	
+						} else {
+							dir = SOUTHWEST;
+							return true;
+						}
+					} else {
+						dir = NORTHWEST;
+						return true;
+					}
+				} else if (canWalkSouthWest) {
+					if (canWalkSouth) {
+						dir = SOUTH;
+						return true;
+					} else {
+						dir = SOUTHWEST;
+						return true;
+					}
+				} else if (canWalkNorthWest) {
+					dir = NORTHWEST;
+					return true;
+				} else if (canWalkSouth && canWalkEast) {
+					dir = random_range(1, 2) == 1 ? SOUTH : EAST;
+					return true;
+				} else if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkEast) {
+					dir = EAST;
+					return true;
+				}
+			} else {
+				if (canWalkWest) {
+					dir = WEST;
+					return true;
+				} else if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkSouthWest && canWalkNorthWest) {
+					if (random_range(1, 2) == 1) {
+						dir = SOUTHWEST;
+						return true;
+					} else {
+						if (canWalkNorth) {
+							dir = NORTH;
+							return true;	
+						} else {
+							dir = NORTHWEST;
+							return true;
+						}
+					}
+				} else if (canWalkSouthWest) {
+					dir = SOUTHWEST;
+					return true;
+				} else if (canWalkNorthWest) {
+					if (canWalkNorth) {
+						dir = NORTH;
+						return true;	
+					} else {
+						dir = NORTHWEST;
+						return true;
+					}
+				} else if (canWalkNorth && canWalkEast) {
+					dir = random_range(1, 2) == 1 ? NORTH : EAST;
+					return true;
+				} else if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkEast) {
+					dir = EAST;
+					return true;
+				}
+			}
+		}
+	} else if (distX < distY) {
+		if (offsetY > 0) {
+			// target north
+			if (offsetX < 0) {
+				if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkWest) {
+					dir = WEST;
+					return true;
+				} else if (canWalkSouthWest && canWalkSouthEast) {
+					if (random_range(1, 2) == 1) {
+						dir = SOUTHWEST;
+						return true;
+					} else {
+						if (canWalkEast) {
+							dir = EAST;
+							return true;	
+						} else {
+							dir = SOUTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkSouthWest) {
+					dir = SOUTHWEST;
+					return true;
+				} else if (canWalkSouthEast) {
+					if (canWalkEast) {
+						dir = EAST;
+						return true;
+					} else {
+						dir = SOUTHEAST;
+						return true;
+					}
+				} else if (canWalkNorth && canWalkEast) {
+					dir = random_range(1, 2) == 1 ? NORTH : EAST;
+					return true;
+				} else if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkEast) {
+					dir = EAST;
+					return true;
+				}
+			} else {
+				if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkEast) {
+					dir = EAST;
+					return true;
+				} else if (canWalkSouthWest && canWalkSouthEast) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkWest) {
+							dir = WEST;
+							return true;	
+						} else {
+							dir = SOUTHWEST;
+							return true;
+						}
+					} else {
+						dir = SOUTHEAST;
+						return true;
+					}
+				} else if (canWalkSouthWest) {
+					if (canWalkWest) {
+						dir = WEST;
+						return true;	
+					} else {
+						dir = SOUTHWEST;
+						return true;
+					}
+				} else if (canWalkSouthEast) {
+					dir = SOUTHEAST;
+					return true;
+				} else if (canWalkNorth && canWalkWest) {
+					dir = random_range(1, 2) == 1 ? NORTH : WEST;
+					return true;
+				} else if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkWest) {
+					dir = WEST;
+					return true;
+				}
+			}
+		} else {
+			// target south
+			if (offsetX < 0) {
+				if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkWest) {
+					dir = WEST;
+					return true;
+				} else if (canWalkNorthWest && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						dir = NORTHWEST;
+						return true;
+					} else {
+						if (canWalkEast) {
+							dir = EAST;
+							return true;	
+						} else {
+							dir = NORTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkNorthWest) {
+					dir = NORTHWEST;
+					return true;
+				} else if (canWalkNorthEast) {
+					if (canWalkEast) {
+						dir = EAST;
+						return true;
+					} else {
+						dir = NORTHEAST;
+						return true;
+					}
+				} else if (canWalkSouth && canWalkEast) {
+					dir = random_range(1, 2) == 1 ? SOUTH : EAST;
+					return true;
+				} else if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkEast) {
+					dir = EAST;
+					return true;
+				}
+			} else {
+				if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkEast) {
+					dir = EAST;
+					return true;
+				} else if (canWalkNorthWest && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkWest) {
+							dir = WEST;
+							return true;	
+						} else {
+							dir = NORTHWEST;
+							return true;
+						}
+					} else {
+						dir = NORTHEAST;
+						return true;
+					}
+				} else if (canWalkNorthWest) {
+					if (canWalkWest) {
+						dir = WEST;
+						return true;	
+					} else {
+						dir = NORTHWEST;
+						return true;
+					}
+				} else if (canWalkNorthEast) {
+					dir = NORTHEAST;
+					return true;
+				} else if (canWalkSouth && canWalkWest) {
+					dir = random_range(1, 2) == 1 ? SOUTH : WEST;
+					return true;
+				} else if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkWest) {
+					dir = WEST;
+					return true;
+				}
+			}
+		}
+	}
+
+	return true;
+}
+
+bool Monster::getDistanceStep(const Position& targetPos, Direction& dir)
+{
+	const Position& creaturePos = getPosition();
+
+	int_fast32_t distX = std::abs(creaturePos.x - targetPos.x);
+	int_fast32_t distY = std::abs(creaturePos.y - targetPos.y);
+	
+	int32_t distance = std::max<int32_t>(distX, distY);
+
+	if (distance > mType->targetDistance || !g_game.isSightClear(creaturePos, targetPos, true)) {
+		return false;    // let the A* calculate it
+	} else if (distance == mType->targetDistance) {
+		return true;    // we don't really care here, since it's what we wanted to reach (a dancestep will take of dancing in that position)
+	}
+
+	int_fast32_t offsetX = (creaturePos.x - targetPos.x);
+	int_fast32_t offsetY = (creaturePos.y - targetPos.y);
+
+	if (offsetX == 0 && offsetY == 0) {
+		return getRandomStep(creaturePos, dir);    // player is "on" the monster so let's get some random step and rest will be taken care later.
+	}
+
+	bool canWalkNorth = canWalkTo(creaturePos, NORTH);
+	bool canWalkWest = canWalkTo(creaturePos, WEST);
+	bool canWalkSouth = canWalkTo(creaturePos, SOUTH);
+	bool canWalkEast = canWalkTo(creaturePos, EAST);
+	bool canWalkNorthWest = canWalkTo(creaturePos, NORTHWEST);
+	bool canWalkSouthWest = canWalkTo(creaturePos, SOUTHWEST);
+	bool canWalkSouthEast = canWalkTo(creaturePos, SOUTHEAST);
+	bool canWalkNorthEast = canWalkTo(creaturePos, NORTHEAST);
+
+	// case A, one axis = 0
+	if (distY == 0) {
+		if (offsetX > 0) {
+			// target is west
+			if (canWalkEast) {
+				dir = EAST;
+				return true;
+			} else if (canWalkSouth && canWalkNorth) {
+				dir = random_range(1, 2) == 1 ? SOUTH : NORTH;
+				return true;
+			} else if (canWalkNorth) {
+				dir = NORTH;
+				return true;
+			} else if (canWalkSouth) {
+				dir = SOUTH;
+				return true;
+			} else if (canWalkSouthEast && canWalkNorthEast) {
+				dir = random_range(1, 2) == 1 ? SOUTHEAST : NORTHEAST;
+				return true;
+			} else if (canWalkSouthEast) {
+				dir = SOUTHEAST;
+				return true;
+			} else if (canWalkNorthEast) {
+				dir = NORTHEAST;
+				return true;
+			}
+		} else {
+			// target is east
+			if (canWalkWest) {
+				dir = WEST;
+				return true;
+			} else if (canWalkSouth && canWalkNorth) {
+				dir = random_range(1, 2) == 1 ? SOUTH : NORTH;
+				return true;
+			} else if (canWalkNorth) {
+				dir = NORTH;
+				return true;
+			} else if (canWalkSouth) {
+				dir = SOUTH;
+				return true;
+			} else if (canWalkSouthWest && canWalkNorthWest) {
+				dir = random_range(1, 2) == 1 ? SOUTHWEST : NORTHWEST;
+				return true;
+			} else if (canWalkSouthWest) {
+				dir = SOUTHWEST;
+				return true;
+			} else if (canWalkNorthWest) {
+				dir = NORTHWEST;
+				return true;
+			}
+		}
+	} else if (distX == 0) {
+		if (offsetY > 0) {
+			// target is north
+			if (canWalkSouth) {
+				dir = SOUTH;
+				return true;
+			} else if (canWalkEast && canWalkWest) {
+				dir = random_range(1, 2) == 1 ? EAST : WEST;
+				return true;
+			} else if (canWalkEast) {
+				dir = EAST;
+				return true;
+			} else if (canWalkWest) {
+				dir = WEST;
+				return true;
+			} else if (canWalkSouthEast && canWalkSouthWest) {
+				dir = random_range(1, 2) == 1 ? SOUTHEAST : SOUTHWEST;
+				return true;
+			} else if (canWalkSouthEast) {
+				dir = SOUTHEAST;
+				return true;
+			} else if (canWalkSouthWest) {
+				dir = SOUTHWEST;
+				return true;
+			}
+		} else {
+			// target is south
+			if (canWalkNorth) {
+				dir = NORTH;
+				return true;
+			} else if (canWalkEast && canWalkWest) {
+				dir = random_range(1, 2) == 1 ? EAST : WEST;
+				return true;
+			} else if (canWalkEast) {
+				dir = EAST;
+				return true;
+			} else if (canWalkWest) {
+				dir = WEST;
+				return true;
+			} else if (canWalkNorthEast && canWalkNorthWest) {
+				dir = random_range(1, 2) == 1 ? NORTHEAST : NORTHWEST;
+				return true;
+			} else if (canWalkNorthEast) {
+				dir = NORTHEAST;
+				return true;
+			} else if (canWalkNorthWest) {
+				dir = NORTHWEST;
+				return true;
+			}
+		}
+	// case B, both axis same value
+	} else if (distX == distY) {
+		if (offsetX > 0) {
+			if (offsetY > 0) {
+				// target is northwest
+				if (canWalkSouth && canWalkEast) {
+					dir = random_range(1, 2) == 1 ? SOUTH : EAST;
+					return true;
+				} else if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkEast) {
+					dir = EAST;
+					return true;
+				} else if (canWalkSouthWest && canWalkNorthEast && canWalkSouthEast) {
+					if (random_range(1, 3) == 1) {
+						if (canWalkWest) {
+							dir = WEST;
+							return true;	
+						} else {
+							dir = SOUTHWEST;
+							return true;
+						}
+					} else if (random_range(1, 2) == 1) {
+						if (canWalkNorth) {
+							dir = NORTH;
+							return true;	
+						} else {
+							dir = NORTHEAST;
+							return true;
+						}
+					} else {
+						dir = SOUTHEAST;
+						return true;
+					}
+				} else if (canWalkSouthWest && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkWest) {
+							dir = WEST;
+							return true;	
+						} else {
+							dir = SOUTHWEST;
+							return true;
+						}
+					} else {
+						if (canWalkNorth) {
+							dir = NORTH;
+							return true;	
+						} else {
+							dir = NORTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkSouthWest && canWalkSouthEast) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkWest) {
+							dir = WEST;
+							return true;	
+						} else {
+							dir = SOUTHWEST;
+							return true;
+						}
+					} else {
+						dir = SOUTHEAST;
+						return true;
+					}
+				} else if (canWalkSouthEast && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						dir = SOUTHWEST;
+							return true;
+					} else {
+						if (canWalkNorth) {
+							dir = NORTH;
+							return true;	
+						} else {
+							dir = NORTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkSouthEast) {
+					dir = SOUTHEAST;
+					return true;
+				} else if (canWalkSouthWest) {
+					if (canWalkWest) {
+						dir = WEST;
+						return true;	
+					} else {
+						dir = SOUTHWEST;
+						return true;
+					}
+				} else if (canWalkNorthEast) {
+					if (canWalkNorth) {
+						dir = NORTH;
+						return true;	
+					} else {
+						dir = NORTHEAST;
+						return true;
+					}
+				}
+			} else {
+				// target is southwest
+				if (canWalkNorth && canWalkEast) {
+					dir = random_range(1, 2) == 1 ? NORTH : EAST;
+					return true;
+				} else if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkEast) {
+					dir = EAST;
+					return true;
+				} else if (canWalkNorthWest && canWalkSouthEast && canWalkNorthEast) {
+					if (random_range(1, 3) == 1) {
+						if (canWalkWest) {
+							dir = WEST;
+							return true;	
+						} else {
+							dir = NORTHWEST;
+							return true;
+						}
+					} else if (random_range(1, 2) == 1) {
+						if (canWalkSouth) {
+							dir = SOUTH;
+							return true;	
+						} else {
+							dir = SOUTHEAST;
+							return true;
+						}
+					} else {
+						dir = NORTHEAST;
+						return true;
+					}
+				} else if (canWalkNorthWest && canWalkSouthEast) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkWest) {
+							dir = WEST;
+							return true;	
+						} else {
+							dir = NORTHWEST;
+							return true;
+						}
+					} else {
+						if (canWalkSouth) {
+							dir = SOUTH;
+							return true;	
+						} else {
+							dir = SOUTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkNorthWest && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkWest) {
+							dir = WEST;
+							return true;	
+						} else {
+							dir = NORTHWEST;
+							return true;
+						}
+					} else {
+						dir = NORTHEAST;
+						return true;
+					}
+				} else if (canWalkNorthEast && canWalkSouthEast) {
+					if (random_range(1, 2) == 1) {
+						dir = NORTHEAST;
+						return true;
+					} else {
+						if (canWalkSouth) {
+							dir = SOUTH;
+							return true;	
+						} else {
+							dir = SOUTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkNorthEast) {
+					dir = NORTHEAST;
+					return true;
+				} else if (canWalkNorthWest) {
+					if (canWalkWest) {
+						dir = WEST;
+						return true;	
+					} else {
+						dir = NORTHWEST;
+						return true;
+					}
+				} else if (canWalkSouthEast) {
+					if (canWalkSouth) {
+						dir = SOUTH;
+						return true;	
+					} else {
+						dir = SOUTHEAST;
+						return true;
+					}
+				}
+			}
+		} else if (offsetX < 0) {
+			if (offsetY > 0) {
+				// target is northeast
+				if (canWalkSouth && canWalkWest) {
+					dir = random_range(1, 2) == 1 ? SOUTH : WEST;
+					return true;
+				} else if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkWest) {
+					dir = WEST;
+					return true;
+				} else if (canWalkNorthWest && canWalkSouthEast && canWalkSouthWest) {
+					if (random_range(1, 3) == 1) {
+						if (canWalkWest) {
+							dir = NORTH;
+							return true;	
+						} else {
+							dir = NORTHWEST;
+							return true;
+						}
+					} else if (random_range(1, 2) == 1) {
+						if (canWalkSouth) {
+							dir = EAST;
+							return true;	
+						} else {
+							dir = SOUTHEAST;
+							return true;
+						}
+					} else {
+						dir = SOUTHWEST;
+						return true;
+					}
+				} else if (canWalkSouthEast && canWalkNorthWest) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkEast) {
+							dir = EAST;
+							return true;	
+						} else {
+							dir = SOUTHEAST;
+							return true;
+						}
+					} else {
+						if (canWalkNorth) {
+							dir = NORTH;
+							return true;	
+						} else {
+							dir = NORTHWEST;
+							return true;
+						}
+					}
+				} else if (canWalkSouthEast && canWalkSouthWest) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkEast) {
+							dir = EAST;
+							return true;	
+						} else {
+							dir = SOUTHEAST;
+							return true;
+						}
+					} else {
+						dir = SOUTHWEST;
+						return true;
+					}
+				} else if (canWalkSouthWest && canWalkNorthWest) {
+					if (random_range(1, 2) == 1) {
+						dir = SOUTHWEST;
+						return true;
+					} else {
+						if (canWalkNorth) {
+							dir = NORTH;
+							return true;	
+						} else {
+							dir = NORTHWEST;
+							return true;
+						}
+					}
+				} else if (canWalkSouthWest) {
+					dir = SOUTHWEST;
+					return true;
+				} else if (canWalkSouthEast) {
+					if (canWalkWest) {
+						dir = EAST;
+						return true;	
+					} else {
+						dir = SOUTHEAST;
+						return true;
+					}
+				} else if (canWalkNorthWest) {
+					if (canWalkNorth) {
+						dir = NORTH;
+						return true;	
+					} else {
+						dir = NORTHWEST;
+						return true;
+					}
+				}
+			} else {
+				// target is southeast
+				if (canWalkNorth && canWalkWest) {
+					dir = random_range(1, 2) == 1 ? NORTH : WEST;
+					return true;
+				} else if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkWest) {
+					dir = WEST;
+					return true;
+				} else if (canWalkSouthWest && canWalkNorthEast && canWalkNorthWest) {
+					if (random_range(1, 3) == 1) {
+						if (canWalkSouth) {
+							dir = SOUTH;
+							return true;	
+						} else {
+							dir = SOUTHWEST;
+							return true;
+						}
+					} else if (random_range(1, 2) == 1) {
+						if (canWalkEast) {
+							dir = EAST;
+							return true;	
+						} else {
+							dir = NORTHEAST;
+							return true;
+						}
+					} else {
+						dir = NORTHWEST;
+						return true;
+					}
+				} else if (canWalkSouthWest && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkSouth) {
+							dir = SOUTH;
+							return true;	
+						} else {
+							dir = SOUTHWEST;
+							return true;
+						}
+					} else {
+						if (canWalkEast) {
+							dir = EAST;
+							return true;	
+						} else {
+							dir = NORTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkSouthWest && canWalkNorthWest) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkSouth) {
+							dir = SOUTH;
+							return true;	
+						} else {
+							dir = SOUTHWEST;
+							return true;
+						}
+					} else {
+						dir = NORTHWEST;
+						return true;
+					}
+				} else if (canWalkNorthWest && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						dir = NORTHWEST;
+						return true;
+					} else {
+						if (canWalkEast) {
+							dir = EAST;
+							return true;	
+						} else {
+							dir = NORTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkNorthWest) {
+					dir = NORTHWEST;
+					return true;
+				} else if (canWalkSouthWest) {
+					if (canWalkSouth) {
+						dir = SOUTH;
+						return true;	
+					} else {
+						dir = SOUTHWEST;
+						return true;
+					}
+				} else if (canWalkNorthEast) {
+					if (canWalkEast) {
+						dir = EAST;
+						return true;	
+					} else {
+						dir = NORTHEAST;
+						return true;
+					}
+				}
+			}
+		}
+	// case C, one axis > other
+	} else if (distX > distY) {
+		if (offsetX > 0) {
+			// target west
+			if (offsetY < 0) {
+				if (canWalkEast) {
+					dir = EAST;
+					return true;
+				} else if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkSouthEast && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkSouth) {
+							dir = SOUTH;
+							return true;	
+						} else {
+							dir = SOUTHEAST;
+							return true;
+						}
+					} else {
+						dir = NORTHEAST;
+						return true;
+					}
+				} else if (canWalkSouthEast) {
+					if (canWalkSouth) {
+						dir = SOUTH;
+						return true;
+					} else {
+						dir = SOUTHEAST;
+						return true;
+					}
+				} else if (canWalkNorthEast) {
+					dir = NORTHEAST;
+					return true;
+				}
+			} else {
+				if (canWalkEast) {
+					dir = EAST;
+					return true;
+				} else if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkSouthEast && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						dir = SOUTHEAST;
+						return true;
+					} else {
+						if (canWalkNorth) {
+							dir = NORTH;
+							return true;	
+						} else {
+							dir = NORTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkSouthEast) {
+					dir = SOUTHEAST;
+					return true;
+				} else if (canWalkNorthEast) {
+					if (canWalkNorth) {
+						dir = NORTH;
+						return true;	
+					} else {
+						dir = NORTHEAST;
+						return true;
+					}
+				}
+			}
+		} else if (offsetX < 0) {
+			// target east
+			if (offsetY < 0) {
+				if (canWalkWest) {
+					dir = WEST;
+					return true;
+				} else if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkSouthWest && canWalkNorthWest) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkSouth) {
+							dir = SOUTH;
+							return true;	
+						} else {
+							dir = SOUTHWEST;
+							return true;
+						}
+					} else {
+						dir = NORTHWEST;
+						return true;
+					}
+				} else if (canWalkSouthWest) {
+					if (canWalkSouth) {
+						dir = SOUTH;
+						return true;
+					} else {
+						dir = SOUTHWEST;
+						return true;
+					}
+				} else if (canWalkNorthWest) {
+					dir = NORTHWEST;
+					return true;
+				}
+			} else {
+				if (canWalkWest) {
+					dir = WEST;
+					return true;
+				} else if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkSouthWest && canWalkNorthWest) {
+					if (random_range(1, 2) == 1) {
+						dir = SOUTHWEST;
+						return true;
+					} else {
+						if (canWalkNorth) {
+							dir = NORTH;
+							return true;	
+						} else {
+							dir = NORTHWEST;
+							return true;
+						}
+					}
+				} else if (canWalkSouthWest) {
+					dir = SOUTHWEST;
+					return true;
+				} else if (canWalkNorthWest) {
+					if (canWalkNorth) {
+						dir = NORTH;
+						return true;	
+					} else {
+						dir = NORTHWEST;
+						return true;
+					}
+				}
+			}
+		}
+	} else if (distX < distY) {
+		if (offsetY > 0) {
+			// target north
+			if (offsetX < 0) {
+				if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkWest) {
+					dir = WEST;
+					return true;
+				} else if (canWalkSouthWest && canWalkSouthEast) {
+					if (random_range(1, 2) == 1) {
+						dir = SOUTHWEST;
+						return true;
+					} else {
+						if (canWalkEast) {
+							dir = EAST;
+							return true;	
+						} else {
+							dir = SOUTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkSouthWest) {
+					dir = SOUTHWEST;
+					return true;
+				} else if (canWalkSouthEast) {
+					if (canWalkEast) {
+						dir = EAST;
+						return true;
+					} else {
+						dir = SOUTHEAST;
+						return true;
+					}
+				}
+			} else {
+				if (canWalkSouth) {
+					dir = SOUTH;
+					return true;
+				} else if (canWalkEast) {
+					dir = EAST;
+					return true;
+				} else if (canWalkSouthWest && canWalkSouthEast) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkWest) {
+							dir = WEST;
+							return true;	
+						} else {
+							dir = SOUTHWEST;
+							return true;
+						}
+					} else {
+						dir = SOUTHEAST;
+						return true;
+					}
+				} else if (canWalkSouthWest) {
+					if (canWalkWest) {
+						dir = WEST;
+						return true;	
+					} else {
+						dir = SOUTHWEST;
+						return true;
+					}
+				} else if (canWalkSouthEast) {
+					dir = SOUTHEAST;
+					return true;
+				}
+			}
+		} else {
+			// target south
+			if (offsetX < 0) {
+				if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkWest) {
+					dir = WEST;
+					return true;
+				} else if (canWalkNorthWest && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						dir = NORTHWEST;
+						return true;
+					} else {
+						if (canWalkEast) {
+							dir = EAST;
+							return true;	
+						} else {
+							dir = NORTHEAST;
+							return true;
+						}
+					}
+				} else if (canWalkNorthWest) {
+					dir = NORTHWEST;
+					return true;
+				} else if (canWalkNorthEast) {
+					if (canWalkEast) {
+						dir = EAST;
+						return true;
+					} else {
+						dir = NORTHEAST;
+						return true;
+					}
+				}
+			} else {
+				if (canWalkNorth) {
+					dir = NORTH;
+					return true;
+				} else if (canWalkEast) {
+					dir = EAST;
+					return true;
+				} else if (canWalkNorthWest && canWalkNorthEast) {
+					if (random_range(1, 2) == 1) {
+						if (canWalkWest) {
+							dir = WEST;
+							return true;	
+						} else {
+							dir = NORTHWEST;
+							return true;
+						}
+					} else {
+						dir = NORTHEAST;
+						return true;
+					}
+				} else if (canWalkNorthWest) {
+					if (canWalkWest) {
+						dir = WEST;
+						return true;	
+					} else {
+						dir = NORTHWEST;
+						return true;
+					}
+				} else if (canWalkNorthEast) {
+					dir = NORTHEAST;
+					return true;
+				}
+			}
+		}
+	}
+
+	return true;
+}
+
 bool Monster::isInSpawnRange(const Position& toPos)
 {
 	if(masterRadius == -1){
@@ -1341,6 +2869,10 @@ bool Monster::canWalkTo(Position pos, Direction dir)
 		case WEST:  pos.x += -1; break;
 		case EAST:  pos.x += 1; break;
 		case SOUTH: pos.y += 1; break;
+		case NORTHEAST: pos.x += 1; pos.y += -1; break;
+		case NORTHWEST: pos.x += -1; pos.y += -1; break;
+		case SOUTHEAST: pos.x += 1; pos.y += 1; break;
+		case SOUTHWEST: pos.x += -1; pos.y += 1; break;
 		default:
 			break;
 	}

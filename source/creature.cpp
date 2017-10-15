@@ -1159,13 +1159,42 @@ void Creature::goToFollowCreature()
 	if(followCreature){
 		FindPathParams fpp;
 		getPathSearchParams(followCreature, fpp);
+		
+		Monster* monster = getMonster();
+		if (monster && !monster->getMaster() && (monster->isFleeing() || fpp.maxTargetDist > 1)) {
+			Direction dir = DIRECTION_NONE;
 
-		if(g_game.getPathToEx(this, followCreature->getPosition(), listWalkDir, fpp)){
-			hasFollowPath = true;
-			startAutoWalk(listWalkDir);
-		}
-		else{
-			hasFollowPath = false;
+			if (monster->isFleeing()) {
+				monster->getFleeStep(followCreature->getPosition(), dir);
+			} else { //maxTargetDist > 1
+				if (!monster->getDistanceStep(followCreature->getPosition(), dir)) {
+					// if we can't get anything then let the A* calculate
+					listWalkDir.clear();
+					if (g_game.getPathToEx(this, followCreature->getPosition(), listWalkDir, fpp)) {
+						hasFollowPath = true;
+						startAutoWalk(listWalkDir);
+					} else {
+						hasFollowPath = false;
+					}
+					return;
+				}
+			}
+
+			if (dir != DIRECTION_NONE) {
+				listWalkDir.clear();
+				listWalkDir.push_front(dir);
+
+				hasFollowPath = true;
+				startAutoWalk(listWalkDir);
+			}
+		} else {
+			if(g_game.getPathToEx(this, followCreature->getPosition(), listWalkDir, fpp)){
+				hasFollowPath = true;
+				startAutoWalk(listWalkDir);
+			}
+			else{
+				hasFollowPath = false;
+			}
 		}
 	}
 
@@ -1625,7 +1654,6 @@ int32_t Creature::getStepDuration() const
 		}
 	}
 
-	// distance monster slow down at melee range
 	const Monster* monster = getMonster();
 	if (monster && !monster->isFleeing() && !monster->getMaster() && attackedCreature) {
 		const Position& targetPos = attackedCreature->getPosition();

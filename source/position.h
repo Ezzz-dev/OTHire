@@ -34,7 +34,8 @@ enum Direction {
 	SOUTHWEST = 4,
 	SOUTHEAST = 5,
 	NORTHWEST = 6,
-	NORTHEAST = 7
+	NORTHEAST = 7,
+	DIRECTION_NONE = 8
 };
 
 class Position{
