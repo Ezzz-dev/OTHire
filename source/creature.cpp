@@ -1162,7 +1162,7 @@ void Creature::goToFollowCreature()
 		
 		Monster* monster = getMonster();
 		if (monster && !monster->getMaster() && (monster->isFleeing() || fpp.maxTargetDist > 1)) {
-			Direction dir = DIRECTION_NONE;
+			Direction dir;
 
 			if (monster->isFleeing()) {
 				monster->getFleeStep(followCreature->getPosition(), dir);
@@ -1180,7 +1180,7 @@ void Creature::goToFollowCreature()
 				}
 			}
 
-			if (dir != DIRECTION_NONE) {
+			if (dir) {
 				listWalkDir.clear();
 				listWalkDir.push_front(dir);
 
