@@ -85,7 +85,6 @@ Creature()
 	attackTicks = 0;
 	defenseTicks = 0;
 	yellTicks = 0;
-	extraMeleeAttack = false;
 	timeOfLastHit = 0;
 	hadRecentBattleVar = false;
 
@@ -819,7 +818,7 @@ void Monster::doAttacking(uint32_t interval)
 				maxCombatValue = it->maxCombatValue;
 				it->spell->castSpell(this, attackedCreature);
 				if(it->isMelee){
-					extraMeleeAttack = false;
+					lastMeleeAttack = OTSYS_TIME();
 				}
 #ifdef __DEBUG__
 				static uint64_t prevTicks = OTSYS_TIME();
@@ -865,9 +864,8 @@ bool Monster::canUseSpell(const Position& pos, const Position& targetPos,
 {
 	inRange = true;
 	
-	if (extraMeleeAttack) {
-		lastMeleeAttack = OTSYS_TIME();
-	} else if (sb.isMelee && (OTSYS_TIME() - lastMeleeAttack) < 1500) {
+	if (sb.isMelee && (OTSYS_TIME() - lastMeleeAttack) < 1500) {
+
 		return false;
 	}
 
