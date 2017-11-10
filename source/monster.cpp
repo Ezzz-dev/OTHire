@@ -235,9 +235,99 @@ void Monster::onCreatureMove(const Creature* creature, const Tile* newTile, cons
 
 		updateIdleStatus();
 
-		if(!followCreature && !isSummon()){
-			//we have no target lets try pick this one
-			if(isOpponent(creature)){
+		if (!isSummon()) {
+			if (followCreature) {
+				const Position& followPosition = followCreature->getPosition();
+				const Position& position = getPosition();
+				int32_t dist_x = std::abs(position.x - followPosition.x);
+				int32_t dist_y = std::abs(position.y - followPosition.y);
+				if ((dist_x > 1 || dist_y > 1) && mType->changeTargetChance > 0) {
+					//get direction to move
+					Direction dir;
+					int32_t x_offset = (position.x - followPosition.x);
+					if (x_offset < 0) {
+						dir = EAST;
+						x_offset = std::abs(x_offset);
+					} else {
+						dir = WEST;
+					}
+
+					int32_t y_offset = (position.y - followPosition.y);
+					if (y_offset >= 0) {
+						if (y_offset > x_offset) {
+							dir = NORTH;
+						} else if (y_offset == x_offset) {
+							if (dir == EAST) {
+								dir = NORTHEAST;
+							} else {
+								dir = NORTHWEST;
+							}
+						}
+					} else {
+						y_offset = std::abs(y_offset);
+						if (y_offset > x_offset) {
+							dir = SOUTH;
+						} else if (y_offset == x_offset) {
+							if (dir == EAST) {
+								dir = SOUTHEAST;
+							} else {
+								dir = SOUTHWEST;
+							}
+						}
+					}
+					// with direction, get next position
+					Position& checkPosition = getPosition();
+					switch (dir) {
+						case NORTH:
+							checkPosition.y--;
+							break;
+
+						case SOUTH:
+							checkPosition.y++;
+							break;
+
+						case WEST:
+							checkPosition.x--;
+							break;
+
+						case EAST:
+							checkPosition.x++;
+							break;
+
+						case SOUTHWEST:
+							checkPosition.x--;
+							checkPosition.y++;
+							break;
+
+						case NORTHWEST:
+							checkPosition.x--;
+							checkPosition.y--;
+							break;
+
+						case NORTHEAST:
+							checkPosition.x++;
+							checkPosition.y--;
+							break;
+
+						case SOUTHEAST:
+							checkPosition.x++;
+							checkPosition.y++;
+							break;
+
+						default:
+							break;
+					}
+
+					Tile* tile = g_game.getTile(checkPosition);
+					if (tile) {
+						Creature* topCreature = tile->getTopCreature();
+						if (topCreature && followCreature != topCreature && isOpponent(topCreature)) {
+							selectTarget(topCreature);
+						}
+					}
+				}
+			} else if (isOpponent(creature)) {
+				//we have no target lets try pick this one
 				selectTarget(const_cast<Creature*>(creature));
 			}
 		}
