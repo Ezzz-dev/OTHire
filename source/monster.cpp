@@ -276,7 +276,7 @@ void Monster::onCreatureMove(const Creature* creature, const Tile* newTile, cons
 						}
 					}
 					// with direction, get next position
-					Position& checkPosition = getPosition();
+					Position checkPosition = getPosition();
 					switch (dir) {
 						case NORTH:
 							checkPosition.y--;
