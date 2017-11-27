@@ -14,14 +14,14 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="50" attack="65"/>
+		<attack name="melee" skill="50" attack="65"/>
 	</attacks>
 	<defenses armor="12" defense="12">
-		<defense name="haste_orcberserker" interval="1000" chance="9"/>
+		<defense name="haste_orcberserker" chance="9"/>
 	</defenses>
 	<elements>
 		<element earthPercent="100"/>

@@ -14,28 +14,28 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" min="-100" max="-500"/>
-		<attack name="poison" interval="1000" chance="15" range="7" min="-250" max="-300">
+		<attack name="melee" min="-100" max="-500"/>
+		<attack name="poison" chance="15" range="7" min="-250" max="-300">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
-		<attack name="paralyze_oldwidow" interval="1000" chance="20" range="7"/>
-		<attack name="poisonfield" interval="1000" chance="10" range="7" radius="4" target="1">
+		<attack name="paralyze_oldwidow" chance="20" range="7"/>
+		<attack name="poisonfield" chance="10" range="7" radius="4" target="1">
 			<attribute key="shootEffect" value="poison"/>
 		</attack>
 	</attacks>
 	<defenses armor="17" defense="21">
-		<defense name="healing" interval="1000" chance="17" min="225" max="275">
+		<defense name="healing" chance="17" min="225" max="275">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-		<defense name="haste_oldwidow" interval="1000" chance="8"/>
+		<defense name="haste_oldwidow" chance="8"/>
 	</defenses>
 	<summons maxSummons="2">
-		<summon name="giant spider" interval="1000" chance="13" max="2"/>
+		<summon name="giant spider" chance="13" max="2"/>
 	</summons>
 	<elements>
 		<element firePercent="100"/>

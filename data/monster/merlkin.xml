@@ -14,12 +14,12 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="25" attack="15"/>
-		<attack name="fire" interval="1000" chance="13" range="7" min="-30" max="-90">
+		<attack name="melee" skill="25" attack="15"/>
+		<attack name="fire" chance="13" range="7" min="-30" max="-90">
 			<attribute key="shootEffect" value="fire"/>
 			<attribute key="areaEffect" value="firearea"/>
 		</attack>
@@ -27,12 +27,12 @@
 			<attribute key="shootEffect" value="energy"/>
 			<attribute key="areaEffect" value="energy"/>
 		</attack>
-		<attack name="poisonfield" interval="1000" chance="15" range="7" radius="1" target="1">
+		<attack name="poisonfield" chance="15" range="7" radius="1" target="1">
 			<attribute key="shootEffect" value="energy"/>
 		</attack>
 	</attacks>
 	<defenses armor="16" defense="40">
-		<defense name="healing" interval="1000" chance="9" min="10" max="40">
+		<defense name="healing" chance="9" min="10" max="40">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>

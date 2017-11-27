@@ -14,27 +14,27 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="15"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="28" attack="18"/>
-		<attack name="poisoncondition" interval="1000" chance="12" range="7" min="-140" max="-200">
+		<attack name="melee" skill="28" attack="18"/>
+		<attack name="poisoncondition" chance="12" range="7" min="-140" max="-200">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
-		<attack name="poison" interval="1000" chance="17" range="7" radius="1" target="1" min="-50" max="-100">
+		<attack name="poison" chance="17" range="7" radius="1" target="1" min="-50" max="-100">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="greenbubble"/>
 		</attack>
 	</attacks>
 	<defenses armor="22" defense="15">
-		<defense name="healing" interval="1000" chance="34" min="50" max="100">
+		<defense name="healing" chance="34" min="50" max="100">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<summons maxSummons="2">
-		<summon name="cobra" interval="1000" chance="25"/>
+		<summon name="cobra" chance="25"/>
 	</summons>
 	<elements>
 		<element earthPercent="100"/>

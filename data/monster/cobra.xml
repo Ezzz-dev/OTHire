@@ -14,12 +14,12 @@
 		<flag canpushitems="0"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="23" attack="15" poison="100"/>
-		<attack name="poisoncondition" interval="1000" chance="25" range="5" min="-14" max="-26">
+		<attack name="melee" skill="23" attack="15" poison="100"/>
+		<attack name="poisoncondition" chance="25" range="5" min="-14" max="-26">
 			<attribute key="shooteffect" value="poison"/>
 		</attack>
 	</attacks>

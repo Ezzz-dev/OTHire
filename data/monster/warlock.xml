@@ -14,40 +14,40 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="1000"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="50" attack="40"/>
-		<attack name="physical" interval="1000" chance="50" range="7" min="-45" max="-105">
+		<attack name="melee" skill="50" attack="40"/>
+		<attack name="physical" chance="50" range="7" min="-45" max="-105">
 			<attribute key="shootEffect" value="energy"/>
 		</attack>
-		<attack name="manadrain" interval="1000" chance="17" range="7" min="-35" max="-75"/>
-		<attack name="paralyze_warlock" interval="1000" chance="12" range="7"/>
-		<attack name="fire" interval="1000" chance="34" range="7" radius="3" target="1" min="-90" max="-170">
+		<attack name="manadrain" chance="17" range="7" min="-35" max="-75"/>
+		<attack name="paralyze_warlock" chance="12" range="7"/>
+		<attack name="fire" chance="34" range="7" radius="3" target="1" min="-90" max="-170">
 			<attribute key="shootEffect" value="fire"/>
 			<attribute key="areaEffect" value="firearea"/>
 		</attack>
-		<attack name="firefield" interval="1000" chance="20" range="7" radius="2" target="1">
+		<attack name="firefield" chance="20" range="7" radius="2" target="1">
 			<attribute key="shootEffect" value="fire"/>
 		</attack>
-		<attack name="firefield" interval="1000" chance="15" range="7" radius="1" target="1">
+		<attack name="firefield" chance="15" range="7" radius="1" target="1">
 			<attribute key="shootEffect" value="fire"/>
 		</attack>
-		<attack name="energy" interval="1000" chance="13" length="8" spread="0" min="-145" max="-205">
+		<attack name="energy" chance="13" length="8" spread="0" min="-145" max="-205">
 			<attribute key="areaEffect" value="energy"/>
 		</attack>
 	</attacks>
 	<defenses armor="32" defense="50">
-		<defense name="healing" interval="1000" chance="25" min="60" max="100">
+		<defense name="healing" chance="25" min="60" max="100">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-		<defense name="invisible" interval="1000" chance="10" duration="20000">
+		<defense name="invisible" chance="10" duration="20000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<summons maxSummons="1">
-		<summon name="stone golem" interval="1000" chance="10" max="1"/>
+		<summon name="stone golem" chance="10" max="1"/>
 	</summons>
 	<elements>
 		<element firePercent="100"/>

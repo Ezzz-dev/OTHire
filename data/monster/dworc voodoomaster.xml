@@ -14,33 +14,33 @@
 		<flag canpushitems="0"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="15"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="22" attack="13"/>
-		<attack name="lifedrain" interval="1000" chance="6" range="1" min="-1" max="-39"/>
-		<attack name="paralyze_dworcvoodoomaster" interval="1000" chance="8" range="7"/>
-		<attack name="drunk" interval="1000" chance="9" range="7" duration="6000">
+		<attack name="melee" skill="22" attack="13"/>
+		<attack name="lifedrain" chance="6" range="1" min="-1" max="-39"/>
+		<attack name="paralyze_dworcvoodoomaster" chance="8" range="7"/>
+		<attack name="drunk" chance="9" range="7" duration="6000">
 			<attribute key="shooteffect" value="energy"/>
 			<attribute key="areaeffect" value="teleport"/>
 		</attack>
-		<attack name="outfit" interval="1000" chance="9" range="7" monster="chicken" duration="5000">
+		<attack name="outfit" chance="9" range="7" monster="chicken" duration="5000">
 			<attribute key="areaeffect" value="blueshimmer"/>
 		</attack>
-		<attack name="poison" interval="1000" chance="20" radius="6" target="0" min="-6" max="-18">
+		<attack name="poison" chance="20" radius="6" target="0" min="-6" max="-18">
 			<attribute key="areaeffect" value="greenbubble"/>
 		</attack>
-		<attack name="poisonfield" interval="1000" chance="13" range="7" radius="1" target="1">
+		<attack name="poisonfield" chance="13" range="7" radius="1" target="1">
 			<attribute key="shooteffect" value="poison"/>
 		</attack>
 	</attacks>
 	<defenses armor="3" defense="8">
-		<defense name="healing" interval="1000" chance="10" min="3" max="9">
+		<defense name="healing" chance="10" min="3" max="9">
 			<attribute key="areaeffect" value="blueshimmer"/>
 		</defense>
-		<defense name="haste_dworcvoodoomaster" interval="1000" chance="8"/>
-		<defense name="invisible" interval="1000" chance="5" duration="3000">
+		<defense name="haste_dworcvoodoomaster" chance="8"/>
+		<defense name="invisible" chance="5" duration="3000">
 			<attribute key="areaeffect" value="blueshimmer"/>
 		</defense>
 	</defenses>

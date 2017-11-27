@@ -14,39 +14,39 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" min="-0" max="-600" poison="55"/>
-		<attack name="lifedrain" interval="1000" chance="7" range="1" min="-100" max="-700"/>
-		<attack name="poison" interval="1000" chance="12" range="7" min="-100" max="-500">
+		<attack name="melee" min="-0" max="-600" poison="55"/>
+		<attack name="lifedrain" chance="7" range="1" min="-100" max="-700"/>
+		<attack name="poison" chance="12" range="7" min="-100" max="-500">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
-		<attack name="physical" interval="1000" chance="12" range="7" min="-120" max="-750">
+		<attack name="physical" chance="12" range="7" min="-120" max="-750">
 			<attribute key="shootEffect" value="energy"/>
 			<attribute key="areaEffect" value="mortarea"/>
 		</attack>
-		<attack name="paralyze_ashmunrah" interval="1000" chance="25" range="7"/>
-		<attack name="lifedrain" interval="1000" chance="18" length="8" spread="3" min="-50" max="-550">
+		<attack name="paralyze_ashmunrah" chance="25" range="7"/>
+		<attack name="lifedrain" chance="18" length="8" spread="3" min="-50" max="-550">
 			<attribute key="areaEffect" value="yellowbubble"/>
 		</attack>
 	</attacks>
 	<defenses armor="25" defense="30">
-		<defense name="healing" interval="1000" chance="20" min="200" max="400">
+		<defense name="healing" chance="20" min="200" max="400">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-		<defense name="invisible" interval="1000" chance="7" duration="2000">
+		<defense name="invisible" chance="7" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-		<defense name="outfit" interval="1000" chance="3" monster="ancient scarab" duration="6000">
+		<defense name="outfit" chance="3" monster="ancient scarab" duration="6000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<summons maxSummons="4">
-		<summon name="ancient scarab" interval="1000" chance="2000" max="2"/>
-		<summon name="green djinn" interval="1000" chance="1000" max="2"/>
+		<summon name="ancient scarab" chance="2000" max="2"/>
+		<summon name="green djinn" chance="1000" max="2"/>
 	</summons>
 	<elements>
 		<element earthPercent="100"/>

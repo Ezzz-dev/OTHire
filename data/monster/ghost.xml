@@ -14,12 +14,12 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="45" attack="28"/>
-		<attack name="lifedrain" interval="1000" chance="15" range="1" min="-25" max="-45"/>
+		<attack name="melee" skill="45" attack="28"/>
+		<attack name="lifedrain" chance="15" range="1" min="-25" max="-45"/>
 	</attacks>
 	<defenses armor="10" defense="20">
 	</defenses>

@@ -14,11 +14,11 @@
 		<flag canpushitems="0"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="6"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="25" attack="12" poison="30"/>
+		<attack name="melee" skill="25" attack="12" poison="30"/>
 	</attacks>
 	<defenses armor="2" defense="6">
 	</defenses>

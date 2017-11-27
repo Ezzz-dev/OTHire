@@ -14,16 +14,16 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="65" attack="42"/>
-		<attack name="lifedrain" interval="1000" chance="20" range="1" min="-55" max="-105"/>
-		<attack name="paralyze_vampire" interval="1000" chance="12" range="7"/>
+		<attack name="melee" skill="65" attack="42"/>
+		<attack name="lifedrain" chance="20" range="1" min="-55" max="-105"/>
+		<attack name="paralyze_vampire" chance="12" range="7"/>
 	</attacks>
 	<defenses armor="27" defense="38">
-		<defense name="outfit" interval="1000" chance="1" monster="bat" duration="6000">
+		<defense name="outfit" chance="1" monster="bat" duration="6000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>

@@ -14,32 +14,32 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="40" attack="40" poison="400"/>
-		<attack name="lifedrain" interval="1000" chance="4" range="1" min="-50" max="-250">
+		<attack name="melee" skill="40" attack="40" poison="400"/>
+		<attack name="lifedrain" chance="4" range="1" min="-50" max="-250">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
-		<attack name="paralyze_lich" interval="1000" chance="15" range="7"/>
-		<attack name="lifedrain" interval="1000" chance="17" radius="3" target="0" min="-120" max="-200">
+		<attack name="paralyze_lich" chance="15" range="7"/>
+		<attack name="lifedrain" chance="17" radius="3" target="0" min="-120" max="-200">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
-		<attack name="lifedrain" interval="1000" chance="9" length="8" spread="0" min="-100" max="-200">
+		<attack name="lifedrain" chance="9" length="8" spread="0" min="-100" max="-200">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
-		<attack name="poisoncondition" interval="1000" chance="9" length="8" spread="0" min="-300" max="-400">
+		<attack name="poisoncondition" chance="9" length="8" spread="0" min="-300" max="-400">
 			<attribute key="areaEffect" value="greenspark"/>
 		</attack>
 	</attacks>
 	<defenses armor="50" defense="60">
-		<defense name="healing" interval="1000" chance="17" min="50" max="150">
+		<defense name="healing" chance="17" min="50" max="150">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</defense>	
 	</defenses>
 	<summons maxSummons="4">
-		<summon name="bonebeast" interval="1000" chance="17" max="4"/>
+		<summon name="bonebeast" chance="17" max="4"/>
 	</summons>
 	<elements>
 		<element firePercent="100"/>

@@ -14,23 +14,23 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="54" attack="38"/>
-		<attack name="physical" interval="1000" checkshield="1" chance="25" range="7" min="-50" max="-120">
+		<attack name="melee" skill="54" attack="38"/>
+		<attack name="physical" checkshield="1" chance="25" range="7" min="-50" max="-120">
 			<attribute key="shootEffect" value="bolt"/>
 		</attack>
-		<attack name="poisoncondition" interval="1000" chance="17" range="7" min="-50" max="-120">
+		<attack name="poisoncondition" chance="17" range="7" min="-50" max="-120">
 			<attribute key="shootEffect" value="bolt"/>
 		</attack>
 	</attacks>
 	<defenses armor="17" defense="16">
-		<defense name="healing" interval="1000" chance="15" min="25" max="75">
+		<defense name="healing" chance="15" min="25" max="75">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</defense>
-		<defense name="invisible" interval="1000" chance="10" duration="2000">
+		<defense name="invisible" chance="10" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
@@ -40,8 +40,8 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<summons maxSummons="4">
-		<summon name="minotaur archer" interval="1000" chance="13" max="2"/>
-		<summon name="minotaur guard" interval="1000" chance="13" max="2"/>
+		<summon name="minotaur archer" chance="13" max="2"/>
+		<summon name="minotaur guard" chance="13" max="2"/>
 	</summons>
 	<voices interval="5000" chance="10">
 		<voice sentence="You will never get me!"/>

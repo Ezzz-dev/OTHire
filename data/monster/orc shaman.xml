@@ -14,27 +14,27 @@
 		<flag canpushitems="0"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="15"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="20" attack="13"/>
-		<attack name="energy" interval="1000" chance="13" range="7" min="-20" max="-30">
+		<attack name="melee" skill="20" attack="13"/>
+		<attack name="energy" chance="13" range="7" min="-20" max="-30">
 			<attribute key="shootEffect" value="energy"/>
 			<attribute key="areaEffect" value="energy"/>
 		</attack>
-		<attack name="fire" interval="1000" chance="8" range="7" radius="1" target="1" min="-5" max="-45">
+		<attack name="fire" chance="8" range="7" radius="1" target="1" min="-5" max="-45">
 			<attribute key="shootEffect" value="fire"/>
 			<attribute key="areaEffect" value="firearea"/>
 		</attack>
 	</attacks>
 	<defenses armor="8" defense="10">
-		<defense name="healing" interval="1000" chance="25" min="27" max="43">
+		<defense name="healing" chance="25" min="27" max="43">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<summons maxSummons="4">
-		<summon name="snake" interval="1000" chance="25" max="4"/>
+		<summon name="snake" chance="25" max="4"/>
 	</summons>
 	<elements>
 		<element earthPercent="100"/>

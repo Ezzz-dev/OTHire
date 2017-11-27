@@ -14,16 +14,16 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="79" attack="53"/>
-		<attack name="physical" interval="1000" checkshield="1" chance="15" range="7" min="-170" max="-200">
+		<attack name="melee" skill="79" attack="53"/>
+		<attack name="physical" checkshield="1" chance="15" range="7" min="-170" max="-200">
 			<attribute key="shootEffect" value="snowball"/>
 			<attribute key="areaEffect" value="poff"/>
 		</attack>
-		<attack name="energy" interval="1000" chance="12" length="3" spread="3" min="-120" max="-210">
+		<attack name="energy" chance="12" length="3" spread="3" min="-120" max="-210">
 			<attribute key="areaEffect" value="poff"/>
 		</attack>
 	</attacks>

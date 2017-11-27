@@ -14,37 +14,37 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="55" attack="35"/>
-		<attack name="fire" interval="1000" chance="50" range="7" min="-40" max="-110">
+		<attack name="melee" skill="55" attack="35"/>
+		<attack name="fire" chance="50" range="7" min="-40" max="-110">
 			<attribute key="shootEffect" value="fire"/>
 		</attack>
-		<attack name="energy" interval="1000" chance="25" range="7" min="-65" max="-115">
+		<attack name="energy" chance="25" range="7" min="-65" max="-115">
 			<attribute key="shootEffect" value="energy"/>
 		</attack>
-		<attack name="lifedrain" interval="1000" chance="20" range="7" min="-60" max="-120">
+		<attack name="lifedrain" chance="20" range="7" min="-60" max="-120">
 			<attribute key="shootEffect" value="death"/>
 		</attack>
-		<attack name="paralyze_efreet" interval="1000" chance="13" range="7"/>
-		<attack name="drunk" interval="1000" chance="20" range="7" duration="60000">
+		<attack name="paralyze_efreet" chance="13" range="7"/>
+		<attack name="drunk" chance="20" range="7" duration="60000">
 			<attribute key="shootEffect" value="energy"/>
 			<attribute key="areaEffect" value="teleport"/>
 		</attack>
-		<attack name="outfit" interval="1000" chance="17" range="7" monster="rat" duration="30000">
+		<attack name="outfit" chance="17" range="7" monster="rat" duration="30000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
-		<attack name="djinn electrify area" interval="1000" chance="17" min="-60" max="-100"/>
+		<attack name="djinn electrify area" chance="17" min="-60" max="-100"/>
 	</attacks>
 	<defenses armor="24" defense="35">
-	    <defense name="healing" interval="1000" chance="15" min="50" max="80">
+	    <defense name="healing" chance="15" min="50" max="80">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<summons maxSummons="2">
-		<summon name="green djinn" interval="1000" chance="15" max="2"/>
+		<summon name="green djinn" chance="15" max="2"/>
 	</summons>
 	<elements>
 		<element firePercent="100"/>

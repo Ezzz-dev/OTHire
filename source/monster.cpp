@@ -898,7 +898,18 @@ void Monster::doAttacking(uint32_t interval)
 		const Position& targetPos = attackedCreature->getPosition();
 		
 		if(canUseSpell(myPos, targetPos, *it, interval, inRange)){
-			if(it->chance >= (uint32_t)random_range(1, 100)){
+			bool castChance = false;
+			//if monster is fleeing it has 1/3 of default chance to cast the spell
+			if (isFleeing()) {
+				if (it->chance >= (uint32_t)random_range(1, 300)) {
+					castChance = true;
+				}
+			} else {
+				if (it->chance >= (uint32_t)random_range(1, 100)) {
+					castChance = true;
+				}		
+			}
+			if (castChance) {
 				if(updateLook){
 					updateLookDirection();
 					updateLook = false;
@@ -960,11 +971,26 @@ bool Monster::canUseSpell(const Position& pos, const Position& targetPos,
 	}
 
 	uint32_t spell_interval;
-
-	if (std::max(std::abs(pos.x - targetPos.x), std::abs(pos.y - targetPos.y)) <= 1) {
-		spell_interval = sb.speed * 2;
+	
+	if (isFleeing()) {
+		spell_interval = 1000;
 	} else {
-		spell_interval = sb.speed;
+		if (std::max(std::abs(pos.x - targetPos.x), std::abs(pos.y - targetPos.y)) <= 1) {
+			// only monsters that actually melee attack, but since all at melee range no fleeing will we set as default
+			spell_interval = 2000;
+		} else {
+			if (!hasFollowPath) {
+				// monster has no path to reach ideal range (< 4 for range, 0 for melee)
+				spell_interval = 1000;
+			} else if (mType->targetDistance <= 1) {
+				// melee monster following the player
+				// to confirm, really 4 sec?
+				spell_interval = 4000;
+			} else {
+				// monster is ranged
+				spell_interval = 1000;
+			}
+		}
 	}
 	
 	if (!sb.isMelee || !extraMeleeAttack) {
@@ -1024,20 +1050,37 @@ void Monster::onThinkDefense(uint32_t interval)
 	resetTicks = true;
 	defenseTicks += interval;
 	uint32_t spell_interval;
+	bool castChance = false;
 
 	for(SpellList::iterator it = mType->spellDefenseList.begin(); it != mType->spellDefenseList.end(); ++it){
 		if (attackedCreature) {
 			const Position& pos = getPosition();
 			const Position& targetPos = attackedCreature->getPosition();
-			if (std::max(std::abs(pos.x - targetPos.x), std::abs(pos.y - targetPos.y)) <= 1) {
-				spell_interval = it->speed * 2;
+			if (isFleeing()) {
+				spell_interval = 1000;
 			} else {
-				spell_interval = it->speed;
+				if (std::max(std::abs(pos.x - targetPos.x), std::abs(pos.y - targetPos.y)) <= 1) {
+					// only monsters that actually melee attack, but since all at melee range not fleeing will, we set as default
+					spell_interval = 2000;
+				} else {
+					if (!hasFollowPath) {
+						// monster has no path to reach ideal range (< 4 for range, 0 for melee)
+						spell_interval = 1000;
+					} else if (mType->targetDistance <= 1) {
+						// melee monster following the player
+						// to confirm, really 4 sec?
+						spell_interval = 4000;
+					} else {
+						// monster is ranged
+						spell_interval = 1000;
+					}
+				}
 			}
-		} else { 
-				spell_interval = it->speed;
+		} else {
+			// to confirm, really 1 sec?
+			spell_interval = 1000;
 		}
-		
+
 		if(spell_interval > defenseTicks){
 			resetTicks = false;
 			continue;
@@ -1048,7 +1091,17 @@ void Monster::onThinkDefense(uint32_t interval)
 			continue;
 		}
 
-		if((it->chance >= (uint32_t)random_range(1, 100))){
+		//if monster is fleeing it has 1/3 of default chance to cast the spell
+		if (isFleeing()) {
+			if (it->chance >= (uint32_t)random_range(1, 300)) {
+				castChance = true;
+			}
+		} else {
+			if (it->chance >= (uint32_t)random_range(1, 100)) {
+				castChance = true;
+			}		
+		}
+		if (castChance) {
 			minCombatValue = it->minCombatValue;
 			maxCombatValue = it->maxCombatValue;
 			it->spell->castSpell(this, this);
@@ -1060,10 +1113,24 @@ void Monster::onThinkDefense(uint32_t interval)
 			const Position& pos = getPosition();
 			const Position& targetPos = attackedCreature->getPosition();
 
-			if (std::max(std::abs(pos.x - targetPos.x), std::abs(pos.y - targetPos.y)) <= 1) {
-				spell_interval = it->speed * 2;
+			if (isFleeing()) {
+				spell_interval = 1000;
 			} else {
-				spell_interval = it->speed;
+				if (std::max(std::abs(pos.x - targetPos.x), std::abs(pos.y - targetPos.y)) <= 1) {
+					// only monsters that actually melee attack, but since all at melee range not fleeing will, we set as default
+					spell_interval = 2000;
+				} else {
+					if (!hasFollowPath) {
+						// monster has no path to reach ideal range (< 4 for range, 0 for melee)
+						spell_interval = 1000;
+					} else if (mType->targetDistance <= 1) {
+						// melee monster following the player
+						spell_interval = 4000;
+					} else {
+						// monster is ranged
+						spell_interval = 1000;
+					}
+				}
 			}
 			
 			if(spell_interval > defenseTicks){

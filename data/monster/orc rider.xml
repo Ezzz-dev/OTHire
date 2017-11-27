@@ -14,14 +14,14 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="48" attack="41"/>
+		<attack name="melee" skill="48" attack="41"/>
 	</attacks>
 	<defenses armor="9" defense="20">
-		<defense name="haste_orcrider" interval="1000" chance="7"/>
+		<defense name="haste_orcrider" chance="7"/>
 	</defenses>
 	<elements>
 	</elements>

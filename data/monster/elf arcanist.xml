@@ -14,24 +14,24 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="25" attack="20"/>
-		<attack name="physical" interval="1000" checkshield="1" chance="9" range="7" min="-15" max="-45">
+		<attack name="melee" skill="25" attack="20"/>
+		<attack name="physical" checkshield="1" chance="9" range="7" min="-15" max="-45">
 			<attribute key="shootEffect" value="arrow"/>
 		</attack>
-		<attack name="energy" interval="1000" chance="9" range="7" min="-30" max="-50">
+		<attack name="energy" chance="9" range="7" min="-30" max="-50">
 			<attribute key="shootEffect" value="energy"/>
 			<attribute key="areaEffect" value="energy"/>
 		</attack>
-		<attack name="physical" interval="1000" chance="12" range="7" min="-60" max="-80">
+		<attack name="physical" chance="12" range="7" min="-60" max="-80">
 			<attribute key="shootEffect" value="death"/>
 		</attack>
 	</attacks>
 	<defenses armor="15" defense="20">
-		<defense name="healing" interval="1000" chance="20" min="42" max="68">
+		<defense name="healing" chance="20" min="42" max="68">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>

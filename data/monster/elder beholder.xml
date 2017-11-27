@@ -14,40 +14,40 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="45" attack="16"/>
-		<attack name="energy" interval="1000" chance="8" range="7" min="-45" max="-75">
+		<attack name="melee" skill="45" attack="16"/>
+		<attack name="energy" chance="8" range="7" min="-45" max="-75">
 			<attribute key="shootEffect" value="energy"/>
 		</attack>
-		<attack name="fire" interval="1000" chance="7" range="7" min="-60" max="-80">
+		<attack name="fire" chance="7" range="7" min="-60" max="-80">
 			<attribute key="shootEffect" value="fire"/>
 		</attack>
-		<attack name="physical" interval="1000" chance="9" range="7" min="-70" max="-90">
+		<attack name="physical" chance="9" range="7" min="-70" max="-90">
 			<attribute key="shootEffect" value="death"/>
 			<attribute key="areaEffect" value="mortarea"/>
 		</attack>
-		<attack name="poison" interval="1000" chance="8" range="7" min="-30" max="-70">
+		<attack name="poison" chance="8" range="7" min="-30" max="-70">
 			<attribute key="shootEffect" value="poison"/>
 		</attack>
-		<attack name="lifedrain" interval="1000" chance="6" range="7" min="-75" max="-85">
+		<attack name="lifedrain" chance="6" range="7" min="-75" max="-85">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
-		<attack name="lifedrain" interval="1000" chance="6" range="7" min="-75" max="-85">
+		<attack name="lifedrain" chance="6" range="7" min="-75" max="-85">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
-		<attack name="manadrain" interval="1000" chance="6" range="7" min="-20" max="-40">
+		<attack name="manadrain" chance="6" range="7" min="-20" max="-40">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
-		<attack name="paralyze_elderbeholder" interval="1000" chance="10" range="7"/>
+		<attack name="paralyze_elderbeholder" chance="10" range="7"/>
 	</attacks>
 	<defenses armor="13" defense="26">
 	</defenses>
 	<summons maxSummons="6">
-		<summon name="gazer" interval="1000" chance="13" max="6"/>
-		<summon name="crypt shambler" interval="1000" chance="12" max="6"/>
+		<summon name="gazer" chance="13" max="6"/>
+		<summon name="crypt shambler" chance="12" max="6"/>
 	</summons>
 	<elements>
 		<element earthPercent="100"/>

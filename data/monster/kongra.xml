@@ -14,14 +14,14 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="10"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="40" attack="30"/>
+		<attack name="melee" skill="40" attack="30"/>
 	</attacks>
 	<defenses armor="18" defense="14">
-		<defense name="haste_kongra" interval="1000" chance="7"/>
+		<defense name="haste_kongra" chance="7"/>
 	</defenses>
 	<elements>
 	</elements>

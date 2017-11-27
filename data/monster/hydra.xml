@@ -14,21 +14,21 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="300"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="71" attack="56"/>
-		<attack name="paralyze_hydra" interval="1000" chance="13" range="7"/>
-		<attack name="physical" interval="1000" chance="15" length="8" spread="3" min="-100" max="-200">
+		<attack name="melee" skill="71" attack="56"/>
+		<attack name="paralyze_hydra" chance="13" range="7"/>
+		<attack name="physical" chance="15" length="8" spread="3" min="-100" max="-200">
 			<attribute key="areaEffect" value="bluebubble"/>
 		</attack>
-		<attack name="poison" interval="1000" chance="12" length="8" spread="3" min="-60" max="-300">
+		<attack name="poison" chance="12" length="8" spread="3" min="-60" max="-300">
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
 	</attacks>
 	<defenses armor="27" defense="45">
-		<defense name="healing" interval="1000" chance="34" min="200" max="400">
+		<defense name="healing" chance="34" min="200" max="400">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>

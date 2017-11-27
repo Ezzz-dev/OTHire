@@ -14,23 +14,23 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="50" attack="30"/>
-		<attack name="fire" interval="1000" chance="50" range="7" min="-45" max="-75">
+		<attack name="melee" skill="50" attack="30"/>
+		<attack name="fire" chance="50" range="7" min="-45" max="-75">
 			<attribute key="shootEffect" value="fire"/>
 		</attack>
-		<attack name="djinn electrify" interval="1000" chance="34" range="7" min="-50" max="-90"/>
-		<attack name="lifedrain" interval="1000" chance="25" range="7" min="-55" max="-105">
+		<attack name="djinn electrify" chance="34" range="7" min="-50" max="-90"/>
+		<attack name="lifedrain" chance="25" range="7" min="-55" max="-105">
 			<attribute key="shootEffect" value="death"/>
 		</attack>
-		<attack name="drunk" interval="1000" chance="20" range="7" duration="30000">
+		<attack name="drunk" chance="20" range="7" duration="30000">
 			<attribute key="shootEffect" value="energy"/>
 			<attribute key="areaEffect" value="teleport"/>
 		</attack>
-		<attack name="outfit" interval="1000" chance="17" range="7" monster="rabbit" duration="20000">
+		<attack name="outfit" chance="17" range="7" monster="rabbit" duration="20000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
 	</attacks>

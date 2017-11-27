@@ -14,16 +14,16 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="30" attack="22"/>
-		<attack name="fire" interval="1000" chance="12" range="7" radius="4" target="1" min="-60" max="-90">
+		<attack name="melee" skill="30" attack="22"/>
+		<attack name="fire" chance="12" range="7" radius="4" target="1" min="-60" max="-90">
 			<attribute key="shootEffect" value="fire"/>
 			<attribute key="areaEffect" value="firearea"/>
 		</attack>
-		<attack name="fire" interval="1000" chance="25" range="7" radius="2" target="1" min="-20" max="-50">
+		<attack name="fire" chance="25" range="7" radius="2" target="1" min="-20" max="-50">
 			<attribute key="shootEffect" value="fire"/>
 			<attribute key="areaEffect" value="firearea"/>
 		</attack>

@@ -14,33 +14,33 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="50" attack="40"/>
-		<attack name="manadrain" interval="1000" chance="25" range="7" min="-25" max="-45">
+		<attack name="melee" skill="50" attack="40"/>
+		<attack name="manadrain" chance="25" range="7" min="-25" max="-45">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
-		<attack name="energy" interval="1000" chance="13" range="7" min="-70" max="-90">
+		<attack name="energy" chance="13" range="7" min="-70" max="-90">
 			<attribute key="shootEffect" value="energy"/>
 			<attribute key="areaEffect" value="energy"/>
 		</attack>
-		<attack name="physical" interval="1000" chance="10" range="7" min="-140" max="-180">
+		<attack name="physical" chance="10" range="7" min="-140" max="-180">
 			<attribute key="shootEffect" value="death"/>
 		</attack>
 	</attacks>
 	<defenses armor="15" defense="10">
-		<defense name="healing" interval="1000" chance="15" min="90" max="120">
+		<defense name="healing" chance="15" min="90" max="120">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-		<defense name="haste_fernfang" interval="1000" chance="7"/>
-		<defense name="outfit" interval="1000" chance="5" monster="war wolf" duration="14000">
+		<defense name="haste_fernfang" chance="7"/>
+		<defense name="outfit" chance="5" monster="war wolf" duration="14000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<summons maxSummons="3">
-		<summon name="War Wolf" interval="1000" chance="13" max="3"/>
+		<summon name="War Wolf" chance="13" max="3"/>
 	</summons>
 	<immunities>
 		<immunity paralyze="1"/>

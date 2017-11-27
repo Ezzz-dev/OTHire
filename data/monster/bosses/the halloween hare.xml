@@ -14,37 +14,37 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="outfit" interval="1000" chance="1" range="5" radius="4" target="1" monster="witch" duration="6000000">
+		<attack name="outfit" chance="1" range="5" radius="4" target="1" monster="witch" duration="6000000">
 			<attribute key="shootEffect" value="death"/>
 			<attribute key="areaEffect" value="poff"/>
 		</attack>
-		<attack name="outfit" interval="1000" chance="1" range="5" radius="4" target="1" monster="ghost" duration="6000000">
+		<attack name="outfit" chance="1" range="5" radius="4" target="1" monster="ghost" duration="6000000">
 			<attribute key="shootEffect" value="death"/>
 			<attribute key="areaEffect" value="poff"/>
 		</attack>
-		<attack name="outfit" interval="1000" chance="1" range="5" radius="4" target="1" item="2097" duration="6000000">
+		<attack name="outfit" chance="1" range="5" radius="4" target="1" item="2097" duration="6000000">
 			<attribute key="shootEffect" value="death"/>
 			<attribute key="areaEffect" value="poff"/>
 		</attack>
-		<attack name="outfit" interval="1000" chance="1" range="5" radius="4" target="1" monster="skeleton" duration="6000000">
+		<attack name="outfit" chance="1" range="5" radius="4" target="1" monster="skeleton" duration="6000000">
 			<attribute key="shootEffect" value="death"/>
 			<attribute key="areaEffect" value="poff"/>
 		</attack>
-		<attack name="outfit" interval="1000" chance="1" range="5" radius="4" target="1" monster="vampire" duration="6000000">
+		<attack name="outfit" chance="1" range="5" radius="4" target="1" monster="vampire" duration="6000000">
 			<attribute key="shootEffect" value="death"/>
 			<attribute key="areaEffect" value="poff"/>
 		</attack>
-		<attack name="outfit" interval="1000" chance="1" range="5" radius="4" target="1" monster="mummy" duration="6000000">
+		<attack name="outfit" chance="1" range="5" radius="4" target="1" monster="mummy" duration="6000000">
 			<attribute key="shootEffect" value="death"/>
 			<attribute key="areaEffect" value="poff"/>
 		</attack>
 	</attacks>
 	<defenses armor="999" defense="999">
-		<defense name="outfit" interval="1000" chance="100" monster="rabbit" duration="60000">
+		<defense name="outfit" chance="100" monster="rabbit" duration="60000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>

@@ -14,14 +14,14 @@
 		<flag canpushitems="0"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="10"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="46" attack="16"/>
+		<attack name="melee" skill="46" attack="16"/>
 	</attacks>
 	<defenses armor="9" defense="18">
-		<defense name="haste_wildwarrior" interval="1000" chance="6"/>
+		<defense name="haste_wildwarrior" chance="6"/>
 	</defenses>
 	<elements>
 	</elements>

@@ -14,30 +14,30 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="120" attack="80"/>
-		<attack name="manadrain" interval="1000" chance="13" range="7" min="-40" max="-100"/>
-		<attack name="fire" interval="1000" chance="34" range="7" radius="7" target="1" min="-110" max="-200">
+		<attack name="melee" skill="120" attack="80"/>
+		<attack name="manadrain" chance="13" range="7" min="-40" max="-100"/>
+		<attack name="fire" chance="34" range="7" radius="7" target="1" min="-110" max="-200">
 			<attribute key="shootEffect" value="fire"/>
 			<attribute key="areaEffect" value="firearea"/>
 		</attack>
-		<attack name="firefield" interval="1000" chance="15" range="7" radius="1" target="1">
+		<attack name="firefield" chance="15" range="7" radius="1" target="1">
 			<attribute key="shootEffect" value="fire"/>
 		</attack>
-		<attack name="energy" interval="1000" chance="10" length="8" spread="0" min="-300" max="-420">
+		<attack name="energy" chance="10" length="8" spread="0" min="-300" max="-420">
 			<attribute key="areaEffect" value="energy"/>
 		</attack>
 	</attacks>
 	<defenses armor="40" defense="65">
-		<defense name="healing" interval="1000" chance="15" min="90" max="150">
+		<defense name="healing" chance="15" min="90" max="150">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<summons maxSummons="1">
-		<summon name="fire elemental" interval="1000" chance="9" max="1"/>
+		<summon name="fire elemental" chance="9" max="1"/>
 	</summons>
 	<elements>
 		<element firePercent="100"/>

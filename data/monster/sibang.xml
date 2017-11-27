@@ -14,17 +14,17 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="33" attack="20"/>
-		<attack name="physical" interval="1000" checkshield="1" chance="25" range="7" min="-35" max="-55">
+		<attack name="melee" skill="33" attack="20"/>
+		<attack name="physical" checkshield="1" chance="25" range="7" min="-35" max="-55">
 			<attribute key="shootEffect" value="smallstone"/>
 		</attack>
 	</attacks>
 	<defenses armor="15" defense="32">
-		<defense name="haste_sibang" interval="1000" chance="12"/>
+		<defense name="haste_sibang" chance="12"/>
 	</defenses>
 	<elements>
 	</elements>

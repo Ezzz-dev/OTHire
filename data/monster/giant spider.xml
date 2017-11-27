@@ -14,20 +14,20 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="80" attack="65"/>
-		<attack name="poisonfield" interval="1000" chance="17" range="7" radius="1" target="1">
+		<attack name="melee" skill="80" attack="65"/>
+		<attack name="poisonfield" chance="17" range="7" radius="1" target="1">
 			<attribute key="shootEffect" value="poison"/>
 		</attack>
 	</attacks>
 	<defenses armor="30" defense="40">
-		<defense name="haste_giantspider" interval="1000" chance="6"/>
+		<defense name="haste_giantspider" chance="6"/>
 	</defenses>
 	<summons maxSummons="2">
-		<summon name="poison spider" interval="1000" chance="10" max="2"/>
+		<summon name="poison spider" chance="10" max="2"/>
 	</summons>
 	<elements>
 		<element firePercent="100"/>

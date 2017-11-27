@@ -14,13 +14,13 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="50" attack="32" poison="65"/>
-		<attack name="lifedrain" interval="1000" chance="15" range="1" min="-30" max="-40"/>
-		<attack name="paralyze_mummy" interval="1000" chance="8" range="7"/>
+		<attack name="melee" skill="50" attack="32" poison="65"/>
+		<attack name="lifedrain" chance="15" range="1" min="-30" max="-40"/>
+		<attack name="paralyze_mummy" chance="8" range="7"/>
 	</attacks>
 	<defenses armor="14" defense="32">
 	</defenses>

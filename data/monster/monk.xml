@@ -14,17 +14,17 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="55" attack="42"/>
+		<attack name="melee" skill="55" attack="42"/>
 	</attacks>
 	<defenses armor="25" defense="52">
-		<defense name="healing" interval="1000" chance="17" min="30" max="50">
+		<defense name="healing" chance="17" min="30" max="50">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-		<defense name="haste_monk" interval="1000" chance="10"/>
+		<defense name="haste_monk" chance="10"/>
 	</defenses>
 	<elements>
 	</elements>

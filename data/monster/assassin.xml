@@ -14,24 +14,24 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="45" attack="45"/>
-		<attack name="physical" interval="1000" checkshield="1" chance="13" range="7" min="-28" max="-38">
+		<attack name="melee" skill="45" attack="45"/>
+		<attack name="physical" checkshield="1" chance="13" range="7" min="-28" max="-38">
 			<attribute key="shootEffect" value="throwingstar"/>
 		</attack>
-		<attack name="drunk" interval="1000" chance="9" range="6" duration="3000">
+		<attack name="drunk" chance="9" range="6" duration="3000">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
 	</attacks>
 	<defenses armor="17" defense="40">
-		<defense name="invisible" interval="1000" chance="9" duration="2000">
+		<defense name="invisible" chance="9" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-		<defense name="haste_assassin" interval="1000" chance="9"/>
+		<defense name="haste_assassin" chance="9"/>
 	</defenses>
 	<elements>
 	</elements>

@@ -14,35 +14,35 @@
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
+		<flag staticattack="80"/>
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="1000" skill="35" attack="12"/>
-		<attack name="energy" interval="1000" chance="7" range="7" min="-15" max="-45">
+		<attack name="melee" skill="35" attack="12"/>
+		<attack name="energy" chance="7" range="7" min="-15" max="-45">
 			<attribute key="shootEffect" value="energy"/>
 		</attack>
-		<attack name="fire" interval="1000" chance="7" range="7" min="-25" max="-45">
+		<attack name="fire" chance="7" range="7" min="-25" max="-45">
 			<attribute key="shootEffect" value="fire"/>
 		</attack>
-		<attack name="physical" interval="1000" chance="8" range="7" min="-30" max="-50">
+		<attack name="physical" chance="8" range="7" min="-30" max="-50">
 			<attribute key="shootEffect" value="death"/>
 			<attribute key="areaEffect" value="mortarea"/>
 		</attack>
-		<attack name="poison" interval="1000" chance="8" range="7" min="-5" max="-45">
+		<attack name="poison" chance="8" range="7" min="-5" max="-45">
 			<attribute key="shootEffect" value="poison"/>
 		</attack>
-		<attack name="lifedrain" interval="1000" chance="6" range="7" min="-35" max="-45">
+		<attack name="lifedrain" chance="6" range="7" min="-35" max="-45">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
-		<attack name="manadrain" interval="1000" chance="5" range="7" min="-5" max="-25">
+		<attack name="manadrain" chance="5" range="7" min="-5" max="-25">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
 	</attacks>
 	<defenses armor="5" defense="20">
 	</defenses>
 	<summons maxSummons="6">
-		<summon name="skeleton" interval="1000" chance="12" max="6"/>
+		<summon name="skeleton" chance="12" max="6"/>
 	</summons>
 	<elements>
 		<element earthPercent="100"/>
