@@ -2359,6 +2359,7 @@ uint32_t Player::getIP() const
 void Player::sendToRook()
 {
 	setVocation(VOCATION_NONE);
+	storageMap.clear();
 	addStorageValue(g_config.getNumber(ConfigManager::STORAGE_SENDROOK), 1);
 
 	level = 1;
