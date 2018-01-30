@@ -218,7 +218,7 @@ int32_t Creature::getWalkDelay() const
 	//Used for auto-walking
 	if(lastStep != 0){
 		int64_t ct = OTSYS_TIME();
-		int64_t stepDuration = getStepDuration() * lastStepCost;
+		int64_t stepDuration = getStepDuration();
 		return stepDuration - (ct - lastStep);
 	}
 
@@ -1656,16 +1656,21 @@ int32_t Creature::getStepDuration() const
 
 	const Monster* monster = getMonster();
 	if (monster && !monster->isFleeing() && !monster->getMaster() && attackedCreature) {
-		const Position& targetPos = attackedCreature->getPosition();
-		const Position& creaturePos = getPosition();
-		int_fast32_t dx = std::abs(creaturePos.x - targetPos.x);
-		int_fast32_t dy = std::abs(creaturePos.y - targetPos.y);
-		if (dx <= 1 && dy <= 1) {
-			duration *= 2;
+		MonsterType* mType = g_monsters.getMonsterType(monster->getName());
+		if (mType->targetDistance > 1) {
+			const Position& targetPos = attackedCreature->getPosition();
+			const Position& creaturePos = getPosition();
+			int_fast32_t dx = std::abs(creaturePos.x - targetPos.x);
+			int_fast32_t dy = std::abs(creaturePos.y - targetPos.y);
+			if (dx <= 1 && dy <= 1) {
+				duration *= 2;
+			}
 		}
 	}
+	
+	
 
-	return duration;
+	return duration * lastStepCost;
 }
 
 int64_t Creature::getEventStepTicks(bool onlyDelay) const
@@ -1676,7 +1681,7 @@ int64_t Creature::getEventStepTicks(bool onlyDelay) const
 		if (onlyDelay)
 			ret = 1;
 		else
-			ret = getStepDuration() * lastStepCost;
+			ret = getStepDuration();
 	}
 
 	return ret;
