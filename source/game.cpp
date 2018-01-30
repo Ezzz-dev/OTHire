@@ -2372,7 +2372,7 @@ bool Game::playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPo
 	if(ret != RET_NOERROR){
 		if(ret == RET_TOOFARAWAY){
 			std::list<Direction> listDir;
-			if(getPathToEx(player, pos, listDir, 0, 1, true, true)){
+			if(getPathToEx(player, pos, listDir, 0, 1, true, true, 10)){
 				g_dispatcher.addTask(createTask(boost::bind(&Game::playerAutoWalk,
 					this, player->getID(), listDir)));
 
