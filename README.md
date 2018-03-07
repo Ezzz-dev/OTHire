@@ -11,6 +11,16 @@ It is a fork of the [OpenTibia Server](https://github.com/opentibia/server) proj
 * MySql_Schema.sql default `account // password` is `123456 // tibia`.
 * For more information check our [Wiki](https://github.com/TwistedScorpio/OTHire/wiki).
 
+#### Using Docker
+
+If you want, you can use Docker to compile it.
+
+```
+$ docker-compose build
+```
+
+It will start a Alpine container, install dependencies and compile the current code from `source/` into the container. Works on any machine with Docker installed.
+
 ### Issues and Support
 
 If you need help, please visit [our OTLand forum thread](https://otland.net/threads/7-72-othire-0-0-3.246964/).
