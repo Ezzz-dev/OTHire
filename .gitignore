@@ -29,3 +29,6 @@ client_assertions.txt
 mem_dump.txt
 report.txt
 player_reports.txt
+
+# IDE's
+.idea/
