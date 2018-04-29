@@ -31,8 +31,6 @@
 		<immunity lifedrain="1"/>
 		<immunity paralyze="1"/>
 	</immunities>
-	<voices interval="1000" chance="5">
-	</voices>
 	<loot>
 		<item id="2148" chance="40000" countmax="20"/><!-- 20 40% gold coin -->
 		<item id="2148" chance="30000" countmax="25"/><!-- 25 30% gold coin -->
