@@ -883,6 +883,7 @@ bool WeaponDistance::useWeapon(Player* player, Item* item, Creature* target) con
 		if(maxHitChance == 75){
 			//chance for one-handed weapons
 			switch(distance){
+				case 0: chance = (uint32_t)((float)std::min(skill, (uint32_t)74)) + 1; break;
 				case 1: chance = (uint32_t)((float)std::min(skill, (uint32_t)74)) + 1; break;
 				case 2: chance = (uint32_t)((float)2.4 * std::min(skill, (uint32_t)28)) + 8; break;
 				case 3: chance = (uint32_t)((float)1.55 * std::min(skill, (uint32_t)45)) + 6; break;
@@ -896,6 +897,7 @@ bool WeaponDistance::useWeapon(Player* player, Item* item, Creature* target) con
 		else if(maxHitChance == 90){
 			//formula for two-handed weapons
 			switch(distance){
+				case 0: chance = (uint32_t)((float)1.2 * std::min(skill, (uint32_t)74)) + 1; break;
 				case 1: chance = (uint32_t)((float)1.2 * std::min(skill, (uint32_t)74)) + 1; break;
 				case 2: chance = (uint32_t)((float)3.2 * std::min(skill, (uint32_t)28)); break;
 				case 3: chance = (uint32_t)((float)2.0 * std::min(skill, (uint32_t)45)); break;
@@ -908,6 +910,7 @@ bool WeaponDistance::useWeapon(Player* player, Item* item, Creature* target) con
 		}
 		else if(maxHitChance == 100){
 			switch(distance){
+				case 0: chance = (uint32_t)((float)1.35 * std::min(skill, (uint32_t)73)) + 1; break;
 				case 1: chance = (uint32_t)((float)1.35 * std::min(skill, (uint32_t)73)) + 1; break;
 				case 2: chance = (uint32_t)((float)3.2 * std::min(skill, (uint32_t)30)) + 4; break;
 				case 3: chance = (uint32_t)((float)2.05 * std::min(skill, (uint32_t)48)) + 2; break;
