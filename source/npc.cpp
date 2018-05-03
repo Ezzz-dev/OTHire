@@ -123,6 +123,7 @@ void Npc::reset()
 	hasScriptedFocus = false;
 	focusCreature = 0;
 	isIdle = true;
+	initialLookDir = NORTH;
 
 	delete m_npcEventHandler;
 	m_npcEventHandler = NULL;
