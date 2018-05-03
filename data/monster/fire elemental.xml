@@ -27,7 +27,7 @@
 			<attribute key="shootEffect" value="fire"/>
 		</attack>
 	</attacks>
-	<defenses armor="18" defense="20">
+	<defenses armor="18" defense="38">
 	</defenses>
 	<elements>
 		<element firePercent="100"/>

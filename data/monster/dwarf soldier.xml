@@ -23,7 +23,7 @@
 			<attribute key="shootEffect" value="bolt"/>
 		</attack>
 	</attacks>
-	<defenses armor="9" defense="20">
+	<defenses armor="9" defense="42">
 	</defenses>
 	<elements>
 		<element earthPercent="100"/>

@@ -27,7 +27,7 @@
 			<attribute key="areaEffect" value="poff"/>
 		</attack>
 	</attacks>
-	<defenses armor="28" defense="43">
+	<defenses armor="28" defense="169">
 	</defenses>
 	<elements>
 		<element energyPercent="100"/>

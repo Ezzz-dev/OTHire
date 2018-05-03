@@ -26,7 +26,7 @@
 			<attribute key="shootEffect" value="bolt"/>
 		</attack>
 	</attacks>
-	<defenses armor="17" defense="16">
+	<defenses armor="17" defense="97">
 		<defense name="healing" chance="15" min="25" max="75">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</defense>

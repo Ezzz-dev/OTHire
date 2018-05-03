@@ -23,7 +23,7 @@
 			<attribute key="shootEffect" value="largerock"/>
 		</attack>
 	</attacks>
-	<defenses armor="50" defense="65">
+	<defenses armor="50" defense="357">
 		<defense name="haste_behemoth" chance="7"/>
 	</defenses>
 	<elements>

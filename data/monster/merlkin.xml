@@ -31,7 +31,7 @@
 			<attribute key="shootEffect" value="energy"/>
 		</attack>
 	</attacks>
-	<defenses armor="16" defense="40">
+	<defenses armor="16" defense="50">
 		<defense name="healing" chance="9" min="10" max="40">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>

@@ -23,7 +23,7 @@
 			<attribute key="shootEffect" value="arrow"/>
 		</attack>
 	</attacks>
-	<defenses armor="8" defense="10">
+	<defenses armor="8" defense="9">
 	</defenses>
 	<elements>
 	</elements>

@@ -21,7 +21,7 @@
 		<attack name="melee" skill="40" attack="30"/>
 		<attack name="lifedrain" chance="17" range="1" min="-20" max="-30"/>
 	</attacks>
-	<defenses armor="14" defense="20">
+	<defenses armor="14" defense="40">
 		<defense name="invisible" chance="25" duration="30000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>

@@ -30,7 +30,7 @@
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
 	</attacks>
-	<defenses armor="40" defense="45">
+	<defenses armor="40" defense="168">
 		<defense name="healing" chance="12" min="30" max="60">
 			<attribute key="areaEffect" value="greenspark"/>
 		</defense>

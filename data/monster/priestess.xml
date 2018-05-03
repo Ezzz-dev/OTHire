@@ -26,7 +26,7 @@
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
 	</attacks>
-	<defenses armor="30" defense="50">
+	<defenses armor="30" defense="62">
 	    <defense name="healing" chance="15" min="34" max="56">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>

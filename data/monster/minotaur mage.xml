@@ -31,7 +31,7 @@
 			<attribute key="shootEffect" value="energy"/>
 		</attack>
 	</attacks>
-	<defenses armor="18" defense="40">
+	<defenses armor="18" defense="36">
 	</defenses>
 	<elements>
 		<element energyPercent="100"/>

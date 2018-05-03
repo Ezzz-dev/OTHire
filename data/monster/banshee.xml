@@ -25,7 +25,7 @@
 			<attribute key="areaEffect" value="rednote"/>
 		</attack>
 	</attacks>
-	<defenses armor="25" defense="65">
+	<defenses armor="25" defense="146">
 	    <defense name="healing" chance="25" min="113" max="187">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>

@@ -26,7 +26,7 @@
 			<attribute key="shootEffect" value="fire"/>
 		</attack>
 	</attacks>
-	<defenses armor="8" defense="12">
+	<defenses armor="8" defense="10">
 	</defenses>
 	<elements>
 		<element earthPercent="100"/>

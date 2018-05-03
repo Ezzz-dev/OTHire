@@ -23,7 +23,7 @@
 			<attribute key="shootEffect" value="largerock"/>
 		</attack>
 	</attacks>
-	<defenses armor="15" defense="25">
+	<defenses armor="15" defense="131">
 		<defense name="healing" chance="25" min="100" max="150">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>

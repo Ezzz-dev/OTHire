@@ -20,7 +20,7 @@
 	<attacks>
 		<attack name="melee" skill="46" attack="16"/>
 	</attacks>
-	<defenses armor="9" defense="18">
+	<defenses armor="9" defense="41">
 		<defense name="haste_wildwarrior" chance="6"/>
 	</defenses>
 	<elements>

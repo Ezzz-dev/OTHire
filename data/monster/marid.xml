@@ -38,7 +38,7 @@
 		</attack>
 		<attack name="djinn electrify area" chance="17" min="-60" max="-100"/>
 	</attacks>
-	<defenses armor="24" defense="35">
+	<defenses armor="24" defense="96">
 		<defense name="healing" chance="15" min="50" max="80">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>

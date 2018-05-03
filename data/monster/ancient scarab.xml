@@ -35,7 +35,7 @@
 	<summons maxSummons="3">
 		<summon name="larva" chance="15" max="3"/>
 	</summons>
-	<defenses armor="36" defense="33">
+	<defenses armor="36" defense="132">
 		<defense name="haste_ancientscarab" chance="8"/>
 	</defenses>
 	<elements>

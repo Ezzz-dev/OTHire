@@ -20,7 +20,7 @@
 	<attacks>
 		<attack name="melee" skill="5" attack="0"/>
 	</attacks>
-	<defenses armor="0" defense="14">
+	<defenses armor="0" defense="3">
 	</defenses>
 	<elements>
 	</elements>

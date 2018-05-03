@@ -24,7 +24,7 @@
 		</attack>
 		<attack name="paralyze_vashresamun" chance="13" range="7"/>
 	</attacks>
-	<defenses armor="20" defense="35">
+	<defenses armor="20" defense="225">
 		<defense name="healing" chance="20" min="60" max="450">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>

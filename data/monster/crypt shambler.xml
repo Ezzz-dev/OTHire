@@ -21,7 +21,7 @@
 		<attack name="melee" skill="60" attack="39"/>
 		<attack name="lifedrain" chance="13" range="1" min="-25" max="-55"/>
 	</attacks>
-	<defenses armor="30" defense="25">
+	<defenses armor="30" defense="75">
 	</defenses>
 	<elements>
 		<element earthPercent="100"/>

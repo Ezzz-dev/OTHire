@@ -20,7 +20,7 @@
 	<attacks>
 		<attack name="melee" skill="30" attack="24" poison="22"/>
 	</attacks>
-	<defenses armor="8" defense="9">
+	<defenses armor="8" defense="13">
 	</defenses>
 	<elements>
 		<element earthPercent="100"/>

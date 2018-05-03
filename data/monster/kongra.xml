@@ -20,7 +20,7 @@
 	<attacks>
 		<attack name="melee" skill="40" attack="30"/>
 	</attacks>
-	<defenses armor="18" defense="14">
+	<defenses armor="18" defense="28">
 		<defense name="haste_kongra" chance="7"/>
 	</defenses>
 	<elements>

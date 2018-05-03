@@ -28,7 +28,7 @@
 			<attribute key="shootEffect" value="poison"/>
 		</attack>
 	</attacks>
-	<defenses armor="17" defense="21">
+	<defenses armor="17" defense="360">
 		<defense name="healing" chance="17" min="225" max="275">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>

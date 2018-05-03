@@ -22,7 +22,7 @@
 		<attack name="lifedrain" chance="15" range="1" min="-30" max="-40"/>
 		<attack name="paralyze_mummy" chance="8" range="7"/>
 	</attacks>
-	<defenses armor="14" defense="32">
+	<defenses armor="14" defense="57">
 	</defenses>
 	<elements>
 		<element earthPercent="100"/>

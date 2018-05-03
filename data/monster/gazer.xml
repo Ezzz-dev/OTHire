@@ -26,7 +26,7 @@
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
 	</attacks>
-	<defenses armor="4" defense="15">
+	<defenses armor="4" defense="18">
 		<defense name="haste_gazer" chance="9"/>
 	</defenses>
 	<elements>

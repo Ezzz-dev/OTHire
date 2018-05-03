@@ -28,7 +28,7 @@
 			<attribute key="areaEffect" value="poison"/>
 		</attack>
 	</attacks>
-	<defenses armor="30" defense="31">
+	<defenses armor="30" defense="40">
 		<defense name="ultimate healing" interval="1200" chance="35" min="600" max="800"/>
 	</defenses>
 		<elements>

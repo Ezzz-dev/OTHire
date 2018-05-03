@@ -20,7 +20,7 @@
 	<attacks>
 		<attack name="melee" skill="45" attack="24"/>
 	</attacks>
-	<defenses armor="26" defense="30">
+	<defenses armor="26" defense="67">
 	    <defense name="healing" chance="10" min="5" max="15">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>

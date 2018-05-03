@@ -563,7 +563,7 @@ int32_t Player::getDefense() const
 		defenseValue = int32_t(defenseValue * vocation->getBaseDefense());
 	}
 
-	return ((int32_t)std::ceil(((float)(defenseSkill * (defenseValue * 0.015)) + (defenseValue * 0.1)) * defenseFactor));
+	return ((int32_t)std::floor(((float)(defenseSkill * (defenseValue * 0.05))) * defenseFactor));
 }
 
 float Player::getAttackFactor() const

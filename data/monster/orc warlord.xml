@@ -23,7 +23,7 @@
 			<attribute key="shootEffect" value="throwingstar"/>
 		</attack>
 	</attacks>
-	<defenses armor="28" defense="55">
+	<defenses armor="28" defense="198">
 		<defense name="invisible" chance="4" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>

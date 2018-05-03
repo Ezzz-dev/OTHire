@@ -20,7 +20,7 @@
 	<attacks>
 		<attack name="melee" skill="50" attack="65"/>
 	</attacks>
-	<defenses armor="12" defense="12">
+	<defenses armor="12" defense="30">
 		<defense name="haste_orcberserker" chance="9"/>
 	</defenses>
 	<elements>

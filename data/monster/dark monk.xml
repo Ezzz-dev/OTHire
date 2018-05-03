@@ -21,7 +21,7 @@
 		<attack name="melee" skill="50" attack="37"/>
 		<attack name="lifedrain" chance="12" range="1" min="-25" max="-49"/>
 	</attacks>
-	<defenses armor="22" defense="43">
+	<defenses armor="22" defense="107">
 		<defense name="healing" chance="12" min="25" max="49">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>

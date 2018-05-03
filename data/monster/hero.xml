@@ -23,7 +23,7 @@
 			<attribute key="shootEffect" value="arrow"/>
 		</attack>
 	</attacks>
-	<defenses armor="35" defense="50">
+	<defenses armor="35" defense="200">
 		<defense name="healing" chance="10" min="200" max="250">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>

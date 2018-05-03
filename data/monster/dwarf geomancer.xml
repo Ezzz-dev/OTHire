@@ -24,7 +24,7 @@
 		</attack>
 		<attack name="manadrain" chance="25" range="7" min="-50" max="-80"/>
 	</attacks>
-	<defenses armor="15" defense="35">
+	<defenses armor="15" defense="87">
 		<defense name="healing" chance="50" min="75" max="125">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>

@@ -23,7 +23,7 @@
 			<attribute key="shootEffect" value="smallstone"/>
 		</attack>
 	</attacks>
-	<defenses armor="6" defense="8">
+	<defenses armor="6" defense="6">
 	</defenses>
 	<elements>
 	</elements>

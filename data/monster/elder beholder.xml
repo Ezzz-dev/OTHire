@@ -43,7 +43,7 @@
 		</attack>
 		<attack name="paralyze_elderbeholder" chance="10" range="7"/>
 	</attacks>
-	<defenses armor="13" defense="26">
+	<defenses armor="13" defense="58">
 	</defenses>
 	<summons maxSummons="6">
 		<summon name="gazer" chance="13" max="6"/>

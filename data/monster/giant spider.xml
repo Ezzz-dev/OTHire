@@ -23,7 +23,7 @@
 			<attribute key="shootEffect" value="poison"/>
 		</attack>
 	</attacks>
-	<defenses armor="30" defense="40">
+	<defenses armor="30" defense="160">
 		<defense name="haste_giantspider" chance="6"/>
 	</defenses>
 	<summons maxSummons="2">

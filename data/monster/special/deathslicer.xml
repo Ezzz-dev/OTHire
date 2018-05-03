@@ -23,7 +23,7 @@
 			<attribute key="areaEffect" value="yellowspark"/>
 		</attack>
 	</attacks>
-	<defenses armor="199" defense="199"/>
+	<defenses armor="199" defense="1094">
 		<elements>
 		<element physicalPercent="100"/><element deathPercent="100"/>
 		<element energyPercent="100"/>

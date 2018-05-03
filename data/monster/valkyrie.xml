@@ -23,7 +23,7 @@
 			<attribute key="shootEffect" value="spear"/>
 		</attack>
 	</attacks>
-	<defenses armor="12" defense="14">
+	<defenses armor="12" defense="24">
 	</defenses>
 	<elements>
 	</elements>
