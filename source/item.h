@@ -342,6 +342,7 @@ public:
 	bool isLevelDoor() const {return items[id].isLevelDoor();}
 	bool hasCharges() const {return getCharges() > 0;}
 	bool isSolidForItems() const { return items[id].isSolidForItems(); }
+	bool isCorpse() const { return items[id].corpseType != 0; }
 
 	bool floorChangeDown() const {return items[id].floorChangeDown;}
 	bool floorChangeNorth() const {return items[id].floorChangeNorth;}

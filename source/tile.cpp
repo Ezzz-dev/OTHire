@@ -743,7 +743,7 @@ ReturnValue Tile::__queryAdd(int32_t index, const Thing* thing, uint32_t count,
 						//
 					}
 					else if(iiType.blockSolid || iiType.isSolidForItems()){
-						if(item->isPickupable()){
+						if(item->isPickupable() || item->isCorpse()){
 							if(iiType.allowPickupable){
 								continue;
 							}
