@@ -258,6 +258,8 @@ public:
 	const Position& getTilePosition() const {return tilePos;}
 
 	virtual bool isRemoved() const {return false;};
+	
+	int32_t getHeight();
 
 private:
 	void onAddTileItem(Item* item);

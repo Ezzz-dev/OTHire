@@ -205,6 +205,7 @@ bool ConfigManager::loadFile(const std::string& _filename)
 	m_confInteger[CONTAINER_ITEMS_AUTO_STACK] = getGlobalBoolean(L, "container_items_auto_stack", false);
 	m_confInteger[KILLS_TO_BAN] = getGlobalNumber(L, "kills_to_ban", 20);
 	m_confInteger[MAX_PACKETS_PER_SECOND] = getGlobalNumber(L, "max_packets_per_second", 25);
+	m_confInteger[PARCEL_BLOCK] = getGlobalBoolean(L, "parcel_block", false);
 	
 	m_isLoaded = true;
 	return true;

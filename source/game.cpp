@@ -1036,6 +1036,15 @@ ReturnValue Game::internalMoveCreature(Creature* creature, Cylinder* fromCylinde
 		return ret;
 	}
 
+	//height check
+	if (g_config.getNumber(ConfigManager::PARCEL_BLOCK)) {
+		Tile* toTile = toCylinder->getTile();
+		Tile* fromTile = fromCylinder->getTile();
+		if(toTile->getHeight() - fromTile->getHeight() >= 2) {
+			return RET_NOTPOSSIBLE;
+		}
+	}
+
 	fromCylinder->getTile()->moveCreature(creature, toCylinder);
 
 	if(creature->getParent() == toCylinder){

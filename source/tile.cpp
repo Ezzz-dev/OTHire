@@ -1566,6 +1566,25 @@ void Tile::__internalAddThing(uint32_t index, Thing* thing)
 	}
 }
 
+int32_t Tile::getHeight() {
+    int32_t height = 0;
+    if(ground) {
+        if(ground->hasProperty(HASHEIGHT)) {
+            ++height;
+        }
+    }
+ 
+    if(const TileItemVector* items = getItemList()) {
+        for(ItemVector::const_iterator it = items->begin(); it != items->end(); ++it) {
+            if((*it)->hasProperty(HASHEIGHT)) {
+                ++height;
+            }
+        }
+    }
+ 
+    return height;
+}
+
 void Tile::updateTileFlags(Item* item, bool removed)
 {
 	if(!removed){
