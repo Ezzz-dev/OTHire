@@ -24,7 +24,8 @@
 		</attack>
 	</attacks>
 	<defenses armor="199" defense="1094">
-		<elements>
+	</defenses>
+	<elements>
 		<element physicalPercent="100"/><element deathPercent="100"/>
 		<element energyPercent="100"/>
 		<element earthPercent="100"/>
