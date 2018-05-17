@@ -138,10 +138,12 @@
 	<action itemid="3927" script="furniture_package.lua"/>
 	<action itemid="3928" script="furniture_package.lua"/>
 	<action itemid="3929" script="furniture_package.lua"/>
-
+	<action itemid="3930" script="furniture_package.lua"/>
+	
 	<action itemid="3931" script="furniture_package.lua"/>
 	<action itemid="3932" script="furniture_package.lua"/>
 	<action itemid="3933" script="furniture_package.lua"/>
+	<action itemid="3934" script="furniture_package.lua"/>
 	<action itemid="3935" script="furniture_package.lua"/>
 	<action itemid="3936" script="furniture_package.lua"/>
 	<action itemid="3937" script="furniture_package.lua"/>
