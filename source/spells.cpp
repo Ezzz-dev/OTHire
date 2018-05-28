@@ -62,7 +62,6 @@ TalkActionResult_t Spells::playerSaySpell(Player* player, SpeakClasses type, std
 	if (!instantSpell){
 		return TALKACTION_CONTINUE;
 	}
-
 	std::string param = "";
 
 	if (instantSpell->getHasParam()){
@@ -71,22 +70,17 @@ TalkActionResult_t Spells::playerSaySpell(Player* player, SpeakClasses type, std
 		std::string paramText = str_words.substr(spellLen, paramLen);
 
 		if (!paramText.empty() && paramText[0] == ' '){
-			size_t loc1 = paramText.find('"', 0);
-			size_t loc2 = std::string::npos;
-
-			// if found first apostrophe
-			if (loc1 != std::string::npos){
-				// search for ending apostrophe
-				loc2 = paramText.find('"', loc1 + 1);
+			size_t quote = paramText.find('"', 1);
+			if(quote != std::string::npos) {
+				size_t tmp = paramText.find('"', quote + 1);
+				if(tmp == std::string::npos)
+					tmp = paramText.length();
+	 
+				param = paramText.substr(quote + 1, tmp - quote - 1);
 			}
-
-			// if ending apostrophe not found
-			if (loc2 == std::string::npos){
-				// rest of the text is param
-				loc2 = paramText.length();
+			else if(paramText.find(' ', 1) == std::string::npos) {
+				param = paramText.substr(1, paramText.length());
 			}
-
-			param = paramText.substr(loc1 + 1, loc2 - loc1 - 1);
 
 			trim_left(param, " ");
 			trim_right(param, " ");
@@ -246,33 +240,26 @@ RuneSpell* Spells::getRuneSpellByName(const std::string& name)
 
 InstantSpell* Spells::getInstantSpell(const std::string& words)
 {
-	InstantSpell* result = NULL;
-	for(InstantsMap::iterator it = instants.begin(); it != instants.end(); ++it){
-		InstantSpell* instantSpell = it->second;
-		size_t spellLen = instantSpell->getWords().length();
+    InstantSpell* result = NULL;
+    for(InstantsMap::iterator it = instants.begin(); it != instants.end(); ++it)
+    {
+        InstantSpell* instantSpell = it->second;
+        if(!asLowerCaseString(words).compare(0, instantSpell->getWords().length(),
+            asLowerCaseString(instantSpell->getWords())))
+        {
+            if(!result || instantSpell->getWords().length() > result->getWords().length())
+                result = instantSpell;
+        }
+    }
 
-		if(asLowerCaseString(words).compare(0, spellLen, asLowerCaseString(instantSpell->getWords())) == 0){
-			if(!result || spellLen > result->getWords().length()){
-				result = instantSpell;
-			}
-		}
-	}
+    if(result && words.length() > result->getWords().length())
+    {
+        std::string param = words.substr(result->getWords().length(), words.length());
+        if(param[0] != ' ' || (param.length() > 1 && (!result->getHasParam() || param.find(' ', 1) != std::string::npos) && param[1] != '"'))
+            return NULL;
+    }
 
-	if(result){
-		if(words.length() > result->getWords().length()){
-			size_t spellLen = result->getWords().length();
-			size_t paramLen = words.length() - spellLen;
-			std::string paramText = words.substr(spellLen, paramLen);
-
-			if(paramText.substr(0, 1) != " " || (paramText.length() >= 2 && paramText.substr(0, 2) != " \"")){
-				return NULL;
-			}
-		}
-
-		return result;
-	}
-
-	return NULL;
+    return result;
 }
 
 uint32_t Spells::getInstantSpellCount(const Player* player)
