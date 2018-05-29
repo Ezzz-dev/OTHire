@@ -1040,7 +1040,7 @@ ReturnValue Game::internalMoveCreature(Creature* creature, Cylinder* fromCylinde
 	if (g_config.getNumber(ConfigManager::PARCEL_BLOCK)) {
 		Tile* toTile = toCylinder->getTile();
 		Tile* fromTile = fromCylinder->getTile();
-		if(toTile->getHeight() - fromTile->getHeight() >= 2) {
+		if(toTile->getHeight() - fromTile->getHeight() >= 2 && toTile->getPosition().z == fromTile->getPosition().z) {
 			return RET_NOTPOSSIBLE;
 		}
 	}

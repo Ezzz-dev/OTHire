@@ -1582,7 +1582,7 @@ int32_t Tile::getHeight() {
         }
     }
  
-    return height;
+    return std::min(height, 4);
 }
 
 void Tile::updateTileFlags(Item* item, bool removed)
