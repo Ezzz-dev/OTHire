@@ -849,7 +849,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 	else if (it.isSplash()){
 		s << " of ";
 		if (item && item->getFluidType() != 0){
-			s << items[item->getFluidType()].name;
+			s << items[item->getFluidType()].name << ".";
 		}
 		else{
 			s << items[1].name;
@@ -867,7 +867,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 		}
 	}
 	else if (it.allowDistRead){
-		s << std::endl;
+		s << "." << std::endl;
 
 		if (item && item->getText() != ""){
 			if (lookDistance <= 4){
