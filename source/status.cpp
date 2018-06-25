@@ -191,8 +191,7 @@ std::string Status::getStatusString() const
 
 	// npcs
 	p = xmlNewNode(NULL,(const xmlChar*)"npcs");
-	sprintf(buffer, "%d", g_game.getNpcsOnline());
-	xmlSetProp(p, (const xmlChar*)"total", (const xmlChar*)buffer);
+	addXMLProperty(p, "total", g_game.getNpcsOnline());
 	xmlAddChild(root, p);
 
 	// map
