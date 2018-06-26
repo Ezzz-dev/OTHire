@@ -3159,6 +3159,9 @@ bool Game::playerInviteToParty(uint32_t playerId, uint32_t invitedId)
 	if(!invitedPlayer || invitedPlayer->isRemoved() || invitedPlayer->isInviting(player)){
 		return false;
 	}
+	
+	if(playerId == inviteId)
+		return;
 
 	if(invitedPlayer->getParty()){
 		std::stringstream ss;
