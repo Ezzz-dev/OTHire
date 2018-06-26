@@ -3160,8 +3160,8 @@ bool Game::playerInviteToParty(uint32_t playerId, uint32_t invitedId)
 		return false;
 	}
 	
-	if(playerId == inviteId)
-		return;
+	if(playerId == invitedId)
+		return false;
 
 	if(invitedPlayer->getParty()){
 		std::stringstream ss;
