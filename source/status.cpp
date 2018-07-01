@@ -189,6 +189,11 @@ std::string Status::getStatusString() const
 	addXMLProperty(p, "total", g_game.getMonstersOnline());
 	xmlAddChild(root, p);
 
+	// npcs
+	p = xmlNewNode(NULL,(const xmlChar*)"npcs");
+	addXMLProperty(p, "total", g_game.getNpcsOnline());
+	xmlAddChild(root, p);
+
 	// map
 	uint32_t mapWidth, mapHeight;
 	g_game.getMapDimensions(mapWidth, mapHeight);
