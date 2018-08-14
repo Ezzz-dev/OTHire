@@ -838,7 +838,7 @@ int32_t Player::getDefaultStats(stats_t stat)
 
 int32_t Player::getStepSpeed() const
 {
-	if(getSpeed() > PLAYER_MAX_SPEED){
+	if(getSpeed() > PLAYER_MAX_SPEED || hasFlag(PlayerFlag_SetMaxSpeed)){
 		return PLAYER_MAX_SPEED;
 	}
 	else if(getSpeed() < PLAYER_MIN_SPEED){
