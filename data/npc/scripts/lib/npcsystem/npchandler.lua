@@ -1,36 +1,36 @@
--- This file is part of Jiddo's advanced NpcSystem v3.0x. This npcsystem is free to use by anyone, for any purpuse. 
+-- This file is part of Jiddo's advanced NpcSystem v3.0x. This NpcSystem is free to use by anyone, for any purpose. 
 -- Initial release date: 2007-02-21
 -- Credits: Jiddo, honux(I'm using a modified version of his Find function).
--- Please include full credits whereever you use this system, or parts of it.
+-- Please include full credits where ever you use this system, or parts of it.
 -- For support, questions and updates, please consult the following thread:
 -- http://opentibia.net/topic/59592-release-advanced-npc-system-v30a/
 
 if(NpcHandler == nil) then
 	
-	-- Constant talkdelay behaviors.
-	TALKDELAY_NONE = 0 -- No talkdelay. Npc will reply immedeatly.
-	TALKDELAY_ONTHINK = 1 -- Talkdelay handled through the onThink callback function. (Default)
+	-- Constant talkDelay behaviors.
+	TALKDELAY_NONE = 0 -- No talkDelay. NPC will reply immediately.
+	TALKDELAY_ONTHINK = 1 -- talkDelay handled through the onThink callback function. (Default)
 	TALKDELAY_EVENT = 2 -- Not yet implemented
 	
-	-- Currently applied talkdelay behavior. TALKDELAY_ONTHINK is default.
+	-- Currently applied talkDelay behavior. TALKDELAY_ONTHINK is default.
 	NPCHANDLER_TALKDELAY = TALKDELAY_ONTHINK
 	
 	
 	
 	-- Constant indexes for defining default messages.
-	MESSAGE_GREET 		= 1 -- When the player greets the npc.
-	MESSAGE_FAREWELL 	= 2 -- When the player unGreets the npc.
-	MESSAGE_BUY 		= 3 -- When the npc asks the player if he wants to buy something.
-	MESSAGE_SELL 		= 4 -- When the npc asks the player if he wants to sell something.
+	MESSAGE_GREET 		= 1 -- When the player greets the NPC.
+	MESSAGE_FAREWELL 	= 2 -- When the player unGreets the NPC.
+	MESSAGE_BUY 		= 3 -- When the NPC asks the player if he wants to buy something.
+	MESSAGE_SELL 		= 4 -- When the NPC asks the player if he wants to sell something.
 	MESSAGE_ONBUY 		= 5 -- When the player successfully buys something
 	MESSAGE_ONSELL 		= 6 -- When the player successfully sells something
 	MESSAGE_NEEDMOREMONEY = 7 -- When the player does not have enough money
 	MESSAGE_NOTHAVEITEM = 8 -- When the player is trying to sell an item he does not have.
 	MESSAGE_IDLETIMEOUT = 9 -- When the player has been idle for longer then idleTime allows.
-	MESSAGE_WALKAWAY 	= 10 -- When the player walks out of the talkRadius of the npc.
-	MESSAGE_ALREADYFOCUSED = 11 -- When the player already has the focus of this nopc.
+	MESSAGE_WALKAWAY 	= 10 -- When the player walks out of the talkRadius of the NPC.
+	MESSAGE_ALREADYFOCUSED = 11 -- When the player already has the focus of this NPC.
 	MESSAGE_PLACEDINQUEUE = 12 -- When the player has been placed in the costumer queue. 
-	MESSAGE_DECLINE 	= 13 -- When the player sais no to something.
+	MESSAGE_DECLINE 	= 13 -- When the player says no to something.
 	
 	-- Constant indexes for callback functions. These are also used for module callback ids.
 	CALLBACK_CREATURE_APPEAR 	= 1
@@ -41,7 +41,7 @@ if(NpcHandler == nil) then
 	CALLBACK_FAREWELL 			= 6
 	CALLBACK_MESSAGE_DEFAULT 	= 7
 	
-	-- Addidional module callback ids
+	-- Additional module callback IDs
 	CALLBACK_MODULE_INIT		= 10
 	CALLBACK_MODULE_RESET		= 11
 	
@@ -63,12 +63,13 @@ if(NpcHandler == nil) then
 		talkStart = 0,
 		idleTime = 30,
 		talkRadius = 5,
-		talkDelayTime = 1, -- Seconds to delay outgoing messages.
 		talkDelay = nil,
+		talkEvent = nil,
 		callbackFunctions = nil,
 		modules = nil,
 		messages = {
-				-- These are the default replies of all npcs. They can/should be changed individually for each npc.
+		
+			-- These are the default replies of all NPC's. They can/should be changed individually for each NPC.
 			[MESSAGE_GREET] 		= 'Welcome, |PLAYERNAME|! I have been expecting you.',
 			[MESSAGE_FAREWELL] 		= 'Good bye, |PLAYERNAME|!',
 			[MESSAGE_BUY] 			= 'Do you want to buy |ITEMCOUNT| |ITEMNAME| for |TOTALCOST| gold coins?',
@@ -95,6 +96,7 @@ if(NpcHandler == nil) then
 				message = nil,
 				time = nil
 			}
+        obj.talkEvent = {}
 		obj.queue = Queue:new(obj)
 		obj.keywordHandler = keywordHandler
 		obj.messages = {}
@@ -111,32 +113,35 @@ if(NpcHandler == nil) then
 		self.idleTime = newTime
 	end
 	
-	-- Attaches a new costumer queue to this npchandler.
+	-- Attaches a new costumer queue to this npcHandler.
 	function NpcHandler:setQueue(newQueue)
 		self.queue = newQueue
 		self.queue:setHandler(self)
 	end
 	
-	-- Attackes a new keyword handler to this npchandler
+	-- Attaches a new keyword handler to this npcHandler
 	function NpcHandler:setKeywordHandler(newHandler)
 		self.keywordHandler = newHandler
 	end
 	
-	-- Function used to change the focus of this npc. 
+	-- Function used to change the focus of this NPC. 
 	function NpcHandler:changeFocus(newFocus)
 		self.focus = newFocus
 		self:updateFocus()
 	end
 	
-	-- This function should be called on each onThink and makes sure the npc faces the player it is talking to.
+	-- This function should be called on each onThink and makes sure the NPC faces the player it is talking to.
 	--	Should also be called whenever a new player is focused.
 	function NpcHandler:updateFocus()
 		doNpcSetCreatureFocus(self.focus)
 	end
 	
-	-- Used when the npc should un-focus the player. 
+	-- Used when the NPC should release focus from the player. 
 	function NpcHandler:releaseFocus()
-		self:changeFocus(0)
+		if self.talkEvent[self.focus] then
+			self:cancelStory(self.talkEvent[self.focus])
+		end	
+		return self:changeFocus(0)
 	end
 	
 	-- Returns the callback function with the specified id or nil if no such callback function exists.
@@ -155,7 +160,7 @@ if(NpcHandler == nil) then
 		end
 	end
 	
-	-- Adds a module to this npchandler and inits it.
+	-- Adds a module to this npcHandler and initiates it.
 	function NpcHandler:addModule(module)
 		if(self.modules ~= nil) then
 			table.insert(self.modules, module)
@@ -163,7 +168,7 @@ if(NpcHandler == nil) then
 		end
 	end
 	
-	-- Calls the callback function represented by id for all modules added to this npchandler with the given arguments.
+	-- Calls the callback function represented by id for all modules added to this npcHandler with the given arguments.
 	function NpcHandler:processModuleCallback(id, ...)
 		local ret = true
 		for i, module in pairs(self.modules) do
@@ -216,7 +221,7 @@ if(NpcHandler == nil) then
 		end
 	end
 	
-	-- Translates all message tags found in msg using parseInfo
+	-- Translates all message tags found in MSG using parseInfo
 	function NpcHandler:parseMessage(msg, parseInfo)
 		local ret = msg
 		for search, replace in pairs(parseInfo) do
@@ -225,7 +230,7 @@ if(NpcHandler == nil) then
 		return ret
 	end
 	
-	-- Makes sure the npc un-focuses the furrently focused player, and greets the next player in the queue is it is not empty.
+	-- Makes sure the NPC unfocused the currently focused player, and greets the next player in the queue is it is not empty.
 	function NpcHandler:unGreet()
 		if(self.focus == 0) then
 			return
@@ -324,8 +329,12 @@ if(NpcHandler == nil) then
 				if(self.focus ~= 0) then
 					if(not self:isInRange(self.focus)) then
 						self:onWalkAway(self.focus)
-					elseif(os.time()-self.talkStart > self.idleTime) then
-						self:unGreet()
+					elseif(os.time() - self.talkStart > self.idleTime) then
+						if self.queue:greetNext() then 
+							self.talkStart = self.talkStart + self.idleTime
+						else
+							self:unGreet()
+						end
 					else
 						self:updateFocus()
 					end
@@ -334,7 +343,7 @@ if(NpcHandler == nil) then
 		end
 	end
 	
-	-- Tries to greet the player iwth the given cid. This function does not override queue order, current focus etc.
+	-- Tries to greet the player with the given CID. This function does not override queue order, current focus etc.
 	function NpcHandler:onGreet(cid)
 		if(self:isInRange(cid)) then
 			if(self.focus == 0) then
@@ -348,6 +357,11 @@ if(NpcHandler == nil) then
 				if(not self.queue:isInQueue(cid)) then
 					self.queue:push(cid)
 				end
+				
+				if self.talkEvent[self.focus] then
+					return 
+				end
+				
 				local msg = self:getMessage(MESSAGE_PLACEDINQUEUE)
 				local parseInfo = { [TAG_PLAYERNAME] = getPlayerName(cid), [TAG_QUEUESIZE] = self.queue:getSize() }
 				msg = self:parseMessage(msg, parseInfo)
@@ -361,7 +375,7 @@ if(NpcHandler == nil) then
 		self:unGreet()
 	end
 	
-	-- Should be called on this npc's focus if the distance to focus is greater then talkRadius.
+	-- Should be called on this NPC's focus if the distance to focus is greater then talkRadius.
 	function NpcHandler:onWalkAway(cid)
 		if(cid == self.focus) then
 			local callback = self:getCallback(CALLBACK_CREATURE_DISAPPEAR)
@@ -379,7 +393,7 @@ if(NpcHandler == nil) then
 		end
 	end
 	
-	-- Returns true if cid is within the talkRadius of this npc.
+	-- Returns true if CID is within the talkRadius of this NPC.
 	function NpcHandler:isInRange(cid)
 		local playerPos = getPlayerPosition(cid)
 		if playerPos == LUA_ERROR or playerPos == LUA_NO_ERROR then
@@ -399,7 +413,7 @@ if(NpcHandler == nil) then
 		return (dist <= self.talkRadius and dz == 0)
 	end
 	
-	-- Resets the npc into it's initial state (in regard of the keyrodhandler). 
+	-- Resets the NPC into it's initial state (in regard of the keywordHandler). 
 	--	All modules are also receiving a reset call through their callbackOnModuleReset function.
 	function NpcHandler:resetNpc()
 		if(self:processModuleCallback(CALLBACK_MODULE_RESET)) then
@@ -407,21 +421,53 @@ if(NpcHandler == nil) then
 		end
 	end
 	
-	
-	-- Makes the npc represented by this instance of NpcHandler say something. 
-	--	This implements the currently set type of talkdelay.
-	--	shallDelay is a boolean value. If it is false, the message is not delayed. Default value is true.
-	function NpcHandler:say(message, shallDelay)
-		if(shallDelay == nil) then
-			shallDelay = true
+	function NpcHandler:cancelStory(event)
+		if event ~= nil then
+			stopEvent(event)
+			event = nil
 		end
-		if(NPCHANDLER_TALKDELAY == TALKDELAY_NONE or shallDelay == false) then
-			selfSay(message)
-			return
-		end
-		self.talkDelay.message = message
-		self.talkDelay.time = os.time()+self.talkDelayTime
 	end
 	
+	function NpcHandler:story(messages, npc, delay)
+
+		if doCreatureSay(npc, messages[1], 1) then
+			table.remove(messages, 1)
+		end
+		
+		if messages[1] then
+			self.talkEvent[self.focus] = addEvent(
+				function(messages, npc, delay)
+					return self:story(messages, npc, delay)
+				end, delay, messages, npc, delay
+			)
+			self.talkDelay.time = os.time() + math.max(0, delay / 1000)
+			return 
+		end	
+		self.talkEvent[self.focus] = nil
+	end
+		
+	-- Makes the NPC represented by this instance of NpcHandler say something. 
+	--	This implements the currently set type of talkDelay.
+	function NpcHandler:say(message, delay)
 	
+		if self.talkEvent[self.focus] then
+			self:cancelStory(self.talkEvent[self.focus])
+		end
+		
+		if not tonumber(delay) or delay < 0 then
+			delay = 1000
+		end
+									
+		if type(message) == 'table' then			
+			self.talkEvent[self.focus] = addEvent(
+				function(message, npc, delay)
+					return self:story(message, npc, delay)
+				end, 1000, message, getNpcCid(), delay		
+			)
+		else		
+			self.talkDelay.message = message
+		end
+		
+		self.talkDelay.time = os.time() + math.max(0, delay / 1000)
+	end
 end

@@ -413,7 +413,7 @@ if(Modules == nil) then
 			elseif(doPlayerRemoveMoney(cid, cost) ~= true) then
 				npcHandler:say('You do not have enough money!')
 			else
-				npcHandler:say('It was a pleasure doing business with you.', false)
+				npcHandler:say('It was a pleasure doing business with you.')
 				npcHandler:releaseFocus()
 				doTeleportThing(cid, destination)
 				doSendMagicEffect(destination, 10)
