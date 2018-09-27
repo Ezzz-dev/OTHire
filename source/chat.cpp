@@ -147,6 +147,10 @@ bool ChatChannel::talk(Player* fromPlayer, SpeakClasses type, const std::string&
 	if(iter == m_users.end())
 		return false;
 
+	//can't talk in loot channel
+	if (getId() == CHANNEL_LOOT)
+		return true;
+
 	// Add trade muted condition
 	if(getId() == CHANNEL_TRADE){
 		Condition* condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_TRADE_MUTED, 120000, 0);
@@ -197,6 +201,10 @@ Chat::Chat()
 	newChannel = new ChatChannel(CHANNEL_HELP, "Help");
 	if(newChannel)
 		m_normalChannels[CHANNEL_HELP] = newChannel;
+
+	newChannel = new ChatChannel(CHANNEL_LOOT, "Loot Channel");
+	if(newChannel)
+		m_normalChannels[CHANNEL_LOOT] = newChannel;
 
 	newChannel = new PrivateChatChannel(CHANNEL_PRIVATE, "Private Chat Channel");
 	if(newChannel)

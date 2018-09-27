@@ -40,6 +40,7 @@ enum ChannelID {
 	CHANNEL_TRADE      = 0x05,
 	CHANNEL_RL_CHAT    = 0x06,
 	CHANNEL_HELP       = 0x07,
+	CHANNEL_LOOT       = 0x08,
 	CHANNEL_PRIVATE    = 0xFFFF
 };
 

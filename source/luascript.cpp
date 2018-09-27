@@ -41,6 +41,7 @@
 #include "movement.h"
 #include "tools.h"
 #include "guild.h"
+#include "chat.h"
 #include <string>
 #include <iostream>
 #include <sstream>
@@ -52,6 +53,7 @@ extern ConfigManager g_config;
 extern MoveEvents* g_moveEvents;
 extern Spells* g_spells;
 extern Guilds g_guilds;
+extern Chat g_chat;
 
 enum{
 	EVENT_ID_LOADING = 1,
@@ -1876,6 +1878,9 @@ void LuaScriptInterface::registerFunctions()
 
 	//sendPartyChannelMessage(cid, message)
 	lua_register(m_luaState, "sendPartyChannelMessage", LuaScriptInterface::luaSendPartyChannelMessage);
+
+	//sendLootChannelMessage(cid, message)
+	lua_register(m_luaState, "sendLootChannelMessage", LuaScriptInterface::luaSendLootChannelMessage);
 
 	//canUseSharedExperience(cid)
 	lua_register(m_luaState, "canUseSharedExperience", LuaScriptInterface::luaCanUseSharedExperience);
@@ -8476,6 +8481,28 @@ int LuaScriptInterface::luaSendPartyChannelMessage(lua_State *L)
 		if(Party* party = player->getParty())
 		{
 			lua_pushboolean(L, party->sendChannelMessage(player, SPEAK_CHANNEL_O, message));
+			return 1;
+		}
+	}
+
+	lua_pushboolean(L, false);
+	return 1;
+}
+
+int LuaScriptInterface::luaSendLootChannelMessage(lua_State *L)
+{
+	//sendLootChannelMessage(cid, message)
+	std::string message = popString(L);
+	uint32_t cid = popNumber(L);
+
+	ScriptEnviroment* env = getScriptEnv();
+	if(Player* player = env->getPlayerByUID(cid))
+	{
+		ChatChannel* channel = g_chat.getChannel(player, CHANNEL_LOOT);
+
+		if(channel)
+		{
+			lua_pushboolean(L, channel->sendInfo(SPEAK_CHANNEL_O, message));
 			return 1;
 		}
 	}

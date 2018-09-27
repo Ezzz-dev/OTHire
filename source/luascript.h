@@ -632,6 +632,8 @@ protected:
 	static int luaSendPartyChannelMessage(lua_State* L);
 	static int luaCanUseSharedExperience(lua_State* L);
 
+	static int luaSendLootChannelMessage(lua_State* L);
+
 	static int luaHasCondition(lua_State *L);
 
 	static int luaIsCreatureImmuneToCondition(lua_State *L);

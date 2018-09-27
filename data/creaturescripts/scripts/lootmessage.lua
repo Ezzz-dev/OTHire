@@ -60,7 +60,9 @@ local function send(cid, lastHit, pos, name, party, target)
 			for _, pid in ipairs(getPartyMembers(cid)) do
 				local send = getPlayerStorageValue(pid,STORAGE_LOOTMESSAGE)
 				if send == 1 then
-					doPlayerSendTextMessage(pid, MESSAGE_INFO_DESCR, 'Loot of '.. getArticleByWord(name) .. ' ' .. string.lower(name) .. ': ' .. (ret ~= '' and ret or 'nothing'))
+					local message = 'Loot of '.. getArticleByWord(name) .. ' ' .. string.lower(name) .. ': ' .. (ret ~= '' and ret or 'nothing')
+					sendLootChannelMessage(pid, message)
+					doPlayerSendTextMessage(pid, MESSAGE_INFO_DESCR, message)
 				end
 			end
 			MessageSent[hash] = true
@@ -69,7 +71,10 @@ local function send(cid, lastHit, pos, name, party, target)
 	else
 		local send = getPlayerStorageValue(cid,STORAGE_LOOTMESSAGE)
 		if send == 1 then
-			doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, 'Loot of '.. getArticleByWord(name) .. ' ' .. string.lower(name) .. ': ' .. (ret ~= '' and ret or 'nothing'))
+			local message = 'Loot of '.. getArticleByWord(name) .. ' ' .. string.lower(name) .. ': ' .. (ret ~= '' and ret or 'nothing')
+			sendLootChannelMessage(cid, message)
+			doPlayerSendTextMessage(cid, MESSAGE_INFO_DESCR, message)
+
 		end
 	end
 	
