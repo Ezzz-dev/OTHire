@@ -151,6 +151,10 @@ public:
 	void setGuild(Guild* _guild) { guild = _guild; }
 	Guild* getGuild() const { return guild; }
 	uint32_t getGuildId() const;
+	
+	bool isGuildEnemy(const Player* player) const;
+	bool isGuildPartner(const Player* player) const;
+	bool isWarPartner(const Player* player) const;	
 
 	std::string guildRank, guildNick;
 	uint32_t guildLevel;
