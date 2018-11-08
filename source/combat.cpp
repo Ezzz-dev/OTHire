@@ -252,7 +252,7 @@ ReturnValue Combat::canTargetCreature(const Player* player, const Creature* targ
 #ifdef __SKULLSYSTEM__
 	if(const Player* targetPlayer = target->getPlayer()){
 		if (player->hasSafeMode()){
-			if (player->isPartner(targetPlayer)){
+			if(player->isPartner(targetPlayer) || player->isWarPartner(targetPlayer) ||player->isGuildEnemy(targetPlayer)){
 				return Combat::canDoCombat(player, targetPlayer);
 			}
 			if (targetPlayer->getSkull() == SKULL_NONE){
@@ -333,6 +333,8 @@ bool Combat::isUnjustKill(const Creature* attacker, const Creature* target)
 		targetPlayer == attackerPlayer ||
 		attackerPlayer->hasFlag(PlayerFlag_NotGainInFight) ||
 		attackerPlayer->isPartner(targetPlayer) ||
+		attackerPlayer->isWarPartner(targetPlayer) ||
+		attackerPlayer->isGuildEnemy(targetPlayer) ||
 		Combat::isInPvpZone(attackerPlayer, targetPlayer) ||
 		targetPlayer->hasAttacked(attackerPlayer) ||
 		targetPlayer->getSkull() != SKULL_NONE){
@@ -347,36 +349,44 @@ bool Combat::isUnjustKill(const Creature* attacker, const Creature* target)
 
 ReturnValue Combat::checkPVPExtraRestrictions(const Creature* attacker, const Creature* target, bool isWalkCheck)
 {
-	if((g_game.getWorldType() != WORLD_TYPE_NO_PVP) && (g_config.getNumber(ConfigManager::MIN_PVP_LEVEL) != 0)) {
-		#ifdef __MIN_PVP_LEVEL_APPLIES_TO_SUMMONS__
-		const Player* targetPlayer;
-		if (g_config.getNumber(ConfigManager::MIN_PVP_LEVEL_APPLIES_TO_SUMMONS))
-			targetPlayer = target->getPlayerInCharge();
-		else
-			targetPlayer = target->getPlayer();
-		#else
-		const Player* targetPlayer = target->getPlayer();
-		#endif
-		const Player* attackerPlayer= attacker->getPlayerInCharge();
+	#ifdef __MIN_PVP_LEVEL_APPLIES_TO_SUMMONS__
+	const Player* targetPlayer;
+	if (g_config.getNumber(ConfigManager::MIN_PVP_LEVEL_APPLIES_TO_SUMMONS))
+		targetPlayer = target->getPlayerInCharge();
+	else
+		targetPlayer = target->getPlayer();
+	#else
+	const Player* targetPlayer = target->getPlayer();
+	#endif
+	const Player* attackerPlayer= attacker->getPlayerInCharge();
 
-		if(targetPlayer && attackerPlayer){
-			bool stopAttack = false;
+	if(targetPlayer && attackerPlayer){
+		bool stopAttack = false;
 
-			uint32_t p_level = g_config.getNumber(ConfigManager::MIN_PVP_LEVEL);
-			uint32_t attackerLevel = attackerPlayer->getLevel();
-			uint32_t targetLevel = targetPlayer->getLevel();
-			if((attackerLevel >= p_level && targetLevel < p_level && isWalkCheck) ||
-				(!isWalkCheck && (attackerLevel < p_level || targetLevel < p_level))){
+		if(g_game.getWorldType() == WORLD_TYPE_NO_PVP) {
+			if(!targetPlayer->isGuildEnemy(attackerPlayer) || (!isWalkCheck && !isInPvpZone(attacker, target))){
 				stopAttack = true;
 			}
+		}
+		else{
+			if(!isWalkCheck){
+				uint32_t p_level = g_config.getNumber(ConfigManager::MIN_PVP_LEVEL);
+				uint32_t attackerLevel = attackerPlayer->getLevel();
+				uint32_t targetLevel = targetPlayer->getLevel();
 
-			if(stopAttack){
-				if(target->getPlayer()){
-					return RET_YOUMAYNOTATTACKTHISPERSON;
+				if((attackerLevel >= p_level && targetLevel < p_level && isWalkCheck) ||
+					(!isWalkCheck && (attackerLevel < p_level || targetLevel < p_level))){
+					stopAttack = true;
 				}
-				else{
-					return RET_YOUMAYNOTATTACKTHISCREATURE;
-				}
+			}
+		}
+
+		if(stopAttack){
+			if(target->getPlayer()){
+				return RET_YOUMAYNOTATTACKTHISPERSON;
+			}
+			else{
+				return RET_YOUMAYNOTATTACKTHISCREATURE;
 			}
 		}
 	}
