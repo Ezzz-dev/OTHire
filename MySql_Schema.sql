@@ -208,6 +208,30 @@ CREATE TABLE `guild_ranks` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `guild_wars`
+--
+
+CREATE TABLE `guild_wars` (
+	`id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	`guild_id` INT UNSIGNED NOT NULL COMMENT 'the guild which declared the war',
+	`opponent_id` INT UNSIGNED NOT NULL COMMENT 'the enemy guild at war',
+	`frag_limit` INT UNSIGNED NOT NULL DEFAULT 10 COMMENT 'kills needed to win the war',
+	`declaration_date` INT UNSIGNED NOT NULL,
+	`end_date` INT UNSIGNED NOT NULL,
+	`guild_fee` INT UNSIGNED NOT NULL DEFAULT 1000 COMMENT 'amount of money the guild has to pay if loses the war',
+	`opponent_fee` INT UNSIGNED NOT NULL DEFAULT 1000 COMMENT 'amount of money the enemy guild has to pay if loses the war',
+	`guild_frags` INT UNSIGNED NOT NULL DEFAULT 0,
+	`opponent_frags` INT UNSIGNED NOT NULL DEFAULT 0,
+	`comment` VARCHAR(255) NOT NULL DEFAULT '' COMMENT 'the guild leader can leave a message for the other guild',
+	`status` INT NOT NULL DEFAULT 0 COMMENT '-1 -> will be ignored (finished or unaccepted) 0 -> to be started 1 -> started/not finished',
+	PRIMARY KEY (`id`),
+	FOREIGN KEY (`guild_id`) REFERENCES `guilds` (`id`) ON DELETE CASCADE,
+	FOREIGN KEY (`opponent_id`) REFERENCES `guilds` (`id`) ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `houses`
 --
 
