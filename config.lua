@@ -345,3 +345,12 @@ sql_host = "127.0.0.1"
 sql_port = 3306
 sql_user = "root"
 sql_pass = ""
+
+-- Guild War Fee
+-- The addition 'war charge' to start a guild war (default: 1000)
+-- To disable set to 0
+guild_war_fee = 1000
+ 
+-- if this is set to false, guild wars end immediatelly when frag_limit is reached (it ends in-game)
+-- (on cipsoft tibia the guild wars just end when server (re)starts - set this to true to emulate original tibia)
+guild_wars_end_only_on_startup = false
