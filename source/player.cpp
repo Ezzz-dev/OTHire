@@ -2691,6 +2691,41 @@ uint32_t Player::getGuildId() const
 		return 0;
 }
 
+bool Player::isGuildEnemy(const Player* player) const
+{
+	if(!player || !player->getGuild() || !getGuild())
+		return false;
+
+	if(getGuild()->isEnemy(player->getGuildId()) != 0)
+		return true;
+
+	return false;
+}
+
+bool Player::isGuildPartner(const Player* player) const
+{
+	if(!player || !player->getGuild() || !getGuild())
+		return false;
+
+	if(getGuildId() == player->getGuildId())
+		return true;
+
+	return false;
+}
+
+bool Player::isWarPartner(const Player* player) const
+{
+	if(!isGuildPartner(player))
+		return false;
+
+	//They belong to the same guild, so let's just check
+	//if such guild is in war
+	if(getGuild()->isAtWar())
+		return true;
+
+	return false;
+}
+
 void Player::notifyLogIn(Player* login_player)
 {
 	if(client){
@@ -3875,6 +3910,8 @@ void Player::onAttackedCreature(Creature* target)
 
 				#ifdef __SKULLSYSTEM__
 				if( !isPartner(targetPlayer) &&
+					!isWarPartner(targetPlayer) &&
+					!isGuildEnemy(targetPlayer) &&
 					!Combat::isInPvpZone(this, targetPlayer) &&
 					!targetPlayer->hasAttacked(this)){
 
@@ -3987,7 +4024,7 @@ void Player::onKilledCreature(Creature* target, bool lastHit)
 			targetPlayer->setDropLoot(false);
 			targetPlayer->setLossSkill(false);
 		}
-		else if (!isPartner(targetPlayer) ||
+		else if (!isPartner(targetPlayer) || 
 			(g_config.getNumber(ConfigManager::LAST_HIT_PZBLOCK_ONLY) &&
 			lastHit)){
 			if(checkPzBlock(targetPlayer))
@@ -4223,15 +4260,21 @@ Skulls_t Player::getSkullClient(const Player* player) const
 	if(!player){
 		return SKULL_NONE;
 	}
+	
+	if(getSkull() != SKULL_NONE && player->hasAttacked(this) || isGuildEnemy(player)){
+		return SKULL_YELLOW;
+	}	
 
-	if(getSkull() != SKULL_NONE && player->getSkull() != SKULL_RED){
-		if(player->hasAttacked(this)){
+	/* if(player->getSkull() != SKULL_NONE && player->getSkull() != SKULL_RED){
+		if(player->hasAttacked(this) || isGuildEnemy(player)){
 			return SKULL_YELLOW;
 		}
-	}
+	} */
 
-	if (player->getSkull() == SKULL_NONE && isPartner(player) && g_game.getWorldType() != WORLD_TYPE_NO_PVP){
-		return SKULL_GREEN;
+	if (player->getSkull() == SKULL_NONE && g_game.getWorldType() != WORLD_TYPE_NO_PVP){
+		if (isPartner(player) || isWarPartner(player)) {
+			return SKULL_GREEN;
+		}	
 	}
 
 	return player->getSkull();
@@ -4476,6 +4519,12 @@ void Player::checkIdleTime(uint32_t ticks)
 bool Player::checkPzBlock(Player* targetPlayer)
 {
 	if(hasFlag(PlayerFlag_NotGainInFight) || Combat::isInPvpZone(this, targetPlayer))
+		return false;
+
+	if(isGuildEnemy(targetPlayer))
+		return true;
+
+	if(isPartner(targetPlayer) || isWarPartner(targetPlayer))
 		return false;
 
 	#ifdef __SKULLSYSTEM__

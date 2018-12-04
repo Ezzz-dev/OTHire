@@ -1873,6 +1873,9 @@ void LuaScriptInterface::registerFunctions()
 
 	//setPartySharedExperience(cid, active)
 	lua_register(m_luaState, "setPartySharedExperience", LuaScriptInterface::luaSetPartySharedExperience);
+	
+	//doUpdateGuildWar()
+	lua_register(m_luaState, "doUpdateGuildWar", LuaScriptInterface::luaDoUpdateGuildWar);
 
 	//sendPartyChannelMessage(cid, message)
 	lua_register(m_luaState, "sendPartyChannelMessage", LuaScriptInterface::luaSendPartyChannelMessage);
@@ -8461,6 +8464,22 @@ int LuaScriptInterface::luaSetPartySharedExperience(lua_State *L)
 	}
 
 	lua_pushboolean(L, false);
+	return 1;
+}
+
+int LuaScriptInterface::luaDoUpdateGuildWar(lua_State* L)
+{
+	//doUpdateGuildWar(warId)
+	uint32_t warId = popNumber(L);
+	int32_t newStatus = g_guilds.updateWar(warId);
+	
+	//If war has started, we should update the emblems (skulls)
+	//Emblems (skulls) are automatically updated when war ends, so we don't need it here
+	if(newStatus == 1)
+		g_guilds.updateWarEmblems(warId);
+
+	//return the new status of the war
+	lua_pushnumber(L, newStatus);
 	return 1;
 }
 

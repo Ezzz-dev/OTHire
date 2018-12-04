@@ -29,6 +29,19 @@
 
 class Player;
 
+struct GuildWar {
+	uint32_t guildId;
+	uint32_t opponentId;
+	uint32_t guildFrags;
+	uint32_t opponentFrags;
+	uint32_t guildFee;
+	uint32_t opponentFee;
+	uint32_t fragLimit;
+	bool finished;
+};
+
+typedef std::map<uint32_t, GuildWar> GuildWarsMap;
+
 class Guild
 {
 public:
@@ -41,15 +54,39 @@ public:
 	uint32_t getId() const { return id; }
 	std::string getName() const { return name; }
 
+	bool addFrag(uint32_t enemyId) const;
+	bool isAtWar() const { return !enemyGuilds.empty(); }
+	bool hasDeclaredWar(uint32_t warId) const;
 	void broadcastMessage(SpeakClasses type, const std::string& msg) const;
+
+	uint32_t isEnemy(uint32_t enemyId) const;
+	void addEnemy(uint32_t enemyId, uint32_t warId);
+	void removeEnemy(uint32_t guildId);
+	
 protected:
 	uint32_t id;
 	std::string name;
+	
+	typedef std::map<uint32_t, uint32_t> EnemyGuildsMap; //enemy guild id, war id
+	EnemyGuildsMap enemyGuilds;
 };
 
 class Guilds
 {
 public:
+	void loadWars();
+	int32_t updateWar(uint32_t warId);
+	int32_t processWar(DBResult* result, bool loadWar);
+
+	void unsetEnemies(uint32_t warId);
+	bool updateWarEmblems(uint32_t warId);
+	void endWar(uint32_t warId);
+	void endWar(const GuildWar& war);
+
+	bool transferMoney(uint32_t guildId, uint32_t opponentId, int32_t guildFee, int32_t opponentFee);
+	bool setWarStatus(uint32_t warId, int32_t statusId);
+	void processKill(uint32_t guildId, Player* player, const DeathList& killers);
+	GuildWarsMap& getWars() { return guildWars; }
 
 	Guild* getGuildById(uint32_t guildId);
 	bool getGuildIdByName(uint32_t& guildId, const std::string& guildName);
@@ -57,6 +94,7 @@ public:
 protected:
 	typedef std::map<uint32_t, Guild*> GuildsMap; //guild id, guild class
 	GuildsMap loadedGuilds;
+	GuildWarsMap guildWars;
 };
 
 #endif

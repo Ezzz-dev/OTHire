@@ -53,4 +53,5 @@
 	<talkaction words="!frags" access="0" script="frags.lua"/>
 	<talkaction words="!share" access="0" script="shareexp.lua"/>
 	<talkaction words="!canshare" access="0" script="canuseshare.lua"/>
+	<talkaction words="!war" access="0" filter="first word" script="war.lua"/>
 </talkactions>

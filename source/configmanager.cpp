@@ -207,6 +207,14 @@ bool ConfigManager::loadFile(const std::string& _filename)
 	m_confInteger[MAX_PACKETS_PER_SECOND] = getGlobalNumber(L, "max_packets_per_second", 35);
 	m_confInteger[PARCEL_BLOCK] = getGlobalBoolean(L, "parcel_block", false);
 	
+	// Guild War
+	m_confInteger[GUILD_WAR_FEE] = getGlobalNumber(L, "guild_war_fee", 1000);
+	m_confInteger[GUILD_WARS_END_ONLY_ON_STARTUP] = getGlobalBoolean(L, "guild_wars_end_only_on_startup", true);
+	
+	// Cast System
+	m_confInteger[ENABLE_CAST] = getGlobalBoolean(L, "enableCast", false);
+	m_confInteger[MAX_CAST_VIEWERS] = getGlobalNumber(L, "max_cast_viewers", 20);	
+	
 	m_isLoaded = true;
 	return true;
 }
