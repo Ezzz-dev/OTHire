@@ -692,6 +692,9 @@ bool Map::getPathTo(const Creature* creature, const Position& destPos,
 				}
 
 				if(!outOfRange && (tile = canWalkTo(creature, pos))){
+					const MagicField* field = tile->getFieldItem();
+					if (creature->getPlayer() && field)
+						continue;
 					//The cost (g) for this neighbour
 					int32_t cost = nodes.getMapWalkCost(creature, n, tile, pos);
 					int32_t extraCost = nodes.getTileWalkCost(creature, tile);
