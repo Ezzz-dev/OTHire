@@ -3016,25 +3016,33 @@ ReturnValue Player::__queryAdd(int32_t index, const Thing* thing, uint32_t count
 			break;
 	}
 
-	if(ret == RET_BOTHHANDSNEEDTOBEFREE && (index == SLOT_LEFT || index == SLOT_RIGHT)){
-		Item* tmpItem = NULL;
-		Container* tmpContainer = NULL;
-		slots_t setSlot = (slots_t)index;
-		if(inventory[setSlot]){
-			for(int i = SLOT_FIRST; i <= SLOT_LAST; i++){
-				tmpItem = getInventoryItem((slots_t)i);
-				if(tmpItem){
-					tmpContainer = tmpItem->getContainer();
-					if(tmpContainer && (tmpContainer->getItemCount() != tmpContainer->getItemHoldingCount())){
-						self->sendRemoveInventoryItem(setSlot, inventory[setSlot]);
-						self->onRemoveInventoryItem(setSlot, inventory[setSlot]);
-						g_game.internalAddItem(tmpContainer, inventory[setSlot], INDEX_WHEREEVER, FLAG_NOLIMIT);
-						self->inventory[setSlot] = NULL;
-						break;
-					}
-				}
-			}
+	if (ret == RET_BOTHHANDSNEEDTOBEFREE && (index == SLOT_LEFT || index == SLOT_RIGHT)) {
+ 
+		slots_t hands = (slots_t)index;
+		if (!inventory[hands]) {
+			return RET_BOTHHANDSNEEDTOBEFREE;
 		}
+	   
+		Item* tmpItem = const_cast<Item*>(item);
+		Position itemPos = tmpItem->getPosition();
+		Container* container = dynamic_cast<Container*>(tmpItem->getParent());
+		if (container) {
+			if (container->size() >= container->capacity()) {
+				return RET_CONTAINERNOTENOUGHROOM;
+			}
+	 
+			itemPos.x = 65535;
+			itemPos.y = static_cast<uint16_t>(0x40) | static_cast<uint16_t>(getContainerID(container));
+			itemPos.z = __getIndexOfThing(item);
+		}
+	 
+		Cylinder* cylinder = g_game.internalGetCylinder(self, const_cast<Position&>(itemPos));
+		if (!cylinder) {
+			return RET_NOTPOSSIBLE;
+		}
+	 
+		g_game.internalMoveItem(self, cylinder, INDEX_WHEREEVER, inventory[hands], inventory[hands]->getItemCount(), 0);
+		self->inventory[hands] = NULL;
 	}
 
 	if(ret == RET_NOERROR || ret == RET_NOTENOUGHROOM){
