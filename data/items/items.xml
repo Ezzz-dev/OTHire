@@ -193,9 +193,7 @@
 	<item id="290" name="grass"/>
 	<item id="291" name="grass"/>
 	<item id="292" name="grass"/>
-	<item id="293" name="grass">
-		<attribute key="floorchange" value="down"/>
-	</item>
+	<item id="293" name="grass"/>
 	<item id="294" article="a" name="pitfall">
 		<attribute key="floorchange" value="down"/>
 		<attribute key="decayTo" value="293"/>
@@ -8483,9 +8481,7 @@
 	<item id="3307" name="jungle grass"/>
 	<item id="3308" name="jungle grass"/>
 	<item id="3309" name="jungle grass"/>
-    <item id="3310" article="a" name="pitfall">
-		<attribute key="floorchange" value="down"/>
-	</item>
+    <item id="3310" article="a" name="pitfall"/>
 	<item id="3311" article="a" name="pitfall">
 		<attribute key="floorchange" value="down"/>
 		<attribute key="decayTo" value="3310"/>
