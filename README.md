@@ -6,7 +6,7 @@ It is a fork of the [OpenTibia Server](https://github.com/opentibia/server) proj
 
 ### Getting Started
 
-* Compatible AAC, ZnoteAAC [HERE](https://github.com/peonso/ZnoteOTHire).
+* Compatible AAC, ZnoteAAC [HERE](https://github.com/Znote/ZnoteAAC).
 * Flags calculator [HERE](https://diegorodriguesvieira.github.io/flags-calculator/).
 * MySql_Schema.sql default `account // password` is `123456 // tibia`.
 * For more information check our [Wiki](https://github.com/TwistedScorpio/OTHire/wiki).
