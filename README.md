@@ -1,5 +1,8 @@
 # OTHire [![Build Status](https://travis-ci.org/TwistedScorpio/OTHire.svg?branch=master)](https://travis-ci.org/TwistedScorpio/OTHire)
 
+# Update 2019
+   - Please, consider working your projects and codebases on https://github.com/TwistedScorpio/Nostalrius
+	 
 OTHire is a free MMORPG emulation, that creates a own gameworld server,
 based on the CIPSoft's Tibia version **7.72**.
 It is a fork of the [OpenTibia Server](https://github.com/opentibia/server) project.
