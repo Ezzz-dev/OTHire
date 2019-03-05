@@ -524,8 +524,6 @@ bool IOPlayer::savePlayer(Player* player, bool shallow)
 		<< ", `looklegs` = " << (int32_t)player->defaultOutfit.lookLegs
 		<< ", `looktype` = " << (int32_t)player->defaultOutfit.lookType
 		<< ", `maglevel` = " << player->magLevel
-		<< ", `mana` = " << player->mana
-		<< ", `manamax` = " << player->manaMax
 		<< ", `manaspent` = " << player->manaSpent
 		<< ", `soul` = " << player->soul
 		<< ", `town_id` = " << player->town
