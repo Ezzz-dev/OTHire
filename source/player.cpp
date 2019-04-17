@@ -1978,7 +1978,7 @@ void Player::onThink(uint32_t interval)
 		}
 	}
 
-	if(canLogout() && !hasCondition(CONDITION_INFIGHT) && !client){
+	if(!hasCondition(CONDITION_INFIGHT) && !client && canLogout()){
 		g_game.removeCreature(this, true);
 	}
 
