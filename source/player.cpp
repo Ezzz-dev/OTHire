@@ -2939,7 +2939,7 @@ ReturnValue Player::__queryAdd(int32_t index, const Thing* thing, uint32_t count
 							}
 						}
 					}
-				if(item->getWeaponType() != WEAPON_NONE && ret == RET_NOERROR){
+				if(item->getWeaponType() != WEAPON_DIST && ret == RET_NOERROR){
 					self->setLastAttackAsNow();
 				}
 				}
