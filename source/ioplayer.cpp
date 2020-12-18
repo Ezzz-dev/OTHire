@@ -476,8 +476,6 @@ bool IOPlayer::saveItems(Player* player, const ItemBlockList& itemList, DBInsert
 
 bool IOPlayer::savePlayer(Player* player, bool shallow)
 {
-	player->preSave();
-
 	Database* db = Database::instance();
 	DBQuery query;
 	DBResult* result;
@@ -513,7 +511,7 @@ bool IOPlayer::savePlayer(Player* player, bool shallow)
 	query.str("");
 	query << "UPDATE `players` SET `level` = " << player->level
 		<< ", `vocation` = " << (int32_t)player->getVocationId()
-		<< ", `health` = " << player->health
+		<< ", `health` = " << (player->health <= 0 ? player->healthMax : player->health)
 		<< ", `healthmax` = " << player->healthMax
 		<< ", `direction` = " << 2
 		<< ", `experience` = " << player->experience
@@ -523,7 +521,7 @@ bool IOPlayer::savePlayer(Player* player, bool shallow)
 		<< ", `looklegs` = " << (int32_t)player->defaultOutfit.lookLegs
 		<< ", `looktype` = " << (int32_t)player->defaultOutfit.lookType
 		<< ", `maglevel` = " << player->magLevel
-		<< ", `mana` = " << player->mana
+		<< ", `mana` = " << (player->health <= 0 ? player->manaMax : player->mana)
 		<< ", `manamax` = " << player->manaMax
 		<< ", `manaspent` = " << player->manaSpent
 		<< ", `soul` = " << player->soul
