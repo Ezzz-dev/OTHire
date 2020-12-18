@@ -100,6 +100,7 @@ if(Modules == nil) then
 			npcHandler:say('You do not have enough money!')
 		else
 			doPlayerSetVocation(cid, parameters.promotions[oldVoc])
+			doPlayerRemoveSkillLossPercent(cid, 30)
 			doSendMagicEffect(getCreaturePosition(cid), CONST_ME_MAGIC_BLUE)
 			npcHandler:say(parameters.text)
 		end
