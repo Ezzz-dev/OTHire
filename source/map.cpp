@@ -857,6 +857,7 @@ bool Map::getPathMatching(const Creature* creature, std::list<Direction>& dirLis
 			}
 
 			if(inRange && (tile = canWalkTo(creature, pos))){
+				if(creature->getPlayer() && tile->getFieldItem()) { continue; }	
 				//The cost (g) for this neighbour
 				int32_t cost = nodes.getMapWalkCost(creature, n, tile, pos);
 				int32_t extraCost = nodes.getTileWalkCost(creature, tile);
