@@ -679,22 +679,7 @@ uint64_t Player::getLostExperience() const
 	if(!skillLoss)
 		return 0;
 
-	if(level < 25)
-		return experience * lossPercent[LOSS_EXPERIENCE] / 1000;
-
-	double levels_to_lose = (getLevel() + 50) / 100.;
-	uint64_t xp_to_lose = 0;
-	uint32_t clevel = getLevel();
-
-	while(levels_to_lose >= 1.0){
-		xp_to_lose += (getExpForLevel(clevel) - getExpForLevel(clevel - 1));
-		clevel--;
-		levels_to_lose -= 1.0;
-	}
-	if(levels_to_lose > 0.0)
-		xp_to_lose += uint64_t((getExpForLevel(clevel) - getExpForLevel(clevel - 1)) * levels_to_lose);
-
-	return xp_to_lose * lossPercent[LOSS_EXPERIENCE] / 100;
+	return experience * lossPercent[LOSS_EXPERIENCE] / 1000;
 }
 
 int32_t Player::getSkill(skills_t skilltype, skillsid_t skillinfo) const

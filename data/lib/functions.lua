@@ -557,16 +557,18 @@ function getPlayerBless(cid, blessid)
 end
 
 function doPlayerRemoveSkillLossPercent(cid, amount)
-	local lossvalue = getPlayerLossPercent(cid, PLAYERLOSS_EXPERIENCE)
-	local newvalue = lossvalue - amount
-	if newvalue < 0 then
-		newvalue = 0
+	playerLosses = {PLAYERLOSS_EXPERIENCE, PLAYERLOSS_MANA, PLAYERLOSS_SKILL}
+	for i, playerLoss in ipairs(playerLosses) do
+	  	local lossvalue = getPlayerLossPercent(cid, playerLoss)
+		local newvalue = lossvalue - amount
+		if newvalue < 0 then
+			newvalue = 0
+		end
+		if newvalue > 100 then
+			newvalue = 100
+		end
+		doPlayerSetLossPercent(cid, playerLoss, newvalue)
 	end
-	if newvalue > 100 then
-		newvalue = 100
-	end
-	-- Setting experience is enough (all other types follow it)
-	doPlayerSetLossPercent(cid, PLAYERLOSS_EXPERIENCE, newvalue)
 end
 
 function doPlayerUpdateItemLossPercent(cid)
@@ -604,10 +606,11 @@ end
 
 function doPlayerAddBless(cid, blessid)
 	if getPlayerBless(cid, blessid) == false then
-		doPlayerRemoveSkillLossPercent(cid, 8)
+		doPlayerRemoveSkillLossPercent(cid, 10)
 		local storageid = STORAGE_BLESSES + blessid
 		setPlayerStorageValue(cid, storageid, 1)
-		doPlayerUpdateItemLossPercent(cid)
+		-- 7.72 blessings don't affect items drop chance
+		--doPlayerUpdateItemLossPercent(cid)
 		return true
 	else
 		return false
@@ -616,10 +619,11 @@ end
 
 function doPlayerRemoveBless(cid, blessid)
 	if getPlayerBless(cid, blessid) == true then
-		doPlayerRemoveSkillLossPercent(cid, -8)
+		doPlayerRemoveSkillLossPercent(cid, -10)
 		local storageid = STORAGE_BLESSES + blessid
 		setPlayerStorageValue(cid, storageid, -1)
-		doPlayerUpdateItemLossPercent(cid)
+		-- 7.72 blessings don't affect items drop chance
+		--doPlayerUpdateItemLossPercent(cid)
 	end
 end
 
