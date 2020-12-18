@@ -379,7 +379,7 @@ if(Modules == nil) then
 		local npcHandler = module.npcHandler
 		
 		
-		local cost = parentParameters.cost
+		local cost = parameters.cost
 		local destination = parameters.destination
 		local premium = parameters.premium
 		
